@@ -1,0 +1,29 @@
+.journal-preview-item {
+  &--head {
+    margin-bottom: 16px;
+
+    .mood-title {
+      margin-left: 12px;
+      flex-grow: 1;
+      margin-right: 24px;
+    }
+
+    .time-created {
+      margin-right: auto;
+    }
+  }
+
+  &--label {
+    margin-bottom: 16px;
+  }
+
+  &--content {
+    background: #f2f6ff;
+    border-radius: 8px;
+    padding: 16px;
+
+    .journal-title {
+      margin-bottom: 12px;
+    }
+  }
+}

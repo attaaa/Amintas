@@ -1,0 +1,48 @@
+.nav {
+  height: 56px;
+  position: absolute;
+  bottom: 0;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.24);
+}
+
+.nav-item {
+  &--icon {
+    fill: $color-neutral-mid-grey;
+  }
+
+  &--text {
+    font-family: Poppins;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: $color-neutral-mid-grey;
+  }
+
+  .mid-nav {
+    background-color: $color-accent;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -12px;
+  }
+}
+
+.mid-nav {
+  .nav-item--icon {
+    fill: #ffffff;
+  }
+}
+
+.active {
+  .nav-item--icon {
+    fill: $color-primary !important;
+  }
+
+  .nav-item--text {
+    color: $color-primary !important;
+  }
+}
