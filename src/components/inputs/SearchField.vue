@@ -8,6 +8,7 @@
       class="search-field--text full-width"
       v-model="search_input"
       autocomplete="off"
+      ref="search_input"
     />
     <img
       svg-inline
@@ -26,10 +27,16 @@
 <script>
 export default {
   name: "SearchField",
+  props: {
+    autoFocus: Boolean
+  },
   data() {
     return {
       search_input: ""
     };
+  },
+  mounted() {
+    if (this.autoFocus) this.$refs.search_input.select();
   },
   methods: {
     clearInput() {

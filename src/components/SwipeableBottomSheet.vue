@@ -20,17 +20,17 @@ import Hammer from "hammerjs";
 export default {
   name: "SwipeableBottomSheet",
   props: {
-    openY: {
-      type: Number,
-      default: 0.0
-    },
-    halfY: {
-      type: Number,
-      default: 0.4
-    },
     defaultState: {
       type: String,
       default: "half"
+    },
+    halfTop: {
+      type: Number,
+      default: 280
+    },
+    openTop: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -44,57 +44,57 @@ export default {
     };
   },
   mounted() {
-    window.onresize = () => {
-      this.rect = this.$refs.card.getBoundingClientRect();
-    };
-    this.rect = this.$refs.card.getBoundingClientRect();
-
-    this.mc = new Hammer(this.$refs.pan);
-    this.mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
-
-    this.mc.on("panup pandown", evt => {
-      this.y = evt.center.y - 16;
-    });
-
-    this.mc.on("panstart", evt => {
-      this.startY = evt.center.y;
-      this.isMove = true;
-    });
-
-    this.mc.on("panend", evt => {
-      this.isMove = false;
-
-      switch (this.state) {
-        case "half":
-          if (this.startY - evt.center.y > 120) {
-            this.state = "open";
-          }
-          break;
-        case "open":
-          if (this.startY - evt.center.y < -120) {
-            this.state = "half";
-          }
-          break;
-      }
-    });
+    if (this.defaultState !== "static") {
+      this.initSwipeAction();
+    }
   },
   beforeDestroy() {
     this.mc.destroy();
     window.onresize = null;
   },
   methods: {
+    initSwipeAction() {
+      window.onresize = () => {
+        this.rect = this.$refs.card.getBoundingClientRect();
+      };
+      this.rect = this.$refs.card.getBoundingClientRect();
+
+      this.mc = new Hammer(this.$refs.pan);
+      this.mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
+
+      this.mc.on("panup pandown", evt => {
+        this.y = evt.center.y - 16;
+      });
+
+      this.mc.on("panstart", evt => {
+        this.startY = evt.center.y;
+        this.isMove = true;
+      });
+
+      this.mc.on("panend", evt => {
+        this.isMove = false;
+
+        switch (this.state) {
+          case "half":
+            this.state = "open";
+            break;
+          case "open":
+            this.state = "half";
+            break;
+        }
+      });
+    },
     calcY() {
       switch (this.state) {
         case "open":
-          return this.rect.height * this.openY;
+          return this.openTop;
         case "half":
-          return this.rect.height * this.halfY;
+          return this.halfTop;
+        case "static":
+          return this.openTop;
         default:
           return this.y;
       }
-    },
-    setState(state) {
-      this.state = state;
     }
   }
 };

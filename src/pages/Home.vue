@@ -20,35 +20,41 @@
       </div>
 
       <div>
+        <!-- journal data present -->
         <SwipeableBottomSheet
           ref="bottomSheet"
-          :halfY="0.38"
           default-state="half"
+          v-if="journalData"
         >
-          <!-- journal data present -->
-          <div v-if="journalData">
-            <SearchField style="margin-bottom: 24px" />
-            <JournalPreviewItemList />
-          </div>
+          <SearchField
+            style="margin-bottom: 24px"
+            @click.native="goToSearchPage()"
+          />
+          <JournalPreviewItemList />
+        </SwipeableBottomSheet>
 
-          <!-- journal data empty -->
-          <div v-if="!journalData">
-            <!-- illustration -->
-            <div
-              class="placeholder-illustration flex"
-              style="height: 188px; margin: 8px;"
-            ></div>
+        <!-- journal data empty -->
+        <SwipeableBottomSheet
+          ref="bottomSheet"
+          default-state="static"
+          :open-top="280"
+          v-if="!journalData"
+        >
+          <!-- illustration -->
+          <div
+            class="placeholder-illustration flex"
+            style="height: 188px; margin: 8px;"
+          ></div>
 
-            <span
-              class="block text__primary text__title-3 full-width text-center"
-              style="margin-top: 24px; margin-bottom: 16px;"
-              >Jurnalmu masih kosong</span
-            >
-            <p class="text__body text__neutral-dark-grey text-center">
-              Kamu bisa mulai menulis ceritamu untuk mengungkap pikiran
-              mengganggumu
-            </p>
-          </div>
+          <span
+            class="block text__primary text__title-3 full-width text-center"
+            style="margin-top: 24px; margin-bottom: 16px;"
+            >Jurnalmu masih kosong</span
+          >
+          <p class="text__body text__neutral-dark-grey text-center">
+            Kamu bisa mulai menulis ceritamu untuk mengungkap pikiran
+            mengganggumu
+          </p>
         </SwipeableBottomSheet>
       </div>
     </div>
@@ -69,8 +75,14 @@ export default {
   },
   data() {
     return {
-      journalData: null
+      journalData: 1
     };
+  },
+  methods: {
+    goToSearchPage() {
+      this.$router.push("test");
+      console.log("test");
+    }
   }
 };
 </script>

@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: "/test",
-    component: () => import("layouts/TestLayout.vue")
+    component: () => import("pages/Search.vue")
   },
   // Always leave this as last one,
   // but you can also remove it
