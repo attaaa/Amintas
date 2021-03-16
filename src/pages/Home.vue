@@ -80,8 +80,7 @@ export default {
   },
   methods: {
     goToSearchPage() {
-      this.$router.push("test");
-      console.log("test");
+      this.$router.push("search");
     }
   }
 };

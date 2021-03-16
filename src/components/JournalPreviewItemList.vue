@@ -8,6 +8,7 @@
         v-for="(journalData, index2) in journalGroup.journalGroupList"
         :key="index2"
         :journal-data="journalData"
+        @click.native="goToDetail()"
         style="margin-bottom: 32px;"
       />
     </div>
@@ -81,6 +82,9 @@ export default {
 
       console.log(tempGroupJournalDataList);
       this.groupJournalDataList = tempGroupJournalDataList;
+    },
+    goToDetail() {
+      this.$router.push("journal-detail");
     }
   }
 };
