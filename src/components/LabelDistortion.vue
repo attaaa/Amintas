@@ -1,9 +1,6 @@
 <template>
-  <div class="flex items-center distortion-icon-loader">
-    <DistortionIconLoader
-      :distortion-name="labelText"
-      style="width: 24px;"
-    />
+  <div class="flex items-center distortion-label">
+    <DistortionIconLoader :distortion-name="labelText" :icon-width="24" />
     <span class="text__primary text__body flex" style="margin-left: 8px;">{{
       labelText
     }}</span>
@@ -11,7 +8,7 @@
 </template>
 
 <style lang="scss">
-.distortion-icon-loader {
+.distortion-label {
   background: #f2f6ff;
   border-radius: 14px;
   padding: 4px 8px;

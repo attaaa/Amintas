@@ -80,6 +80,39 @@
         </div>
         <div class="content-detail">
           <div class="text__body">
+            Setiap hari kamis aku harus melalui kegiatan itu lagi dan lagi. Aku
+            tidak suka dengan hari kamis, harus ketemu dengan orang itu dan
+            menghabiskan waktu. Setiap hari kamis aku harus melalui kegiatan itu
+            lagi dan lagi. Aku tidak suka dengan hari kamis, harus ketemu dengan
+            orang itu dan menghabiskan waktu.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <div class="text__title-3" style="margin-bottom: 8px">
+          Distorsi Kognitif
+        </div>
+        <div class="column">
+          <div class="row">
+            <LabelDistortion
+              label-text="All-or-None Thinking"
+              style="margin-bottom: 8px"
+            />
+            <LabelDistortion
+              label-text="Mind Reading"
+              style="margin-bottom: 8px"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <div class="text__title-3" style="margin-bottom: 8px">
+          Tentang Pikiran
+        </div>
+        <div class="content-detail">
+          <div class="text__body">
             Selayaknya manusia, kita seringkali kesulitan mengungkapkan dengan
             tepat apa yang sebenarnya sedang kita rasakan. Hal yang aneh
             tentunya, mengingat ada banyak ‘diksi’ yang menggambarkan setiap
@@ -93,13 +126,24 @@
 
       <div style="margin-bottom: 24px;">
         <div class="text__title-3" style="margin-bottom: 8px">
-          Distorsi Kognitif
+          Pikiran Alternatif
         </div>
-        <div class="column">
-          <div class="row">
-            <LabelDistortion label-text="All-or-None Thinking" />
+        <div class="content-detail">
+          <div class="text__body">
+            Setiap hari kamis aku harus melalui kegiatan itu lagi dan lagi. Aku
+            tidak suka dengan hari kamis, harus ketemu dengan orang itu dan
+            menghabiskan waktu. Setiap hari kamis aku harus melalui kegiatan itu
+            lagi dan lagi. Aku tidak suka dengan hari kamis, harus ketemu dengan
+            orang itu dan menghabiskan waktu.
           </div>
         </div>
+      </div>
+
+      <div
+        class="btn__alert-secondary btn__large full-width relative-position text-center"
+        v-ripple
+      >
+        Hapus Jurnal
       </div>
     </div>
   </div>
