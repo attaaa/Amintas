@@ -97,11 +97,11 @@
           <div class="row">
             <LabelDistortion
               label-text="All-or-None Thinking"
-              style="margin-bottom: 8px"
+              style="margin-bottom: 8px; margin-right: 8px;"
             />
             <LabelDistortion
               label-text="Mind Reading"
-              style="margin-bottom: 8px"
+              style="margin-bottom: 8px; margin-right: 8px;"
             />
           </div>
         </div>
