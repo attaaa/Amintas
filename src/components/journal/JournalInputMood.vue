@@ -20,7 +20,7 @@
     </p>
 
     <!-- mood selector -->
-    <JournalMoodPicker v-on="$listeners" />
+    <JournalMoodPicker v-on="$listeners" :selected-mood="selectedMood" />
   </div>
 </template>
 
@@ -32,9 +32,12 @@ import JournalMoodPicker from "components/inputs/JournalMoodPicker";
 export default {
   name: "JournalInputMood",
   components: { JournalMoodPicker },
+  props: {
+    selectedMood: String
+  },
   methods: {
     goBack() {
-      this.$router.back();
+      this.$emit("go-back", true);
     }
   }
 };

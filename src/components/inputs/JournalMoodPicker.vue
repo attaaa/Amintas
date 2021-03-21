@@ -131,15 +131,12 @@
 <script>
 export default {
   name: "JournalMoodPicker",
-  data() {
-    return {
-      selectedMood: ""
-    };
+  props: {
+    selectedMood: String
   },
   methods: {
     selectMood(moodName) {
-      this.selectedMood = moodName;
-      this.$emit("change-mood", this.selectedMood);
+      this.$emit("change-mood", moodName);
     }
   }
 };

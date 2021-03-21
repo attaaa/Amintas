@@ -69,6 +69,10 @@ svg {
 button[disabled] {
   opacity: 1 !important;
 }
+
+button:focus {
+  outline: none !important;
+}
 /* #endregion */
 
 /* #region  [TYPOGRAPHY] */
