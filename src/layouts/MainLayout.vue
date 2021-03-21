@@ -13,12 +13,13 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <MainNavbar />
+    <MainNavbar :show-mid-action="true" />
   </q-layout>
 </template>
 
 <script>
 import MainNavbar from "components/MainNavbar";
+
 export default {
   name: "MainLayout",
   components: { MainNavbar }

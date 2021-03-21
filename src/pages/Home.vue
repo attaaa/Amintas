@@ -4,7 +4,6 @@
       <!-- HEADER -->
       <div class="home-header">
         <span class="text__title-1 text__primary">Kognitif</span>
-        <img svg-inline src="assets/icons/notification.svg" />
       </div>
 
       <div class="home-card">

@@ -65,6 +65,10 @@ button {
 svg {
   outline: none !important;
 }
+
+button[disabled] {
+  opacity: 1 !important;
+}
 /* #endregion */
 
 /* #region  [TYPOGRAPHY] */

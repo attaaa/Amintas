@@ -4,7 +4,8 @@
       <img
         svg-inline
         class="mood-img"
-        src="assets/icons/mood--sangat-buruk.svg"
+        src="assets/icons/mood-base/sangat-buruk.svg"
+        style="width: 32px; height: 32px;"
       />
       <span class="mood-title text__title-1">{{ journalData.moodTitle }}</span>
       <span class="time-created flex">{{ journalData.timeCreated }}</span>

@@ -37,6 +37,7 @@
         <div
           class="absolute-center text-center vertical-middle mid-nav"
           v-ripple
+          @click="toggleMidAction()"
         >
           <img
             svg-inline
@@ -79,7 +80,10 @@
       </div>
     </div>
 
-    <div class="nav-mid-action row items-center justify-center full-width">
+    <div
+      class="nav-mid-action items-center justify-center"
+      :class="[showMidAction ? 'flex' : 'hidden']"
+    >
       <div class="action-item column items-center">
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
@@ -93,7 +97,10 @@
           Relaksasi
         </div>
       </div>
-      <div class="action-item column items-center">
+      <div
+        class="action-item column items-center"
+        @click="goTo('/journal/input')"
+      >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
             svg-inline
@@ -122,7 +129,7 @@
       </div>
     </div>
 
-    <div class="bg-action"></div>
+    <div class="bg-action" :class="{ hidden: !showMidAction }"></div>
   </div>
 </template>
 
@@ -131,17 +138,32 @@
 </style>
 
 <script>
+import ClickOutside from "vue-click-outside";
+
 export default {
   name: "MainNavbar",
   data() {
     return {
-      activeUrl: "kognitif"
+      activeUrl: "kognitif",
+      showMidAction: false
     };
+  },
+  mounted() {
+    console.log(this.showMidAction);
   },
   methods: {
     changeUrl(urlName) {
       this.activeUrl = urlName;
+    },
+    toggleMidAction() {
+      this.showMidAction = !this.showMidAction;
+    },
+    goTo(path) {
+      this.$router.push(path);
     }
+  },
+  directives: {
+    ClickOutside
   }
 };
 </script>

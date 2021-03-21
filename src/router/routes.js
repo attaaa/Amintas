@@ -23,6 +23,16 @@ const routes = [
     component: () => import("pages/JournalDetail.vue")
   },
   {
+    path: "/journal",
+    component: () => import("layouts/FullLayout.vue"),
+    children: [
+      {
+        path: "input",
+        component: () => import("pages/JournalInput.vue")
+      }
+    ]
+  },
+  {
     path: "/test",
     component: () => import("layouts/TestLayout.vue")
   },
