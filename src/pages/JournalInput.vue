@@ -3,15 +3,23 @@
     <div class="journal-input--content col">
       <JournalInputMood
         v-if="inputState === 'mood'"
-        @change-mood="selectMood"
         :selected-mood="selectedMood"
+        @change-mood="selectMood"
         @go-back="goBack()"
       />
       <JournalInputEmotion
         v-else-if="inputState === 'emotion'"
         class="full-height"
-        @choose-emotion="selectEmotion"
         :selected-emotion="selectedEmotion"
+        @choose-emotion="selectEmotion"
+        @go-back="goBack()"
+      />
+      <JournalInputStory
+        v-else-if="inputState === 'story'"
+        class="full-height"
+        :input-var="story"
+        @input-title-listener="onChangeStoryTitle"
+        @input-content-listener="onChangeStoryContent"
         @go-back="goBack()"
       />
     </div>
@@ -51,21 +59,26 @@
 <script>
 import JournalInputMood from "components/journal/JournalInputMood";
 import JournalInputEmotion from "components/journal/JournalInputEmotion";
+import JournalInputStory from "components/journal/JournalInputStory";
 
 export default {
   name: "JournalInput",
-  components: { JournalInputMood, JournalInputEmotion },
+  components: { JournalInputMood, JournalInputEmotion, JournalInputStory },
   data() {
     return {
       nextButtonActive: false,
       selectedMood: "",
       selectedEmotion: [],
       inputState: "",
-      inputStateList: ["mood", "emotion"]
+      story: {
+        title: "",
+        content: ""
+      },
+      inputStateList: ["mood", "emotion", "story"]
     };
   },
   mounted() {
-    this.inputState = "mood";
+    this.inputState = "story";
   },
   methods: {
     selectMood(moodName) {
@@ -84,6 +97,16 @@ export default {
       }
 
       this.nextButtonActive = currSelectedEmotion.length > 0 ? true : false;
+    },
+    onChangeStoryTitle(storyTitle) {
+      let story = this.story;
+      story.title = storyTitle;
+      this.story = story;
+    },
+    onChangeStoryContent(storyContent) {
+      let story = this.story;
+      story.content = storyContent;
+      this.story = story;
     },
     goNext() {
       const currInputState = this.inputState;

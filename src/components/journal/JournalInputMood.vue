@@ -24,8 +24,6 @@
   </div>
 </template>
 
-<style lang="scss"></style>
-
 <script>
 import JournalMoodPicker from "components/inputs/JournalMoodPicker";
 

@@ -13,6 +13,8 @@
   background-color: #f2f6ff;
   box-sizing: border-box;
   border-radius: 6px;
+  border: 1px solid transparent;
+  transition: border 0.3s ease;
 
   .icon {
     width: 24px;
@@ -27,6 +29,7 @@
   &.selected {
     box-sizing: border-box !important;
     border: 1px solid #5c7ccd;
+    transition: border 0.3s ease;
   }
 }
 </style>
