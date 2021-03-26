@@ -1,7 +1,10 @@
 <template>
-  <div class="journal-input-story column">
+  <div class="journal-input-distortion column">
     <!-- header navigation -->
-    <div class="col-auto" style="margin-bottom: 24px;">
+    <div
+      class="col-auto row items-center justify-between"
+      style="margin-bottom: 24px;"
+    >
       <img
         svg-inline
         class="fill-primary"
@@ -9,6 +12,9 @@
         style="width: 24px; height: 24px;"
         @click="goBack()"
       />
+      <button class="btn__small btn__secondary text__primary">
+        Lewati
+      </button>
     </div>
 
     <!-- text title -->
@@ -20,15 +26,15 @@
         class="col-auto text__title-3 text-center"
         style="width: 280px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
       >
-        Coba deskripsikan ceritamu pada kolom ini
+        Bagaimana distorsi kognitif pada pikiranmu?
       </div>
 
-      <div class="col full-width overflow-hidden">
-        <TextAreaTitled
+      <div class="column col">
+        <JournalDistortionPicker
+          class="col scroll hide-scrollbar"
+          style="margin-left: auto; margin-right: auto;"
           v-on="$listeners"
-          :input-var="inputVar"
-          class="block scroll hide-scrollbar"
-          style="min-height: 328px; max-height: 100%;"
+          :selected-distortion="selectedDistortion"
         />
       </div>
     </div>
@@ -36,12 +42,15 @@
 </template>
 
 <script>
-import TextAreaTitled from "components/inputs/TextAreaTitled";
+import JournalDistortionPicker from "components/inputs/JournalDistortionPicker";
+
 export default {
-  name: "JournalInputStory",
-  components: { TextAreaTitled },
+  name: "JournalInputDistortion",
   props: {
-    inputVar: Object
+    selectedDistortion: Array
+  },
+  components: {
+    JournalDistortionPicker
   },
   methods: {
     goBack() {

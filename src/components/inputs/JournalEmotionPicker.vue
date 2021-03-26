@@ -48,9 +48,6 @@ export default {
     },
     isSelected(emotion) {
       return this.selectedEmotion.indexOf(emotion) > -1;
-    },
-    test(emotion) {
-      console.log(emotion);
     }
   }
 };

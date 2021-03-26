@@ -16,7 +16,7 @@
 </template>
 
 <style lang="scss">
-.input-text-area-titled {
+.input-text-area {
   max-width: 100%;
   min-width: 100%;
   border: 1px solid #5c7ccd;

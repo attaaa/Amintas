@@ -1,5 +1,5 @@
 <template>
-  <div class="journal-input-story column">
+  <div class="journal-input-identif column">
     <!-- header navigation -->
     <div class="col-auto" style="margin-bottom: 24px;">
       <img
@@ -20,13 +20,14 @@
         class="col-auto text__title-3 text-center"
         style="width: 280px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
       >
-        Coba deskripsikan ceritamu pada kolom ini
+        Bagaimana pikiran negatif yang kamu identifikasi?
       </div>
 
       <div class="col full-width overflow-hidden">
-        <TextAreaTitled
+        <TextArea
           v-on="$listeners"
           :input-var="inputVar"
+          :placeholder="placeholder"
           class="block scroll hide-scrollbar"
           style="min-height: 328px; max-height: 100%;"
         />
@@ -36,12 +37,15 @@
 </template>
 
 <script>
-import TextAreaTitled from "components/inputs/TextAreaTitled";
+import TextArea from "components/inputs/TextArea";
 export default {
-  name: "JournalInputStory",
-  components: { TextAreaTitled },
+  name: "JournalInputIdentif",
+  components: {
+    TextArea
+  },
   props: {
-    inputVar: Object
+    inputVar: String,
+    placeholder: String
   },
   methods: {
     goBack() {
