@@ -18,8 +18,7 @@
         v-else-if="inputState === 'story'"
         class="full-height"
         :input-var="story"
-        @input-title-listener="onChangeStoryTitle"
-        @input-content-listener="onChangeStoryContent"
+        @input-story-listener="onChangeStory"
         @go-back="goBack()"
       />
     </div>
@@ -66,19 +65,19 @@ export default {
   components: { JournalInputMood, JournalInputEmotion, JournalInputStory },
   data() {
     return {
+      inputStateList: ["mood", "emotion", "story"],
+      inputState: "",
       nextButtonActive: false,
       selectedMood: "",
       selectedEmotion: [],
-      inputState: "",
       story: {
         title: "",
         content: ""
-      },
-      inputStateList: ["mood", "emotion", "story"]
+      }
     };
   },
   mounted() {
-    this.inputState = "story";
+    this.inputState = "mood";
   },
   methods: {
     selectMood(moodName) {
@@ -98,15 +97,12 @@ export default {
 
       this.nextButtonActive = currSelectedEmotion.length > 0 ? true : false;
     },
-    onChangeStoryTitle(storyTitle) {
-      let story = this.story;
-      story.title = storyTitle;
+    onChangeStory(story) {
+      console.log(story);
       this.story = story;
-    },
-    onChangeStoryContent(storyContent) {
-      let story = this.story;
-      story.content = storyContent;
-      this.story = story;
+      if (this.story.title !== "" && this.story.content !== "") {
+        this.nextButtonActive = true;
+      }
     },
     goNext() {
       const currInputState = this.inputState;
@@ -114,7 +110,13 @@ export default {
       this.inputState = this.inputStateList[idx + 1];
       this.nextButtonActive = false;
 
-      if (this.inputState == "emotion" && this.selectedEmotion.length > 0) {
+      if (this.inputState === "emotion" && this.selectedEmotion.length > 0) {
+        this.nextButtonActive = true;
+      } else if (
+        this.inputState === "story" &&
+        this.story.title !== "" &&
+        this.story.content !== ""
+      ) {
         this.nextButtonActive = true;
       }
     },

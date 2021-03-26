@@ -7,19 +7,23 @@
       role="textbox"
       contenteditable="true"
       spellcheck="false"
-      @input="onChangeStory"
+      @input="onChangeStory('title', $event)"
       @focus="onInputFocus(placeholder.title, $event)"
-      @blur="onInputBlur"
+      @blur="onInputBlur('title', $event)"
     >
       {{ inputVar.title !== "" ? inputVar.title : placeholder.title }}
     </div>
     <div
       class="full-width text__body text__neutral"
+      :class="{ inputed: inputVar.content !== '' }"
       role="textbox"
       contenteditable="true"
       spellcheck="false"
+      @input="onChangeStory('content', $event)"
+      @focus="onInputFocus(placeholder.content, $event)"
+      @blur="onInputBlur('content', $event)"
     >
-      Tuliskan ceritamu disini
+      {{ inputVar.content !== "" ? inputVar.content : placeholder.content }}
     </div>
   </span>
 </template>
@@ -58,21 +62,32 @@ export default {
     };
   },
   methods: {
-    onChangeStory(event) {
+    onChangeStory(inputType, event) {
       let text = event.target.innerHTML.trim();
-      this.$emit("input-title-listener", text);
-      if (text === "") {
-        event.target.innerHTML = "Judul untuk ceritamu";
+      let inputStory = Object.assign({}, this.inputVar);
+
+      if (inputType === "title") {
+        inputStory.title = text;
+        if (text === "") event.target.innerHTML = this.placeholder.title;
+      } else if (inputType === "content") {
+        inputStory.content = text;
+        if (text === "") event.target.innerHTML = this.placeholder.content;
       }
+
+      this.$emit("input-story-listener", inputStory);
     },
     onInputFocus(placeholderText, event) {
       if (event.target.innerHTML.trim() === placeholderText) {
         event.target.innerHTML = "";
       }
     },
-    onInputBlur(event) {
+    onInputBlur(inputType, event) {
       if (event.target.innerHTML === "") {
-        event.target.innerHTML = "Judul untuk ceritamu";
+        if (inputType === "title") {
+          event.target.innerHTML = this.placeholder.title;
+        } else if (inputType === "content") {
+          event.target.innerHTML = this.placeholder.content;
+        }
       }
     }
   }

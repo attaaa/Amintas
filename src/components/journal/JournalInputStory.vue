@@ -12,12 +12,15 @@
     </div>
 
     <!-- text title -->
-    <div class="column col" style="width: 280px; margin: auto;">
+    <div
+      class="column col full-width"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
       <div
         class="col-auto text__title-3 text-center"
-        style="margin-bottom: 24px;"
+        style="width: 280px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
       >
-        Apa saja emosi yang kamu rasakan?
+        Coba deskripsikan ceritamu pada kolom ini
       </div>
 
       <div class="col full-width overflow-hidden">
