@@ -1,5 +1,5 @@
 <template>
-  <div class="journal-detail hide-scrollbar">
+  <div class="journal-detail hide-scrollbar" v-if="journalData !== undefined">
     <div
       class="journal-detail--header"
       style="padding: 16px; margin-bottom: 8px;"
@@ -18,12 +18,19 @@
       </div>
 
       <div class="flex">
-        <MoodIconLoader mood="sangat buruk" style="margin-right: 16px;" />
+        <MoodIconLoader
+          :mood="journalData.mood"
+          style="width: 56px; height: 56px; margin-right: 16px;"
+        />
         <div class="flex-column justify-between">
-          <span class="text__title-2">Sangat Buruk</span>
+          <span class="text__title-2" style="text-transform: capitalize">{{
+            journalData.mood
+          }}</span>
           <div class="text__footnote">
-            <span style="margin-right: 8px">Sabtu, 31 Okt 2020</span>
-            <span>21:06</span>
+            <span style="margin-right: 8px">{{
+              journalData.created_at.split("-")[0]
+            }}</span>
+            <span>{{ journalData.created_at.split("-")[1] }}</span>
           </div>
         </div>
       </div>
@@ -36,19 +43,9 @@
         </div>
         <div class="flex">
           <LabelMood
-            label-text="marah"
-            style="margin-right: 8px; margin-bottom: 8px"
-          />
-          <LabelMood
-            label-text="malu"
-            style="margin-right: 8px; margin-bottom: 8px"
-          />
-          <LabelMood
-            label-text="putus asa"
-            style="margin-right: 8px; margin-bottom: 8px"
-          />
-          <LabelMood
-            label-text="kewalahan"
+            v-for="(emotion, idx) in journalData.emotions"
+            :key="idx"
+            :label-text="emotion"
             style="margin-right: 8px; margin-bottom: 8px"
           />
         </div>
@@ -60,81 +57,65 @@
         </div>
         <div class="content-detail">
           <div class="text__title-4 text__primary" style="margin-bottom: 4px">
-            Manusia Menyebalkan
+            {{ journalData.story.title }}
           </div>
           <div class="text__body">
-            Selayaknya manusia, kita seringkali kesulitan mengungkapkan dengan
-            tepat apa yang sebenarnya sedang kita rasakan. Hal yang aneh
-            tentunya, mengingat ada banyak ‘diksi’ yang menggambarkan setiap
-            emosi manusia. Misal kata-kata seperti tegang, kesal, sedih, dan
-            frustasi yang menggambarkan perasaan buruk yang kita rasakan,
-            sedangkan kata-kata seperti senang, puas, bersemangat, dan gembira
-            menggambarkan kebahagiaan.
+            {{ journalData.story.content }}
           </div>
         </div>
       </div>
 
-      <div style="margin-bottom: 24px;">
+      <div
+        style="margin-bottom: 24px;"
+        v-if="journalData.identification !== ''"
+      >
         <div class="text__title-3" style="margin-bottom: 8px">
           Pikiran Negatif
         </div>
         <div class="content-detail">
           <div class="text__body">
-            Setiap hari kamis aku harus melalui kegiatan itu lagi dan lagi. Aku
-            tidak suka dengan hari kamis, harus ketemu dengan orang itu dan
-            menghabiskan waktu. Setiap hari kamis aku harus melalui kegiatan itu
-            lagi dan lagi. Aku tidak suka dengan hari kamis, harus ketemu dengan
-            orang itu dan menghabiskan waktu.
+            {{ journalData.identification }}
           </div>
         </div>
       </div>
 
-      <div style="margin-bottom: 16px;">
+      <div
+        style="margin-bottom: 16px;"
+        v-if="journalData.distortions.length > 0"
+      >
         <div class="text__title-3" style="margin-bottom: 8px">
           Distorsi Kognitif
         </div>
         <div class="column">
           <div class="row">
             <LabelDistortion
-              label-text="All-or-None Thinking"
-              style="margin-bottom: 8px; margin-right: 8px;"
-            />
-            <LabelDistortion
-              label-text="Mind Reading"
+              v-for="(distortion, idx) in journalData.distortions"
+              :key="idx"
+              :label-text="distortion"
               style="margin-bottom: 8px; margin-right: 8px;"
             />
           </div>
         </div>
       </div>
 
-      <div style="margin-bottom: 24px;">
+      <div style="margin-bottom: 24px;" v-if="journalData.challenge">
         <div class="text__title-3" style="margin-bottom: 8px">
           Tentang Pikiran
         </div>
         <div class="content-detail">
           <div class="text__body">
-            Selayaknya manusia, kita seringkali kesulitan mengungkapkan dengan
-            tepat apa yang sebenarnya sedang kita rasakan. Hal yang aneh
-            tentunya, mengingat ada banyak ‘diksi’ yang menggambarkan setiap
-            emosi manusia. Misal kata-kata seperti tegang, kesal, sedih, dan
-            frustasi yang menggambarkan perasaan buruk yang kita rasakan,
-            sedangkan kata-kata seperti senang, puas, bersemangat, dan gembira
-            menggambarkan kebahagiaan.
+            {{ journalData.challenge }}
           </div>
         </div>
       </div>
 
-      <div style="margin-bottom: 24px;">
+      <div style="margin-bottom: 24px;" v-if="journalData.alternative">
         <div class="text__title-3" style="margin-bottom: 8px">
           Pikiran Alternatif
         </div>
         <div class="content-detail">
           <div class="text__body">
-            Setiap hari kamis aku harus melalui kegiatan itu lagi dan lagi. Aku
-            tidak suka dengan hari kamis, harus ketemu dengan orang itu dan
-            menghabiskan waktu. Setiap hari kamis aku harus melalui kegiatan itu
-            lagi dan lagi. Aku tidak suka dengan hari kamis, harus ketemu dengan
-            orang itu dan menghabiskan waktu.
+            {{ journalData.alternative }}
           </div>
         </div>
       </div>
@@ -175,6 +156,13 @@ export default {
   methods: {
     goBack() {
       this.$router.back();
+    }
+  },
+  computed: {
+    journalData() {
+      return this.$store.getters["journal/getJournalData"](
+        this.$route.params.id
+      )[0];
     }
   }
 };

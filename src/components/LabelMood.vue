@@ -81,12 +81,6 @@
     <img
       svg-inline
       class="label-mood--icon"
-      src="assets/icons/emotion/stressed.svg"
-      v-if="useImg && labelText.toLowerCase() === 'stress'"
-    />
-    <img
-      svg-inline
-      class="label-mood--icon"
       src="assets/icons/emotion/worried.svg"
       v-if="useImg && labelText.toLowerCase() === 'khawatir'"
     />

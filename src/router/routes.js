@@ -19,7 +19,7 @@ const routes = [
     component: () => import("pages/Search.vue")
   },
   {
-    path: "/journal-detail",
+    path: "/journal-detail/:id",
     component: () => import("pages/JournalDetail.vue")
   },
   {

@@ -3,6 +3,6 @@ export function someGetter (state) {
 }
 */
 
-export const getAllJournalData = state => {
-  return state.journalDataList;
+export const getJournalData = state => journalId => {
+  return state.journalDataList.filter(item => item.id == journalId);
 };
