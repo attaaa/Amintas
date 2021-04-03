@@ -44,7 +44,9 @@ export default {
   methods: {
     onChangeStory(event) {
       let text = event.target.innerHTML.trim();
-      this.$emit("input-listener", text);
+      if (text !== this.placeholder) {
+        this.$emit("input-listener", text);
+      }
     },
     onInputFocus(event) {
       if (event.target.innerHTML.trim() === this.placeholder) {

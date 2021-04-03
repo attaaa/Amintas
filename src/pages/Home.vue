@@ -23,6 +23,7 @@
         <SwipeableBottomSheet
           ref="bottomSheet"
           default-state="half"
+          :swipeable="true"
           v-if="journalData"
         >
           <SearchField
@@ -35,7 +36,6 @@
         <!-- journal data empty -->
         <SwipeableBottomSheet
           ref="bottomSheet"
-          default-state="static"
           :open-top="280"
           v-if="!journalData"
         >

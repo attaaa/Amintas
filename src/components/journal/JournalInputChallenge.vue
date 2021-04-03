@@ -29,7 +29,7 @@
         class="col-auto text__title-3 text-center"
         style="width: 280px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
       >
-        Bagaimana pikiran negatif yang kamu identifikasi?
+        Bagaimana kamu akan menantang pikiran itu?
       </div>
 
       <div class="col full-width overflow-hidden">
@@ -48,7 +48,7 @@
 <script>
 import TextArea from "components/inputs/TextArea";
 export default {
-  name: "JournalInputIdentif",
+  name: "JournalInputChallenge",
   components: {
     TextArea
   },
@@ -61,7 +61,7 @@ export default {
       this.$emit("go-back", true);
     },
     skipInput() {
-      this.$emit("skip-input", true);
+      this.$emit("skip-input");
     }
   }
 };

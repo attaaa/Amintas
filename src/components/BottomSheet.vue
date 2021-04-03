@@ -19,7 +19,7 @@
 import Hammer from "hammerjs";
 
 export default {
-  name: "SwipeableBottomSheet",
+  name: "BottomSheet",
   props: {
     defaultState: {
       type: String,
@@ -47,9 +47,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.swipeable);
     if (this.swipeable) {
-      console.log("masuk");
       this.initSwipeAction();
     }
   },
@@ -108,7 +106,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper[data-open="1"] {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 
@@ -125,7 +123,6 @@ export default {
 
 .card {
   width: 100%;
-  height: 100vh;
   position: fixed;
   background: white;
   border-radius: 24px 24px 0 0;

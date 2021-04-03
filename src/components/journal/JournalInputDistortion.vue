@@ -12,7 +12,10 @@
         style="width: 24px; height: 24px;"
         @click="goBack()"
       />
-      <button class="btn__small btn__secondary text__primary">
+      <button
+        class="btn__small btn__secondary text__primary"
+        @click="skipInput()"
+      >
         Lewati
       </button>
     </div>
@@ -55,6 +58,9 @@ export default {
   methods: {
     goBack() {
       this.$emit("go-back", true);
+    },
+    skipInput() {
+      this.$emit("skip-input");
     }
   }
 };

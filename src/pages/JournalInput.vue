@@ -28,6 +28,7 @@
         :placeholder="placeholder.indentification"
         @input-listener="onInputIdentification"
         @go-back="goBack()"
+        @skip-input="goNext()"
       />
       <JournalInputDistortion
         v-else-if="inputState === 'distortion'"
@@ -35,6 +36,25 @@
         :selected-distortion="selectedDistortion"
         @choose-distortion="onSelectDistortion"
         @go-back="goBack()"
+        @skip-input="goNext()"
+      />
+      <JournalInputChallenge
+        v-else-if="inputState === 'challenge'"
+        class="full-height"
+        :input-var="challenge"
+        :placeholder="placeholder.challenge"
+        @input-listener="onInputChallenge"
+        @go-back="goBack()"
+        @skip-input="goNext()"
+      />
+      <JournalInputAlternative
+        v-else-if="inputState === 'alternative'"
+        class="full-height"
+        :input-var="alternative"
+        :placeholder="placeholder.alternative"
+        @input-listener="onInputAlternative"
+        @go-back="goBack()"
+        @skip-input="goNext()"
       />
     </div>
     <div class="journal-input--action col-auto">
@@ -53,6 +73,40 @@
         Lanjut
       </button>
     </div>
+    <PopUp ref="popUpSubmit">
+      <!-- illustration -->
+      <div
+        class="placeholder-illustration flex"
+        style="height: 188px; margin: 8px;"
+      ></div>
+
+      <span
+        class="block text__primary text__title-3 full-width text-center"
+        style="margin-top: 24px; margin-bottom: 16px;"
+        >Simpan Perubahan?
+      </span>
+      <p
+        class="text__body text__neutral-dark-grey text-center"
+        style="margin-bottom: 48px"
+      >
+        Jawabanmu akan terekam pada sesi latihan ini. Apakah kamu yakin ingin
+        menyudahi sesi latihan?
+      </p>
+
+      <div class="pop-up--action row">
+        <button
+          class="btn__large btn__alert-secondary col-auto relative-position"
+          @click="hidePopUpSubmit"
+          v-ripple
+        >
+          Batal
+        </button>
+        <div style="width: 16px;"></div>
+        <button class="btn__large btn__accent col relative-position" v-ripple>
+          Simpan
+        </button>
+      </div>
+    </PopUp>
   </div>
 </template>
 
@@ -76,6 +130,9 @@ import JournalInputEmotion from "components/journal/JournalInputEmotion";
 import JournalInputStory from "components/journal/JournalInputStory";
 import JournalInputIdentif from "components/journal/JournalInputIdentif";
 import JournalInputDistortion from "components/journal/JournalInputDistortion";
+import JournalInputChallenge from "components/journal/JournalInputChallenge";
+import JournalInputAlternative from "components/journal/JournalInputAlternative";
+import PopUp from "components/bottomsheet/PopUp";
 
 export default {
   name: "JournalInput",
@@ -84,7 +141,10 @@ export default {
     JournalInputEmotion,
     JournalInputStory,
     JournalInputIdentif,
-    JournalInputDistortion
+    JournalInputDistortion,
+    JournalInputChallenge,
+    JournalInputAlternative,
+    PopUp
   },
   data() {
     return {
@@ -93,12 +153,16 @@ export default {
         "emotion",
         "story",
         "identification",
-        "distortion"
+        "distortion",
+        "challenge",
+        "alternative"
       ],
-      inputState: "",
+      inputState: "mood",
       nextButtonActive: false,
       placeholder: {
-        indentification: "Tulis pikiran mengganggumu disini"
+        indentification: "Tulis pikiran mengganggumu disini",
+        challenge: "Tulis tantangan terhadap pikiranmu",
+        alternative: "Tulis alternatif pikiran dari ceritamu"
       },
       // input data model
       selectedMood: "",
@@ -108,11 +172,10 @@ export default {
         content: ""
       },
       indentification: "",
-      selectedDistortion: []
+      selectedDistortion: [],
+      challenge: "",
+      alternative: ""
     };
-  },
-  mounted() {
-    this.inputState = "distortion";
   },
   methods: {
     selectMood(moodName) {
@@ -155,15 +218,51 @@ export default {
         this.selectedDistortion = currSelectedDistortion;
       }
 
-      this.nextButtonActive = currSelectedDistortion.length > 0;
+      this.nextButtonActive = this.selectedDistortion.length > 0;
+    },
+    onInputChallenge(challenge) {
+      this.challenge = challenge;
+      if (this.challenge !== "") {
+        this.nextButtonActive = true;
+      }
+    },
+    onInputAlternative(alternative) {
+      this.alternative = alternative;
+      if (this.alternative !== "") {
+        this.nextButtonActive = true;
+      }
     },
     goNext() {
       const currInputState = this.inputState;
       const idx = this.inputStateList.indexOf(currInputState);
+
+      if (idx === this.inputStateList.length - 1) {
+        this.$refs.popUpSubmit.setState("open");
+        return;
+      }
+
       this.inputState = this.inputStateList[idx + 1];
       this.nextButtonActive = false;
 
-      if (this.inputState === "emotion" && this.selectedEmotion.length > 0) {
+      this.checkInputed();
+    },
+    goBack() {
+      const currInputState = this.inputState;
+      const idx = this.inputStateList.indexOf(currInputState);
+      if (idx > 0) {
+        this.inputState = this.inputStateList[idx - 1];
+        this.checkInputed();
+      } else {
+        this.$router.back();
+      }
+    },
+    checkInputed() {
+      if (this.inputState === "mood" && this.selectedMood !== "") {
+        this.nextButtonActive = true;
+      } else if (
+        this.inputState === "emotion" &&
+        this.selectedEmotion.length > 0
+      ) {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "story" &&
@@ -173,20 +272,24 @@ export default {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "identification" &&
-        this.identification !== ""
+        this.indentification !== ""
       ) {
         this.nextButtonActive = true;
-      }
-    },
-    goBack() {
-      const currInputState = this.inputState;
-      const idx = this.inputStateList.indexOf(currInputState);
-      if (idx > 0) {
-        this.inputState = this.inputStateList[idx - 1];
+      } else if (
+        this.inputState === "distortion" &&
+        this.selectedDistortion.length > 0
+      ) {
+        this.nextButtonActive = true;
+      } else if (this.inputState === "challenge" && this.challenge !== "") {
+        this.nextButtonActive = true;
+      } else if (this.inputState === "alternative" && this.alternative !== "") {
         this.nextButtonActive = true;
       } else {
-        this.$router.back();
+        this.nextButtonActive = false;
       }
+    },
+    hidePopUpSubmit() {
+      this.$refs.popUpSubmit.setState("close");
     }
   }
 };

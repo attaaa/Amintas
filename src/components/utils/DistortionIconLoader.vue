@@ -1,5 +1,12 @@
 <template>
-  <img :src="iconUrl" :style="'width:' + iconWidth + 'px !important'" />
+  <img
+    :src="
+      require('assets/icons/distortion/' +
+        this.distortionName.replace(/\s+/g, '_').toLowerCase() +
+        '.png')
+    "
+    :style="'width:' + iconWidth + 'px !important'"
+  />
 </template>
 
 <script>
@@ -8,16 +15,6 @@ export default {
   props: {
     distortionName: String,
     iconWidth: Number
-  },
-  data() {
-    return {
-      iconUrl: "./icons/distortion/"
-    };
-  },
-  mounted() {
-    this.iconUrl +=
-      this.distortionName.replace(/\s+/g, "_").toLowerCase() + ".png";
-    console.log(this.iconUrl);
   }
 };
 </script>
