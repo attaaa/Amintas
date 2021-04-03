@@ -11,7 +11,9 @@
           <p class="text__headline text-white">
             Ayo lawan pikiran salah mengganggu di kepalamu!
           </p>
-          <button class="btn__small btn__accent">Buka modul</button>
+          <button class="btn__small btn__accent" @click="openModul()">
+            Buka modul
+          </button>
         </div>
         <div class="home-card--img">
           <img svg-inline src="assets/home-card.svg" />
@@ -24,7 +26,7 @@
           ref="bottomSheet"
           default-state="half"
           :swipeable="true"
-          v-if="journalData"
+          v-if="journalDataList.length > 0"
         >
           <SearchField
             style="margin-bottom: 24px"
@@ -34,11 +36,7 @@
         </SwipeableBottomSheet>
 
         <!-- journal data empty -->
-        <SwipeableBottomSheet
-          ref="bottomSheet"
-          :open-top="280"
-          v-if="!journalData"
-        >
+        <SwipeableBottomSheet v-else ref="bottomSheet" :open-top="280">
           <!-- illustration -->
           <div
             class="placeholder-illustration flex"
@@ -80,6 +78,16 @@ export default {
   methods: {
     goToSearchPage() {
       this.$router.push("search");
+    },
+    openModul() {
+      console.log("open modul");
+      this.$store.dispatch("journal/addJournal");
+      console.log(this.journalDataList);
+    }
+  },
+  computed: {
+    journalDataList() {
+      return this.$store.state.journal.journalDataList;
     }
   }
 };
