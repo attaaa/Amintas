@@ -46,7 +46,6 @@ export default {
   components: { JournalPreviewItem },
   data() {
     return {
-      journalDataList: exampleJournalDataList,
       groupJournalDataList: []
     };
   },
@@ -57,16 +56,14 @@ export default {
     groupDataByDate() {
       let tempGroupJournalDataList = [];
       let currJournalDataList = [];
-      let currDate = this.journalDataList[0].dateCreated;
+      let currDate = this.journalDataList[0].created_at.split("-")[0];
       this.journalDataList.forEach((journalData, idx) => {
-        console.log(currDate);
-        console.log(journalData.dateCreated);
-        if (currDate !== journalData.dateCreated) {
+        if (currDate !== journalData.created_at.split("-")[0]) {
           tempGroupJournalDataList.push({
             dateGroup: currDate,
             journalGroupList: currJournalDataList
           });
-          currDate = journalData.dateCreated;
+          currDate = journalData.created_at.split("-")[0];
           currJournalDataList = [];
         } else {
           currJournalDataList.push(journalData);
@@ -85,6 +82,11 @@ export default {
     },
     goToDetail() {
       this.$router.push("journal-detail");
+    }
+  },
+  computed: {
+    journalDataList() {
+      return this.$store.state.journal.journalDataList;
     }
   }
 };

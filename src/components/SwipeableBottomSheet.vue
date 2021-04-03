@@ -47,14 +47,15 @@ export default {
     };
   },
   mounted() {
-    console.log(this.swipeable);
     if (this.swipeable) {
       console.log("masuk");
       this.initSwipeAction();
     }
   },
   beforeDestroy() {
-    this.mc.destroy();
+    if (this.swipeable) {
+      this.mc.destroy();
+    }
     window.onresize = null;
   },
   methods: {

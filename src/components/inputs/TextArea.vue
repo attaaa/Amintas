@@ -7,7 +7,7 @@
       contenteditable="true"
       spellcheck="false"
       @input="onChangeStory"
-      @focus="onInputFocus"
+      @click="onClick"
       @blur="onInputBlur"
     >
       {{ inputVar !== "" ? inputVar : placeholder }}
@@ -48,7 +48,7 @@ export default {
         this.$emit("input-listener", text);
       }
     },
-    onInputFocus(event) {
+    onClick(event) {
       if (event.target.innerHTML.trim() === this.placeholder) {
         event.target.innerHTML = "";
       }

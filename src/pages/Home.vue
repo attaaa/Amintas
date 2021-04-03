@@ -31,6 +31,7 @@
           <SearchField
             style="margin-bottom: 24px"
             @click.native="goToSearchPage()"
+            :auto-focus="true"
           />
           <JournalPreviewItemList />
         </SwipeableBottomSheet>
@@ -62,6 +63,7 @@
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 import SearchField from "components/inputs/SearchField";
 import JournalPreviewItemList from "components/JournalPreviewItemList";
+import { generateTimeStamp } from "src/helper/generateDate.js";
 
 export default {
   name: "Home",
@@ -84,6 +86,10 @@ export default {
       this.$store.dispatch("journal/addJournal");
       console.log(this.journalDataList);
     }
+  },
+  mounted() {
+    let test = generateTimeStamp();
+    console.log(test);
   },
   computed: {
     journalDataList() {

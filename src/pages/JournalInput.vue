@@ -24,8 +24,8 @@
       <JournalInputIdentif
         v-else-if="inputState === 'identification'"
         class="full-height"
-        :input-var="indentification"
-        :placeholder="placeholder.indentification"
+        :input-var="identification"
+        :placeholder="placeholder.identification"
         @input-listener="onInputIdentification"
         @go-back="goBack()"
         @skip-input="goNext()"
@@ -102,7 +102,11 @@
           Batal
         </button>
         <div style="width: 16px;"></div>
-        <button class="btn__large btn__accent col relative-position" v-ripple>
+        <button
+          class="btn__large btn__accent col relative-position"
+          @click="submitJournal"
+          v-ripple
+        >
           Simpan
         </button>
       </div>
@@ -133,6 +137,7 @@ import JournalInputDistortion from "components/journal/JournalInputDistortion";
 import JournalInputChallenge from "components/journal/JournalInputChallenge";
 import JournalInputAlternative from "components/journal/JournalInputAlternative";
 import PopUp from "components/bottomsheet/PopUp";
+import { generateTimeStamp } from "src/helper/generateDate";
 
 export default {
   name: "JournalInput",
@@ -160,7 +165,7 @@ export default {
       inputState: "mood",
       nextButtonActive: false,
       placeholder: {
-        indentification: "Tulis pikiran mengganggumu disini",
+        identification: "Tulis pikiran mengganggumu disini",
         challenge: "Tulis tantangan terhadap pikiranmu",
         alternative: "Tulis alternatif pikiran dari ceritamu"
       },
@@ -171,7 +176,7 @@ export default {
         title: "",
         content: ""
       },
-      indentification: "",
+      identification: "",
       selectedDistortion: [],
       challenge: "",
       alternative: ""
@@ -202,8 +207,8 @@ export default {
       }
     },
     onInputIdentification(identification) {
-      this.indentification = identification;
-      if (this.indentification !== "") {
+      this.identification = identification;
+      if (this.identification !== "") {
         this.nextButtonActive = true;
       }
     },
@@ -290,6 +295,22 @@ export default {
     },
     hidePopUpSubmit() {
       this.$refs.popUpSubmit.setState("close");
+    },
+    submitJournal() {
+      let journalDataInput = {
+        id: Date.now(),
+        created_at: generateTimeStamp(),
+        mood: this.selectedMood,
+        emotions: this.selectedEmotion,
+        story: this.story,
+        identification: this.identification,
+        distortions: this.selectedDistortion,
+        challenge: this.challenge,
+        alternative: this.alternative
+      };
+
+      this.$store.dispatch("journal/addJournal", journalDataInput);
+      this.$router.push("/");
     }
   }
 };

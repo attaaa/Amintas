@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 // import example from './module-example'
 import journal from "./journal";
@@ -21,6 +22,7 @@ export default function(/* { ssrContext } */) {
       // example
       journal
     },
+    plugins: [createPersistedState()],
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
