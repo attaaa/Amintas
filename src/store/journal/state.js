@@ -6,7 +6,7 @@
 //     emotions: ["marah", "malu", "putus asa"],
 //     story: {
 //       title: "ini judul cerita",
-//       detail: "ini detail cerita"
+//       content: "ini detail cerita"
 //     },
 //     identification: "ini identifikasi pikiran",
 //     distortions: ["all-or-none thinking", "mind reading"],

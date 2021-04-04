@@ -148,9 +148,6 @@ export default {
       showMidAction: false
     };
   },
-  mounted() {
-    console.log(this.showMidAction);
-  },
   methods: {
     changeUrl(urlName) {
       this.activeUrl = urlName;

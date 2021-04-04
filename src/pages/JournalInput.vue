@@ -3,28 +3,28 @@
     <div class="journal-input--content col">
       <JournalInputMood
         v-if="inputState === 'mood'"
-        :selected-mood="selectedMood"
+        :selected-mood="journalData.mood"
         @change-mood="selectMood"
         @go-back="goBack()"
       />
       <JournalInputEmotion
         v-else-if="inputState === 'emotion'"
         class="full-height"
-        :selected-emotion="selectedEmotion"
+        :selected-emotion="journalData.emotions"
         @choose-emotion="selectEmotion"
         @go-back="goBack()"
       />
       <JournalInputStory
         v-else-if="inputState === 'story'"
         class="full-height"
-        :input-var="story"
+        :input-var="journalData.story"
         @input-story-listener="onChangeStory"
         @go-back="goBack()"
       />
       <JournalInputIdentif
         v-else-if="inputState === 'identification'"
         class="full-height"
-        :input-var="identification"
+        :input-var="journalData.identification"
         :placeholder="placeholder.identification"
         @input-listener="onInputIdentification"
         @go-back="goBack()"
@@ -33,7 +33,7 @@
       <JournalInputDistortion
         v-else-if="inputState === 'distortion'"
         class="full-height"
-        :selected-distortion="selectedDistortion"
+        :selected-distortion="journalData.distortions"
         @choose-distortion="onSelectDistortion"
         @go-back="goBack()"
         @skip-input="goNext()"
@@ -41,7 +41,7 @@
       <JournalInputChallenge
         v-else-if="inputState === 'challenge'"
         class="full-height"
-        :input-var="challenge"
+        :input-var="journalData.challenge"
         :placeholder="placeholder.challenge"
         @input-listener="onInputChallenge"
         @go-back="goBack()"
@@ -50,7 +50,7 @@
       <JournalInputAlternative
         v-else-if="inputState === 'alternative'"
         class="full-height"
-        :input-var="alternative"
+        :input-var="journalData.alternative"
         :placeholder="placeholder.alternative"
         @input-listener="onInputAlternative"
         @go-back="goBack()"
@@ -170,70 +170,98 @@ export default {
         alternative: "Tulis alternatif pikiran dari ceritamu"
       },
       // input data model
-      selectedMood: "",
-      selectedEmotion: [],
-      story: {
-        title: "",
-        content: ""
-      },
-      identification: "",
-      selectedDistortion: [],
-      challenge: "",
-      alternative: ""
+      // selectedMood: "",
+      // selectedEmotion: [],
+      // story: {
+      //   title: "",
+      //   content: ""
+      // },
+      // identification: "",
+      // selectedDistortion: [],
+      // challenge: "",
+      // alternative: "",
+      // better input data model
+      journalData: {
+        id: 0,
+        created_at: "",
+        mood: "",
+        emotions: [],
+        story: {
+          title: "",
+          content: ""
+        },
+        identification: "",
+        distortions: [],
+        challenge: "",
+        alternative: ""
+      }
     };
+  },
+  mounted() {
+    if (this.$route.params.id !== undefined) {
+      this.journalData = {
+        ...this.$store.getters["journal/getJournalData"](
+          this.$route.params.id
+        )[0]
+      };
+      this.nextButtonActive = true;
+    }
   },
   methods: {
     selectMood(moodName) {
-      this.selectedMood = moodName;
+      this.journalData.mood = moodName;
       this.nextButtonActive = true;
     },
     selectEmotion(emotion) {
-      let currSelectedEmotion = this.selectedEmotion;
+      let currSelectedEmotion = this.journalData.emotions;
       const idx = currSelectedEmotion.indexOf(emotion);
       if (idx > -1) {
         currSelectedEmotion.splice(idx, 1);
-        this.selectedEmotion = currSelectedEmotion;
+        this.journalData.emotions = currSelectedEmotion;
       } else {
         currSelectedEmotion.push(emotion);
-        this.selectedEmotion = currSelectedEmotion;
+        this.journalData.emotions = currSelectedEmotion;
       }
 
       this.nextButtonActive = currSelectedEmotion.length > 0;
     },
     onChangeStory(story) {
-      this.story = story;
-      if (this.story.title !== "" && this.story.content !== "") {
+      this.journalData.story = story;
+      if (
+        this.journalData.story.title !== "" &&
+        this.journalData.story.content !== ""
+      ) {
         this.nextButtonActive = true;
       }
     },
     onInputIdentification(identification) {
-      this.identification = identification;
-      if (this.identification !== "") {
+      this.journalData.identification = identification;
+      if (this.journalData.identification !== "") {
         this.nextButtonActive = true;
       }
     },
     onSelectDistortion(distortionTitle) {
-      let currSelectedDistortion = this.selectedDistortion;
+      let currSelectedDistortion = this.journalData.distortions;
       const idx = currSelectedDistortion.indexOf(distortionTitle);
       if (idx > -1) {
         currSelectedDistortion.splice(idx, 1);
-        this.selectedDistortion = currSelectedDistortion;
+        this.journalData.distortions = currSelectedDistortion;
       } else {
         currSelectedDistortion.push(distortionTitle);
-        this.selectedDistortion = currSelectedDistortion;
+        this.journalData.distortions = currSelectedDistortion;
       }
 
-      this.nextButtonActive = this.selectedDistortion.length > 0;
+      this.nextButtonActive = this.journalData.distortions.length > 0;
     },
     onInputChallenge(challenge) {
-      this.challenge = challenge;
-      if (this.challenge !== "") {
+      this.journalData.challenge = challenge;
+      if (this.journalData.challenge !== "") {
         this.nextButtonActive = true;
       }
     },
     onInputAlternative(alternative) {
-      this.alternative = alternative;
-      if (this.alternative !== "") {
+      this.journalData.alternative = alternative;
+      if (this.journalData.alternative !== "") {
         this.nextButtonActive = true;
       }
     },
@@ -262,32 +290,38 @@ export default {
       }
     },
     checkInputed() {
-      if (this.inputState === "mood" && this.selectedMood !== "") {
+      if (this.inputState === "mood" && this.journalData.mood !== "") {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "emotion" &&
-        this.selectedEmotion.length > 0
+        this.journalData.emotions.length > 0
       ) {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "story" &&
-        this.story.title !== "" &&
-        this.story.content !== ""
+        this.journalData.story.title !== "" &&
+        this.journalData.story.content !== ""
       ) {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "identification" &&
-        this.indentification !== ""
+        this.journalData.indentification !== ""
       ) {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "distortion" &&
-        this.selectedDistortion.length > 0
+        this.journalData.distortions.length > 0
       ) {
         this.nextButtonActive = true;
-      } else if (this.inputState === "challenge" && this.challenge !== "") {
+      } else if (
+        this.inputState === "challenge" &&
+        this.journalData.challenge !== ""
+      ) {
         this.nextButtonActive = true;
-      } else if (this.inputState === "alternative" && this.alternative !== "") {
+      } else if (
+        this.inputState === "alternative" &&
+        this.journalData.alternative !== ""
+      ) {
         this.nextButtonActive = true;
       } else {
         this.nextButtonActive = false;
@@ -297,19 +331,13 @@ export default {
       this.$refs.popUpSubmit.setState("close");
     },
     submitJournal() {
-      let journalDataInput = {
-        id: Date.now(),
-        created_at: generateTimeStamp(),
-        mood: this.selectedMood,
-        emotions: this.selectedEmotion,
-        story: this.story,
-        identification: this.identification,
-        distortions: this.selectedDistortion,
-        challenge: this.challenge,
-        alternative: this.alternative
-      };
-
-      this.$store.dispatch("journal/addJournal", journalDataInput);
+      if (this.$route.params.id === undefined) {
+        this.journalData.id = Date.now();
+        this.journalData.created_at = generateTimeStamp();
+        this.$store.dispatch("journal/addJournal", this.journalData);
+      } else {
+        this.$store.dispatch("journal/updateJournal", this.journalData);
+      }
       this.$router.push("/");
     }
   }

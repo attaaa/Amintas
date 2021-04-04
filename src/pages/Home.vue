@@ -28,12 +28,17 @@
           :swipeable="true"
           v-if="journalDataList.length > 0"
         >
-          <SearchField
-            style="margin-bottom: 24px"
-            @click.native="goToSearchPage()"
-            :auto-focus="true"
-          />
-          <JournalPreviewItemList />
+          <div class="column" style="height: 100vh">
+            <SearchField
+              class="col-auto"
+              style="margin-bottom: 24px"
+              @click.native="goToSearchPage()"
+            />
+            <JournalPreviewItemList
+              class="col scroll hide-scrollbar"
+              style="padding-bottom: 100px;"
+            />
+          </div>
         </SwipeableBottomSheet>
 
         <!-- journal data empty -->
@@ -72,24 +77,11 @@ export default {
     SearchField,
     JournalPreviewItemList
   },
-  data() {
-    return {
-      journalData: 1
-    };
-  },
   methods: {
     goToSearchPage() {
       this.$router.push("search");
     },
-    openModul() {
-      console.log("open modul");
-      this.$store.dispatch("journal/addJournal");
-      console.log(this.journalDataList);
-    }
-  },
-  mounted() {
-    let test = generateTimeStamp();
-    console.log(test);
+    openModul() {}
   },
   computed: {
     journalDataList() {

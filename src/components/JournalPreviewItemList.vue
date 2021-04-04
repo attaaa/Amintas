@@ -18,29 +18,6 @@
 <script>
 import JournalPreviewItem from "./JournalPreviewItem";
 
-const exampleJournalDataList = [
-  {
-    id: "1",
-    moodTitle: "Sangat Buruk",
-    dateCreated: "Sabtu, 31 Okt 2020",
-    timeCreated: "21:06",
-    labelMoodList: ["Marah", "Kecewa", "Malu", "Gugup"],
-    journalTitle: "Manusia Menyebalkan",
-    journalContent:
-      "Selayaknya manusia, kita seringkali kesulitan mengungkapkan dengan tep..."
-  },
-  {
-    id: "2",
-    moodTitle: "2 Sangat Buruk",
-    dateCreated: "Sabtu, 31 Okt 2020",
-    timeCreated: "21:06",
-    labelMoodList: ["Marah", "Kecewa", "Gugup", "Kecewa"],
-    journalTitle: "2 Manusia Menyebalkan",
-    journalContent:
-      "Selayaknya manusia, kita seringkali kesulitan mengungkapkan dengan tep..."
-  }
-];
-
 export default {
   name: "JournalPreviewItemList",
   components: { JournalPreviewItem },
@@ -65,9 +42,9 @@ export default {
           });
           currDate = journalData.created_at.split("-")[0];
           currJournalDataList = [];
-        } else {
-          currJournalDataList.push(journalData);
         }
+
+        currJournalDataList.push(journalData);
 
         if (idx === this.journalDataList.length - 1) {
           tempGroupJournalDataList.push({
@@ -76,8 +53,6 @@ export default {
           });
         }
       });
-
-      console.log(tempGroupJournalDataList);
       this.groupJournalDataList = tempGroupJournalDataList;
     },
     goToDetail(journalId) {

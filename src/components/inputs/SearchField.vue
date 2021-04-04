@@ -36,7 +36,7 @@ export default {
     };
   },
   mounted() {
-    if (this.autoFocus) this.$refs.search_input.select();
+    if (this.autoFocus) this.$refs.search_input.focus();
   },
   methods: {
     clearInput() {

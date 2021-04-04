@@ -14,7 +14,12 @@
           style="width: 24px; fill: #5C7CCD;"
           @click="goBack()"
         />
-        <button class="btn__primary btn__small text-white">Edit</button>
+        <button
+          class="btn__primary btn__small text-white"
+          @click="editJournal()"
+        >
+          Edit
+        </button>
       </div>
 
       <div class="flex">
@@ -122,6 +127,7 @@
 
       <div
         class="btn__alert-secondary btn__large full-width relative-position text-center"
+        @click="delJournal()"
         v-ripple
       >
         Hapus Jurnal
@@ -156,6 +162,13 @@ export default {
   methods: {
     goBack() {
       this.$router.back();
+    },
+    delJournal() {
+      this.$store.dispatch("journal/delJournal", this.$route.params.id);
+      this.goBack();
+    },
+    editJournal() {
+      this.$router.push("/journal/edit/" + this.$route.params.id);
     }
   },
   computed: {

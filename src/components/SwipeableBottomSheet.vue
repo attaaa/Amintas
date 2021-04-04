@@ -48,7 +48,6 @@ export default {
   },
   mounted() {
     if (this.swipeable) {
-      console.log("masuk");
       this.initSwipeAction();
     }
   },

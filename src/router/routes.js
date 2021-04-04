@@ -29,6 +29,10 @@ const routes = [
       {
         path: "input",
         component: () => import("pages/JournalInput.vue")
+      },
+      {
+        path: "edit/:id",
+        component: () => import("pages/JournalInput.vue")
       }
     ]
   },
