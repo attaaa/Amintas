@@ -31,11 +31,11 @@
 
 <style lang="scss">
 .input-text-area-titled {
-  max-width: 100%;
-  min-width: 100%;
-  border: 1px solid #5c7ccd;
+  width: 100%;
+  // min-width: 100%;
+  // border: 1px solid #5c7ccd;
   box-sizing: border-box;
-  border-radius: 8px;
+  // border-radius: 8px;
   padding: 12px 16px;
 
   div:focus {

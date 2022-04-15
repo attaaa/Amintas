@@ -9,7 +9,7 @@
       <div class="title text__primary text__title-5">
         {{ distortion.title }}
       </div>
-      <div class="desc text__primary text__footnote">
+      <div class="desc text__footnote">
         {{ distortion.desc }}
       </div>
     </div>

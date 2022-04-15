@@ -7,7 +7,9 @@
       :data-state="isMove ? 'move' : state"
       :style="{ top: `${isMove ? y : calcY()}px` }"
     >
-      <div class="pan-area" ref="pan"><div class="bar" ref="bar"></div></div>
+      <div class="pan-area" ref="pan" v-if="useDragIcon">
+        <div class="bar" ref="bar"></div>
+      </div>
       <div class="contents">
         <slot></slot>
       </div>
@@ -34,7 +36,11 @@ export default {
       default: 0
     },
     swipeable: Boolean,
-    useOverlay: Boolean
+    useOverlay: Boolean,
+    useDragIcon: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
@@ -128,8 +134,8 @@ export default {
   height: 100vh;
   position: fixed;
   background: white;
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -3px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.24);
   left: 0;
 }
 
@@ -159,6 +165,5 @@ export default {
 .contents {
   max-height: 100%;
   box-sizing: border-box;
-  padding: 16px;
 }
 </style>

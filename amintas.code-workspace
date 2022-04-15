@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "true_mind"
+        }
+    ],
+    "settings": {
+        "vetur.validation.template": false,
+        "vetur.format.enable": false,
+        "vetur.experimental.templateInterpolationService": true,
+        "explorer.compactFolders": false,
+        "material-icon-theme.hidesExplorerArrows": true,
+        "editor.foldingStrategy": "indentation",
+        "vetur.validation.interpolation": false
+    }
+}

@@ -20,7 +20,7 @@
         class="col-auto text__title-3 text-center"
         style="width: 280px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
       >
-        Coba deskripsikan ceritamu pada kolom ini
+        Apa yang terjadi hingga kamu merasa seperti ini?
       </div>
 
       <div class="col full-width overflow-hidden">

@@ -11,16 +11,16 @@ const routes = [
       {
         path: "",
         component: () => import("pages/Home.vue")
+      },
+      {
+        path: "edukasi",
+        component: () => import("pages/edukasi/Edukasi.vue")
       }
     ]
   },
   {
     path: "/search",
     component: () => import("pages/Search.vue")
-  },
-  {
-    path: "/journal-detail/:id",
-    component: () => import("pages/JournalDetail.vue")
   },
   {
     path: "/journal",
@@ -33,6 +33,20 @@ const routes = [
       {
         path: "edit/:id",
         component: () => import("pages/JournalInput.vue")
+      },
+      {
+        path: "detail/:id",
+        component: () => import("pages/JournalDetail.vue")
+      }
+    ]
+  },
+  {
+    path: "/relaksasi",
+    component: () => import("layouts/FullLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/Relaksasi.vue")
       }
     ]
   },

@@ -20,10 +20,17 @@
       </div>
 
       <div class="column col">
-        <ButtonToggle class="col-auto" style="margin-bottom: 12px;" />
+        <ButtonToggle
+          class="col-auto"
+          style="margin-bottom: 12px;"
+          @change-emotion-state="changeEmotionState"
+          :selected-state="emotionState"
+        />
         <JournalEmotionPicker
           class="col scroll hide-scrollbar"
+          :emotion-state="emotionState"
           :selected-emotion="selectedEmotion"
+          @select-emotion-negatif="selectEmotionNegatif"
           v-on="$listeners"
         />
       </div>
@@ -43,7 +50,8 @@ export default {
   },
   data() {
     return {
-      emotionState: "negatif"
+      emotionState: "negatif",
+      selectedEmotionNegatif: false
     };
   },
   methods: {
@@ -52,6 +60,10 @@ export default {
     },
     changeEmotionState(state) {
       this.emotionState = state;
+    },
+    selectEmotionNegatif(state) {
+      console.log("select emotion negatif");
+      this.$emit("select-emotion-negatif", state);
     }
   }
 };

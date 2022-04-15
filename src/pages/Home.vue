@@ -3,13 +3,13 @@
     <div class="home-container">
       <!-- HEADER -->
       <div class="home-header">
-        <span class="text__title-1 text__primary">Kognitif</span>
+        <span class="text__title-1 text__primary q-mx-auto">Amintas</span>
       </div>
 
       <div class="home-card">
         <div class="home-card--text">
           <p class="text__headline text-white">
-            Ayo lawan pikiran salah mengganggu di kepalamu!
+            Yuk lawan pikiran mengganggu di kepalamu!
           </p>
           <button class="btn__small btn__accent" @click="openModul()">
             Buka modul
@@ -28,7 +28,10 @@
           :swipeable="true"
           v-if="journalDataList.length > 0"
         >
-          <div class="column" style="height: 100vh">
+          <div
+            class="column"
+            style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+          >
             <SearchField
               class="col-auto"
               style="margin-bottom: 24px"
@@ -42,22 +45,30 @@
         </SwipeableBottomSheet>
 
         <!-- journal data empty -->
-        <SwipeableBottomSheet v-else ref="bottomSheet" :open-top="280">
-          <!-- illustration -->
-          <div
-            class="placeholder-illustration flex"
-            style="height: 188px; margin: 8px;"
-          ></div>
-
-          <span
-            class="block text__primary text__title-3 full-width text-center"
-            style="margin-top: 24px; margin-bottom: 16px;"
-            >Jurnalmu masih kosong</span
-          >
-          <p class="text__body text__neutral-dark-grey text-center">
-            Kamu bisa mulai menulis ceritamu untuk mengungkap pikiran
-            mengganggumu
-          </p>
+        <SwipeableBottomSheet
+          v-else
+          ref="bottomSheet"
+          :open-top="280"
+          :use-drag-icon="false"
+        >
+          <div style="padding: 32px 24px;">
+            <!-- illustration -->
+            <div
+              class="placeholder-illustration"
+              style="height: 188px; margin: 8px;"
+            >
+              <img src="~assets/img/empty_nothing.png" style="height: 100%" />
+            </div>
+            <span
+              class="block text__primary text__title-3 full-width text-center"
+              style="margin-top: 24px; margin-bottom: 16px;"
+              >Jurnalmu masih kosong</span
+            >
+            <p class="text__body text__neutral-dark-grey text-center">
+              Kamu bisa mulai menulis ceritamu untuk mengungkap pikiran
+              mengganggumu
+            </p>
+          </div>
         </SwipeableBottomSheet>
       </div>
     </div>

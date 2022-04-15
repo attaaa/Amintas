@@ -127,11 +127,49 @@
 
       <div
         class="btn__alert-secondary btn__large full-width relative-position text-center"
-        @click="delJournal()"
+        @click="showPopUpDelete()"
         v-ripple
       >
         Hapus Jurnal
       </div>
+      <PopUp ref="popUpDelete">
+        <!-- illustration -->
+        <div
+          class="placeholder-illustration flex"
+          style="height: 188px; margin: 8px;"
+        ></div>
+
+        <span
+          class="block text__primary text__title-3 full-width text-center"
+          style="margin-top: 24px; margin-bottom: 16px;"
+          >Hapus Jurnal?
+        </span>
+        <p
+          class="text__body text__neutral-dark-grey text-center"
+          style="margin-bottom: 48px"
+        >
+          Ceritamu di dalamnya jadi hilang dan jurnal akan terhapus. Apakah kamu
+          sudah yakin ingin menghapusnya?
+        </p>
+
+        <div class="pop-up--action row">
+          <button
+            class="btn__large btn__alert col relative-position text-white"
+            @click="delJournal()"
+            v-ripple
+          >
+            Hapus Jurnal
+          </button>
+          <div style="width: 16px;"></div>
+          <button
+            class="btn__large btn__secondary text__primary col-auto relative-position "
+            @click="hidePopUpDelete()"
+            v-ripple
+          >
+            Tidak
+          </button>
+        </div>
+      </PopUp>
     </div>
   </div>
 </template>
@@ -155,10 +193,11 @@
 import MoodIconLoader from "components/utils/MoodIconLoader";
 import LabelMood from "components/LabelMood";
 import LabelDistortion from "components/LabelDistortion";
+import PopUp from "components/bottomsheet/PopUp";
 
 export default {
   name: "JournalDetail",
-  components: { MoodIconLoader, LabelMood, LabelDistortion },
+  components: { MoodIconLoader, LabelMood, LabelDistortion, PopUp },
   methods: {
     goBack() {
       this.$router.back();
@@ -169,6 +208,12 @@ export default {
     },
     editJournal() {
       this.$router.push("/journal/edit/" + this.$route.params.id);
+    },
+    showPopUpDelete() {
+      this.$refs.popUpDelete.setState("open");
+    },
+    hidePopUpDelete() {
+      this.$refs.popUpDelete.setState("close");
     }
   },
   computed: {

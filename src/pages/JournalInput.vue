@@ -1,5 +1,5 @@
 <template>
-  <div class="journal-input column full-height no-scroll">
+  <div class="journal-input column full-height no-scroll relative-position">
     <div class="journal-input--content col">
       <JournalInputMood
         v-if="inputState === 'mood'"
@@ -11,6 +11,7 @@
         v-else-if="inputState === 'emotion'"
         class="full-height"
         :selected-emotion="journalData.emotions"
+        @select-emotion-negatif="selectEmotionNegatif"
         @choose-emotion="selectEmotion"
         @go-back="goBack()"
       />
@@ -57,19 +58,11 @@
         @skip-input="goNext()"
       />
     </div>
-    <div class="journal-input--action col-auto">
-      <button
-        v-if="!nextButtonActive"
-        class="btn__large btn__disabled text__neutral-dark-grey full-width"
-        disabled
-      >
-        Lanjut
-      </button>
-      <button
-        v-else
-        class="btn__large btn__accent full-width"
-        @click="goNext()"
-      >
+    <div
+      class="journal-input--action col-auto"
+      :class="[nextButtonActive ? 'show-action' : 'hide-action']"
+    >
+      <button class="btn__large btn__accent full-width" @click="goNext()">
         Lanjut
       </button>
     </div>
@@ -111,6 +104,45 @@
         </button>
       </div>
     </PopUp>
+
+    <PopUp ref="popUpCancel">
+      <!-- illustration -->
+      <div
+        class="placeholder-illustration flex"
+        style="height: 188px; margin: 8px;"
+      ></div>
+
+      <span
+        class="block text__primary text__title-3 full-width text-center"
+        style="margin-top: 24px; margin-bottom: 16px;"
+        >Buang Perubahan?
+      </span>
+      <p
+        class="text__body text__neutral-dark-grey text-center"
+        style="margin-bottom: 48px"
+      >
+        Perubahanmu di sini belum tersimpan. Apakah kamu yakin ingin
+        meninggalkan halaman ini?
+      </p>
+
+      <div class="pop-up--action row">
+        <button
+          class="btn__large btn__alert col relative-position text-white"
+          @click="routerBack()"
+          v-ripple
+        >
+          Tingalkan Halaman
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__secondary text__primary col-auto relative-position "
+          @click="hidePopUpCancel()"
+          v-ripple
+        >
+          Tidak
+        </button>
+      </div>
+    </PopUp>
   </div>
 </template>
 
@@ -124,6 +156,16 @@
     box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.12);
     padding: 16px 16px 24px 16px;
     background-color: #fff;
+    position: relative;
+
+    &.hide-action {
+      bottom: -88px;
+    }
+
+    &.show-action {
+      bottom: 0;
+      transition: bottom 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    }
   }
 }
 </style>
@@ -169,18 +211,7 @@ export default {
         challenge: "Tulis tantangan terhadap pikiranmu",
         alternative: "Tulis alternatif pikiran dari ceritamu"
       },
-      // input data model
-      // selectedMood: "",
-      // selectedEmotion: [],
-      // story: {
-      //   title: "",
-      //   content: ""
-      // },
-      // identification: "",
-      // selectedDistortion: [],
-      // challenge: "",
-      // alternative: "",
-      // better input data model
+      selectedEmotionNegatif: false,
       journalData: {
         id: 0,
         created_at: "",
@@ -208,6 +239,12 @@ export default {
     }
   },
   methods: {
+    // helper for ui
+    selectEmotionNegatif(state) {
+      console.log(state);
+      this.selectedEmotionNegatif = state;
+    },
+
     selectMood(moodName) {
       this.journalData.mood = moodName;
       this.nextButtonActive = true;
@@ -286,8 +323,11 @@ export default {
         this.inputState = this.inputStateList[idx - 1];
         this.checkInputed();
       } else {
-        this.$router.back();
+        this.$refs.popUpCancel.setState("open");
       }
+    },
+    routerBack() {
+      this.$router.back();
     },
     checkInputed() {
       if (this.inputState === "mood" && this.journalData.mood !== "") {
@@ -339,6 +379,9 @@ export default {
         this.$store.dispatch("journal/updateJournal", this.journalData);
       }
       this.$router.push("/");
+    },
+    hidePopUpCancel() {
+      this.$refs.popUpCancel.setState("close");
     }
   }
 };

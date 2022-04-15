@@ -151,6 +151,14 @@ button:focus {
   letter-spacing: 0.01em;
 }
 
+.text__title-6 {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 12px;
+  letter-spacing: 0.01em;
+}
+
 .text__headline,
 .text__text-field {
   font-family: Nunito Sans;
@@ -272,9 +280,11 @@ button:focus {
 }
 
 .placeholder-illustration {
-  background-color: $color-neutral-black;
+  background-color: $color-neutral-white;
   border-radius: 8px;
   box-sizing: border-box;
+  display: grid;
+  place-items: center;
 }
 
 .space-8 {

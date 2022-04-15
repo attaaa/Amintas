@@ -14,9 +14,9 @@
     <!-- text title -->
     <p
       class="text__title-3 text-center"
-      style="margin-bottom: 56px; width: 280px; margin-left: auto; margin-right: auto;"
+      style="margin-bottom: 56px; width: 296px; margin-left: auto; margin-right: auto;"
     >
-      Bagaimana perasaanmu saat ini?
+      Bagaimana suasana hatimu saat ini?
     </p>
 
     <!-- mood selector -->

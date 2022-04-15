@@ -27,9 +27,9 @@
     >
       <div
         class="col-auto text__title-3 text-center"
-        style="width: 280px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
+        style="max-width: 296px; margin-left: auto; margin-right: auto; margin-bottom: 24px;"
       >
-        Bagaimana kamu akan menantang pikiran itu?
+        Cobalah untuk menantang pikiran negatifmu
       </div>
 
       <div class="col full-width overflow-hidden">

@@ -3,9 +3,9 @@
     <div class="nav row full-width">
       <div
         class="nav-item col full-height relative-position"
-        :class="{ active: activeUrl === 'kognitif' }"
+        :class="{ active: activeUrl === '' }"
         v-ripple
-        @click="changeUrl('kognitif')"
+        @click="changeUrl('')"
       >
         <div class="absolute-center text-center vertical-middle">
           <img
@@ -84,7 +84,7 @@
       class="nav-mid-action items-center justify-center"
       :class="[showMidAction ? 'flex' : 'hidden']"
     >
-      <div class="action-item column items-center">
+      <div class="action-item column items-center" @click="goTo('/relaksasi')">
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
             svg-inline
@@ -113,7 +113,7 @@
           Jurnal
         </div>
       </div>
-      <div class="action-item column items-center">
+      <div class="action-item column items-center" @click="showPopUpCall()">
         <div class="action-item--icon bg-negative" style="margin-bottom: 8px">
           <img
             svg-inline
@@ -130,6 +130,45 @@
     </div>
 
     <div class="bg-action" :class="{ hidden: !showMidAction }"></div>
+
+    <PopUp ref="popUpCall">
+      <!-- illustration -->
+      <div
+        class="placeholder-illustration flex"
+        style="height: 188px; margin: 8px;"
+      ></div>
+
+      <span
+        class="block text__primary text__title-3 full-width text-center"
+        style="margin-top: 24px; margin-bottom: 16px;"
+        >Hubungi Nomor Darurat?
+      </span>
+      <p
+        class="text__body text__neutral-dark-grey text-center"
+        style="margin-bottom: 48px"
+      >
+        Kamu akan terhubung dengan orang yang akan membantumu. Apakah kamu yakin
+        ingin menghubunginya?
+      </p>
+
+      <div class="pop-up--action row">
+        <button
+          class="btn__large btn__alert-secondary col-auto relative-position text__alert"
+          @click="hidePopUpCall()"
+          v-ripple
+        >
+          Batal
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__accent col relative-position "
+          @click="callNumber()"
+          v-ripple
+        >
+          Hubungi
+        </button>
+      </div>
+    </PopUp>
   </div>
 </template>
 
@@ -139,24 +178,48 @@
 
 <script>
 import ClickOutside from "vue-click-outside";
+import PopUp from "components/bottomsheet/PopUp";
 
 export default {
   name: "MainNavbar",
+  components: { PopUp },
   data() {
     return {
-      activeUrl: "kognitif",
+      activeUrl: "",
       showMidAction: false
     };
   },
   methods: {
     changeUrl(urlName) {
       this.activeUrl = urlName;
+      this.goTo("/" + urlName);
     },
     toggleMidAction() {
       this.showMidAction = !this.showMidAction;
     },
     goTo(path) {
       this.$router.push(path);
+    },
+    showPopUpCall() {
+      this.showMidAction = false;
+      this.$refs.popUpCall.setState("open");
+    },
+    hidePopUpCall() {
+      this.$refs.popUpCall.setState("close");
+    },
+    callNumber() {
+      this.window.plugins.CallNumber.callNumber(
+        this.onSuccessCall,
+        this.onErrorCall,
+        "3636",
+        false
+      );
+    },
+    onSuccessCall(result) {
+      console.log("success: " + result);
+    },
+    onErrorCall(result) {
+      console.log("error: " + result);
     }
   },
   directives: {

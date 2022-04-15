@@ -3,12 +3,14 @@
     <div
       class="button-toggle--item col text-center text__title-5"
       :class="{ selected: selectedState === 'negatif' }"
+      @click="selectEmotionState('negatif')"
     >
       Negatif
     </div>
     <div
       class="button-toggle--item col text-center text__title-5"
       :class="{ selected: selectedState === 'positif' }"
+      @click="selectEmotionState('positif')"
     >
       Positif
     </div>
@@ -17,7 +19,6 @@
 
 <style lang="scss">
 .button-toggle {
-  padding: 2px;
   background-color: #dedede;
   border-radius: 4px;
 
@@ -38,11 +39,13 @@
 <script>
 export default {
   name: "ButtonToggle",
-  props: {},
-  data() {
-    return {
-      selectedState: "negatif"
-    };
+  props: {
+    selectedState: String
+  },
+  methods: {
+    selectEmotionState(emotionState) {
+      this.$emit("change-emotion-state", emotionState);
+    }
   }
 };
 </script>

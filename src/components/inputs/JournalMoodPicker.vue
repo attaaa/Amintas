@@ -1,9 +1,9 @@
 <template>
   <div class="column">
-    <div id="mood-row1" style="margin: auto;">
+    <div id="mood-row1" style="margin: auto;" class="row">
       <div
         class="mood-item text-center relative-position"
-        style="width: 85px; height: 74px;"
+        style="margin-right: 8px"
         :class="{
           'not-selected': selectedMood !== '' && selectedMood !== 'netral'
         }"
@@ -15,18 +15,11 @@
           src="assets/icons/mood-base/netral.svg"
           style="width: 48px; height: 48px; margin-bottom: 4px;"
         />
-        <div class="mood-item--text text__title-5">Netral</div>
       </div>
-    </div>
 
-    <div
-      id="mood-row2"
-      class="row"
-      style="margin-left: auto; margin-right:auto; margin-top: -12px;"
-    >
       <div
         class="mood-item text-center relative-position"
-        style="width: 85px; height; 74px; margin-right: 72px"
+        style="margin-left: 8px; margin-right: 8px"
         :class="{
           'not-selected': selectedMood !== '' && selectedMood !== 'buruk'
         }"
@@ -38,12 +31,11 @@
           src="assets/icons/mood-base/buruk.svg"
           style="width: 48px; height: 48px; margin-bottom: 4px;"
         />
-        <div class="mood-item--text text__title-5">Buruk</div>
       </div>
 
       <div
         class="mood-item text-center relative-position"
-        style="width: 85px; height: 74px;"
+        style="margin-left: 8px; margin-right: 8px"
         :class="{
           'not-selected': selectedMood !== '' && selectedMood !== 'baik'
         }"
@@ -55,18 +47,11 @@
           src="assets/icons/mood-base/baik.svg"
           style="width: 48px; height: 48px; margin-bottom: 4px;"
         />
-        <div class="mood-item--text text__title-5">Baik</div>
       </div>
-    </div>
 
-    <div
-      id="mood-row3"
-      class="row"
-      style="margin-left: auto; margin-right:auto; margin-top: 12px;"
-    >
       <div
         class="mood-item text-center relative-position"
-        style="width: 85px; height; 74px; margin-right: 16px;"
+        style="margin-left: 8px; margin-right: 8px"
         :class="{
           'not-selected': selectedMood !== '' && selectedMood !== 'sangat buruk'
         }"
@@ -78,12 +63,11 @@
           src="assets/icons/mood-base/sangat-buruk.svg"
           style="width: 48px; height: 48px; margin-bottom: 4px;"
         />
-        <div class="mood-item--text text__title-5">Sangat Buruk</div>
       </div>
 
       <div
         class="mood-item text-center relative-position"
-        style="width: 85px; height: 74px;"
+        style="margin-left: 8px;"
         :class="{
           'not-selected': selectedMood !== '' && selectedMood !== 'sangat baik'
         }"
@@ -95,7 +79,6 @@
           src="assets/icons/mood-base/sangat-baik.svg"
           style="width: 48px; height: 48px; margin-bottom: 4px;"
         />
-        <div class="mood-item--text text__title-5">Sangat Baik</div>
       </div>
     </div>
   </div>
@@ -118,6 +101,7 @@
       background-color: #dedede;
       opacity: 0.7;
       border-radius: 50%;
+      box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.08);
     }
     #{$this} {
       &--text {
