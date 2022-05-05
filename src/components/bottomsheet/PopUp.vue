@@ -33,7 +33,7 @@ export default {
         case "open":
           return 0;
         case "close":
-          return -this.cardHeight;
+          return -window.innerHeight;
       }
     },
     setState(state) {

@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper" :data-open="state === 'open' ? 1 : 0">
-    <div v-if="useOverlay" class="bg"></div>
+    <div
+      v-if="useOverlay && showOverlay"
+      class="bg"
+      @click="() => setState('close')"
+    ></div>
     <div
       ref="card"
       class="card"
@@ -40,6 +44,10 @@ export default {
     useDragIcon: {
       type: Boolean,
       default: true
+    },
+    canClose: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -47,6 +55,7 @@ export default {
       mc: null,
       y: 0,
       startY: 0,
+      showOverlay: false,
       isMove: false,
       state: this.defaultState,
       rect: {}
@@ -85,6 +94,15 @@ export default {
       this.mc.on("panend", evt => {
         this.isMove = false;
 
+        console.log(this.canClose);
+        console.log(this.y);
+        console.log(this.halfTop + (this.halfTop * 1) / 3);
+
+        if (this.canClose && this.y > this.halfTop + (this.halfTop * 1) / 3) {
+          this.state = "close";
+          return;
+        }
+
         switch (this.state) {
           case "half":
             this.state = "open";
@@ -98,14 +116,22 @@ export default {
     calcY() {
       switch (this.state) {
         case "open":
+          this.showOverlay = true;
           return this.openTop;
         case "half":
+          this.showOverlay = true;
           return this.halfTop;
+        case "close":
+          this.showOverlay = false;
+          return window.innerHeight;
         case "static":
           return this.openTop;
         default:
           return this.y;
       }
+    },
+    setState(state) {
+      this.state = state;
     }
   }
 };
@@ -116,6 +142,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 50;
 }
 
 .wrapper .bg {
@@ -137,6 +164,7 @@ export default {
   border-radius: 16px 16px 0 0;
   box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.24);
   left: 0;
+  z-index: 50;
 }
 
 .card[data-state="half"],

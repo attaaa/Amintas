@@ -2,7 +2,7 @@
   <div class="journal-input-identif column">
     <!-- header navigation -->
     <div
-      class="col-auto row items-center justify-between"
+      class="col-auto row items-center justify-between relative-position"
       style="margin-bottom: 24px;"
     >
       <img
@@ -12,6 +12,14 @@
         style="width: 24px; height: 24px;"
         @click="goBack()"
       />
+      <div class="absolute-center" @click="showPopUp()">
+        <img
+          svg-inline
+          class="fill-primary"
+          src="assets/icons/help-round.svg"
+          style="width: 24px; height: 24px;"
+        />
+      </div>
       <button
         class="btn__small btn__secondary text__primary"
         @click="skipInput()"
@@ -42,15 +50,34 @@
         />
       </div>
     </div>
+
+    <!-- pop up help -->
+    <SwipeableBottomSheet
+      ref="popUpHelp"
+      default-state="close"
+      :half-top="helperHalfTop()"
+      :use-overlay="true"
+      :can-close="true"
+      :swipeable="true"
+    >
+      <div
+        class="column"
+        style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+      >
+        testeer
+      </div>
+    </SwipeableBottomSheet>
   </div>
 </template>
 
 <script>
 import TextArea from "components/inputs/TextArea";
+import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 export default {
   name: "JournalInputChallenge",
   components: {
-    TextArea
+    TextArea,
+    SwipeableBottomSheet
   },
   props: {
     inputVar: String,
@@ -62,6 +89,15 @@ export default {
     },
     skipInput() {
       this.$emit("skip-input");
+    },
+    showPopUp() {
+      this.$refs.popUpHelp.setState("half");
+    },
+    hidePopUp() {
+      this.$refs.popUpHelp.setState("close");
+    },
+    helperHalfTop() {
+      return window.innerHeight - 484;
     }
   }
 };

@@ -157,6 +157,7 @@
     padding: 16px 16px 24px 16px;
     background-color: #fff;
     position: relative;
+    z-index: 40px;
 
     &.hide-action {
       bottom: -88px;
@@ -345,7 +346,7 @@ export default {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "identification" &&
-        this.journalData.indentification !== ""
+        this.journalData.identification !== ""
       ) {
         this.nextButtonActive = true;
       } else if (

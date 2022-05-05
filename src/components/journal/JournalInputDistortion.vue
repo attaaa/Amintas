@@ -51,29 +51,27 @@
     </div>
 
     <!-- pop up help -->
-    <PopUp ref="popUpHelp">
-      <!-- illustration -->
+    <SwipeableBottomSheet
+      ref="popUpHelp"
+      default-state="close"
+      :half-top="helperHalfTop()"
+      :use-overlay="true"
+      :can-close="true"
+      :swipeable="true"
+    >
       <div
-        class="placeholder-illustration flex"
-        style="height: 188px; margin: 8px;"
-      ></div>
-
-      <span
-        class="block text__primary text__title-3 full-width text-center"
-        style="margin-top: 24px; margin-bottom: 16px;"
-        >Distorsi Kognitif?
-      </span>
-      <p class="text__body text__neutral-dark-grey" style="margin-bottom: 48px">
-        Jawabanmu akan terekam pada sesi latihan ini. Apakah kamu yakin ingin
-        menyudahi sesi latihan?
-      </p>
-    </PopUp>
+        class="column"
+        style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+      >
+        testeer
+      </div>
+    </SwipeableBottomSheet>
   </div>
 </template>
 
 <script>
 import JournalDistortionPicker from "components/inputs/JournalDistortionPicker";
-import PopUp from "components/bottomsheet/PopUp";
+import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 
 export default {
   name: "JournalInputDistortion",
@@ -82,7 +80,7 @@ export default {
   },
   components: {
     JournalDistortionPicker,
-    PopUp
+    SwipeableBottomSheet
   },
   methods: {
     goBack() {
@@ -92,10 +90,13 @@ export default {
       this.$emit("skip-input");
     },
     showPopUp() {
-      this.$refs.popUpHelp.setState("open");
+      this.$refs.popUpHelp.setState("half");
     },
     hidePopUp() {
       this.$refs.popUpHelp.setState("close");
+    },
+    helperHalfTop() {
+      return window.innerHeight - 484;
     }
   }
 };
