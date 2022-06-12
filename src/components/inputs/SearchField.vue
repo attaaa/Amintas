@@ -1,21 +1,22 @@
 <template>
   <div class="search-field relative-position">
-    <img svg-inline src="assets/icons/search.svg" class="search-field--icon" />
+    <img class="search-field--icon" src="assets/icons/search.svg" svg-inline />
     <input
-      type="text"
-      name="search_journal_preview"
-      placeholder="Cari jurnal ceritamu"
-      class="search-field--text full-width"
-      v-model="search_input"
-      autocomplete="off"
       ref="search_input"
+      :value="searchValue"
+      class="search-field--text full-width"
+      name="search_journal_preview"
+      type="text"
+      @input="e => this.$emit('updateValue', e.target.value)"
+      placeholder="Cari jurnal ceritamu"
+      autocomplete="off"
     />
     <img
-      svg-inline
-      src="assets/icons/cancel.svg"
-      class="search-field--icon-cancel"
       v-if="search_input !== ''"
+      class="search-field--icon-cancel"
       @click="clearInput()"
+      src="assets/icons/cancel.svg"
+      svg-inline
     />
   </div>
 </template>
@@ -32,7 +33,8 @@ export default {
   },
   data() {
     return {
-      search_input: ""
+      search_input: "",
+      searchValue: null
     };
   },
   mounted() {

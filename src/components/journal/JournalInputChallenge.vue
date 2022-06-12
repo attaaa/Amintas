@@ -60,12 +60,16 @@
       :can-close="true"
       :swipeable="true"
     >
-      <div
-        class="column"
+      <q-scroll-area
+        class="column "
         style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
       >
-        testeer
-      </div>
+        <div
+          class="info-content"
+          style="padding-bottom: 40px;"
+          v-html="markdownToHtml"
+        ></div>
+      </q-scroll-area>
     </SwipeableBottomSheet>
   </div>
 </template>
@@ -73,6 +77,10 @@
 <script>
 import TextArea from "components/inputs/TextArea";
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
+
+import { marked } from "marked";
+import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
+
 export default {
   name: "JournalInputChallenge",
   components: {
@@ -82,6 +90,11 @@ export default {
   props: {
     inputVar: String,
     placeholder: String
+  },
+  computed: {
+    markdownToHtml() {
+      return marked(DistorsiKognitif);
+    }
   },
   methods: {
     goBack() {

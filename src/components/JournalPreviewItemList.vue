@@ -21,6 +21,9 @@ import JournalPreviewItem from "./JournalPreviewItem";
 export default {
   name: "JournalPreviewItemList",
   components: { JournalPreviewItem },
+  props: {
+    journalDataList: Array
+  },
   data() {
     return {
       groupJournalDataList: []
@@ -58,11 +61,11 @@ export default {
     goToDetail(journalId) {
       this.$router.push("journal/detail/" + journalId);
     }
-  },
-  computed: {
-    journalDataList() {
-      return this.$store.state.journal.journalDataList;
-    }
   }
+  // computed: {
+  //   journalDataList() {
+  //     return this.$store.state.journal.journalDataList;
+  //   }
+  // }
 };
 </script>

@@ -69,6 +69,10 @@ module.exports = function(/* ctx */) {
           {
             test: /\.vue$/,
             loader: "vue-svg-inline-loader"
+          },
+          {
+            test: /\.md$/i,
+            loader: "raw-loader"
           }
         );
       }

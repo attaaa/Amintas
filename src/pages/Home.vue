@@ -40,6 +40,7 @@
             <JournalPreviewItemList
               class="col scroll hide-scrollbar"
               style="padding-bottom: 100px;"
+              :journal-data-list="journalDataList"
             />
           </div>
         </SwipeableBottomSheet>

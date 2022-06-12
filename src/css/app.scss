@@ -3,51 +3,51 @@
 /* #region  [IMPORT FONT FACE] */
 @font-face {
   font-family: "Poppins";
-  src: url("./fonts/Poppins-Bold.woff");
   font-weight: 700;
   font-style: normal;
+  src: url("./fonts/Poppins-Bold.woff");
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("./fonts/Poppins-SemiBold.woff");
   font-weight: 600;
   font-style: normal;
+  src: url("./fonts/Poppins-SemiBold.woff");
 }
 
 @font-face {
   font-family: "Nunito Sans";
-  src: url("./fonts/NunitoSans-Bold.woff");
   font-weight: 700;
   font-style: normal;
+  src: url("./fonts/NunitoSans-Bold.woff");
 }
 
 @font-face {
   font-family: "Nunito Sans";
-  src: url("./fonts/NunitoSans-BoldItalic.woff");
   font-weight: 700;
   font-style: italic;
+  src: url("./fonts/NunitoSans-BoldItalic.woff");
 }
 
 @font-face {
   font-family: "Nunito Sans";
-  src: url("./fonts/NunitoSans-ExtraBoldItalic.woff");
   font-weight: 800;
   font-style: italic;
+  src: url("./fonts/NunitoSans-ExtraBoldItalic.woff");
 }
 
 @font-face {
   font-family: "Nunito Sans";
-  src: url("./fonts/NunitoSans-Regular.woff");
   font-weight: 400;
   font-style: normal;
+  src: url("./fonts/NunitoSans-Regular.woff");
 }
 
 @font-face {
   font-family: "Nunito Sans";
-  src: url("./fonts/NunitoSans-SemiBoldItalic.woff");
   font-weight: 600;
   font-style: italic;
+  src: url("./fonts/NunitoSans-SemiBoldItalic.woff");
 }
 /* #endregion */
 
@@ -100,112 +100,120 @@ button:focus {
   color: $color-neutral-mid-grey;
 }
 
+.text__neutral-grey {
+  color: $color-neutral-grey;
+}
+
 .text__neutral-dark-grey {
   color: $color-neutral-dark-grey;
 }
 
+.text__neutral-black {
+  color: #303030;
+}
+
 .text__large-title {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
   font-size: 32px;
   line-height: 48px;
+  font-family: Poppins;
+  font-weight: bold;
+  font-style: normal;
   letter-spacing: -0.02em;
 }
 
 .text__title-1 {
-  font-family: Poppins;
-  font-weight: bold;
   font-size: 28px;
   line-height: 42px;
+  font-family: Poppins;
+  font-weight: bold;
   letter-spacing: -0.02em;
 }
 
 .text__title-2 {
-  font-family: Poppins;
-  font-weight: bold;
   font-size: 24px;
   line-height: 36px;
+  font-family: Poppins;
+  font-weight: bold;
   letter-spacing: -0.02em;
 }
 
 .text__title-3 {
-  font-family: Poppins;
-  font-weight: bold;
   font-size: 20px;
   line-height: 30px;
+  font-family: Poppins;
+  font-weight: bold;
 }
 
 .text__title-4 {
-  font-family: Poppins;
-  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
+  font-family: Poppins;
+  font-weight: bold;
 }
 
 .text__title-5 {
-  font-family: Poppins;
-  font-weight: 600;
   font-size: 12px;
   line-height: 18px;
+  font-family: Poppins;
+  font-weight: 600;
   letter-spacing: 0.01em;
 }
 
 .text__title-6 {
-  font-family: Poppins;
-  font-weight: 600;
   font-size: 8px;
   line-height: 12px;
+  font-family: Poppins;
+  font-weight: 600;
   letter-spacing: 0.01em;
 }
 
 .text__headline,
 .text__text-field {
-  font-family: Nunito Sans;
-  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
+  font-family: Nunito Sans;
+  font-weight: bold;
 }
 
 .text__body {
-  font-family: Nunito Sans;
-  font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+  font-family: Nunito Sans;
+  font-weight: normal;
   letter-spacing: 0.02em;
 }
 
 .text__extra-special-body {
-  font-family: Nunito Sans;
-  font-style: italic;
-  font-weight: 800;
   font-size: 16px;
   line-height: 24px;
+  font-family: Nunito Sans;
+  font-weight: 800;
+  font-style: italic;
 }
 
 .text__special-body {
-  font-family: Nunito Sans;
-  font-style: italic;
-  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
+  font-family: Nunito Sans;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .text__italic-body {
-  font-family: Nunito Sans;
-  font-style: italic;
-  font-weight: 600;
   font-size: 16px;
   line-height: 24px;
+  font-family: Nunito Sans;
+  font-weight: 600;
+  font-style: italic;
   letter-spacing: 0.01em;
 }
 
 .text__footnote {
-  font-family: Nunito Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 18px;
+  font-family: Nunito Sans;
+  font-weight: normal;
+  font-style: normal;
   letter-spacing: 0.02em;
 }
 /* #endregion */
@@ -224,30 +232,30 @@ button:focus {
 }
 
 .btn__large {
-  padding: 12px 16px;
   border-radius: 6px;
-  font-family: Poppins;
-  font-weight: 600;
+  padding: 12px 16px;
   font-size: 16px;
   line-height: 24px;
+  font-family: Poppins;
+  font-weight: 600;
 }
 
 .btn__medium {
-  padding: 8px 12px;
   border-radius: 6px;
-  font-family: Poppins;
-  font-weight: 600;
+  padding: 8px 12px;
   font-size: 16px;
   line-height: 24px;
+  font-family: Poppins;
+  font-weight: 600;
 }
 
 .btn__small {
-  padding: 4px 8px;
   border-radius: 4px;
-  font-family: Poppins;
-  font-weight: 600;
+  padding: 4px 8px;
   font-size: 12px;
   line-height: 18px;
+  font-family: Poppins;
+  font-weight: 600;
 }
 
 .btn__primary {
@@ -255,9 +263,9 @@ button:focus {
 }
 
 .btn__secondary {
-  background-color: $color-secondary;
   border: 0.5px solid #5c7ccd;
   box-sizing: border-box;
+  background-color: $color-secondary;
 }
 
 .btn__alert {
@@ -269,10 +277,10 @@ button:focus {
 }
 
 .btn__alert-secondary {
-  background-color: $color-alert-secondary;
   border: 0.5px solid #af3a3a;
-  color: #af3a3a;
   box-sizing: border-box;
+  color: #af3a3a;
+  background-color: $color-alert-secondary;
 }
 
 .btn__disabled {
@@ -280,10 +288,10 @@ button:focus {
 }
 
 .placeholder-illustration {
-  background-color: $color-neutral-white;
+  display: grid;
   border-radius: 8px;
   box-sizing: border-box;
-  display: grid;
+  background-color: $color-neutral-white;
   place-items: center;
 }
 
@@ -295,36 +303,36 @@ button:focus {
 
 /* #region  [COMPONENTS] */
 .home-container {
-  padding: 0 16px;
   box-sizing: border-box;
+  padding: 0 16px;
 }
 
 .home-header {
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  display: flex;
   box-sizing: border-box;
   margin-top: 16px;
   margin-bottom: 32px;
 }
 
 .home-card {
+  justify-content: space-between;
+  display: flex;
+  border-radius: 12px;
   padding: 16px;
   background-color: $color-primary;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
 
   &--text {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    display: flex;
 
     p {
+      display: -webkit-box;
+      height: 72px;
       min-width: 120px;
       max-width: 168px;
-      height: 72px;
-      display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
@@ -337,15 +345,19 @@ button:focus {
 
 .label {
   align-items: center;
+  margin: 0px 8px;
+  border-radius: 4px;
   padding: 4px 8px;
   background: #f2f6ff;
-  border-radius: 4px;
-  font-family: Nunito Sans;
   font-size: 12px;
   line-height: 18px;
-  letter-spacing: 0.02em;
+  font-family: Nunito Sans;
   color: #5c7ccd;
-  margin: 0px 8px;
+  letter-spacing: 0.02em;
 }
 
 /* #endregion */
+
+.info-content {
+  font-size: 16px;
+}

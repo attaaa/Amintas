@@ -52,7 +52,17 @@ const routes = [
   },
   {
     path: "/test",
-    component: () => import("layouts/TestLayout.vue")
+    component: () => import("layouts/FullLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/JournalEdit.vue")
+      },
+      {
+        path: "mood/:id",
+        component: () => import("pages/journal-edit/JournalEditMood.vue")
+      }
+    ]
   },
   // Always leave this as last one,
   // but you can also remove it

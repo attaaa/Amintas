@@ -1,0 +1,35 @@
+{
+  "mood": [
+    {
+      "id": "semua-mood",
+      "icon": "assets/icons/mood-base/semua-mood.svg",
+      "name": "Semua Mood"
+    },
+    {
+      "id": "sangat-baik",
+      "icon": "assets/icons/mood-base/sangat-baik.svg",
+      "name": "Sangat Baik"
+    },
+    {
+      "id": "baik",
+      "icon": "assets/icons/mood-base/baik.svg",
+      "name": "Baik"
+    },
+    {
+      "id": "netral",
+      "icon": "assets/icons/mood-base/netral.svg",
+      "name": "Netral"
+    },
+    {
+      "id": "buruk",
+      "icon": "assets/icons/mood-base/buruk.svg",
+      "name": "Buruk"
+    },
+    {
+      "id": "sangat-buruk",
+      "icon": "assets/icons/mood-base/sangat-buruk.svg",
+      "name": "Sangat Buruk"
+    }
+  ],
+  "date": []
+}

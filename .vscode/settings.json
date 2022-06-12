@@ -1,8 +1,212 @@
 {
-  "vetur.validation.template": false,
-  "vetur.format.enable": false,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  "editor.tabSize": 4,
 
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "vetur.experimental.templateInterpolationService": false,
-  "editor.tabSize": 2
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "amintas.code-workspace": true,
+    "babel.config.js": true,
+    "jsconfig.json": true,
+    "package-lock.json": true,
+    "README.md": true,
+    "yarn.lock": true,
+    "src-cordova": true,
+    "node_modules": true,
+    "dist": true,
+    ".vscode": true,
+    ".quasar": true,
+    ".eslintrc.js": true,
+    ".editorconfig": true,
+    ".eslintignore": true,
+    ".gitignore": true,
+    ".postcssrc.js": true,
+    "quasar.conf.js": true,
+    "package.json": true
+  },
+
+  "hide-files.files": [
+    "amintas.code-workspace",
+    "babel.config.js",
+    "jsconfig.json",
+    "package-lock.json",
+    "README.md",
+    "yarn.lock",
+    "src-cordova",
+    "node_modules",
+    "dist",
+    ".vscode",
+    ".quasar",
+    ".eslintrc.js",
+    ".editorconfig",
+    ".eslintignore",
+    ".gitignore",
+    ".postcssrc.js",
+    "quasar.conf.js",
+    "package.json"
+  ],
+
+  "postcssSorting.config": {
+    "order": [
+      "custom-properties",
+      "dollar-variables",
+      "declarations",
+      "at-rules",
+      "rules"
+    ],
+    "properties-order": [
+      "@extend",
+      "@mixin",
+      // generated content
+      "content",
+      // position and layout
+      "position",
+      "z-index",
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "flex-direction",
+      "flex-wrap",
+      "flex-flow",
+      "justify-content",
+      "align-items",
+      "align-content",
+      "align-self",
+      "order",
+      "flex-grow",
+      "flex-shrink",
+      "flex-basis",
+      "flex",
+      // display and visibility
+      "display",
+      "opacity",
+      "transform",
+      // overflow and clip
+      "overflow",
+      "clip",
+      // animation and transition
+      "animation",
+      "transition",
+      // box model
+      "margin",
+      "box-shadow",
+      "border",
+      "border-radius",
+      "box-sizing",
+      "width",
+      "height",
+      "padding",
+      // background
+      "background",
+      "background-color",
+      "cursor",
+      // typography
+      "font-size",
+      "line-height",
+      "font-family",
+      "font-weight",
+      "font-style",
+      "text-align",
+      "text-transform",
+      "word-spacing",
+      "color"
+    ]
+  },
+
+  "attrsSorter.order": [
+    "is",
+    "v-for",
+    "v-if",
+    "v-else-if",
+    "v-else",
+    "v-show",
+    "v-cloak",
+    "v-once",
+    "v-pre",
+    "id",
+    "ref",
+    "key",
+    "v-slot",
+    "v-slot.+",
+    "#.*",
+    "slot",
+    "v-model",
+    "v-model.+",
+    "v-bind",
+    "v-bind.+",
+    ":.+",
+    "v-text",
+    "v-text.+",
+    "v-html",
+    "v-html.+",
+    "class",
+    "v-on.+",
+    "@.+",
+    "name",
+    "data-.+",
+    "ng-.+",
+    "src",
+    "for",
+    "type",
+    "href",
+    "values",
+    "title",
+    "alt",
+    "role",
+    "aria-.+",
+    "$unknown$"
+  ],
+
+  "todohighlight.isEnable": true,
+  "todohighlight.include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.php",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.vue",
+    "**/*.styl"
+  ],
+
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+
+  "runOnSave.commands": [
+    {
+      "match": ".vue",
+      "commandBeforeSaving": "attrsSorter.execute",
+      "runIn": "vscode"
+    },
+    {
+      "match": ".*\\.(css|scss)$",
+      "commandBeforeSaving": "postcssSorting.execute",
+      "runIn": "vscode"
+    },
+    {
+      "match": "*",
+      "command": "editor.action.formatDocument",
+      "runIn": "vscode"
+    }
+  ]
 }

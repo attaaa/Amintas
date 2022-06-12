@@ -61,7 +61,10 @@
           Detail Cerita
         </div>
         <div class="content-detail">
-          <div class="text__title-4 text__primary" style="margin-bottom: 4px">
+          <div
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 4px"
+          >
             {{ journalData.story.title }}
           </div>
           <div class="text__body">

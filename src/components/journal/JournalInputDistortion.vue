@@ -59,12 +59,16 @@
       :can-close="true"
       :swipeable="true"
     >
-      <div
-        class="column"
+      <q-scroll-area
+        class="column "
         style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
       >
-        testeer
-      </div>
+        <div
+          class="info-content"
+          style="padding-bottom: 40px;"
+          v-html="markdownToHtml"
+        ></div>
+      </q-scroll-area>
     </SwipeableBottomSheet>
   </div>
 </template>
@@ -72,6 +76,9 @@
 <script>
 import JournalDistortionPicker from "components/inputs/JournalDistortionPicker";
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
+
+import { marked } from "marked";
+import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
 
 export default {
   name: "JournalInputDistortion",
@@ -81,6 +88,11 @@ export default {
   components: {
     JournalDistortionPicker,
     SwipeableBottomSheet
+  },
+  computed: {
+    markdownToHtml() {
+      return marked(DistorsiKognitif);
+    }
   },
   methods: {
     goBack() {
