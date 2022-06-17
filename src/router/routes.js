@@ -15,6 +15,10 @@ const routes = [
       {
         path: "edukasi",
         component: () => import("pages/edukasi/Edukasi.vue")
+      },
+      {
+        path: "strategi",
+        component: () => import("pages/strategi/Strategi.vue")
       }
     ]
   },
@@ -51,6 +55,24 @@ const routes = [
     ]
   },
   {
+    path: "/strategi",
+    component: () => import("layouts/FullLayout.vue"),
+    children: [
+      {
+        path: "input-category",
+        component: () => import("src/pages/strategi/StrategiInputCategory.vue")
+      },
+      {
+        path: "input-story1",
+        component: () => import("src/pages/strategi/StrategiInputStory1.vue")
+      },
+      {
+        path: "input-story2",
+        component: () => import("src/pages/strategi/StrategiInputStory2.vue")
+      }
+    ]
+  },
+  {
     path: "/test",
     component: () => import("layouts/FullLayout.vue"),
     children: [
@@ -61,6 +83,18 @@ const routes = [
       {
         path: "mood/:id",
         component: () => import("pages/journal-edit/JournalEditMood.vue")
+      },
+      {
+        path: "edukasi",
+        component: () => import("pages/edukasi/EdukasiDetail.vue")
+      },
+      {
+        path: "strategi",
+        component: () => import("pages/strategi/Strategi.vue")
+      },
+      {
+        path: "input-strategi",
+        component: () => import("src/pages/strategi/StrategiInputCategory.vue")
       }
     ]
   },

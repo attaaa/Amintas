@@ -52,13 +52,18 @@
 export default {
   name: "TextAreaTitled",
   props: {
-    inputVar: Object
+    inputVar: Object,
+    placeholderProps: Object
   },
   data() {
     return {
       placeholder: {
-        title: "Judul untuk ceritamu",
-        content: "Tuliskan ceritamu disini"
+        title: this.placeholderProps
+          ? this.placeholderProps.title
+          : "Judul untuk ceritamu",
+        content: this.placeholderProps
+          ? this.placeholderProps.content
+          : "Tuliskan ceritamu disini"
       }
     };
   },

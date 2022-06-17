@@ -7,7 +7,9 @@
       :data-state="state"
       :style="{ bottom: calcBottom(state) + `px` }"
     >
-      <div class="pan-area" ref="pan"><div class="bar" ref="bar"></div></div>
+      <div v-if="enablePanArea" class="pan-area" ref="pan">
+        <div class="bar" ref="bar"></div>
+      </div>
       <div class="contents">
         <slot></slot>
       </div>
@@ -18,6 +20,12 @@
 <script>
 export default {
   name: "PopUp",
+  props: {
+    enablePanArea: {
+      type: Boolean,
+      default: true
+    }
+  },
   data() {
     return {
       state: "close",
