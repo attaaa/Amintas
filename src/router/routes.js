@@ -69,6 +69,11 @@ const routes = [
       {
         path: "input-story2",
         component: () => import("src/pages/strategi/StrategiInputStory2.vue")
+      },
+      {
+        path: "input-story3",
+        component: () =>
+          import("src/pages/strategi/StrategiInputActivities.vue")
       }
     ]
   },

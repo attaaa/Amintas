@@ -37,8 +37,7 @@
     ".eslintignore": true,
     ".gitignore": true,
     ".postcssrc.js": true,
-    "quasar.conf.js": true,
-    "package.json": true
+    "quasar.conf.js": true
   },
 
   "hide-files.files": [
@@ -58,8 +57,7 @@
     ".eslintignore",
     ".gitignore",
     ".postcssrc.js",
-    "quasar.conf.js",
-    "package.json"
+    "quasar.conf.js"
   ],
 
   "postcssSorting.config": {

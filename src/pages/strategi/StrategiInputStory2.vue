@@ -2,7 +2,7 @@
   <div>
     <FillLayout
       title="Apa tujuanmu menghadapi pemicu tersebut?"
-      :showAction="!!story2 && !!story2"
+      :showAction="!!story2"
       :handleNextAction="handleNextAction"
       :showBantuan="true"
       :bantuanHeight="484"

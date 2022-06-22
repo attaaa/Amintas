@@ -2,32 +2,76 @@
   <div>
     <FillLayout
       title="Aktivitas atau situasi apa yang akan kamu lakukan?"
-      :showAction="!!someVar && !!someVar"
+      :showAction="checkInputValid()"
       :handleNextAction="handleNextAction"
+      :showBantuan="true"
+      :bantuanHeight="484"
+      :bantuanContent="markdownToHtml"
     >
-      <div class="full-width overflow-hidden" style="padding-inline: 8px"></div>
+      <div
+        v-if="activities"
+        class="full-width overflow-hidden"
+        style="padding-inline: 16px"
+      >
+        <div class="col full-width overflow-hidden">
+          <TableLadderActivity
+            v-for="(activity, index) in activities"
+            :key="index"
+            :model="activities[index].val"
+            @input="val => (activities[index].val = val)"
+            :idx="index"
+            :is-last="index === activities.length - 1"
+            :is-first="index === 0"
+            :handle-add="handleAdd"
+            :handle-remove="handleRemove"
+            style="margin-bottom: 12px"
+          />
+        </div>
+      </div>
     </FillLayout>
   </div>
 </template>
 
 <script>
-import TextAreaTitled from "components/inputs/TextAreaTitled";
+import TableLadderActivity from "src/components/strategi/TableLadderActivity.vue";
 import FillLayout from "src/layouts/FillLayout.vue";
+
+import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
+import { marked } from "marked";
 
 export default {
   name: "StrategiInputActivities",
-  components: {
-    TextAreaTitled,
-    FillLayout
-  },
+  components: { FillLayout, TableLadderActivity },
   data() {
     return {
-      someVar
+      activities: [{ val: "" }]
     };
   },
   methods: {
+    checkInputValid() {
+      for (let activity of this.activities) {
+        if (activity.val === "") {
+          return false;
+        }
+      }
+      return true;
+    },
     handleNextAction() {
       this.$router.push("/");
+    },
+    log(val) {
+      console.log(val);
+    },
+    handleAdd(valBefore) {
+      this.activities = [...this.activities, { val: "" }];
+    },
+    handleRemove(idx) {
+      this.activities.splice(idx, 1);
+    }
+  },
+  computed: {
+    markdownToHtml() {
+      return marked(DistorsiKognitif);
     }
   }
 };
