@@ -3,8 +3,6 @@ export function someGetter (state) {
 }
 */
 
-import state from "./state";
-
-export const getInputStrategi = () => {
+export const getInputStrategi = state => {
   return state.strategiInputData;
 };

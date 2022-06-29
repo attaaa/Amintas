@@ -56,20 +56,27 @@ export default {
       }
       return true;
     },
-    handleNextAction() {
-      this.$router.push("/");
-    },
     log(val) {
       console.log(val);
     },
-    handleAdd(valBefore) {
+    handleAdd() {
       this.activities = [...this.activities, { val: "" }];
     },
     handleRemove(idx) {
       this.activities.splice(idx, 1);
+    },
+    handleNextAction() {
+      this.$store.dispatch("strategi/updateInputStrategi", {
+        ...this.strategiInputData,
+        activities: [...this.activities.map(activity => activity.val)]
+      });
+      this.$router.push("/strategi/input-level");
     }
   },
   computed: {
+    strategiInputData() {
+      return this.$store.state.strategi.strategiInputData;
+    },
     markdownToHtml() {
       return marked(DistorsiKognitif);
     }

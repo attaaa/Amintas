@@ -2,16 +2,16 @@
   <div>
     <FillLayout
       title="Apa yang terjadi hingga kamu cemas akan hal itu?"
-      :showAction="!!inputVar.title && !!inputVar.content"
+      :showAction="!!story_penyebab.title && !!story_penyebab.detail"
       :handleNextAction="handleNextAction"
     >
       <div class="full-width overflow-hidden" style="padding-inline: 8px">
         <TextAreaTitled
           @input-story-listener="onChangeStory"
-          :input-var="inputVar"
+          :input-var="story_penyebab"
           :placeholder-props="{
             title: 'Nama Pemicu',
-            content: 'Tuliskan ceritamu disini'
+            detail: 'Tuliskan ceritamu disini'
           }"
           class="block scroll hide-scrollbar"
           style="min-height: 328px; max-height: 100%;"
@@ -33,18 +33,27 @@ export default {
   },
   data() {
     return {
-      inputVar: {
+      story_penyebab: {
         title: "",
-        content: ""
+        detail: ""
       }
     };
   },
   methods: {
     onChangeStory(story) {
-      this.inputVar = story;
+      this.story_penyebab = story;
     },
     handleNextAction() {
-      this.$router.push("/");
+      this.$store.dispatch("strategi/updateInputStrategi", {
+        ...this.strategiInputData,
+        story_penyebab: this.story_penyebab
+      });
+      this.$router.push("/strategi/input-story2");
+    }
+  },
+  computed: {
+    strategiInputData() {
+      return this.$store.state.strategi.strategiInputData;
     }
   }
 };

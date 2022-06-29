@@ -16,15 +16,15 @@
     </div>
     <div
       class="full-width text__body text__neutral"
-      :class="{ inputed: inputVar.content !== '' }"
+      :class="{ inputed: inputVar.detail !== '' }"
       role="textbox"
       contenteditable
       spellcheck="false"
-      @input="onChangeStory('content', $event)"
-      @blur="onInputBlur('content', $event)"
-      @click="onClick(placeholder.content, $event)"
+      @input="onChangeStory('detail', $event)"
+      @blur="onInputBlur('detail', $event)"
+      @click="onClick(placeholder.detail, $event)"
     >
-      {{ inputVar.content !== "" ? inputVar.content : placeholder.content }}
+      {{ inputVar.detail !== "" ? inputVar.detail : placeholder.detail }}
     </div>
   </span>
 </template>
@@ -61,8 +61,8 @@ export default {
         title: this.placeholderProps
           ? this.placeholderProps.title
           : "Judul untuk ceritamu",
-        content: this.placeholderProps
-          ? this.placeholderProps.content
+        detail: this.placeholderProps
+          ? this.placeholderProps.detail
           : "Tuliskan ceritamu disini"
       }
     };
@@ -79,8 +79,8 @@ export default {
 
       if (inputType === "title") {
         inputStory.title = text;
-      } else if (inputType === "content") {
-        inputStory.content = text;
+      } else if (inputType === "detail") {
+        inputStory.detail = text;
       }
 
       this.$emit("input-story-listener", inputStory);
@@ -89,8 +89,8 @@ export default {
       if (event.target.innerHTML === "") {
         if (inputType === "title") {
           event.target.innerHTML = this.placeholder.title;
-        } else if (inputType === "content") {
-          event.target.innerHTML = this.placeholder.content;
+        } else if (inputType === "detail") {
+          event.target.innerHTML = this.placeholder.detail;
         }
       }
     }

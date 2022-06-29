@@ -6,10 +6,10 @@
 // 	level: {},
 // }
 
+import { EMPTY_STRATEGI } from "src/data/strategi/StrategiModel";
+
 export default function() {
   return {
-    strategiInputData: {
-      pemicu: null
-    }
+    strategiInputData: { ...EMPTY_STRATEGI }
   };
 }

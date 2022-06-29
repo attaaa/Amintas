@@ -19,6 +19,10 @@ const routes = [
       {
         path: "strategi",
         component: () => import("pages/strategi/Strategi.vue")
+      },
+      {
+        path: "strategi-active",
+        component: () => import("pages/strategi/StrategiActive.vue")
       }
     ]
   },
@@ -71,9 +75,13 @@ const routes = [
         component: () => import("src/pages/strategi/StrategiInputStory2.vue")
       },
       {
-        path: "input-story3",
+        path: "input-activities",
         component: () =>
           import("src/pages/strategi/StrategiInputActivities.vue")
+      },
+      {
+        path: "input-level",
+        component: () => import("src/pages/strategi/StrategiInputLevel.vue")
       }
     ]
   },

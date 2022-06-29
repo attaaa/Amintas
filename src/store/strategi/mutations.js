@@ -3,8 +3,14 @@ export function someMutation (state) {
 }
 */
 
+import { EMPTY_STRATEGI } from "src/data/strategi/StrategiModel";
+
 const updateInputStrategi = (state, strategiInputData) => {
   state.strategiInputData = strategiInputData;
+};
+
+const clearInputStrategi = state => {
+  state.strategiInputData = { ...EMPTY_STRATEGI };
 };
 
 // const delJournal = (state, journalId) => {
@@ -21,4 +27,4 @@ const updateInputStrategi = (state, strategiInputData) => {
 //   state.journalDataList[idx] = journalData;
 // };
 
-export { updateInputStrategi };
+export { updateInputStrategi, clearInputStrategi };

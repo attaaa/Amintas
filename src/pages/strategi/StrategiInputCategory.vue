@@ -115,15 +115,15 @@ export default {
     };
   },
   mounted() {
-    this.selectedPemicu = this.strategiInputData.pemicu;
+    this.selectedPemicu = this.strategiInputData.category;
   },
   methods: {
     nextInputStrategi() {
       this.$store.dispatch("strategi/updateInputStrategi", {
         ...this.strategiInputData,
-        pemicu: this.selectedPemicu
+        category: this.selectedPemicu
       });
-      this.$router.push("/");
+      this.$router.push("/strategi/input-story1");
     }
   },
   computed: {

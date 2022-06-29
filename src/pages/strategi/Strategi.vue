@@ -31,7 +31,12 @@
 
 <script>
 export default {
-  name: "Strategi"
+  name: "Strategi",
+  beforeCreate() {
+    if (true) {
+      this.$router.push("/strategi-active");
+    }
+  }
 };
 </script>
 
