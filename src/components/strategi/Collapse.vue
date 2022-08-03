@@ -2,7 +2,7 @@
   <div class="collapse">
     <div class="collapse-header" @click="active = !active">
       <div class="collapse-title text__headline text__neutral-black">
-        Detail Cerita
+        {{ label }}
       </div>
       <div class="collapse-icon" :class="[active ? 'active' : '']">
         <svg
@@ -19,18 +19,11 @@
         </svg>
       </div>
     </div>
-    <!-- <div class="collapse-preview" :class="[active ? 'hide' : '']">
-      <div>preview</div>
-    </div> -->
-    <!-- <div class="collapse-content" :class="[active ? 'active' : '']">
-      <div>tes</div>
-      <div>tes</div>
-      <div>tes</div>
-      <div>tes</div>
-    </div> -->
+    <!-- PREVIEW -->
     <div class="collapse-preview" :class="[active ? 'hide' : '']">
       <slot name="preview"></slot>
     </div>
+    <!-- CONTENT -->
     <div class="collapse-content" :class="[active ? 'active' : '']">
       <slot name="content"></slot>
     </div>
@@ -40,6 +33,9 @@
 <script>
 export default {
   name: "Collapse",
+  props: {
+    label: String
+  },
   data() {
     return {
       active: false

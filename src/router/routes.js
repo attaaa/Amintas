@@ -94,6 +94,10 @@ const routes = [
         component: () => import("pages/JournalEdit.vue")
       },
       {
+        path: "onboarding",
+        component: () => import("pages/onboarding/Onboarding1.vue")
+      },
+      {
         path: "mood/:id",
         component: () => import("pages/journal-edit/JournalEditMood.vue")
       },

@@ -263,6 +263,7 @@ button:focus {
 }
 
 .btn__secondary {
+  color: #5c7ccd;
   border: 0.5px solid #5c7ccd;
   box-sizing: border-box;
   background-color: $color-secondary;
@@ -274,6 +275,11 @@ button:focus {
 
 .btn__accent {
   background-color: $color-accent;
+}
+
+.btn__borderless {
+  background-color: transparent;
+  border: none;
 }
 
 .btn__alert-secondary {
@@ -356,6 +362,34 @@ button:focus {
   letter-spacing: 0.02em;
 }
 
+/* #endregion */
+
+/* #region  [INPUT] */
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+
+  color: #303030;
+  background-color: #f1f2f5;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  &::placeholder {
+    color: #c4c4c8;
+    opacity: 1; /* Firefox */
+  }
+
+  /* Internet Explorer 10-11 */
+  &:-ms-input-placeholder {
+    color: #c4c4c8;
+  }
+
+  /* Microsoft Edge */
+  &::-ms-input-placeholder {
+    color: #c4c4c8;
+  }
+}
 /* #endregion */
 
 .info-content {

@@ -1,26 +1,36 @@
 <template>
-  <div class="full-width row items-center">
+  <div class="full-width row items-center position-relative">
     <div class="col-grow text__body text__neutral-black">
       {{ label }}
     </div>
     <div style="width: 44px;" class="row items-center">
-      <input
-        type="text"
-        placeholder="0"
-        :value="value"
-        @input="$emit('input', $event.target.value)"
-        disabled
-      />
+      <input type="number" :value="customVal" disabled />
     </div>
+    <!-- <SwipeableBottomSheet
+      ref="popUpFilter"
+      :can-close="true"
+      :open-top="helperHalfTop()"
+      :swipeable="false"
+      :use-drag-icon="false"
+      :use-overlay="true"
+      style="position: fixed"
+      default-state="half"
+    >
+      <div ref="popUpContent">
+        <slot></slot>
+      </div>
+    </SwipeableBottomSheet> -->
   </div>
 </template>
 
 <script>
+import SwipeableBottomSheet from "../SwipeableBottomSheet.vue";
 export default {
+  components: {},
   name: "TableLadderLevel",
   props: {
     label: String,
-    value: String
+    customVal: Number
   }
 };
 </script>

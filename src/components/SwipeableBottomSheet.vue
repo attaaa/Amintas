@@ -159,6 +159,7 @@ export default {
 .card {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   position: fixed;
   background: white;
   border-radius: 16px 16px 0 0;

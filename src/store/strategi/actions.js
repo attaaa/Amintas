@@ -11,6 +11,14 @@ const clearInputStrategi = context => {
   context.commit("clearInputStrategi");
 };
 
+const activateStrategi = context => {
+  context.commit("activateStrategi");
+};
+
+const clearActiveStrategi = context => {
+  context.commit("clearActiveStrategi");
+};
+
 // const delJournal = (context, journalId) => {
 //   context.commit("delJournal", journalId);
 // };
@@ -19,4 +27,4 @@ const clearInputStrategi = context => {
 //   context.commit("updateJournal", journalData);
 // };
 
-export { updateInputStrategi };
+export { updateInputStrategi, activateStrategi, clearActiveStrategi };

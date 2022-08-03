@@ -42,7 +42,7 @@
         class="btn__large btn__accent full-width"
         @click="handleNextAction()"
       >
-        Lanjut
+        {{ labelNextAction }}
       </button>
     </div>
 
@@ -81,6 +81,10 @@ export default {
   props: {
     title: String,
     showAction: Boolean,
+    labelNextAction: {
+      type: String,
+      default: "Lanjut"
+    },
 
     // settings pop up bantuan
     showBantuan: Boolean,
