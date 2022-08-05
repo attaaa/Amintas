@@ -1,47 +1,95 @@
 <template>
   <div class="onboarding-container text-center" style="padding: 24px">
-    <div class="onboarding-banner">
-      <div
-        class="onboarding-banner-inner"
-        :style="{ left: `${isMove ? x : calcX()}px` }"
-        ref="elem"
-      >
+    <VueSlickCarousel
+      class="onboarding-banner"
+      :arrows="false"
+      :infinite="false"
+      @afterChange="changeNav"
+    >
+      <!-- ONBOARDING ITEM -->
+      <div>
         <div class="onboarding-item">
-          <div style="margin-bottom: 24px">
-            <img src="/img/onboarding1.png" />
-          </div>
-          <div class="text__primary text__title-3" style="margin-bottom: 12px;">
+          <img class="img" src="/img/onboarding1.png" />
+          <div class="title text__primary text__title-3">
             Selamat datang di Amintas!
           </div>
-          <div
-            class="text__neutral-dark-grey text__body"
-            style="margin-bottom: 41px;"
-          >
-            Teman yang akan selalu ada, dan siap membantumu jadi lebih tenang
-          </div>
-        </div>
-        <div class="onboarding-item">
-          <div style="margin-bottom: 24px">
-            <img src="/img/onboarding1.png" />
-          </div>
-          <div class="text__primary text__title-3" style="margin-bottom: 12px;">
-            Selamat datang di Amintas!
-          </div>
-          <div
-            class="text__neutral-dark-grey text__body"
-            style="margin-bottom: 41px;"
-          >
+          <div class="detail text__neutral-dark-grey text__body">
             Teman yang akan selalu ada, dan siap membantumu jadi lebih tenang
           </div>
         </div>
       </div>
-    </div>
+
+      <div>
+        <div class="onboarding-item">
+          <img class="img" src="/img/onboarding2.png" />
+          <div class="title text__primary text__title-3">
+            Rileks dan nyaman
+          </div>
+          <div class="detail text__neutral-dark-grey text__body">
+            Mau curhat, relaksasi, atau bantuan ahli biar lebih tenang, jadi
+            gampang!
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="onboarding-item">
+          <img class="img" src="/img/onboarding3.png" />
+          <div class="title text__primary text__title-3">
+            Bantu kamu lebih paham
+          </div>
+          <div class="detail text__neutral-dark-grey text__body">
+            Dari artikel pengetahuan sampai video materi, ada semuanya!
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="onboarding-item">
+          <img class="img" src="/img/onboarding4.png" />
+          <div class="title text__primary text__title-3">
+            Lebih relevan dan rasional
+          </div>
+          <div class="detail text__neutral-dark-grey text__body">
+            Belajar ubah pikiran mengganggumu jadi pikiran baru yang lebih
+            positif
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="onboarding-item">
+          <img class="img" src="/img/onboarding5.png" />
+          <div class="title text__primary text__title-3">
+            Berdamai dengan pemicu
+          </div>
+          <div class="detail text__neutral-dark-grey text__body">
+            Bisa bikin strategi biar ngadepin pemicu cemasmu jadi lebih mudah
+          </div>
+        </div>
+      </div>
+    </VueSlickCarousel>
     <div class="nav-onboarding" style="margin-bottom: 65px;">
-      <div class="nav-item-onboarding active"></div>
-      <div class="nav-item-onboarding"></div>
-      <div class="nav-item-onboarding"></div>
-      <div class="nav-item-onboarding"></div>
-      <div class="nav-item-onboarding"></div>
+      <div
+        class="nav-item-onboarding"
+        :class="{ active: activeItemIdx === 0 }"
+      ></div>
+      <div
+        class="nav-item-onboarding"
+        :class="{ active: activeItemIdx === 1 }"
+      ></div>
+      <div
+        class="nav-item-onboarding"
+        :class="{ active: activeItemIdx === 2 }"
+      ></div>
+      <div
+        class="nav-item-onboarding"
+        :class="{ active: activeItemIdx === 3 }"
+      ></div>
+      <div
+        class="nav-item-onboarding"
+        :class="{ active: activeItemIdx === 4 }"
+      ></div>
     </div>
     <button
       class="btn__accent btn__large"
@@ -59,69 +107,25 @@
 </template>
 
 <script>
-import Hammer from "hammerjs";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// // optional style for arrows & dots
+// import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "Onboarding1",
+  components: { VueSlickCarousel },
   data() {
     return {
-      mc: null,
-      x: 0,
-      startX: 0,
-      state: "aaa",
-      isMove: false
+      activeItemIdx: 0
     };
   },
   mounted() {
-    this.initSwipeListener();
+    // this.initSwipeListener();
   },
   methods: {
-    initSwipeListener() {
-      window.onresize = () => {
-        this.rect = this.$refs.elem.getBoundingClientRect();
-      };
-      this.rect = this.$refs.elem.getBoundingClientRect();
-
-      this.mc = new Hammer(this.$refs.elem);
-      this.mc.get("pan").set({ direction: Hammer.DIRECTION_ALL });
-
-      this.mc.on("panleft panright", evt => {
-        // console.log(this.$refs.elem.style.left);
-        console.log(evt);
-        this.x = this.$refs.elem.getBoundingClientRect().left + evt.deltaX;
-        // console.log(this.x);
-      });
-
-      this.mc.on("panstart", evt => {
-        console.log("test");
-        this.x = evt.center.x;
-        this.isMove = true;
-      });
-
-      this.mc.on("panend", evt => {
-        this.isMove = false;
-
-        switch (this.state) {
-          case "half":
-            this.state = "open";
-            break;
-          case "open":
-            this.state = "half";
-            break;
-        }
-      });
-    },
-    calcX() {
-      switch (this.state) {
-        case "open":
-          return this.openTop;
-        case "half":
-          return this.halfTop;
-        case "static":
-          return this.openTop;
-        default:
-          return this.x;
-      }
+    changeNav(slideIndex) {
+      this.activeItemIdx = slideIndex;
     }
   }
 };
@@ -140,7 +144,6 @@ export default {
   height: 358px;
   margin-left: -24px;
   overflow-x: hidden;
-  /* scroll-snap-type: x mandatory; */
 
   display: flex;
   align-items: center;
@@ -158,10 +161,21 @@ export default {
 
 .onboarding-item {
   width: 100vw;
+  padding-inline: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   /* scroll-snap-align: start; */
+}
+
+.onboarding-item .title {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.onboarding-item .detail {
+  margin-bottom: 41px;
 }
 
 .nav-onboarding {
