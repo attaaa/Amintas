@@ -21,53 +21,19 @@
       <!-- playlist -->
       <div class="playlist row">
         <!-- container for spacing -->
-        <div class="playlist-item col-6">
+        <div
+          class="playlist-item col-6"
+          v-for="(playlist, index) in playlistData"
+          :key="index"
+          @click="goToDetail(12)"
+        >
           <!-- actual playlist item -->
           <div>
             <div class="playlist-item--bg">
-              <img src="/img/education_cover1.png" />
+              <img :src="playlist.img" />
             </div>
             <div class="playlist-item--text text__title-4 text__primary">
-              Cemas dan Gangguan
-            </div>
-          </div>
-        </div>
-
-        <!-- container for spacing -->
-        <div class="playlist-item col-6">
-          <!-- actual playlist item -->
-          <div>
-            <div class="playlist-item--bg">
-              <img src="/img/education_cover1.png" />
-            </div>
-            <div class="playlist-item--text text__title-4 text__primary">
-              Cemas dan Gangguan
-            </div>
-          </div>
-        </div>
-
-        <!-- container for spacing -->
-        <div class="playlist-item col-6">
-          <!-- actual playlist item -->
-          <div>
-            <div class="playlist-item--bg">
-              <img src="/img/education_cover1.png" />
-            </div>
-            <div class="playlist-item--text text__title-4 text__primary">
-              Cemas dan Gangguan
-            </div>
-          </div>
-        </div>
-
-        <!-- container for spacing -->
-        <div class="playlist-item col-6">
-          <!-- actual playlist item -->
-          <div>
-            <div class="playlist-item--bg">
-              <img src="/img/education_cover1.png" />
-            </div>
-            <div class="playlist-item--text text__title-4 text__primary">
-              Cemas dan Gangguan
+              {{ playlist.text }}
             </div>
           </div>
         </div>
@@ -127,7 +93,17 @@ const playlistData = [
 import SearchField from "components/inputs/SearchField";
 export default {
   name: "Edukasi",
-  components: { SearchField }
+  components: { SearchField },
+  data() {
+    return {
+      playlistData: playlistData
+    };
+  },
+  methods: {
+    goToDetail(detailId) {
+      this.$router.push("/edukasi/edukasi-detail/4");
+    }
+  }
 };
 </script>
 
@@ -140,7 +116,7 @@ export default {
 
 .playlist-item {
   width: fit-content;
-  height: 180px;
+  height: 200px;
   margin-bottom: 16px;
   position: relative;
   overflow: hidden;
@@ -149,7 +125,7 @@ export default {
 
 .playlist-item > div {
   width: calc(100% - 8px);
-  height: 180px;
+  height: 200px;
   position: relative;
   overflow: hidden;
   border-radius: 16px;

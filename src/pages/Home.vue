@@ -81,6 +81,7 @@ import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 import SearchField from "components/inputs/SearchField";
 import JournalPreviewItemList from "components/JournalPreviewItemList";
 import { generateTimeStamp } from "src/helper/generateDate.js";
+import { getAccount } from "src/store/account/getters";
 
 export default {
   name: "Home",
@@ -96,8 +97,16 @@ export default {
     openModul() {}
   },
   computed: {
+    account() {
+      return this.$store.state.account.account;
+    },
     journalDataList() {
       return this.$store.state.journal.journalDataList;
+    }
+  },
+  mounted() {
+    if (!this.account || !this.account.name) {
+      this.$router.push("onboarding");
     }
   }
 };

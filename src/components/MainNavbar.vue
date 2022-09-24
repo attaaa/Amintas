@@ -65,17 +65,13 @@
 
       <div
         class="nav-item col full-height relative-position"
-        :class="{ active: activeUrl === 'bantuan' }"
+        :class="{ active: activeUrl === 'me' }"
         v-ripple
-        @click="changeUrl('bantuan')"
+        @click="changeUrl('me')"
       >
         <div class="absolute-center text-center vertical-middle">
-          <img
-            svg-inline
-            class="nav-item--icon"
-            src="assets/icons/bantuan.svg"
-          />
-          <div class="nav-item--text">Bantuan</div>
+          <img svg-inline class="nav-item--icon" src="assets/icons/me.svg" />
+          <div class="nav-item--text">Saya</div>
         </div>
       </div>
     </div>

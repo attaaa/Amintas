@@ -27,6 +27,10 @@
         <TextAreaTitled
           v-on="$listeners"
           :input-var="inputVar"
+          :placeholder-props="{
+            title: 'Judul untuk ceritamu',
+            detail: 'Tuliskan ceritamu di sini'
+          }"
           class="block scroll hide-scrollbar"
           style="min-height: 328px; max-height: 100%;"
         />

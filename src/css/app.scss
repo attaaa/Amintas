@@ -216,6 +216,14 @@ button:focus {
   font-style: normal;
   letter-spacing: 0.02em;
 }
+
+.text__foot-button {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+}
 /* #endregion */
 
 /* #region  [UTILITIES] */
@@ -406,3 +414,6 @@ button:focus {
   background: #f1f2f5;
   border-radius: 2px;
 }
+
+// layout and component styles
+@import "./layout.scss";

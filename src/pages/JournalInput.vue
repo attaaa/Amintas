@@ -220,7 +220,7 @@ export default {
         emotions: [],
         story: {
           title: "",
-          content: ""
+          detail: ""
         },
         identification: "",
         distortions: [],
@@ -267,7 +267,7 @@ export default {
       this.journalData.story = story;
       if (
         this.journalData.story.title !== "" &&
-        this.journalData.story.content !== ""
+        this.journalData.story.detail !== ""
       ) {
         this.nextButtonActive = true;
       }
@@ -341,7 +341,7 @@ export default {
       } else if (
         this.inputState === "story" &&
         this.journalData.story.title !== "" &&
-        this.journalData.story.content !== ""
+        this.journalData.story.detail !== ""
       ) {
         this.nextButtonActive = true;
       } else if (
