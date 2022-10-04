@@ -1,3 +1,5 @@
+import materi from "./materi";
+
 const routes = [
   // {
   //   path: "/",
@@ -92,6 +94,7 @@ const routes = [
       }
     ]
   },
+  materi,
   {
     path: "/relaksasi",
     component: () => import("layouts/FullLayout.vue"),

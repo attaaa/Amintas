@@ -1,5 +1,5 @@
 <template>
-  <div class="edukasi-detail">
+  <div class="fl-wrapper">
     <div class="fl-header">
       <div class="back-btn" @click="() => this.$router.back()">
         <svg
@@ -18,12 +18,17 @@
       <img src="/img/education_material_prolog1.png" />
     </div>
 
-    <div class="edukasi-detail--content" style="padding: 16px">
+    <div class="fl-main">
       <div class="text__title-2 text__primary" style="margin-bottom: 12px">
         Cemas dan Gangguan
       </div>
-      <div class="text__body text__neutral-black">
-        Membantu menjawab rasa penasaran
+      <div class="fl-main--detail">
+        <p>
+          Membantu menjawab rasa penasaran di kepalamu tentang apa itu cemas,
+          lalu bagaimana gangguannya, dan sedikit lebih mengenal rasa cemas yang
+          biasanya dialami oleh kebanyakan mahasiswa pada kehidupan
+          perkuliahannya.
+        </p>
       </div>
     </div>
 
@@ -35,13 +40,24 @@
         Materi
       </div>
       <div>
-        <div class="material-item flex items-center">
+        <div
+          class="material-item flex items-center"
+          @click="() => this.$router.push('/materi/detail')"
+        >
           <img src="/img/education_display_mat1.png" />
-          <div class="text__headline text__primary">Teknik Pernapasan</div>
+          <div class="text__headline text__primary">
+            Cemas dan Gangguan Kecemasan
+          </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
-          <div class="text__headline text__primary">Teknik Pernapasan</div>
+          <img src="/img/education_display_mat2.png" />
+          <div class="text__headline text__primary">Gejala Umum Kecemasan</div>
+        </div>
+        <div class="material-item flex items-center">
+          <img src="/img/education_display_mat3.png" />
+          <div class="text__headline text__primary">
+            Cemas dan Mahasiswa
+          </div>
         </div>
       </div>
     </div>

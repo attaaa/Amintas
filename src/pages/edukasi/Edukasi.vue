@@ -51,19 +51,25 @@
       <div>
         <div class="material-item flex items-center">
           <img src="/img/education_display_mat1.png" />
-          <div class="text__headline text__primary">Teknik Pernapasan</div>
+          <div class="text__headline text__primary">
+            Teknik Pernapasan 4-7-8
+          </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
-          <div class="text__headline text__primary">Teknik Pernapasan</div>
+          <img src="/img/education_display_mat2.png" />
+          <div class="text__headline text__primary">Menulis Jurnal</div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
-          <div class="text__headline text__primary">Teknik Pernapasan</div>
+          <img src="/img/education_display_mat3.png" />
+          <div class="text__headline text__primary">
+            Menumbuhkan Rasa Syukur
+          </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
-          <div class="text__headline text__primary">Teknik Pernapasan</div>
+          <img src="/img/education_display_mat4.png" />
+          <div class="text__headline text__primary">
+            Tertawa untuk Melepas Stress
+          </div>
         </div>
       </div>
     </div>
