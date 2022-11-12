@@ -41,6 +41,17 @@ export default {
       story_tujuan: ""
     };
   },
+  computed: {
+    strategiInputData() {
+      return this.$store.state.strategi.strategiInputData;
+    },
+    markdownToHtml() {
+      return marked(DistorsiKognitif);
+    }
+  },
+  mounted() {
+    this.story_tujuan = this.strategiInputData.story_tujuan;
+  },
   methods: {
     onChangeStory(story) {
       this.story_tujuan = story;
@@ -51,14 +62,6 @@ export default {
         story_tujuan: this.story_tujuan
       });
       this.$router.push("/strategi/input-activities");
-    }
-  },
-  computed: {
-    strategiInputData() {
-      return this.$store.state.strategi.strategiInputData;
-    },
-    markdownToHtml() {
-      return marked(DistorsiKognitif);
     }
   }
 };

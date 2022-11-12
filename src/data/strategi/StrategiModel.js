@@ -17,11 +17,11 @@ const strategi_sample = {
 const EMPTY_STRATEGI = {
   category: null,
   story_penyebab: {
-    title: null,
-    detail: null
+    title: "",
+    detail: ""
   },
-  story_tujuan: null,
-  activities: [],
+  story_tujuan: "",
+  activities: null,
   fear_level: []
 };
 

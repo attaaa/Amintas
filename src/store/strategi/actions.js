@@ -27,4 +27,9 @@ const clearActiveStrategi = context => {
 //   context.commit("updateJournal", journalData);
 // };
 
-export { updateInputStrategi, activateStrategi, clearActiveStrategi };
+export {
+  updateInputStrategi,
+  activateStrategi,
+  clearActiveStrategi,
+  clearInputStrategi
+};

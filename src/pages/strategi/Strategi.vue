@@ -32,10 +32,12 @@
 <script>
 export default {
   name: "Strategi",
-  beforeCreate() {
-    if (true) {
-      this.$router.push("/strategi-active");
-    }
+  mounted() {
+    this.$store.dispatch("strategi/clearInputStrategi");
+    this.$store.dispatch("strategi/clearActiveStrategi");
+    // if (true) {
+    //   this.$router.push("/strategi-active");
+    // }
   }
 };
 </script>

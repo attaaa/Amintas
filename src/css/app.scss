@@ -415,5 +415,10 @@ button:focus {
   border-radius: 2px;
 }
 
+.container-scroll {
+  height: 100%;
+  overflow-y: scroll;
+}
+
 // layout and component styles
 @import "./layout.scss";

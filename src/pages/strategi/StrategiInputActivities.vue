@@ -47,6 +47,21 @@ export default {
       activities: [{ val: "" }]
     };
   },
+  computed: {
+    strategiInputData() {
+      return this.$store.state.strategi.strategiInputData;
+    },
+    markdownToHtml() {
+      return marked(DistorsiKognitif);
+    }
+  },
+  mounted() {
+    this.activities = [
+      ...this.strategiInputData.activities.map(val => ({
+        val: val
+      }))
+    ];
+  },
   methods: {
     checkInputValid() {
       for (let activity of this.activities) {
@@ -71,14 +86,6 @@ export default {
         activities: [...this.activities.map(activity => activity.val)]
       });
       this.$router.push("/strategi/input-level");
-    }
-  },
-  computed: {
-    strategiInputData() {
-      return this.$store.state.strategi.strategiInputData;
-    },
-    markdownToHtml() {
-      return marked(DistorsiKognitif);
     }
   }
 };

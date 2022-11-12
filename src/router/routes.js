@@ -1,4 +1,5 @@
 import materi from "./materi";
+import restrukturisasi from "./restrukturisasi";
 
 const routes = [
   // {
@@ -94,6 +95,7 @@ const routes = [
       }
     ]
   },
+  restrukturisasi,
   materi,
   {
     path: "/relaksasi",

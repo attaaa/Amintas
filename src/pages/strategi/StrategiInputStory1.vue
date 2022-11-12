@@ -39,6 +39,14 @@ export default {
       }
     };
   },
+  computed: {
+    strategiInputData() {
+      return this.$store.state.strategi.strategiInputData;
+    }
+  },
+  mounted() {
+    this.story_penyebab = this.strategiInputData.story_penyebab;
+  },
   methods: {
     onChangeStory(story) {
       this.story_penyebab = story;
@@ -49,11 +57,6 @@ export default {
         story_penyebab: this.story_penyebab
       });
       this.$router.push("/strategi/input-story2");
-    }
-  },
-  computed: {
-    strategiInputData() {
-      return this.$store.state.strategi.strategiInputData;
     }
   }
 };

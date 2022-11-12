@@ -179,6 +179,27 @@
             </p>
           </template>
         </Collapse>
+
+        <div style="height: 8px;"></div>
+
+        <Collapse label="Penulis">
+          <!-- <template v-slot:preview="">
+            Sumber
+          </template> -->
+          <template v-slot:content="">
+            <div class="row" style="padding-top: 8px;">
+              <img
+                src="/img/education_material_author_ana.png"
+                style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px;"
+              />
+              <div>
+                <div>Ana Gotter, BA</div>
+                <div>Penulis dan Pemasaran Konten</div>
+                <div>Florida State University</div>
+              </div>
+            </div>
+          </template>
+        </Collapse>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100vh">
+  <div style="height: 100vh; overflow: hidden;">
     <div style="padding: 16px 12px;">
       <div @click="() => this.$refs.popUpCancel.setState('open')">
         <img
@@ -150,6 +150,7 @@ export default {
   overflow: hidden;
   border-radius: 16px;
   border: 2px solid transparent;
+  background-color: #f2f6ff;
 }
 
 .playlist-item > div.active {
