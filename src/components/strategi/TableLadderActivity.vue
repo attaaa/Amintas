@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
   width: 100%;
   display: flex;
@@ -69,6 +69,9 @@ export default {
   border-radius: 6px;
 
   resize: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .action {

@@ -1,5 +1,10 @@
 <template>
-  <LayoutOne headerImg="/img/restrukturisasi/sesi1_latihan1_detail.png">
+  <LayoutOne
+    headerImg="/img/restrukturisasi/sesi1_latihan1_detail.png"
+    :showAction="true"
+    labelNextAction="Aktivasi Latihan"
+    :handleNextAction="aktivasiLatihan"
+  >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Identifikasi Pikiran Negatif
     </h1>
@@ -29,59 +34,110 @@
       penting, dan tidak lolos untuk magang di sana. Kamu pun merasa sedih dan
       merasa bertanggung jawab atas kegagalannya.
     </p>
+    <!--
 
-    <h2 class="text__title-3 text__neutral-black" style="margin-bottom: 12px">
-      Materi
-    </h2>
-    <div>
-      <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_materi1.png" />
-        <div class="text__headline text__primary">
-          <div>Tentang Pikiran dan Perasaan</div>
-        </div>
+     -->
+
+    <!-- FORM -->
+    <div class="latihan-form">
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Pikiran
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="pikiran"
+          class="q-mt-sm"
+          placeholder="Pikiran negatif yang muncul"
+        />
       </div>
-      <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_materi2.png" />
-        <div class="text__headline text__primary">
-          <div>Menghubungkan Perasaan dengan Pikiran</div>
-        </div>
-      </div>
-      <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_materi3.png" />
-        <div class="text__headline text__primary">
-          <div>Faktor Pikiran Negatif</div>
-        </div>
+      <div>
+        <label class="text__title-4 text__neutral-black">
+          Faktor Pikiran
+        </label>
+        <Picker
+          :disabled="formDisabled"
+          v-model="faktorPikiran"
+          class="q-mt-sm"
+        />
       </div>
     </div>
+    <!--
 
-    <h2
-      class="text__title-3 text__neutral-black"
-      style="margin-top: 24px;  margin-bottom: 12px"
-    >
-      Latihan
-    </h2>
-    <div>
-      <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_latihan1.png" />
-        <div class="text__headline text__primary">
-          <div>Identifikasi Pikiran Negatif</div>
-        </div>
+     -->
+
+    <!-- POPUP -->
+    <PopUp ref="popUpAktivasi" :enable-pan-area="false">
+      <!-- illustration -->
+      <img
+        style="width: 100%; border-radius: 8px;"
+        src="/img/popup_end_process.png"
+      />
+
+      <span
+        class="block text__primary text__title-3 full-width text-center"
+        style="margin-top: 24px; margin-bottom: 16px;"
+        >Buang Perubahan?
+      </span>
+      <p
+        class="text__body text__neutral-dark-grey text-center"
+        style="margin-bottom: 48px"
+      >
+        Perubahanmu di sini belum tersimpan. Apakah kamu yakin ingin
+        meninggalkan halaman ini?
+      </p>
+
+      <div class="pop-up--action row">
+        <button
+          class="btn__large btn__alert col relative-position text-white"
+          @click="$router.back()"
+          v-ripple
+        >
+          Tingalkan Halaman
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__secondary text__primary col-auto relative-position "
+          @click="$refs.popUpCancel.setState('close')"
+          v-ripple
+        >
+          Tidak
+        </button>
       </div>
-      <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_latihan2.png" />
-        <div class="text__headline text__primary">
-          <div>Catatan Pikiran Negatif</div>
-        </div>
-      </div>
-    </div>
+    </PopUp>
   </LayoutOne>
 </template>
 
 <script>
+import Picker from "src/components/inputs/Picker.vue";
+import TextAreaCustom from "src/components/inputs/TextAreaCustom.vue";
 import LayoutOne from "../../../layouts/LayoutOne.vue";
+import PopUp from "components/bottomsheet/PopUp";
 
 export default {
-  components: { LayoutOne }
+  components: { LayoutOne, TextAreaCustom, Picker, PopUp },
+  data: function() {
+    return {
+      pikiran: "",
+      faktorPikiran: []
+    };
+  },
+  computed: {
+    formDisabled() {
+      return !this.$store.state.restrukturisasi.statusLatihan.sesi1
+        .latihan1Form;
+    }
+  },
+  methods: {
+    aktivasiLatihan() {
+      this.$refs.popUpAktivasi.setState("open");
+      // this.$store.commit("restrukturisasi/setStatusLatihan", {
+      //   sesi: "sesi1",
+      //   latihanName: "latihan1Form",
+      //   value: true
+      // });
+    }
+  }
 };
 </script>
 
@@ -136,5 +192,27 @@ export default {
 
 .material-item img {
   border-radius: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 88px;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  /* Neutral/Extrasoft Grey */
+  background: #f1f2f5;
+  /* Neutral/Soft Grey */
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  /* Body/Body Text */
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  letter-spacing: 0.02em;
 }
 </style>

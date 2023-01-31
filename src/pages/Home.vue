@@ -11,12 +11,15 @@
           <p class="text__headline text-white">
             Yuk lawan pikiran mengganggu di kepalamu!
           </p>
-          <button class="btn__small btn__accent" @click="openModul()">
+          <button
+            class="btn__small btn__accent"
+            @click="$router.push('restrukturisasi')"
+          >
             Buka modul
           </button>
         </div>
         <div class="home-card--img">
-          <img svg-inline src="assets/home-card.svg" />
+          <img src="/img/module_access_main.png" />
         </div>
       </div>
 
@@ -111,3 +114,18 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.home-card {
+  position: relative;
+}
+.home-card--img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  pointer-events: none;
+}
+</style>

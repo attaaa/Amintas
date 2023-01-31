@@ -18,29 +18,20 @@
       Materi
     </h2>
     <div>
-      <div
-        class="material-item flex items-center"
-        @click="$router.push('/restrukturisasi/sesi1/materi1')"
-      >
-        <img src="/img/restrukturisasi/sesi1_materi1_ico.png" />
+      <div class="material-item flex items-center">
+        <img src="/img/restrukturisasi/sesi1_materi1.png" />
         <div class="text__headline text__primary">
           <div>Tentang Pikiran dan Perasaan</div>
         </div>
       </div>
-      <div
-        class="material-item flex items-center"
-        @click="$router.push('/restrukturisasi/sesi1/materi2')"
-      >
-        <img src="/img/restrukturisasi/sesi1_materi2_ico.png" />
+      <div class="material-item flex items-center">
+        <img src="/img/restrukturisasi/sesi1_materi2.png" />
         <div class="text__headline text__primary">
           <div>Menghubungkan Perasaan dengan Pikiran</div>
         </div>
       </div>
-      <div
-        class="material-item flex items-center"
-        @click="$router.push('/restrukturisasi/sesi1/materi3')"
-      >
-        <img src="/img/restrukturisasi/sesi1_materi3_ico.png" />
+      <div class="material-item flex items-center">
+        <img src="/img/restrukturisasi/sesi1_materi3.png" />
         <div class="text__headline text__primary">
           <div>Faktor Pikiran Negatif</div>
         </div>
@@ -54,22 +45,13 @@
       Latihan
     </h2>
     <div>
-      <div
-        class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusLatihan1 }"
-        @click="
-          statusLatihan1 && $router.push('/restrukturisasi/sesi1/latihan1')
-        "
-      >
+      <div class="material-item flex items-center">
         <img src="/img/restrukturisasi/sesi1_latihan1.png" />
         <div class="text__headline text__primary">
           <div>Identifikasi Pikiran Negatif</div>
         </div>
       </div>
-      <div
-        class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusLatihan2 }"
-      >
+      <div class="material-item flex items-center">
         <img src="/img/restrukturisasi/sesi1_latihan2.png" />
         <div class="text__headline text__primary">
           <div>Catatan Pikiran Negatif</div>
@@ -84,17 +66,8 @@ import LayoutOne from "../../../layouts/LayoutOne.vue";
 
 export default {
   components: { LayoutOne },
-  computed: {
-    statusLatihan1() {
-      const statusMateri = this.$store.state.restrukturisasi.statusMateri.sesi1;
-      return statusMateri.every(Boolean);
-    },
-    statusLatihan2() {
-      return false;
-    }
-  },
   mounted() {
-    this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
+    this.$store.commit("restrukturisasi/setStatusSesi", "sesi3");
   }
 };
 </script>

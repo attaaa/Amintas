@@ -2,7 +2,7 @@
   <div class="relative-position" style="height: 100vh; overflow: hidden;">
     <!-- header navigation -->
     <div class="relative-position" style="padding: 16px 12px;">
-      <div>
+      <div @click="$router.back()">
         <img
           src="assets/icons/general/arrow-left.svg"
           svg-inline

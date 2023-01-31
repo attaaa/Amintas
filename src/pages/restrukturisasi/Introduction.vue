@@ -30,7 +30,10 @@
 import LayoutOne from "../../layouts/LayoutOne.vue";
 
 export default {
-  components: { LayoutOne }
+  components: { LayoutOne },
+  mounted() {
+    this.$store.commit("restrukturisasi/setStatusSesi", "sesi1");
+  }
 };
 </script>
 

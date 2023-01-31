@@ -18,6 +18,27 @@ const childRoutes = {
       path: "sesi1/latihan1",
       component: () =>
         import("pages/restrukturisasi/latihan/IdentifikasiPikiranNegatif.vue")
+    },
+
+    // SESI 1 MATERI
+    {
+      path: "sesi1/materi1",
+      component: () =>
+        import("pages/restrukturisasi/sesi/materi_sesi_1/Materi1.vue")
+    },
+    {
+      path: "sesi1/materi2",
+      component: () =>
+        import("pages/restrukturisasi/sesi/materi_sesi_1/Materi2.vue")
+    },
+    {
+      path: "sesi1/materi3",
+      component: () =>
+        import("pages/restrukturisasi/sesi/materi_sesi_1/Materi3.vue")
+    },
+    {
+      path: ":sesi/:materi",
+      component: () => import("pages/restrukturisasi/MateriContainer.vue")
     }
   ]
 };

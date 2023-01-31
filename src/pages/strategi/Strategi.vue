@@ -33,11 +33,9 @@
 export default {
   name: "Strategi",
   mounted() {
-    this.$store.dispatch("strategi/clearInputStrategi");
-    this.$store.dispatch("strategi/clearActiveStrategi");
-    // if (true) {
-    //   this.$router.push("/strategi-active");
-    // }
+    if (this.$store.state.strategi.strategiActive) {
+      this.$router.push("/strategi-active");
+    }
   }
 };
 </script>

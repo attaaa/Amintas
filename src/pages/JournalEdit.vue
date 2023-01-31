@@ -2,7 +2,7 @@
   <div class="journal-edit hide-scrollbar" v-if="journalData !== undefined">
     <div class="journal-edit--nav row items-center">
       <!-- back button -->
-      <div @click="() => this.$router" style="margin-right: 16px">
+      <div @click="() => this.$router.back()" style="margin-right: 16px">
         <svg
           width="16"
           height="16"

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header-nav">
-      <div class="icon q-mr-md" @click="() => this.$route.back()">
+      <div class="icon q-mr-md" @click="$router.back()">
         <svg
           width="16"
           height="16"
@@ -22,6 +22,7 @@
 
     <div class="container-scroll">
       <div class="main q-pa-3">
+        <!-- PERKENALAN -->
         <h2 class="text__title-2 text__neutral-back q-my-none">Perkenalan</h2>
         <div
           class="item"
@@ -30,22 +31,35 @@
           <h3 class="text__title-3 text__primary">Untuk Temanku</h3>
           <img src="/img/restrukturisasi/intro.png" />
         </div>
+        <!-- SESI UTAMA -->
         <h2 class="text__title-2 text__neutral-back">Sesi Utama</h2>
-        <div class="item">
+        <div
+          class="item"
+          :class="{ disabled: !statusSesi.sesi1 }"
+          @click="goToSesi('sesi1')"
+        >
           <h3 class="text__title-3 text__primary">
             Sesi 1: <br />
             Pikiran dan Perasaan
           </h3>
           <img src="/img/restrukturisasi/sesi1.png" />
         </div>
-        <div class="item">
+        <div
+          class="item"
+          :class="{ disabled: !statusSesi.sesi2 }"
+          @click="goToSesi('sesi2')"
+        >
           <h3 class="text__title-3 text__primary">
             Sesi 2: <br />
             Pola Pikir Negatif
           </h3>
           <img src="/img/restrukturisasi/sesi2.png" />
         </div>
-        <div class="item">
+        <div
+          class="item"
+          :class="{ disabled: !statusSesi.sesi3 }"
+          @click="goToSesi('sesi3')"
+        >
           <h3 class="text__title-3 text__primary">
             Sesi 3: <br />
             Menantang Pikiran
@@ -65,7 +79,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    statusSesi() {
+      return this.$store.state.restrukturisasi.statusSesi;
+    }
+  },
+  methods: {
+    goToSesi(sesi) {
+      if (!this.statusSesi[sesi]) return;
+
+      this.$router.push(`/restrukturisasi/${sesi}`);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -105,6 +132,10 @@ export default {};
   height: 164px;
   background-color: #f2f6ff;
   border-radius: 16px;
+
+  &.disabled {
+    filter: grayscale(80%);
+  }
 
   h3 {
     padding: 16px;

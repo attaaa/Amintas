@@ -69,7 +69,7 @@
           <input
             type="password"
             class="input-field"
-            placeholder="12345"
+            placeholder="Password"
             style="padding-right: 40px;"
             ref="loginPassInput"
             v-model="password"
