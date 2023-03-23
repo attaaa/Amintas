@@ -42,6 +42,10 @@
             Sesi 1: <br />
             Pikiran dan Perasaan
           </h3>
+          <div v-if="statusSesi.sesi1" class="item__tray">
+            <div>3 Materi</div>
+            <div>2 Latihan</div>
+          </div>
           <img src="/img/restrukturisasi/sesi1.png" />
         </div>
         <div
@@ -53,6 +57,10 @@
             Sesi 2: <br />
             Pola Pikir Negatif
           </h3>
+          <div v-if="statusSesi.sesi2" class="item__tray">
+            <div>3 Materi</div>
+            <div>2 Latihan</div>
+          </div>
           <img src="/img/restrukturisasi/sesi2.png" />
         </div>
         <div
@@ -64,6 +72,10 @@
             Sesi 3: <br />
             Menantang Pikiran
           </h3>
+          <div v-if="statusSesi.sesi3" class="item__tray">
+            <div>3 Materi</div>
+            <div>2 Latihan</div>
+          </div>
           <img src="/img/restrukturisasi/sesi3.png" />
         </div>
         <h2 class="text__title-2 text__neutral-back">Bantuan</h2>
@@ -132,24 +144,58 @@ export default {
   height: 164px;
   background-color: #f2f6ff;
   border-radius: 16px;
+  padding: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &.disabled {
     filter: grayscale(80%);
   }
 
   h3 {
-    padding: 16px;
     width: 156px;
+    margin: 0;
   }
 
   img {
     position: absolute;
     width: 100%;
     height: 100%;
+    left: 0;
+    top: 0;
 
     object-fit: cover;
     bottom: 0;
     user-select: none;
+    pointer-events: none;
+  }
+
+  &__tray {
+    display: flex;
+    gap: 8px;
+
+    div {
+      padding: 4px 8px;
+      background: #ffcb4d;
+      border-radius: 12px;
+
+      font-family: "Nunito Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      /* identical to box height, or 150% */
+
+      text-align: center;
+      letter-spacing: 0.02em;
+
+      /* Neutral/Black */
+
+      color: #303030;
+    }
   }
 }
 </style>

@@ -4,6 +4,7 @@ import createPersistedState from "vuex-persistedstate";
 
 // import example from './module-example'
 import account from "./account";
+import app from "./app";
 import journal from "./journal";
 import restrukturisasi from "./restrukturisasi";
 import strategi from "./strategi";
@@ -23,6 +24,7 @@ export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       // example
+      app,
       journal,
       strategi,
       account,

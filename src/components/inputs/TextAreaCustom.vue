@@ -32,6 +32,7 @@
   line-height: 24px;
   letter-spacing: 0.02em;
   position: relative;
+  word-wrap: break-word;
 
   &.disabled {
     background: #dedede;
@@ -85,6 +86,11 @@ export default {
         this.$emit("input", text);
       }
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      if (this.value) this.$refs.textAreaCustom.innerHTML = this.value.trim();
+    });
   }
 };
 </script>

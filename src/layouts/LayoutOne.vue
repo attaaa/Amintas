@@ -21,79 +21,17 @@
     <div class="main">
       <slot></slot>
     </div>
-    <!-- action -->
-    <div
-      v-if="showAction"
-      class="fill-action col-auto"
-      :class="[true ? 'show-action' : 'hide-action']"
-    >
-      <button
-        class="btn__large btn__accent full-width"
-        @click="handleNextAction()"
-      >
-        {{ labelNextAction || "Label" }}
-      </button>
-    </div>
-    <!--
-
-     -->
-    <!-- POPUP -->
-    <PopUp
-      ref="popUpConfirmation"
-      :enablePanArea="false"
-      style="z-index: 999 !important"
-    >
-      <!-- illustration -->
-      <div
-        class="placeholder-illustration flex"
-        style="height: 188px; margin-top: 6px;"
-      >
-        <img
-          style="height: 100%; width: 100%; object-fit:cover;  border-radius: 8px"
-          src="/img/popup_get_started.png"
-        />
-      </div>
-
-      <span
-        class="block text__primary text__title-3 full-width text-center"
-        style="margin-top: 24px; margin-bottom: 16px;"
-        >Mulai Atasi Cemasmu
-      </span>
-      <p
-        class="text__body text__neutral-dark-grey text-center"
-        style="margin-bottom: 48px"
-      >
-        Dengan amintas kamu bisa menangani rasa cemas mengganggu di keseharianmu
-      </p>
-
-      <div class="pop-up--action row">
-        <button
-          class="btn__large btn__accent col-12 relative-position"
-          @click="register()"
-          v-ripple
-        >
-          Mulai Sekarang
-        </button>
-      </div>
-    </PopUp>
+    <!--  -->
   </div>
 </template>
 
 <script>
-import PopUp from "components/bottomsheet/PopUp";
-
 export default {
-  components: { PopUp },
   props: {
     headerImg: {
       type: String,
       default: "#"
-    },
-    showAction: Boolean,
-    labelNextAction: String,
-
-    // handler
-    handleNextAction: Function
+    }
   }
 };
 </script>
@@ -127,23 +65,5 @@ export default {
 
 .main {
   padding: 16px;
-}
-
-.fill-action {
-  width: 100%;
-  padding: 16px 16px 24px 16px;
-  position: absolute;
-  box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.12);
-  background-color: #fff;
-  z-index: 10;
-}
-
-.fill-action.hide-action {
-  bottom: -88px;
-}
-
-.fill-action.show-action {
-  bottom: 0;
-  transition: bottom 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 </style>

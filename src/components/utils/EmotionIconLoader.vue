@@ -55,19 +55,9 @@
     src="assets/icons/emotion/sad.svg"
   />
   <img
-    v-else-if="iconName === 'kecewa'"
-    svg-inline
-    src="assets/icons/emotion/dissapointed.svg"
-  />
-  <img
     v-else-if="iconName === 'takut'"
     svg-inline
     src="assets/icons/emotion/afraid.svg"
-  />
-  <img
-    v-else-if="iconName === 'kecewa'"
-    svg-inline
-    src="assets/icons/emotion/dissapointed.svg"
   />
   <img
     v-else-if="iconName === 'stress'"

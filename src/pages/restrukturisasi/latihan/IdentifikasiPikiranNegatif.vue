@@ -1,9 +1,15 @@
 <template>
-  <LayoutOne
+  <LayoutLatihan
     headerImg="/img/restrukturisasi/sesi1_latihan1_detail.png"
-    :showAction="true"
-    labelNextAction="Aktivasi Latihan"
-    :handleNextAction="aktivasiLatihan"
+    :showAction="formDisabled"
+    :labelNextAction="'Aktivasi Latihan'"
+    :handleNextAction="showAktivasiLatihan"
+    :showSecondaryAction="showSecondaryAction"
+    :activeDoneButton="activeDoneButton"
+    :handleSave="saveData"
+    :handleDone="doneLatihan"
+    @aktivasiLatihan="aktivasiLatihan()"
+    @selesaikanLatihan="selesaikanLatihan()"
   >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Identifikasi Pikiran Negatif
@@ -39,103 +45,176 @@
      -->
 
     <!-- FORM -->
-    <div class="latihan-form">
-      <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
-          Pikiran
-        </label>
-        <TextAreaCustom
-          :disabled="formDisabled"
-          v-model="pikiran"
-          class="q-mt-sm"
-          placeholder="Pikiran negatif yang muncul"
-        />
+    <template v-if="!latihanFinished">
+      <div class="latihan-form">
+        <div class="q-mb-md ">
+          <label class="text__title-4 text__neutral-black">
+            Pikiran
+          </label>
+          <TextAreaCustom
+            :disabled="formDisabled"
+            v-model="pikiran"
+            class="q-mt-sm"
+            placeholder="Pikiran negatif yang muncul"
+          />
+        </div>
+        <div>
+          <label class="text__title-4 text__neutral-black">
+            Faktor Pikiran
+          </label>
+          <Picker
+            placeholder="Pilih faktor pikiran yang teridentifikasi"
+            :options="options"
+            :disabled="formDisabled"
+            :value="selectedOptionsIdx"
+            @input="selectOption"
+            @unSelect="unSelectOption"
+            class="q-mt-sm"
+          />
+        </div>
       </div>
-      <div>
-        <label class="text__title-4 text__neutral-black">
-          Faktor Pikiran
-        </label>
-        <Picker
-          :disabled="formDisabled"
-          v-model="faktorPikiran"
-          class="q-mt-sm"
-        />
-      </div>
-    </div>
+    </template>
+
+    <template v-else>
+      <Latihan1View />
+    </template>
     <!--
 
      -->
-
-    <!-- POPUP -->
-    <PopUp ref="popUpAktivasi" :enable-pan-area="false">
-      <!-- illustration -->
-      <img
-        style="width: 100%; border-radius: 8px;"
-        src="/img/popup_end_process.png"
-      />
-
-      <span
-        class="block text__primary text__title-3 full-width text-center"
-        style="margin-top: 24px; margin-bottom: 16px;"
-        >Buang Perubahan?
-      </span>
-      <p
-        class="text__body text__neutral-dark-grey text-center"
-        style="margin-bottom: 48px"
-      >
-        Perubahanmu di sini belum tersimpan. Apakah kamu yakin ingin
-        meninggalkan halaman ini?
-      </p>
-
-      <div class="pop-up--action row">
-        <button
-          class="btn__large btn__alert col relative-position text-white"
-          @click="$router.back()"
-          v-ripple
-        >
-          Tingalkan Halaman
-        </button>
-        <div style="width: 16px;"></div>
-        <button
-          class="btn__large btn__secondary text__primary col-auto relative-position "
-          @click="$refs.popUpCancel.setState('close')"
-          v-ripple
-        >
-          Tidak
-        </button>
-      </div>
-    </PopUp>
-  </LayoutOne>
+  </LayoutLatihan>
 </template>
 
 <script>
-import Picker from "src/components/inputs/Picker.vue";
-import TextAreaCustom from "src/components/inputs/TextAreaCustom.vue";
-import LayoutOne from "../../../layouts/LayoutOne.vue";
-import PopUp from "components/bottomsheet/PopUp";
+import LayoutLatihan from "src/layouts/LayoutLatihan";
+import Picker from "src/components/inputs/Picker";
+import TextAreaCustom from "src/components/inputs/TextAreaCustom";
+//
+import Latihan1View from "src/components/restrukturisasi/sesi1/latihan1/Latihan1View";
+
+const faktorPikiranList = [
+  {
+    id: 0,
+    icon: "diri sendiri",
+    name: "Diri sendiri"
+  },
+  {
+    id: 1,
+    icon: "masa depan",
+    name: "Masa depan"
+  },
+  {
+    id: 2,
+    icon: "situasi",
+    name: "Situasi"
+  }
+];
 
 export default {
-  components: { LayoutOne, TextAreaCustom, Picker, PopUp },
+  components: {
+    LayoutLatihan,
+    TextAreaCustom,
+    Picker,
+    Latihan1View
+  },
   data: function() {
     return {
+      options: faktorPikiranList,
+
+      // form data
       pikiran: "",
-      faktorPikiran: []
+      selectedOptionsIdx: []
     };
   },
   computed: {
     formDisabled() {
       return !this.$store.state.restrukturisasi.statusLatihan.sesi1
         .latihan1Form;
+    },
+    showSecondaryAction() {
+      return (
+        !this.$store.state.restrukturisasi.statusLatihan.sesi1
+          .latihan1Finished &&
+        (!!this.pikiran || this.selectedOptionsIdx.length > 0)
+      );
+    },
+    activeDoneButton() {
+      return !!this.pikiran && this.selectedOptionsIdx.length > 0;
+    },
+    latihanFinished() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi1
+        .latihan1Finished;
     }
   },
   methods: {
+    showAktivasiLatihan() {
+      this.$refs.popUpAktifkan.setState("open");
+    },
     aktivasiLatihan() {
-      this.$refs.popUpAktivasi.setState("open");
-      // this.$store.commit("restrukturisasi/setStatusLatihan", {
-      //   sesi: "sesi1",
-      //   latihanName: "latihan1Form",
-      //   value: true
+      this.$store.commit("restrukturisasi/setStatusLatihan", {
+        sesi: "sesi1",
+        latihanName: "latihan1Form",
+        value: true
+      });
+      this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
+    },
+    getHeightForPopUp(height) {
+      return window.innerHeight - height;
+    },
+    // main
+    selectOption(optionId) {
+      const temp = [...this.selectedOptionsIdx];
+      this.selectedOptionsIdx = [...temp, optionId];
+      // this.selectedOptionsIdx.push(optionId);
+      // this.$store.commit("restrukturisasi/setSesiLatihanSelectedOptionsIdx", {
+      //   sesiLatihan: "sesi1Latihan1",
+      //   optionId: optionId
       // });
+    },
+    unSelectOption(optionId) {
+      const idx = this.selectedOptionsIdx.indexOf(optionId);
+      if (idx !== -1) this.selectedOptionsIdx.splice(idx, 1);
+      // this.$store.commit("restrukturisasi/unSetSesiLatihanSelectedOptionsIdx", {
+      //   sesiLatihan: "sesi1Latihan1",
+      //   optionId: optionId
+      // });
+    },
+    saveData() {
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi1Latihan1",
+        data: {
+          pikiran: this.pikiran,
+          selectedOptionsIdx: this.selectedOptionsIdx
+        }
+      });
+      this.$router.back();
+    },
+    doneLatihan() {
+      this.$refs.popUpDone.setState("open");
+    },
+    selesaikanLatihan() {
+      // save data first
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi1Latihan1",
+        data: {
+          pikiran: this.pikiran,
+          selectedOptionsIdx: this.selectedOptionsIdx
+        }
+      });
+
+      // set status to finished
+      this.$store.commit("restrukturisasi/setFinishedLatihan", {
+        sesi: "sesi1",
+        currSesiLatihanFinished: "latihan1Finished",
+        nextSesiLatihan: "latihan2"
+      });
+    }
+  },
+  mounted() {
+    // get saved data if exist
+    const savedData = this.$store.state.restrukturisasi.sesi1Latihan1;
+    if (savedData) {
+      this.pikiran = savedData.pikiran;
+      this.selectedOptionsIdx = savedData.selectedOptionsIdx;
     }
   }
 };
@@ -194,25 +273,25 @@ export default {
   border-radius: 20px;
 }
 
-textarea {
-  width: 100%;
-  height: 88px;
-  border: 1px solid #dedede;
-  border-radius: 6px;
-}
+// textarea {
+//   width: 100%;
+//   height: 88px;
+//   border: 1px solid #dedede;
+//   border-radius: 6px;
+// }
 
-input[type="text"] {
-  width: 100%;
-  padding: 8px 12px;
-  /* Neutral/Extrasoft Grey */
-  background: #f1f2f5;
-  /* Neutral/Soft Grey */
-  border: 1px solid #dedede;
-  border-radius: 6px;
-  /* Body/Body Text */
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height, or 150% */
-  letter-spacing: 0.02em;
-}
+// input[type="text"] {
+//   width: 100%;
+//   padding: 8px 12px;
+//   /* Neutral/Extrasoft Grey */
+//   background: #f1f2f5;
+//   /* Neutral/Soft Grey */
+//   border: 1px solid #dedede;
+//   border-radius: 6px;
+//   /* Body/Body Text */
+//   font-size: 16px;
+//   line-height: 24px;
+//   /* identical to box height, or 150% */
+//   letter-spacing: 0.02em;
+// }
 </style>

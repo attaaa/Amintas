@@ -69,6 +69,9 @@
       <div
         class="material-item flex items-center"
         :class="{ 'item-disabled': !statusLatihan2 }"
+        @click="
+          statusLatihan2 && $router.push('/restrukturisasi/sesi1/latihan2')
+        "
       >
         <img src="/img/restrukturisasi/sesi1_latihan2.png" />
         <div class="text__headline text__primary">
@@ -90,12 +93,12 @@ export default {
       return statusMateri.every(Boolean);
     },
     statusLatihan2() {
-      return false;
+      return this.$store.state.restrukturisasi.statusLatihan.sesi1.latihan2;
     }
-  },
-  mounted() {
-    this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
   }
+  // mounted() {
+  //   this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
+  // }
 };
 </script>
 

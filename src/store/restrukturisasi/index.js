@@ -16,11 +16,45 @@ export default {
       sesi1: {
         latihan1: false,
         latihan1Form: false,
+        latihan1Finished: false,
         latihan2: false,
-        latihan2Form: false
+        latihan2Form: false,
+        latihan2Finished: false
       }
-    }
+    },
+    sesi1Latihan1: {
+      pikiran: "",
+      selectedOptionsIdx: []
+    },
     // END STATUS
+
+    // ADJUSTMENT
+    sesi: [
+      // 0 = sesi 1
+      {
+        latihan: [
+          // 0 = latihan 1
+          {
+            form: [
+              {
+                name: "Pikiran",
+                value: "Test Content Pikiran"
+              },
+              {
+                name: "Pikiran 2",
+                value: "Test Content Pikiran 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        latihan: []
+      },
+      {
+        latihan: []
+      }
+    ]
   },
   mutations: {
     setStatusSesi(state, sesi) {
@@ -36,6 +70,29 @@ export default {
       const currStatusLatihan = { ...state.statusLatihan };
       currStatusLatihan[sesi][latihanName] = value;
       state.statusLatihan = { ...currStatusLatihan };
+    },
+    setLatihanData(state, { sesiLatihan, data }) {
+      state[sesiLatihan] = { ...data };
+    },
+    setFinishedLatihan(
+      state,
+      { sesi, currSesiLatihanFinished, nextSesiLatihan }
+    ) {
+      state.statusLatihan[sesi][currSesiLatihanFinished] = true;
+      if (nextSesiLatihan) {
+        state.statusLatihan[sesi][nextSesiLatihan] = true;
+      }
+    },
+
+    // for dev only
+    resetFinishedLatihan(
+      state,
+      { sesi, currSesiLatihanFinished, nextSesiLatihan }
+    ) {
+      state.statusLatihan[sesi][currSesiLatihanFinished] = false;
+      if (nextSesiLatihan) {
+        state.statusLatihan[sesi][nextSesiLatihan] = false;
+      }
     }
   }
 };

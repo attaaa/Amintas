@@ -149,6 +149,10 @@ const routes = [
       {
         path: "mood/:id",
         component: () => import("pages/journal-edit/JournalEditMood.vue")
+      },
+      {
+        path: "test",
+        component: () => import("pages/Test.vue")
       }
     ]
   },
