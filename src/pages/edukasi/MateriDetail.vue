@@ -154,10 +154,16 @@
         <h2>Video Terkait</h2>
         <div class="video">
           <iframe
+            title="video"
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/wS1TqXn0Z3c?controls=0"
+            type="text/html"
+            src="https://www.youtube.com/embed/KDczYPtkvA0?ps=docs&controls=0&disablekb=1&fs=0&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
+            frameborder="0"
           ></iframe>
+          <div class="video__btn-play" role="button" aria-label="play video">
+            <img src="/img/btn-video-play.png" />
+          </div>
         </div>
       </div>
       <!-- INFORMASI MATERI -->
@@ -243,6 +249,17 @@ export default {
       height: 2px;
       background-color: #ffcb4d;
     }
+  }
+}
+
+.video {
+  position: relative;
+
+  &__btn-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>

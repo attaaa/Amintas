@@ -80,6 +80,10 @@
           height: 100%;
           border: none;
           overflow: hidden;
+
+          display: block;
+          position: relative;
+          z-index: 9999;
         }
       }
     }

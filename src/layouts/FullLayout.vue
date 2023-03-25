@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100vh; overflow: hidden; position: relative;">
+  <div class="full-layout">
     <router-view />
   </div>
 </template>
@@ -9,3 +9,12 @@ export default {
   name: "FullLayout"
 };
 </script>
+
+<style lang="scss" scoped>
+.full-layout {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+</style>
