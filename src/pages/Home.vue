@@ -103,12 +103,15 @@ export default {
     account() {
       return this.$store.state.account.account;
     },
+    isLoggedIn() {
+      return this.$store.state.account.isLoggedIn;
+    },
     journalDataList() {
       return this.$store.state.journal.journalDataList;
     }
   },
   mounted() {
-    if (!this.account || !this.account.name) {
+    if (!this.account || !this.account.name || !this.isLoggedIn) {
       this.$router.push("onboarding");
     }
   }

@@ -105,7 +105,6 @@
 
 <script>
 import BarSingle from "components/inputs/BarSingle";
-import account from "src/store/account";
 
 export default {
   name: "Login",
@@ -119,6 +118,11 @@ export default {
       },
       formFilled: false
     };
+  },
+  computed: {
+    account() {
+      return this.$store.state.account.account;
+    }
   },
   methods: {
     togglePassword() {
@@ -134,13 +138,15 @@ export default {
         this.login.email === this.account.email &&
         this.login.username === this.account.username
       ) {
+        this.$store.commit("account/loginAccount", true);
         this.$router.replace("/");
+      } else {
+        this.$store.dispatch(
+          "app/showDangerToast",
+          "Email atau kata sandi salah",
+          "danger"
+        );
       }
-    }
-  },
-  computed: {
-    account() {
-      return this.$store.state.account.account;
     }
   }
 };

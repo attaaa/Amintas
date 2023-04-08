@@ -20,7 +20,7 @@
         style="padding: 8px 0px; margin-bottom: 12px"
       >
         <!-- <div class="relative-position" style="margin-right: 12px">
-          
+
         </div> -->
         <svg
           width="24"
@@ -226,6 +226,17 @@
           />
         </svg>
       </div>
+
+      <!-- <div
+        class="row items-center"
+        style="padding: 8px 0px; margin-bottom: 12px"
+      >
+        <div class="">Keluar</div>
+      </div> -->
+    </div>
+
+    <div class="btn-logout text__title-4 text__alert" @click="onLogout()">
+      Keluar
     </div>
   </div>
 </template>
@@ -244,8 +255,29 @@ export default {
     account() {
       return this.$store.state.account.account;
     }
+  },
+  methods: {
+    onLogout() {
+      this.$store.commit("account/loginAccount", false);
+      this.$router.replace("/");
+      window.location.reload();
+    }
   }
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.btn-logout {
+  margin: 0 auto;
+  margin-top: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+
+  width: 85px;
+  height: 48px;
+
+  border-radius: 6px;
+}
+</style>

@@ -9,7 +9,7 @@
       <router-view />
     </transition> -->
     <router-view />
-    <div v-if="toast.show" class="toast-notification">
+    <div v-if="toast.show" class="toast-notification" :class="toast.class">
       {{ toast.text }}
     </div>
   </div>
@@ -38,20 +38,24 @@ export default {
   color: #ffffff;
   z-index: 999999;
   opacity: 0;
-  animation: toastShow 3s;
+  animation: toastShow 2s;
+
+  &--danger {
+    background: #af3a3a;
+  }
 }
 
 @keyframes toastShow {
   0% {
     opacity: 0;
   }
-  30% {
+  40% {
     opacity: 1;
-    bottom: 80px;
+    bottom: 110px;
   }
   80% {
     opacity: 1;
-    bottom: 80px;
+    bottom: 110px;
   }
   100% {
     opacity: 0;

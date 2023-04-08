@@ -6,4 +6,8 @@ const deleteAccount = state => {
   state.account = {};
 };
 
-export { registerAccount, deleteAccount };
+const loginAccount = (state, value) => {
+  state.isLoggedIn = value;
+};
+
+export { registerAccount, deleteAccount, loginAccount };
