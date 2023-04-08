@@ -1,5 +1,5 @@
 <template>
-  <div class="tray">
+  <div class="tray" :class="customClass">
     <slot></slot>
     <!-- <slot name="img"></slot>
     <slot name="text"></slot> -->
@@ -24,7 +24,15 @@
 export default {
   name: "Tray",
   props: {
-    showRemove: Boolean
+    showRemove: Boolean,
+    variant: String
+  },
+  computed: {
+    customClass() {
+      if (this.variant) return `tray--normal`;
+
+      return "";
+    }
   }
 };
 </script>
@@ -41,5 +49,10 @@ export default {
   /* Primary/Blue */
   background: #5c7ccd;
   border-radius: 6px;
+
+  &--normal {
+    background: #f2f6ff;
+    border-radius: 14px;
+  }
 }
 </style>

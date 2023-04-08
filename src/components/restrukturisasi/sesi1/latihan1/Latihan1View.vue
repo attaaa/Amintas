@@ -15,18 +15,25 @@
       <div class="text__title-4" style="margin-bottom: 12px">
         Faktor Pikiran
       </div>
-      <div class="content-detail">
-        <div class="text__body">
+      <div>
+        <div class="text__body faktor-pikiran__container">
           <template v-for="iValue in latihanData.selectedOptionsIdx">
-            <Tray :key="iValue">
+            <Tray :key="iValue" variant="normal">
               <FaktorPikiranIconLoaderVue :icon-name="options[iValue].icon" />
-              <div class="option-item--text text__title-5 text-white">
+              <div class="option-item--text text__title-5 text-primary">
                 {{ options[iValue].name }}
               </div>
             </Tray>
           </template>
         </div>
       </div>
+    </div>
+
+    <div
+      class="text__title-4 text__alert text-center"
+      style="margin-top: 40px;"
+    >
+      Ulang Latihan
     </div>
   </div>
 </template>
@@ -73,5 +80,11 @@ export default {
   padding: 16px;
   background-color: #f2f6ff;
   border-radius: 8px;
+}
+
+.faktor-pikiran__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 </style>

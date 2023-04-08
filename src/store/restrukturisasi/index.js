@@ -26,6 +26,23 @@ export default {
       pikiran: "",
       selectedOptionsIdx: []
     },
+    sesi1Latihan2: {
+      catatan1: {
+        peristiwa: "",
+        pikiran: "",
+        faktorPikiran: []
+      },
+      catatan2: {
+        peristiwa: "",
+        pikiran: "",
+        faktorPikiran: []
+      },
+      catatan3: {
+        peristiwa: "",
+        pikiran: "",
+        faktorPikiran: []
+      }
+    },
     // END STATUS
 
     // ADJUSTMENT
@@ -55,6 +72,12 @@ export default {
         latihan: []
       }
     ]
+  },
+  getters: {
+    getLatihanData: state => sesiLatihan => {
+      console.log(sesiLatihan);
+      return state[sesiLatihan];
+    }
   },
   mutations: {
     setStatusSesi(state, sesi) {

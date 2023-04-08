@@ -1,5 +1,13 @@
 <template>
   <div id="q-app">
+    <!-- <transition
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+      appear
+      :duration="300"
+    >
+      <router-view />
+    </transition> -->
     <router-view />
     <div v-if="toast.show" class="toast-notification">
       {{ toast.text }}

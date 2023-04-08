@@ -29,7 +29,10 @@
       </div>
       <div
         class="material-item flex items-center"
-        @click="$router.push('/restrukturisasi/sesi1/materi2')"
+        :class="{ 'item-disabled': !statusMateri[0] }"
+        @click="
+          statusMateri[0] && $router.push('/restrukturisasi/sesi1/materi2')
+        "
       >
         <img src="/img/restrukturisasi/sesi1_materi2_ico.png" />
         <div class="text__headline text__primary">
@@ -38,7 +41,10 @@
       </div>
       <div
         class="material-item flex items-center"
-        @click="$router.push('/restrukturisasi/sesi1/materi3')"
+        :class="{ 'item-disabled': !statusMateri[1] }"
+        @click="
+          statusMateri[1] && $router.push('/restrukturisasi/sesi1/materi3')
+        "
       >
         <img src="/img/restrukturisasi/sesi1_materi3_ico.png" />
         <div class="text__headline text__primary">
@@ -61,7 +67,16 @@
           statusLatihan1 && $router.push('/restrukturisasi/sesi1/latihan1')
         "
       >
-        <img src="/img/restrukturisasi/sesi1_latihan1.png" />
+        <template v-if="!latihan1Finished && latihan1Form">
+          <img src="/img/activated_exercise.png" />
+        </template>
+        <template v-else-if="!latihan1Finished">
+          <img src="/img/restrukturisasi/sesi1_latihan1.png" />
+        </template>
+
+        <template v-else>
+          <img src="/img/finished_exercise.png" />
+        </template>
         <div class="text__headline text__primary">
           <div>Identifikasi Pikiran Negatif</div>
         </div>
@@ -73,7 +88,16 @@
           statusLatihan2 && $router.push('/restrukturisasi/sesi1/latihan2')
         "
       >
-        <img src="/img/restrukturisasi/sesi1_latihan2.png" />
+        <template v-if="!latihan2Finished && latihan2Form">
+          <img src="/img/activated_exercise.png" />
+        </template>
+        <template v-else-if="latihan2Finished">
+          <img src="/img/restrukturisasi/sesi1_latihan2.png" />
+        </template>
+        <template v-else>
+          <img src="/img/finished_exercise.png" />
+        </template>
+
         <div class="text__headline text__primary">
           <div>Catatan Pikiran Negatif</div>
         </div>
@@ -88,12 +112,29 @@ import LayoutOne from "../../../layouts/LayoutOne.vue";
 export default {
   components: { LayoutOne },
   computed: {
+    statusMateri() {
+      return this.$store.state.restrukturisasi.statusMateri.sesi1;
+    },
     statusLatihan1() {
       const statusMateri = this.$store.state.restrukturisasi.statusMateri.sesi1;
       return statusMateri.every(Boolean);
     },
     statusLatihan2() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1.latihan2;
+    },
+    latihan1Finished() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi1
+        .latihan1Finished;
+    },
+    latihan2Finished() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi1
+        .latihan2Finished;
+    },
+    latihan1Form() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi1.latihan1Form;
+    },
+    latihan2Form() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi1.latihan2Form;
     }
   }
   // mounted() {

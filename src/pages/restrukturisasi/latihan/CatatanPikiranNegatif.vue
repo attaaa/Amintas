@@ -1,75 +1,178 @@
 <template>
-  <LayoutOne
+  <LayoutLatihan
     headerImg="/img/restrukturisasi/sesi1_latihan2_detail.png"
     :showAction="formDisabled"
-    labelNextAction="Aktivasi Latihan"
+    :labelNextAction="'Aktivasi Latihan'"
     :handleNextAction="showAktivasiLatihan"
     :showSecondaryAction="showSecondaryAction"
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    @aktivasiLatihan="aktivasiLatihan()"
+    @selesaikanLatihan="selesaikanLatihan()"
   >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
-      Identifikasi Pikiran Negatif
+      Catatan Pikiran Negatif
     </h1>
     <p class="text__body text__neutral-black">
-      Pada latihan pertama ini, kamu diminta untuk mengidentifikasi pikiran yang
-      muncul dalam kepalamu berdasarkan suatu peristiwa. Coba renungi dengan
-      seksama, jika skenario ini benar terjadi padamu dan melibatkan teman
-      dekatmu.
+      Setelah kita mencoba dengan suatu skenario. Pada latihan ini, kita akan
+      berlatih menggunakan keadaan yang lebih dekat denganmu. Kamu diminta untuk
+      mencatat 3 peristiwa di keseharianmu dalam seminggu terakhir yang
+      mempengaruhi perasaan negatifmu. Jika kesulitan mengingatnya, kamu boleh
+      mengidentifikasi peristiwa dalam beberapa hari kedepan, tapi jangan lupa
+      ya, untuk menyelesaikan latihanmu!
     </p>
     <p class="text__body text__neutral-black">
-      Ungkapkan pikiran yang muncul dalam kepalamu pada situasi itu. Kemudian
-      coba identifikasi faktor yang melatarbelakangi pikiran negatif tersebut!
+      Setelah mendeskripsikan peristiwanya, tentu ungkapkan juga pikiran negatif
+      di kepalamu pada saat situasi itu. Kemudian identifikasi faktor yang
+      melatarbelakangi pikiran negatif tersebut!
     </p>
-
-    <div class="custom-header">
-      <h2 class="text__title-3 text__neutral-black">Skenario</h2>
-      <div class="custom-header--line"></div>
-    </div>
-    <p class="text__body text__neutral-black">
-      Seorang teman meminta bantuanmu untuk mempersiapkan wawancara magang di
-      perusahaan favoritnya. Kamu membantunya semalam suntuk mempersiapkan
-      berbagai hal, agar dia berhasil besok pagi.
-    </p>
-    <p class="text__body text__neutral-black">
-      Dua hari berlalu, kemudian dia menemuimu. Dia memberi kabar bahwa dia
-      kacau saat wawancara, dia tidak dapat menjawab beberapa pertanyaan
-      penting, dan tidak lolos untuk magang di sana. Kamu pun merasa sedih dan
-      merasa bertanggung jawab atas kegagalannya.
-    </p>
-    <!--
-
-     -->
 
     <!-- FORM -->
+
     <template v-if="!latihanFinished">
-      <div class="latihan-form">
-        <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
-            Pikiran
-          </label>
-          <TextAreaCustom
-            :disabled="formDisabled"
-            v-model="pikiran"
-            class="q-mt-sm"
-            placeholder="Pikiran negatif yang muncul"
-          />
-        </div>
-        <div>
-          <label class="text__title-4 text__neutral-black">
-            Faktor Pikiran
-          </label>
-          <Picker
-            placeholder="Pilih faktor pikiran yang teridentifikasi"
-            :options="options"
-            :disabled="formDisabled"
-            :value="selectedOptionsIdx"
-            @input="selectOption"
-            @unSelect="unSelectOption"
-            class="q-mt-sm"
-          />
-        </div>
+      <div class="custom-header">
+        <h2 class="text__title-3 text__neutral-black">Catatan 1</h2>
+        <div class="custom-header--line"></div>
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Peristiwa
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="form.catatan1.peristiwa"
+          class="q-mt-sm"
+          placeholder="Peristiwa yang memicu perasaanmu"
+        />
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Pikiran
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="form.catatan1.pikiran"
+          class="q-mt-sm"
+          placeholder="Pikiran yang memicu perasaanmu"
+        />
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Peristiwa
+        </label>
+        <Picker
+          :options="options"
+          :disabled="formDisabled"
+          :value="form.catatan1.faktorPikiran"
+          @input="
+            optionId => {
+              selectOption('catatan1', optionId);
+            }
+          "
+          @unSelect="unSelectOption"
+          class="q-mt-sm"
+          placeholder="Pilih faktor pikiran yang teridentifikasi"
+        />
+      </div>
+
+      <div class="custom-header">
+        <h2 class="text__title-3 text__neutral-black">Catatan 2</h2>
+        <div class="custom-header--line"></div>
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Peristiwa
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="form.catatan2.peristiwa"
+          class="q-mt-sm"
+          placeholder="Peristiwa yang memicu perasaanmu"
+        />
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Pikiran
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="form.catatan2.pikiran"
+          class="q-mt-sm"
+          placeholder="Pikiran yang memicu perasaanmu"
+        />
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Peristiwa
+        </label>
+        <Picker
+          :options="options"
+          :disabled="formDisabled"
+          :value="form.catatan2.faktorPikiran"
+          @input="
+            optionId => {
+              selectOption('catatan2', optionId);
+            }
+          "
+          @unSelect="unSelectOption"
+          class="q-mt-sm"
+          placeholder="Pilih faktor pikiran yang teridentifikasi"
+        />
+      </div>
+
+      <div class="custom-header">
+        <h2 class="text__title-3 text__neutral-black">Catatan 3</h2>
+        <div class="custom-header--line"></div>
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Peristiwa
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="form.catatan3.peristiwa"
+          class="q-mt-sm"
+          placeholder="Peristiwa yang memicu perasaanmu"
+        />
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Pikiran
+        </label>
+        <TextAreaCustom
+          :disabled="formDisabled"
+          v-model="form.catatan3.pikiran"
+          class="q-mt-sm"
+          placeholder="Pikiran yang memicu perasaanmu"
+        />
+      </div>
+
+      <div class="q-mb-md ">
+        <label class="text__title-4 text__neutral-black">
+          Peristiwa
+        </label>
+        <Picker
+          :options="options"
+          :disabled="formDisabled"
+          :value="form.catatan3.faktorPikiran"
+          @input="
+            optionId => {
+              selectOption('catatan3', optionId);
+            }
+          "
+          @unSelect="unSelectOption"
+          class="q-mt-sm"
+          placeholder="Pilih faktor pikiran yang teridentifikasi"
+        />
       </div>
     </template>
 
@@ -79,134 +182,227 @@
     <!--
 
      -->
-
-    <!-- POPUP AKTIVASI -->
-    <SwipeableBottomSheet
-      ref="popUpAktifkan"
-      default-state="close"
-      :open-top="getHeightForPopUp(444)"
-      :use-overlay="true"
-      :can-close="true"
-      :use-drag-icon="false"
-    >
-      <div class="info-content" style="padding: 24px 16px 0;">
-        <div class="text-center bg-secondary" style="border-radius: 8px;">
-          <img style="height: 156px;" src="/img/popup_activation.png" />
-        </div>
-        <div
-          class="text__primary text__title-2 text-center"
-          style="margin-top: 24px; margin-bottom: 12px;"
-        >
-          Aktifkan Latihan?
-        </div>
-
-        <p
-          class="text-center text__body text__neutral-dark-grey"
-          style="margin-bottom: 48px"
-        >
-          Kamu jadi dapat berlatih melawan pikiran mengganggu. Apakah kamu yakin
-          ingin mengaktifkan latihan?
-        </p>
-
-        <div class="row items-end ">
-          <button
-            class="btn__large btn__alert-secondary col-auto relative-position"
-            @click="() => this.$refs.popUpAktifkan.setState('close')"
-            v-ripple
-          >
-            Batal
-          </button>
-          <div style="width: 16px;"></div>
-          <button
-            class="btn__large btn__accent col relative-position"
-            @click="aktivasiLatihan()"
-            v-ripple
-          >
-            Aktifkan
-          </button>
-        </div>
-      </div>
-    </SwipeableBottomSheet>
-    <!--
-
-    -->
-
-    <!-- POPUP DONE -->
-    <SwipeableBottomSheet
-      ref="popUpDone"
-      default-state="close"
-      :open-top="getHeightForPopUp(420)"
-      :use-overlay="true"
-      :can-close="true"
-      :use-drag-icon="false"
-    >
-      <div class="info-content" style="padding: 24px 16px 0;">
-        <div class="text-center bg-secondary" style="border-radius: 8px;">
-          <img style="height: 156px;" src="/img/popup_finishing.png" />
-        </div>
-        <div
-          class="text__primary text__title-2 text-center"
-          style="margin-top: 24px; margin-bottom: 12px;"
-        >
-          Selesaikan Latihan?
-        </div>
-
-        <p
-          class="text-center text__body text__neutral-dark-grey"
-          style="margin-bottom: 48px"
-        >
-          Jawabanmu akan disimpan pada latihan ini. Apakah kamu yakin ingin
-          melanjutkannya?
-        </p>
-
-        <div class="row items-end ">
-          <button
-            class="btn__large btn__alert-secondary col-auto relative-position"
-            @click="() => this.$refs.popUpDone.setState('close')"
-            v-ripple
-          >
-            Batal
-          </button>
-          <div style="width: 16px;"></div>
-          <button
-            class="btn__large btn__accent col relative-position"
-            @click="selesaikanLatihan()"
-            v-ripple
-          >
-            Lanjutkan
-          </button>
-        </div>
-      </div>
-    </SwipeableBottomSheet>
-  </LayoutOne>
+  </LayoutLatihan>
 </template>
 
 <script>
-import LayoutOne from "../../../layouts/LayoutOne.vue";
-import SwipeableBottomSheet from "src/components/SwipeableBottomSheet.vue";
-import TextAreaCustom from "src/components/inputs/TextAreaCustom.vue";
+import _ from "lodash";
+import LayoutLatihan from "src/layouts/LayoutLatihan";
+import Picker from "src/components/inputs/Picker";
+import TextAreaCustom from "src/components/inputs/TextAreaCustom";
+//
+import Latihan1View from "src/components/restrukturisasi/sesi1/latihan1/Latihan1View";
+
+const faktorPikiranList = [
+  {
+    id: 0,
+    icon: "diri sendiri",
+    name: "Diri sendiri"
+  },
+  {
+    id: 1,
+    icon: "masa depan",
+    name: "Masa depan"
+  },
+  {
+    id: 2,
+    icon: "situasi",
+    name: "Situasi"
+  }
+];
 
 export default {
-  components: { LayoutOne, TextAreaCustom, SwipeableBottomSheet },
+  components: {
+    LayoutLatihan,
+    TextAreaCustom,
+    Picker,
+    Latihan1View
+  },
+  data: function() {
+    return {
+      options: faktorPikiranList,
+
+      // form data
+      // peristiwa: "",
+      // pikiran: "",
+      // selectedOptionsIdx: []
+
+      form: {
+        catatan1: {
+          peristiwa: "",
+          pikiran: "",
+          faktorPikiran: []
+        },
+        catatan2: {
+          peristiwa: "",
+          pikiran: "",
+          faktorPikiran: []
+        },
+        catatan3: {
+          peristiwa: "",
+          pikiran: "",
+          faktorPikiran: []
+        }
+      }
+    };
+  },
   computed: {
+    storeObj() {
+      return this.$store.state.restrukturisasi.sesi1Latihan2;
+    },
     formDisabled() {
       return !this.$store.state.restrukturisasi.statusLatihan.sesi1
         .latihan2Form;
     },
     showSecondaryAction() {
-      return (
-        !this.$store.state.restrukturisasi.statusLatihan.sesi1
-          .latihan2Finished &&
-        (!!this.pikiran || this.selectedOptionsIdx.length > 0)
-      );
+      return !_.isEqual(this.storeObj, this.form);
     },
     activeDoneButton() {
       return !!this.pikiran && this.selectedOptionsIdx.length > 0;
     },
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1
-        .latihan1Finished;
+        .latihan2Finished;
     }
+  },
+  methods: {
+    showAktivasiLatihan() {
+      this.$refs.popUpAktifkan.setState("open");
+    },
+    aktivasiLatihan() {
+      this.$store.commit("restrukturisasi/setStatusLatihan", {
+        sesi: "sesi1",
+        latihanName: "latihan2Form",
+        value: true
+      });
+      this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
+    },
+    getHeightForPopUp(height) {
+      return window.innerHeight - height;
+    },
+    // main
+    selectOption(catatan, optionId) {
+      const temp = [...this.form[catatan].faktorPikiran];
+      this.form[catatan].faktorPikiran = [...temp, optionId];
+      // this.selectedOptionsIdx.push(optionId);
+      // this.$store.commit("restrukturisasi/setSesiLatihanSelectedOptionsIdx", {
+      //   sesiLatihan: "sesi1Latihan1",
+      //   optionId: optionId
+      // });
+    },
+    unSelectOption(optionId) {
+      const idx = this.selectedOptionsIdx.indexOf(optionId);
+      if (idx !== -1) this.selectedOptionsIdx.splice(idx, 1);
+      // this.$store.commit("restrukturisasi/unSetSesiLatihanSelectedOptionsIdx", {
+      //   sesiLatihan: "sesi1Latihan1",
+      //   optionId: optionId
+      // });
+    },
+    saveData() {
+      const data = { ...this.form };
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi1Latihan2",
+        data: data
+      });
+      this.$router.back();
+    },
+    doneLatihan() {
+      this.$refs.popUpDone.setState("open");
+    },
+    selesaikanLatihan() {
+      // save data first
+      // this.$store.commit("restrukturisasi/setLatihanDataJson", {
+      //   sesiLatihan: "sesi1Latihan2",
+      //   data: JSON.parse(JSON.stringify(this.form))
+      // });
+
+      // set status to finished
+      this.$store.commit("restrukturisasi/setFinishedLatihan", {
+        sesi: "sesi1",
+        currSesiLatihanFinished: "latihan1Finished",
+        nextSesiLatihan: "latihan2"
+      });
+    }
+  },
+  mounted() {
+    console.log(this.storeObj);
+    this.form = JSON.parse(JSON.stringify(this.storeObj));
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.custom-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 12px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  div {
+    background-color: #ffcb4d;
+    height: 1px;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
+
+.material-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+
+  background: #f2f6ff;
+  border-radius: 8px;
+
+  div {
+    height: 72px;
+    flex-basis: 0;
+    flex-grow: 1;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.material-item img {
+  border-radius: 20px;
+}
+
+// textarea {
+//   width: 100%;
+//   height: 88px;
+//   border: 1px solid #dedede;
+//   border-radius: 6px;
+// }
+
+// input[type="text"] {
+//   width: 100%;
+//   padding: 8px 12px;
+//   /* Neutral/Extrasoft Grey */
+//   background: #f1f2f5;
+//   /* Neutral/Soft Grey */
+//   border: 1px solid #dedede;
+//   border-radius: 6px;
+//   /* Body/Body Text */
+//   font-size: 16px;
+//   line-height: 24px;
+//   /* identical to box height, or 150% */
+//   letter-spacing: 0.02em;
+// }
+</style>

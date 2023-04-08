@@ -19,6 +19,11 @@ const childRoutes = {
       component: () =>
         import("pages/restrukturisasi/latihan/IdentifikasiPikiranNegatif.vue")
     },
+    {
+      path: "sesi1/latihan2",
+      component: () =>
+        import("pages/restrukturisasi/latihan/CatatanPikiranNegatif.vue")
+    },
 
     // SESI 1 MATERI
     {
