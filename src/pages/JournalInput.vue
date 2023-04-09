@@ -160,11 +160,13 @@
     z-index: 40px;
 
     &.hide-action {
+      display: none;
       bottom: -88px;
     }
 
     &.show-action {
       bottom: 0;
+      display: block;
       transition: bottom 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     }
   }

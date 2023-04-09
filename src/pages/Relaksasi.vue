@@ -60,12 +60,11 @@
         <div v-else-if="paused || isFinish">
           <button
             class="btn__medium btn__secondary text__primary"
-            style="margin-right: 16px;"
             @click="reStart()"
           >
             Ulang
           </button>
-          <button
+          <!-- <button
             class="btn__medium"
             :class="{
               btn__accent: isFinish,
@@ -74,7 +73,7 @@
             }"
           >
             Selesai
-          </button>
+          </button> -->
         </div>
       </div>
 
@@ -146,7 +145,7 @@ export default {
       this.isFinish = false;
       this.idxStep = 0;
       this.$refs.timer.reset();
-      this.start();
+      this.started = false;
     },
     stop() {
       this.paused = true;

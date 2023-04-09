@@ -68,7 +68,7 @@
             {{ journalData.story.title }}
           </div>
           <div class="text__body">
-            {{ journalData.story.content }}
+            {{ journalData.story.detail }}
           </div>
         </div>
       </div>

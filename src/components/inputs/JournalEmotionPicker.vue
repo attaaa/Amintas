@@ -31,7 +31,22 @@ const emotionLabelList = {
     "stress",
     "khawatir"
   ],
-  positif: ["sedih", "takut", "stress", "khawatir"]
+  positif: [
+    "percaya diri",
+    "bersemangat",
+    "terpenuhi",
+    "bersyukur",
+    "tenang",
+    "terinspirasi",
+    "dicintai",
+    "termotivasi",
+    "optimis",
+    "tenang",
+    "bangga",
+    "santai",
+    "lega",
+    "puas"
+  ]
 };
 
 export default {

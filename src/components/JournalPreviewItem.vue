@@ -32,7 +32,7 @@
         {{ journalData.story.title }}
       </span>
       <p class="text__body q-ma-none">
-        {{ journalData.story.content }}
+        {{ journalData.story.detail }}
       </p>
     </div>
   </div>

@@ -69,6 +69,78 @@
     svg-inline
     src="assets/icons/emotion/worried.svg"
   />
+
+  <!-- Positif -->
+  <img
+    v-else-if="iconName === 'percaya diri'"
+    svg-inline
+    src="assets/icons/emotion/Percaya Diri.svg"
+  />
+  <img
+    v-else-if="iconName === 'bersemangat'"
+    svg-inline
+    src="assets/icons/emotion/Bersemangat.svg"
+  />
+  <img
+    v-else-if="iconName === 'terpenuhi'"
+    svg-inline
+    src="assets/icons/emotion/Terpenuhi.svg"
+  />
+  <img
+    v-else-if="iconName === 'bersyukur'"
+    svg-inline
+    src="assets/icons/emotion/Bersyukur.svg"
+  />
+  <img
+    v-else-if="iconName === 'senang'"
+    svg-inline
+    src="assets/icons/emotion/Senang.svg"
+  />
+  <img
+    v-else-if="iconName === 'terinspirasi'"
+    svg-inline
+    src="assets/icons/emotion/Terinspirasi.svg"
+  />
+  <img
+    v-else-if="iconName === 'dicintai'"
+    svg-inline
+    src="assets/icons/emotion/Dicintai.svg"
+  />
+  <img
+    v-else-if="iconName === 'termotivasi'"
+    svg-inline
+    src="assets/icons/emotion/Termotivasi.svg"
+  />
+  <img
+    v-else-if="iconName === 'optimis'"
+    svg-inline
+    src="assets/icons/emotion/Optimis.svg"
+  />
+  <img
+    v-else-if="iconName === 'tenang'"
+    svg-inline
+    src="assets/icons/emotion/Tenang.svg"
+  />
+  <img
+    v-else-if="iconName === 'bangga'"
+    svg-inline
+    src="assets/icons/emotion/Bangga.svg"
+  />
+  <img
+    v-else-if="iconName === 'santai'"
+    svg-inline
+    src="assets/icons/emotion/Santai.svg"
+  />
+  <img
+    v-else-if="iconName === 'lega'"
+    svg-inline
+    src="assets/icons/emotion/Lega.svg"
+  />
+  <img
+    v-else-if="iconName === 'puas'"
+    svg-inline
+    src="assets/icons/emotion/Puas.svg"
+  />
 </template>
 
 <script>
