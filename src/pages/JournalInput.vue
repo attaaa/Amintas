@@ -66,24 +66,29 @@
         Lanjut
       </button>
     </div>
-    <PopUp ref="popUpSubmit">
+    <PopUp ref="popUpSubmit" :enable-pan-area="false">
       <!-- illustration -->
       <div
         class="placeholder-illustration flex"
         style="height: 188px; margin: 8px;"
-      ></div>
+      >
+        <img
+          style="width: 100%; border-radius: 8px"
+          src="/img/popup_finishing.png"
+        />
+      </div>
 
       <span
         class="block text__primary text__title-3 full-width text-center"
         style="margin-top: 24px; margin-bottom: 16px;"
-        >Simpan Perubahan?
+        >Simpan Jurnal?
       </span>
       <p
         class="text__body text__neutral-dark-grey text-center"
         style="margin-bottom: 48px"
       >
-        Jawabanmu akan terekam pada sesi latihan ini. Apakah kamu yakin ingin
-        menyudahi sesi latihan?
+        Cerita di dalamnya akan disimpan. Apakah kamu yakin ingin menyimpan
+        ceritamu?
       </p>
 
       <div class="pop-up--action row">
@@ -378,6 +383,7 @@ export default {
         this.journalData.id = Date.now();
         this.journalData.created_at = generateTimeStamp();
         this.$store.dispatch("journal/addJournal", this.journalData);
+        this.$store.dispatch("app/showToast", "Jurnal baru telah disimpan");
       } else {
         this.$store.dispatch("journal/updateJournal", this.journalData);
       }

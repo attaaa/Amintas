@@ -1,5 +1,5 @@
 <p align="center">
-  <img style="width: 100%; border-radius: 8px" src="/img/popup-help.png">
+  <img style="width: 100%; border-radius: 8px" src="/img/popup_knowledge.png">
   <br />
   <div class="text__primary text__title-2 text-center">Distorsi Kognitif?</div>
 </p>
@@ -12,18 +12,50 @@ Berikut jenis-jenis distorsi kognitif:
 
 Menilai suatu kesalahan atau ketidaksempurnaan sebagai kegagalan total yang tidak dapat ditoleransi. Sangat tidak realistis, nyatanya sangat jarang suatu hal bersifat sempurna.
 
-**1. All-or-None Thinking**
+**2. Overgenralization**
 
-Menilai suatu kesalahan atau ketidaksempurnaan sebagai kegagalan total yang tidak dapat ditoleransi. Sangat tidak realistis, nyatanya sangat jarang suatu hal bersifat sempurna.
+Menyimpulkan secara sembarangan bahwa suatu hal yang pernah terjadi padanya akan terus menerus terjadi.
 
-**1. All-or-None Thinking**
+**3. Mental Filter**
 
-Menilai suatu kesalahan atau ketidaksempurnaan sebagai kegagalan total yang tidak dapat ditoleransi. Sangat tidak realistis, nyatanya sangat jarang suatu hal bersifat sempurna.
+Cenderung hanya memperhatikan detail atau informasi negatif pada suatu situasi, dan memikirkannya terus menerus. Hingga pada akhirnya, menilai keseluruhan situasi tersebut secara negatif.
 
-**1. All-or-None Thinking**
+**4. Disqualifying the Positive**
 
-Menilai suatu kesalahan atau ketidaksempurnaan sebagai kegagalan total yang tidak dapat ditoleransi. Sangat tidak realistis, nyatanya sangat jarang suatu hal bersifat sempurna.
+Tidak hanya mengabaikan hal atau informasi positif, namun dengan mudah mengubahnya menjadi negatif.
 
-**1. All-or-None Thinking**
+**5. Mind Reading**
 
-Menilai suatu kesalahan atau ketidaksempurnaan sebagai kegagalan total yang tidak dapat ditoleransi. Sangat tidak realistis, nyatanya sangat jarang suatu hal bersifat sempurna.
+Cenderung mengasumsikan bahwa orang lain memandangnya rendah, dan sangat meyakini hal itu hingga engga memastikan kebenarannya.
+
+**6. Fortune Teller Error**
+
+Seolah-olah memiliki bola kristal yang meramalkan nasib buruknya, ia meyakini hal itu akan terjadi dan menganggapnya sebagai fakta.
+
+**7. Magnification**
+
+Cenderung memperbesar dampak negatif dari kesalahannya atau melihat dampak dari kesalahannya secara berlebihan.
+
+**8. Minimization**
+
+Cenderung mengurangi kemampuan yang dimilikinya atau memandang rendah kemampuannya sendiri.
+
+**9. Emotional Reasoning**
+
+Menganggap emosinya sebagai bukti pembenaran atau fakta.
+
+**10. Should Statement**
+
+Menganggap emosinya sebagai bukti pembenaran atau fakta.
+
+**11. Labeling**
+
+Menganggap emosinya sebagai bukti pembenaran atau fakta.
+
+**12. Mislabeling**
+
+Memberikan label diri negatif berdasarkan kesalahan atau kegagalannya. Namun istilah ini mengarah pada penilaian yang melibatkan penggunaan kata yang tidak sesuai dan sarat emosi, seperti menilai diri sama seperti hewan.
+
+**13. Personalization**
+
+Cenderung mendorong diri mereka tanpa alasan yang jelas, untuk merasa bertanggung jawab atas suatu hal yang terjadi di luar urusan mereka.

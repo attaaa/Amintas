@@ -1,5 +1,6 @@
 const registerAccount = (state, inputData) => {
   state.account = { ...inputData };
+  state.isLoggedIn = true;
 };
 
 const deleteAccount = state => {

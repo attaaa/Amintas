@@ -7,7 +7,10 @@
       </div>
 
       <div>
-        <SearchField />
+        <SearchField
+          placeholder="Cari gangguan, metode, dsb"
+          @click.native="$router.push('/edukasi/search')"
+        />
       </div>
 
       <!-- playlist title -->
@@ -19,15 +22,14 @@
       </div>
 
       <!-- playlist -->
-      <div class="playlist row">
+      <div class="playlist">
         <!-- container for spacing -->
-        <div
+        <!-- <div
           class="playlist-item col-6"
           v-for="(playlist, index) in playlistData"
           :key="index"
           @click="goToDetail(12)"
         >
-          <!-- actual playlist item -->
           <div>
             <div class="playlist-item--bg">
               <img :src="playlist.img" />
@@ -36,6 +38,14 @@
               {{ playlist.text }}
             </div>
           </div>
+        </div> -->
+        <div
+          class="playlist--item"
+          v-for="(playlist, index) in playlistData"
+          :key="index"
+          @click="goToDetail(index)"
+        >
+          <img :src="playlist" />
         </div>
       </div>
 
@@ -78,22 +88,10 @@
 
 <script>
 const playlistData = [
-  {
-    img: "/img/education_cover1.png",
-    text: "Cemas dan Gangguan"
-  },
-  {
-    img: "/img/education_cover2.png",
-    text: "Kecemasan Mahasiswa"
-  },
-  {
-    img: "/img/education_cover3.png",
-    text: "Beragam Gangguan"
-  },
-  {
-    img: "/img/education_cover4.png",
-    text: "Mengangani Kecemasan"
-  }
+  "/img/edukasi/education_cover_p1.svg",
+  "/img/edukasi/education_cover_p2.svg",
+  "/img/edukasi/education_cover_p3.svg",
+  "/img/edukasi/education_cover_p4.svg"
 ];
 
 import SearchField from "components/inputs/SearchField";
@@ -106,21 +104,62 @@ export default {
     };
   },
   methods: {
-    goToDetail(detailId) {
-      this.$router.push("/edukasi/edukasi-detail/4");
+    goToDetail(idx) {
+      switch (idx) {
+        case 0:
+          this.$router.push("/edukasi/edukasi-detail/cemas-dan-gangguan");
+          break;
+
+        case 1:
+          this.$router.push("/edukasi/edukasi-detail/kecemasan-mahasiswa");
+          break;
+
+        case 2:
+          this.$router.push("/edukasi/edukasi-detail/beragam-gangguan");
+          break;
+
+        case 3:
+          this.$router.push("/edukasi/edukasi-detail/menangani-kecemasan");
+          break;
+
+        default:
+          break;
+      }
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .home-container {
   height: 100vh;
   overflow: scroll;
   padding-bottom: 80px;
 }
 
-.playlist-item {
+.playlist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  width: calc(100%);
+
+  &--item {
+    aspect-ratio: 156 / 180;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -6px;
+
+    img {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+/* .playlist-item {
   width: fit-content;
   height: 200px;
   margin-bottom: 16px;
@@ -168,7 +207,7 @@ export default {
   box-sizing: border-box;
 
   text-align: center;
-}
+} */
 
 .material-item {
   padding: 12px 16px;

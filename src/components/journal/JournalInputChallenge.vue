@@ -62,7 +62,7 @@
     >
       <q-scroll-area
         class="column "
-        style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+        style="height: 100vh; padding: 16px; padding-top: 4px; padding-bottom: 0 !important;"
       >
         <div
           class="info-content"
@@ -79,7 +79,7 @@ import TextArea from "components/inputs/TextArea";
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 
 import { marked } from "marked";
-import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
+import Challenge from "!!raw-loader!../../data/info/Challenge.md";
 
 export default {
   name: "JournalInputChallenge",
@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     markdownToHtml() {
-      return marked(DistorsiKognitif);
+      return marked(Challenge);
     }
   },
   methods: {
@@ -115,3 +115,15 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.info-content::v-deep {
+  ol {
+    padding-inline-start: 24px;
+
+    li {
+      padding-inline-start: 10px;
+    }
+  }
+}
+</style>

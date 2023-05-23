@@ -61,7 +61,7 @@
     >
       <q-scroll-area
         class="column "
-        style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+        style="height: 100vh; padding: 16px; padding-top: 4px; padding-bottom: 0 !important;"
       >
         <div
           class="info-content"

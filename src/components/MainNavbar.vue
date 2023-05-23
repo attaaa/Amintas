@@ -3,9 +3,9 @@
     <div class="nav row full-width">
       <div
         class="nav-item col full-height relative-position"
-        :class="{ active: activeUrl === '' }"
+        :class="{ active: $route.path === '/' }"
         v-ripple
-        @click="changeUrl('')"
+        @click="changeUrl('/')"
       >
         <div class="absolute-center text-center vertical-middle">
           <img
@@ -19,9 +19,9 @@
 
       <div
         class="nav-item col full-height relative-position"
-        :class="{ active: activeUrl === 'edukasi' }"
+        :class="{ active: $route.path === '/edukasi' }"
         v-ripple
-        @click="changeUrl('edukasi')"
+        @click="changeUrl('/edukasi')"
       >
         <div class="absolute-center text-center vertical-middle">
           <img
@@ -49,9 +49,12 @@
 
       <div
         class="nav-item col full-height relative-position"
-        :class="{ active: activeUrl === 'strategi' }"
+        :class="{
+          active:
+            $route.path === '/strategi' || $route.path === '/strategi-active'
+        }"
         v-ripple
-        @click="changeUrl('strategi')"
+        @click="changeUrl('/strategi')"
       >
         <div class="absolute-center text-center vertical-middle">
           <img
@@ -65,9 +68,9 @@
 
       <div
         class="nav-item col full-height relative-position"
-        :class="{ active: activeUrl === 'me' }"
+        :class="{ active: $route.path === '/me' }"
         v-ripple
-        @click="changeUrl('me')"
+        @click="changeUrl('/me')"
       >
         <div class="absolute-center text-center vertical-middle">
           <img svg-inline class="nav-item--icon" src="assets/icons/me.svg" />
@@ -127,12 +130,17 @@
 
     <div class="bg-action" :class="{ hidden: !showMidAction }"></div>
 
-    <PopUp ref="popUpCall">
+    <PopUp ref="popUpCall" style="z-index: 999;" :enable-pan-area="false">
       <!-- illustration -->
       <div
         class="placeholder-illustration flex"
-        style="height: 188px; margin: 8px;"
-      ></div>
+        style="height: 188px; margin-top: 8px;"
+      >
+        <img
+          style="width: 100%; border-radius: 8px"
+          src="/img/popup_emergency-call.png"
+        />
+      </div>
 
       <span
         class="block text__primary text__title-3 full-width text-center"
@@ -143,8 +151,8 @@
         class="text__body text__neutral-dark-grey text-center"
         style="margin-bottom: 48px"
       >
-        Kamu akan terhubung dengan orang yang akan membantumu. Apakah kamu yakin
-        ingin menghubunginya?
+        Kamu akan terhubung dengan orang yang dapat membantumu. Apakah kamu
+        yakin ingin melanjutkannya?
       </p>
 
       <div class="pop-up--action row">
@@ -181,20 +189,15 @@ export default {
   components: { PopUp },
   data() {
     return {
-      activeUrl: "",
       showMidAction: false
     };
   },
   methods: {
     changeUrl(urlName) {
-      this.activeUrl = urlName;
-      this.goTo("/" + urlName);
+      if (urlName !== this.$route.path) this.$router.push(urlName);
     },
     toggleMidAction() {
       this.showMidAction = !this.showMidAction;
-    },
-    goTo(path) {
-      this.$router.push(path);
     },
     showPopUpCall() {
       this.showMidAction = false;

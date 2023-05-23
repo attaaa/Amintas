@@ -1,8 +1,8 @@
 <template>
   <div style="padding: 16px">
-    <h1 class="text__title-1 text__primary" style="margin-bottom: 40px">
+    <div class="text__title-1 text__primary" style="margin-bottom: 40px">
       Saya
-    </h1>
+    </div>
     <div class="text-center">
       <div style="margin-bottom: 12px">
         <img src="/img/profile_default.png" />
@@ -258,9 +258,10 @@ export default {
   },
   methods: {
     onLogout() {
-      this.$store.commit("account/loginAccount", false);
-      this.$router.replace("/");
-      window.location.reload();
+      // this.$store.commit("account/loginAccount", false);
+      // this.$router.replace("/");
+      localStorage.clear();
+      window.location.href = "/";
     }
   }
 };

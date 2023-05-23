@@ -31,4 +31,18 @@
     right: 12px;
     fill: $color-neutral-grey;
   }
+
+  ::-webkit-input-placeholder {
+    /* Edge */
+    color: $color-neutral-grey;
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color-neutral-grey;
+  }
+
+  ::placeholder {
+    color: $color-neutral-grey;
+  }
 }

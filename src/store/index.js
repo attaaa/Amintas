@@ -5,6 +5,7 @@ import createPersistedState from "vuex-persistedstate";
 // import example from './module-example'
 import account from "./account";
 import app from "./app";
+import edukasi from "./edukasi";
 import journal from "./journal";
 import restrukturisasi from "./restrukturisasi";
 import strategi from "./strategi";
@@ -28,7 +29,8 @@ export default function(/* { ssrContext } */) {
       journal,
       strategi,
       account,
-      restrukturisasi
+      restrukturisasi,
+      edukasi
     },
     plugins: [createPersistedState()],
 

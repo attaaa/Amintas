@@ -90,6 +90,30 @@ const routes = [
     component: () => import("layouts/FullLayout.vue"),
     children: [
       {
+        path: "search",
+        component: () => import("src/pages/edukasi/EdukasiSearch.vue")
+      },
+      {
+        path: "edukasi-detail/cemas-dan-gangguan",
+        component: () =>
+          import("src/pages/edukasi/edukasi-detail/CemasDanGangguan.vue")
+      },
+      {
+        path: "edukasi-detail/kecemasan-mahasiswa",
+        component: () =>
+          import("src/pages/edukasi/edukasi-detail/KecemasanMahasiswa.vue")
+      },
+      {
+        path: "edukasi-detail/beragam-gangguan",
+        component: () =>
+          import("src/pages/edukasi/edukasi-detail/BeragamGangguan.vue")
+      },
+      {
+        path: "edukasi-detail/menangani-kecemasan",
+        component: () =>
+          import("src/pages/edukasi/edukasi-detail/MenanganiKecemasan.vue")
+      },
+      {
         path: "edukasi-detail/:id",
         component: () => import("src/pages/edukasi/EdukasiDetail.vue")
       }

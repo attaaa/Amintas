@@ -1,23 +1,33 @@
 <template>
   <div class="search-field relative-position">
-    <img class="search-field--icon" src="assets/icons/search.svg" svg-inline />
+    <img
+      class="search-field--icon"
+      src="assets/icons/search.svg"
+      svg-inline
+      style="pointer-events: none;"
+    />
     <input
       ref="search_input"
-      :value="searchValue"
+      :value="value"
       class="search-field--text full-width"
       name="search_journal_preview"
       type="text"
       @input="e => this.$emit('updateValue', e.target.value)"
-      placeholder="Cari jurnal ceritamu"
+      :placeholder="placeholder"
+      @keyup.enter="onKeyupEnter"
       autocomplete="off"
     />
-    <img
-      v-if="search_input !== ''"
+    <div
       class="search-field--icon-cancel"
-      @click="clearInput()"
-      src="assets/icons/cancel.svg"
-      svg-inline
-    />
+      v-if="showResetButton"
+      @click="clearInput"
+    >
+      <img
+        style="pointer-events: none;"
+        src="assets/icons/cancel.svg"
+        svg-inline
+      />
+    </div>
   </div>
 </template>
 
@@ -29,21 +39,57 @@
 export default {
   name: "SearchField",
   props: {
-    autoFocus: Boolean
+    autoFocus: Boolean,
+    placeholder: String,
+    value: String,
+    detectOutsideClick: Boolean
   },
   data() {
     return {
-      search_input: "",
-      searchValue: null
+      search_input: null,
+      showResetButton: false
     };
   },
   mounted() {
-    if (this.autoFocus) this.$refs.search_input.focus();
+    if (this.autoFocus) {
+      this.$refs.search_input.focus();
+      this.showResetButton = true;
+    }
+
+    if (this.detectOutsideClick)
+      document.addEventListener("click", this.handleShowResetButton);
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.handleShowResetButton);
   },
   methods: {
+    handleShowResetButton(e) {
+      try {
+        e.stopPropagation();
+        e.preventDefault();
+        // console.log(e);
+        const target = e.target;
+        if (target && target?.parentNode?.className?.includes("search-field")) {
+          this.$refs.search_input.focus();
+          this.showResetButton = true;
+        } else {
+          this.showResetButton = false;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     clearInput() {
-      this.search_input = "";
+      this.$emit("clearInputSearch");
+    },
+    onKeyupEnter() {
+      this.$emit("enter");
+      this.showResetButton = false;
+      this.$refs.search_input.blur();
     }
+    // blurEvent(e) {
+    //   console.log(e);
+    // }
   }
 };
 </script>
