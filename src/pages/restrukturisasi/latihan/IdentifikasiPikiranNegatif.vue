@@ -145,6 +145,15 @@ export default {
         .latihan1Finished;
     }
   },
+  created() {
+    console.log("mounted");
+    if (!this.latihanFinished) console.log("setLatihanAktif");
+    this.$store.commit("restrukturisasi/setLatihanAktif", {
+      active: true,
+      name: "Identifikasi Pikiran Negatif",
+      path: this.$route.path
+    });
+  },
   methods: {
     showAktivasiLatihan() {
       this.$refs.popUpAktifkan.setState("open");

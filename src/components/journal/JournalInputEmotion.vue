@@ -1,13 +1,12 @@
 <template>
   <div class="journal-input-emotion column">
     <!-- header navigation -->
-    <div class="col-auto" style="margin-bottom: 24px;">
+    <div class="col-auto" style="margin-bottom: 24px;" @click="goBack()">
       <img
         svg-inline
         class="fill-primary"
         src="assets/icons/general/arrow-left.svg"
         style="width: 24px; height: 24px;"
-        @click="goBack()"
       />
     </div>
 

@@ -5,7 +5,7 @@
         v-if="inputState === 'mood'"
         :selected-mood="journalData.mood"
         @change-mood="selectMood"
-        @go-back="goBack()"
+        @go-back="$router.back()"
       />
       <JournalInputEmotion
         v-else-if="inputState === 'emotion'"
@@ -151,7 +151,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .journal-input {
   &--content {
     padding: 22px 16px 0 16px;
@@ -223,6 +223,7 @@ export default {
       journalData: {
         id: 0,
         created_at: "",
+        created_date: null,
         mood: "",
         emotions: [],
         story: {
@@ -272,10 +273,7 @@ export default {
     },
     onChangeStory(story) {
       this.journalData.story = story;
-      if (
-        this.journalData.story.title !== "" &&
-        this.journalData.story.detail !== ""
-      ) {
+      if (this.journalData.story.detail !== "") {
         this.nextButtonActive = true;
       }
     },
@@ -347,7 +345,6 @@ export default {
         this.nextButtonActive = true;
       } else if (
         this.inputState === "story" &&
-        this.journalData.story.title !== "" &&
         this.journalData.story.detail !== ""
       ) {
         this.nextButtonActive = true;
@@ -382,6 +379,7 @@ export default {
       if (this.$route.params.id === undefined) {
         this.journalData.id = Date.now();
         this.journalData.created_at = generateTimeStamp();
+        this.journalData.created_date = new Date();
         this.$store.dispatch("journal/addJournal", this.journalData);
         this.$store.dispatch("app/showToast", "Jurnal baru telah disimpan");
       } else {

@@ -83,7 +83,10 @@
       class="nav-mid-action items-center justify-center"
       :class="[showMidAction ? 'flex' : 'hidden']"
     >
-      <div class="action-item column items-center" @click="goTo('/relaksasi')">
+      <div
+        class="action-item column items-center"
+        @click="$router.push('/relaksasi')"
+      >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
             svg-inline
@@ -98,7 +101,7 @@
       </div>
       <div
         class="action-item column items-center"
-        @click="goTo('/journal/input')"
+        @click="$router.push('/journal/input')"
       >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img

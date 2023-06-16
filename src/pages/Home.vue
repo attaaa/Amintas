@@ -6,22 +6,45 @@
         <span class="text__title-1 text__primary q-mx-auto">Amintas</span>
       </div>
 
-      <div class="home-card">
-        <div class="home-card--text">
-          <p class="text__headline text-white">
-            Yuk lawan pikiran mengganggu di kepalamu!
-          </p>
-          <button
-            class="btn__small btn__accent"
-            @click="$router.push('restrukturisasi')"
-          >
-            Buka modul
-          </button>
+      <template v-if="!latihanAktif.active">
+        <div class="home-card">
+          <div class="home-card--text">
+            <p class="text__headline text-white">
+              Yuk lawan pikiran mengganggu di kepalamu!
+            </p>
+            <button
+              class="btn__small btn__accent"
+              @click="$router.push('restrukturisasi')"
+            >
+              Buka modul
+            </button>
+          </div>
+          <div class="home-card--img">
+            <img src="/img/module_access_main.png" />
+          </div>
         </div>
-        <div class="home-card--img">
-          <img src="/img/module_access_main.png" />
+      </template>
+      <template v-else>
+        <div class="home-card active">
+          <div class="home-card--text">
+            <div class="text__title-5 text__neutral-grey q-mb-xs">
+              Latihan aktif:
+            </div>
+            <p class="text__headline text-primary">
+              {{ latihanAktif.name }}
+            </p>
+            <button
+              class="btn__small btn__primary text-white"
+              @click="$router.push(latihanAktif.path)"
+            >
+              Buka Sesi
+            </button>
+          </div>
+          <div class="home-card--img">
+            <img src="/img/module_access_main_active.png" />
+          </div>
         </div>
-      </div>
+      </template>
 
       <div>
         <!-- journal data present -->
@@ -38,7 +61,8 @@
             <SearchField
               class="col-auto"
               style="margin-bottom: 24px"
-              @click.native="goToSearchPage()"
+              placeholder="Cari jurnal ceritamu"
+              @click.native="$router.push('/search')"
             />
             <JournalPreviewItemList
               class="col scroll hide-scrollbar"
@@ -93,12 +117,6 @@ export default {
     SearchField,
     JournalPreviewItemList
   },
-  methods: {
-    goToSearchPage() {
-      this.$router.push("search");
-    },
-    openModul() {}
-  },
   computed: {
     account() {
       return this.$store.state.account.account;
@@ -108,11 +126,19 @@ export default {
     },
     journalDataList() {
       return this.$store.state.journal.journalDataList;
+    },
+    latihanAktif() {
+      return this.$store.state.restrukturisasi.latihanAktif;
     }
   },
   mounted() {
     if (!this.account || !this.account.name || !this.isLoggedIn) {
       this.$router.push("onboarding");
+    }
+  },
+  methods: {
+    goToSearchPage() {
+      this.$router.push("search");
     }
   }
 };
@@ -121,6 +147,15 @@ export default {
 <style lang="scss" scoped>
 .home-card {
   position: relative;
+
+  &.active {
+    background-color: #f2f6ff;
+
+    .home-card--text p {
+      height: 48px;
+      line-clamp: 2;
+    }
+  }
 }
 .home-card--img {
   position: absolute;
@@ -130,5 +165,10 @@ export default {
   height: 100%;
   text-align: right;
   pointer-events: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

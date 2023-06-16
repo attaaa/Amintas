@@ -1,7 +1,7 @@
 <template>
   <div :class="{ active: filterActive }" class="filter-access">
     <img
-      v-if="filterActive"
+      v-if="filterActive && selectedFilter.icon"
       :src="selectedFilter.icon"
       style="margin-right: 8px; width: 18px; height: 18px"
       svg-inline

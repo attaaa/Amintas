@@ -3,12 +3,12 @@ const todayDate = new Date();
 const FILTER = {
   mood: [
     {
-      id: "semua-mood",
+      id: "all",
       icon: "assets/icons/mood-base/semua-mood.svg",
       name: "Semua Mood"
     },
     {
-      id: "sangat-baik",
+      id: "sangat baik",
       icon: "assets/icons/mood-base/sangat-baik.svg",
       name: "Sangat Baik"
     },
@@ -28,27 +28,44 @@ const FILTER = {
       name: "Buruk"
     },
     {
-      id: "sangat-buruk",
+      id: "sangat buruk",
       icon: "assets/icons/mood-base/sangat-buruk.svg",
       name: "Sangat Buruk"
     }
   ],
   date: [
     {
+      id: 0,
       value: 0,
-      name: "Semua Tanggal Jurnal"
+      name: "Semua Tanggal Jurnal",
+      dateRange: null
     },
     {
+      id: 1,
       value: new Date(new Date().setDate(todayDate.getDate() - 30)),
-      name: "30 Hari Terakhir"
+      name: "30 Hari Terakhir",
+      dateRange: {
+        from: new Date(),
+        to: new Date(new Date().setDate(todayDate.getDate() - 30))
+      }
     },
     {
+      id: 2,
       value: new Date(new Date().setDate(todayDate.getDate() - 90)),
-      name: "90 Hari Terakhir"
+      name: "90 Hari Terakhir",
+      dateRange: {
+        from: new Date(),
+        to: new Date(new Date().setDate(todayDate.getDate() - 90))
+      }
     },
     {
+      id: 3,
       value: 1,
-      name: "Atur Tanggal Sendiri"
+      name: "Atur Tanggal Sendiri",
+      dateRange: {
+        from: null,
+        to: null
+      }
     }
   ]
 };
@@ -99,4 +116,4 @@ const CUSTOM_DATE = {
   ]
 };
 
-export { FILTER, CUSTOM_DATE };
+export { CUSTOM_DATE, FILTER };

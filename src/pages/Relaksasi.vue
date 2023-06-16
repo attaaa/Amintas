@@ -2,13 +2,12 @@
   <div class="relaksasi">
     <div class="relaksasi--content">
       <!-- header navigation -->
-      <div style="margin-bottom: 24px;">
+      <div style="margin-bottom: 24px;" @click="$router.back()">
         <img
           svg-inline
           class="fill-primary"
           src="assets/icons/general/arrow-left.svg"
           style="width: 24px; height: 24px;"
-          @click="goBack()"
         />
       </div>
 
@@ -78,16 +77,19 @@
       </div>
 
       <div class="full-width helper">
-        <div class="text__primary text__title-4" style="margin-bottom: 8px;">
+        <div
+          class="text__neutral-dark-grey text__title-4"
+          style="margin-bottom: 8px;"
+        >
           Instruksi Singkat
         </div>
         <div>
           <div style="margin-bottom: 4px">
-            1. 4 detik, Menarik Nafas melalui Hidung
+            1. Menarik nafas melalui hidung selama 4 detik
           </div>
-          <div style="margin-bottom: 4px">2. 7 detik, Menahan Nafas</div>
+          <div style="margin-bottom: 4px">2. Menahan nafas selama 7 detik</div>
           <div style="margin-bottom: 4px">
-            3. 8 detik, Membuang Nafas melalui Mulut
+            3. Membuang nafas melalui mulut selama 8 detik
           </div>
         </div>
       </div>

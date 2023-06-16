@@ -29,6 +29,11 @@ export default {
       groupJournalDataList: []
     };
   },
+  watch: {
+    journalDataList() {
+      this.groupDataByDate();
+    }
+  },
   mounted() {
     this.groupDataByDate();
   },
@@ -52,7 +57,7 @@ export default {
         if (idx === this.journalDataList.length - 1) {
           tempGroupJournalDataList.push({
             dateGroup: currDate,
-            journalGroupList: currJournalDataList
+            journalGroupList: [...currJournalDataList.reverse()]
           });
         }
       });

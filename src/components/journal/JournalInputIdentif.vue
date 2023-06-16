@@ -5,13 +5,14 @@
       class="col-auto row items-center justify-between"
       style="margin-bottom: 24px;"
     >
-      <img
-        svg-inline
-        class="fill-primary"
-        src="assets/icons/general/arrow-left.svg"
-        style="width: 24px; height: 24px;"
-        @click="goBack()"
-      />
+      <div @click="goBack()">
+        <img
+          svg-inline
+          class="fill-primary"
+          src="assets/icons/general/arrow-left.svg"
+          style="width: 24px; height: 24px;"
+        />
+      </div>
       <button
         class="btn__small btn__secondary text__primary"
         @click="skipInput()"

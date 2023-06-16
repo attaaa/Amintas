@@ -1,6 +1,11 @@
 export default {
   namespaced: true,
   state: {
+    latihanAktif: {
+      active: false,
+      name: "",
+      path: ""
+    },
     // STATUS ---
     statusSesi: {
       sesi1: false,
@@ -80,6 +85,9 @@ export default {
     }
   },
   mutations: {
+    setLatihanAktif(state, payload) {
+      state.latihanAktif = payload;
+    },
     setStatusSesi(state, sesi) {
       const currStatusSesi = { ...state.statusSesi };
       state.statusSesi = { ...currStatusSesi, [sesi]: true };

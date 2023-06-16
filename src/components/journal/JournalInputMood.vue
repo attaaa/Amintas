@@ -1,13 +1,12 @@
 <template>
   <div class="journal-input-mood">
     <!-- header navigation -->
-    <div style="margin-bottom: 24px;">
+    <div style="margin-bottom: 24px;" @click="goBack()">
       <img
         svg-inline
         class="fill-primary"
         src="assets/icons/general/arrow-left.svg"
         style="width: 24px; height: 24px;"
-        @click="goBack()"
       />
     </div>
 

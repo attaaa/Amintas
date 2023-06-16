@@ -5,13 +5,14 @@
       class="col-auto row items-center justify-between relative-position"
       style="margin-bottom: 24px;"
     >
-      <img
-        svg-inline
-        class="fill-primary"
-        src="assets/icons/general/arrow-left.svg"
-        style="width: 24px; height: 24px;"
-        @click="goBack()"
-      />
+      <div @click="goBack()">
+        <img
+          svg-inline
+          class="fill-primary"
+          src="assets/icons/general/arrow-left.svg"
+          style="width: 24px; height: 24px;"
+        />
+      </div>
       <div class="absolute-center" @click="showPopUp()">
         <img
           svg-inline

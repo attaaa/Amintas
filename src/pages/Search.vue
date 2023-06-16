@@ -17,10 +17,13 @@
         </svg>
       </div>
       <SearchField
-        v-model="searchQuery"
+        :value="searchQuery"
+        placeholder="Cari jurnal ceritamu"
         :auto-focus="true"
         :detect-outside-click="true"
+        @clearInputSearch="clearInput"
         @updateValue="updateSearchQuery"
+        @enter="submitSearchQuery"
         style="flex: 1 0 0; margin-left: 16px"
       >
       </SearchField>
@@ -95,8 +98,8 @@
       <FilterAccess
         ref="filterDate"
         :content-height="452"
-        :filter-active="!!filter.mood"
-        :selected-filter="filter.mood"
+        :filter-active="!!filter.date"
+        :selected-filter="filter.date"
         label="Pilih Tanggal"
         style="margin-right: 8px;"
       >
@@ -138,6 +141,7 @@
                 </div>
               </div>
 
+              <!-- custom date range -->
               <div v-if="idx === 3" class="row justify-between">
                 <div
                   :class="{
@@ -163,8 +167,9 @@
                         tempFilter.date &&
                         tempFilter.date.name === filterDate.name
                     }"
+                    @click="openDatePicker('from')"
                   >
-                    1 Sep 2021
+                    {{ formatDate(customDateRange.from) }}
                   </div>
                 </div>
                 <div
@@ -191,8 +196,9 @@
                         tempFilter.date &&
                         tempFilter.date.name === filterDate.name
                     }"
+                    @click="openDatePicker('to')"
                   >
-                    1 Sep 2021
+                    {{ formatDate(customDateRange.to) }}
                   </div>
                 </div>
               </div>
@@ -215,7 +221,14 @@
         </div>
       </FilterAccess>
       <!-- custom date -->
-      <DatePicker></DatePicker>
+      <DatePicker
+        ref="datePicker"
+        :date-state="currentDateState"
+        :curr-selected-date="tempSelectedDate"
+        :minDate="minDate"
+        @submit="handleDatePickerSubmit"
+        @close="$refs.filterDate.openSelection()"
+      ></DatePicker>
     </div>
 
     <div
@@ -223,7 +236,7 @@
     ></div>
 
     <!-- illustration -->
-    <div v-if="!searchResults" style="padding: 32px 24px;">
+    <div v-if="filteredResults.length === 0" style="padding: 32px 24px;">
       <div class="placeholder-illustration" style="height: 188px; margin: 8px;">
         <img src="~assets/img/empty_nothing.png" style="height: 100%" />
       </div>
@@ -237,8 +250,8 @@
       </p>
     </div>
     <JournalPreviewItemList
-      v-else-if="searchResults[0]"
-      :journal-data-list="searchResults"
+      v-else-if="filteredResults.length > 0"
+      :journal-data-list="filteredResults"
       class="col scroll hide-scrollbar"
       style="padding-bottom: 100px;"
     >
@@ -251,11 +264,10 @@ import SearchField from "components/inputs/SearchField";
 import FilterAccess from "components/inputs/FilterAccess";
 import JournalPreviewItemList from "src/components/JournalPreviewItemList";
 import DatePicker from "components/inputs/DatePicker";
-
-// import filterData from "../data/filter.json";
-// const filterMoodList = filterData.mood;
+import { formatDate } from "../helper/formatDate";
 
 import { FILTER } from "../data/filter";
+import journal from "src/store/journal";
 const filterMoodList = FILTER.mood;
 const filterDateList = FILTER.date;
 
@@ -277,49 +289,124 @@ export default {
         mood: null,
         date: null
       },
-      searchResults: null
+      searchResults: [],
+      selectedDateRange: {
+        from: null,
+        to: null
+      },
+      // from or to from selectedDateRange
+      currentDateState: null,
+      customDateRange: {
+        from: null,
+        to: null
+      },
+      tempSelectedDate: null,
+      minDate: null
+    };
+  },
+  computed: {
+    filteredResults() {
+      let filteredResult = [...this.searchResults];
+      if (this.filter.mood && this.filter.mood.id !== "all") {
+        filteredResult = this.searchResults.filter(
+          journal => journal.mood === this.filter.mood.id
+        );
+      }
+      if (this.filter.date && this.filter.date.id !== 0) {
+        filteredResult = this.searchResults.filter(
+          journal =>
+            journal.created_date > this.filter.date.dateRange.from &&
+            journal.created_date < this.filter.date.dateRange.to
+        );
+      }
+
+      return filteredResult;
+    }
+  },
+  created() {
+    this.customDateRange = {
+      from: new Date(),
+      to: new Date()
     };
   },
   methods: {
-    goBack() {
-      this.$router.back();
-    },
     tempSelectMood(moodIdx) {
-      this.tempFilter.mood = filterMoodList[moodIdx];
+      this.tempFilter.mood = this.filterMoodList[moodIdx];
     },
     tempSelectDate(dateIdx) {
-      this.tempFilter.date = filterDateList[dateIdx];
+      this.tempFilter.date = this.filterDateList[dateIdx];
     },
     selectMood(tempMood) {
       this.filter.mood = tempMood;
       this.$refs.filterMood.closePopUp();
+      // this.searchResults;
     },
     selectDate(tempDate) {
+      if (tempDate.id === 3) {
+        this.tempDate.dateRange = {
+          from: this.customDateRange.from,
+          to: this.customDateRange.to
+        };
+      }
       this.filter.date = tempDate;
-      this.$$refs.filterDate.closePopUp();
+      this.$refs.filterDate.closePopUp();
     },
     updateSearchQuery(searchQuery) {
       this.searchQuery = searchQuery;
-      this.searchJournals();
     },
     searchJournals() {
       const listJournals = this.$store.state.journal.journalDataList;
 
-      this.searchResults = listJournals.map(journal => {
-        if (
-          journal.story.title
+      this.searchResults = listJournals.filter(
+        journal =>
+          (journal.story.title &&
+            journal.story.title
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase())) ||
+          journal.story.detail
             .toLowerCase()
             .includes(this.searchQuery.toLowerCase())
-        ) {
-          return journal;
-        }
+      );
+    },
+    openDatePicker(dateState) {
+      if (!this.tempFilter.date || this.tempFilter.date.value !== 1) return;
+
+      this.$refs.filterDate.closePopUp();
+      this.currentDateState = dateState;
+
+      if (dateState === "from") this.minDate = null;
+      else this.minDate = this.customDateRange["from"];
+
+      this.tempSelectedDate = this.customDateRange[dateState];
+      this.$nextTick(() => {
+        this.$refs.datePicker.setState("open");
       });
+    },
+    formatDate,
+    handleDatePickerSubmit(datePickerOutput) {
+      this.customDateRange[datePickerOutput.type] = datePickerOutput.value;
+
+      if (
+        datePickerOutput.type === "from" &&
+        this.customDateRange.from > this.customDateRange.to
+      ) {
+        this.customDateRange.to = this.customDateRange.from;
+      }
+
+      this.$refs.datePicker.setState("close");
+      this.$refs.filterDate.openSelection();
+    },
+    clearInput() {
+      this.searchQuery = "";
+    },
+    submitSearchQuery() {
+      this.searchJournals();
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .search-page {
   padding: 12px;
   height: 100vh;

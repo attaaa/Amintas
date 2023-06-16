@@ -28,7 +28,10 @@
     </div>
 
     <div class="journal-preview-item--content">
-      <span class="journal-title text__title-4 text__primary block">
+      <span
+        class="journal-title text__title-4 text__primary block"
+        v-if="journalData.story.title !== ''"
+      >
         {{ journalData.story.title }}
       </span>
       <p class="text__body q-ma-none">
