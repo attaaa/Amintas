@@ -36,6 +36,7 @@
         :content-height="560"
         :filter-active="!!filter.mood"
         :selected-filter="filter.mood"
+        @removeFilter="filter.mood = null"
         label="Pilih Mood"
         style="margin-right: 8px;"
       >
@@ -100,6 +101,7 @@
         :content-height="452"
         :filter-active="!!filter.date"
         :selected-filter="filter.date"
+        @removeFilter="filter.date = null"
         label="Pilih Tanggal"
         style="margin-right: 8px;"
       >
@@ -236,7 +238,21 @@
     ></div>
 
     <!-- illustration -->
-    <div v-if="filteredResults.length === 0" style="padding: 32px 24px;">
+    <div v-if="showNoResult" style="padding: 32px 24px;">
+      <div class="placeholder-illustration" style="height: 188px; margin: 8px;">
+        <img src="img/empty.png" style="height: 100%" />
+      </div>
+      <span
+        class="block text__primary text__title-3 full-width text-center"
+        style="margin-top: 24px; margin-bottom: 16px;"
+      >
+        Maaf pencarianmu ngga ada
+      </span>
+      <p class="text__body text__neutral-dark-grey text-center">
+        Tenang saja, kamu boleh coba cari lagi pake kolom pencarian di atas
+      </p>
+    </div>
+    <div v-else-if="filteredResults.length === 0" style="padding: 32px 24px;">
       <div class="placeholder-illustration" style="height: 188px; margin: 8px;">
         <img src="~assets/img/empty_nothing.png" style="height: 100%" />
       </div>
@@ -254,8 +270,7 @@
       :journal-data-list="filteredResults"
       class="col scroll hide-scrollbar"
       style="padding-bottom: 100px;"
-    >
-    </JournalPreviewItemList>
+    />
   </div>
 </template>
 
@@ -301,7 +316,8 @@ export default {
         to: null
       },
       tempSelectedDate: null,
-      minDate: null
+      minDate: null,
+      activeSearch: false
     };
   },
   computed: {
@@ -313,14 +329,19 @@ export default {
         );
       }
       if (this.filter.date && this.filter.date.id !== 0) {
+        console.log(this.filter.date);
+        console.log(filteredResult);
         filteredResult = this.searchResults.filter(
           journal =>
-            journal.created_date > this.filter.date.dateRange.from &&
-            journal.created_date < this.filter.date.dateRange.to
+            new Date(journal.created_date) >= this.filter.date.dateRange.from &&
+            new Date(journal.created_date) <= this.filter.date.dateRange.to
         );
       }
 
       return filteredResult;
+    },
+    showNoResult() {
+      return this.activeSearch && this.filteredResults.length === 0;
     }
   },
   created() {
@@ -339,20 +360,24 @@ export default {
     selectMood(tempMood) {
       this.filter.mood = tempMood;
       this.$refs.filterMood.closePopUp();
-      // this.searchResults;
+      this.searchJournals();
+      // this.activeSearch = true;
     },
     selectDate(tempDate) {
+      this.filter.date = tempDate;
       if (tempDate.id === 3) {
-        this.tempDate.dateRange = {
+        this.filter.date.dateRange = {
           from: this.customDateRange.from,
           to: this.customDateRange.to
         };
       }
-      this.filter.date = tempDate;
       this.$refs.filterDate.closePopUp();
+      this.searchJournals();
+      // this.activeSearch = true;
     },
     updateSearchQuery(searchQuery) {
       this.searchQuery = searchQuery;
+      // this.activeSearch = true;
     },
     searchJournals() {
       const listJournals = this.$store.state.journal.journalDataList;
@@ -367,6 +392,8 @@ export default {
             .toLowerCase()
             .includes(this.searchQuery.toLowerCase())
       );
+
+      this.activeSearch = true;
     },
     openDatePicker(dateState) {
       if (!this.tempFilter.date || this.tempFilter.date.value !== 1) return;

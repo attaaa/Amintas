@@ -16,13 +16,17 @@
       style="fill: #C4C4C8"
       svg-inline
     />
-    <img
+    <div
+      style="display: grid; place-items: center"
       v-else
-      @click="openSelection()"
-      src="assets/icons/general/close.svg"
-      style="width: 8px; fill: #5C7CCD"
-      svg-inline
-    />
+      @click="$emit('removeFilter')"
+    >
+      <img
+        src="assets/icons/general/close.svg"
+        style="width: 8px; fill: #5C7CCD"
+        svg-inline
+      />
+    </div>
 
     <SwipeableBottomSheet
       ref="popUpFilter"

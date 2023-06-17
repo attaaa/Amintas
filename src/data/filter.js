@@ -45,8 +45,8 @@ const FILTER = {
       value: new Date(new Date().setDate(todayDate.getDate() - 30)),
       name: "30 Hari Terakhir",
       dateRange: {
-        from: new Date(),
-        to: new Date(new Date().setDate(todayDate.getDate() - 30))
+        from: new Date(new Date().setDate(todayDate.getDate() - 30)),
+        to: new Date()
       }
     },
     {
@@ -54,8 +54,8 @@ const FILTER = {
       value: new Date(new Date().setDate(todayDate.getDate() - 90)),
       name: "90 Hari Terakhir",
       dateRange: {
-        from: new Date(),
-        to: new Date(new Date().setDate(todayDate.getDate() - 90))
+        from: new Date(new Date().setDate(todayDate.getDate() - 90)),
+        to: new Date()
       }
     },
     {
