@@ -4,7 +4,12 @@
       {{ label }}
     </div>
     <div style="width: 44px;" class="row items-center">
-      <input type="number" :value="customVal" disabled />
+      <input
+        :class="{ selected: customVal }"
+        type="number"
+        :value="customVal || 0"
+        disabled
+      />
     </div>
     <!-- <SwipeableBottomSheet
       ref="popUpFilter"
@@ -35,7 +40,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 input {
   width: 100%;
   height: 40px;
@@ -45,5 +50,9 @@ input {
   background: #f1f2f5;
   border: 1px solid #dedede;
   border-radius: 6px;
+
+  &.selected {
+    color: #303030;
+  }
 }
 </style>

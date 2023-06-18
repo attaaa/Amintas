@@ -21,7 +21,12 @@ const EMPTY_STRATEGI = {
     detail: ""
   },
   story_tujuan: "",
-  activities: null,
+  activities: [
+    {
+      name: "",
+      level: null
+    }
+  ],
   fear_level: []
 };
 
@@ -51,4 +56,4 @@ const TRIGGER_CATEGORY = [
   }
 ];
 
-export { EMPTY_STRATEGI, TRIGGER_IMG, TRIGGER_CATEGORY };
+export { EMPTY_STRATEGI, TRIGGER_CATEGORY, TRIGGER_IMG };

@@ -14,18 +14,18 @@
       "
     >
       <div
-        v-if="levels"
+        v-if="activities.length > 0"
         class="full-width overflow-hidden"
         style="padding-inline: 16px"
       >
         <div
-          v-for="(level, index) of levels"
+          v-for="(activity, index) of activities"
           :key="`activity-${index}`"
           @click="selectIdx(index)"
         >
           <TableLadderLevel
-            :label="strategiInputData.activities[index]"
-            :custom-val="levels[index]"
+            :label="activity.name"
+            :custom-val="activity.level"
           />
           <div class="divider" style="margin: 12px 0 16px" />
         </div>
@@ -47,7 +47,7 @@
           <div
             class="flex items-center"
             style="padding: 4px; margin-right: 12px;"
-            @click="cancelLevel"
+            @click="closePopup()"
           >
             <img src="assets/icons/general/close.svg" />
           </div>
@@ -61,12 +61,12 @@
         >
           <div
             class="level-input--item"
-            v-for="(input, index) of levels_input"
-            :key="'ilvl' + input"
-            @click="selectValue(input, index)"
-            :class="curr_selected_level_idx == index ? 'active' : ''"
+            v-for="level of availableLevels"
+            :key="'ilvl' + level"
+            @click="selectValue(level)"
+            :class="tempSelectedLevel == level ? 'active' : ''"
           >
-            {{ input }}
+            {{ level }}
           </div>
         </div>
         <div class="popup-level--action">
@@ -143,12 +143,15 @@ export default {
   components: { FillLayout, TableLadderLevel, SwipeableBottomSheet },
   data() {
     return {
-      levels: null,
-      levels_input: null,
-      selected_idx: null,
-      curr_levels_input: null,
-      curr_selected_level: null,
-      curr_selected_level_idx: null
+      activities: [
+        {
+          name: "",
+          level: ""
+        }
+      ],
+      idxSelectedArr: null,
+      availableLevels: [],
+      tempSelectedLevel: null
     };
   },
   computed: {
@@ -159,99 +162,46 @@ export default {
       return marked(DistorsiKognitif);
     },
     showAction() {
-      if (this.levels) {
-        for (let i = 0; i < this.levels.length; i++) {
-          if (this.levels === 0) return false;
-        }
-        return true;
-      }
-
-      return false;
+      return this.activities.every(activity => activity.level !== null);
     }
   },
-  mounted() {
-    console.log("strategi input data", this.strategiInputData);
-    this.levels = this.strategiInputData.levels;
-    console.log(this.levels);
-    if (!this.levels) {
-      console.log("go in this");
-      this.levels = [...this.strategiInputData.activities.map(_ => 0)];
-      this.curr_levels_input = [
-        ...this.strategiInputData.activities.map((_, idx) => idx + 1)
-      ];
-      return;
-    }
-
-    this.levels = [...this.strategiInputData.levels];
-    this.curr_levels_input = [];
-
-    // this.levels_input = [
-    //   ...this.strategiInputData.activities.map((_, idx) => idx + 1)
-    // ];
+  created() {
+    this.availableLevels = Array.from({ length: 10 }, (_, index) => index + 1);
+    this.activities = [...this.strategiInputData.activities];
   },
   methods: {
     getHeightForPopUp(height) {
       return window.innerHeight - height;
     },
     selectIdx(idx) {
-      // build level selection
-      console.log("curr levels input", this.curr_levels_input);
-      const curr_level_selected = this.levels[idx];
-      console.log("curr levels selected", curr_level_selected);
-      console.log(this.curr_levels_input.indexOf(curr_level_selected));
-      if (
-        curr_level_selected &&
-        this.curr_levels_input.indexOf(curr_level_selected) == -1
-      ) {
-        console.log("activites already selected level");
-        const temp = [...this.curr_levels_input];
-        this.levels_input = [];
-        temp.forEach(level => {
-          if (curr_level_selected > level) {
-            this.levels_input.push(curr_level_selected);
-          }
-          this.levels_input.push(level);
-        });
-      } else {
-        this.levels_input = [...this.curr_levels_input];
-      }
-
-      this.selected_idx = idx;
+      this.idxSelectedArr = idx;
       this.$refs.popUpLevel.setState("open");
-      return;
     },
-    selectValue(input_val, idx) {
-      this.curr_selected_level = input_val;
-      this.curr_selected_level_idx = idx;
-      return;
+    selectValue(level) {
+      this.tempSelectedLevel = level;
     },
     activateLevel() {
-      const temp = [...this.levels];
-      temp[this.selected_idx] = this.curr_selected_level;
-      this.levels = [...temp];
+      const tempActivities = JSON.parse(JSON.stringify(this.activities));
+      console.log(tempActivities);
+      tempActivities[this.idxSelectedArr].level = this.tempSelectedLevel;
 
-      this.$store.dispatch("strategi/updateInputStrategi", {
-        ...this.strategiInputData,
-        levels: this.levels
-      });
+      this.activities = [...tempActivities];
+      this.availableLevels = this.availableLevels.filter(
+        level => level !== this.tempSelectedLevel
+      );
 
-      const temp2 = [...this.levels_input];
-      temp2.splice(this.curr_selected_level_idx, 1);
-      this.curr_levels_input = [...temp2];
-
-      this.curr_selected_level = null;
-      ``;
-      this.curr_selected_level_idx = null;
-
-      this.$refs.popUpLevel.setState("close");
-      return;
+      this.closePopup();
     },
-    cancelLevel() {
-      this.curr_selected_level = null;
-      this.curr_selected_level_idx = null;
+    closePopup() {
+      this.idxSelectedArr = null;
+      this.tempSelectedLevel = null;
       this.$refs.popUpLevel.setState("close");
     },
     activateStrategi() {
+      this.$store.dispatch("strategi/updateInputStrategi", {
+        ...this.strategiInputData,
+        activities: [...this.activities]
+      });
       this.$store.dispatch("strategi/activateStrategi");
       this.$router.push("/strategi");
     }
@@ -259,7 +209,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .popup-level--header {
   padding: 16px;
   background: #ffffff;

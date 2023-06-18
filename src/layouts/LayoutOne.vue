@@ -2,7 +2,10 @@
 <template>
   <div class="container-scroll">
     <div class="header">
-      <div class="btn" @click="$router.back()">
+      <div
+        class="btn"
+        @click="backRoutes ? $router.replace(backRoutes) : $router.back()"
+      >
         <svg
           width="24"
           height="24"
@@ -31,7 +34,8 @@ export default {
     headerImg: {
       type: String,
       default: "#"
-    }
+    },
+    backRoutes: String
   }
 };
 </script>

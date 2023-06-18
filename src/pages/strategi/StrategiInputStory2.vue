@@ -27,7 +27,7 @@
 import TextArea from "components/inputs/TextArea.vue";
 import FillLayout from "src/layouts/FillLayout.vue";
 
-import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
+import StrategiStory from "!!raw-loader!../../data/info/StrategiStory.md";
 import { marked } from "marked";
 
 export default {
@@ -46,7 +46,7 @@ export default {
       return this.$store.state.strategi.strategiInputData;
     },
     markdownToHtml() {
-      return marked(DistorsiKognitif);
+      return marked(StrategiStory);
     }
   },
   mounted() {

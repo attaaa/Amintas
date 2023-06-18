@@ -148,11 +148,6 @@ export default {
   created() {
     console.log("mounted");
     if (!this.latihanFinished) console.log("setLatihanAktif");
-    this.$store.commit("restrukturisasi/setLatihanAktif", {
-      active: true,
-      name: "Identifikasi Pikiran Negatif",
-      path: this.$route.path
-    });
   },
   methods: {
     showAktivasiLatihan() {
@@ -163,6 +158,11 @@ export default {
         sesi: "sesi1",
         latihanName: "latihan1Form",
         value: true
+      });
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Identifikasi Pikiran Negatif",
+        path: "/restrukturisasi/sesi1"
       });
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },

@@ -17,8 +17,8 @@
           <TableLadderActivity
             v-for="(activity, index) in activities"
             :key="index"
-            :model="activities[index].val"
-            @input="val => (activities[index].val = val)"
+            :model="activities[index].name"
+            @input="val => (activities[index].name = val)"
             :idx="index"
             :is-last="index === activities.length - 1"
             :is-first="index === 0"
@@ -36,7 +36,7 @@
 import TableLadderActivity from "src/components/strategi/TableLadderActivity.vue";
 import FillLayout from "src/layouts/FillLayout.vue";
 
-import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
+import StrategiActivities from "!!raw-loader!../../data/info/StrategiActivities.md";
 import { marked } from "marked";
 
 export default {
@@ -44,7 +44,7 @@ export default {
   components: { FillLayout, TableLadderActivity },
   data() {
     return {
-      activities: [{ val: "" }]
+      activities: [{ name: "", level: null }]
     };
   },
   computed: {
@@ -52,20 +52,16 @@ export default {
       return this.$store.state.strategi.strategiInputData;
     },
     markdownToHtml() {
-      return marked(DistorsiKognitif);
+      return marked(StrategiActivities);
     }
   },
-  mounted() {
-    this.activities = [
-      ...this.strategiInputData.activities.map(val => ({
-        val: val
-      }))
-    ];
+  created() {
+    this.activities = [...this.strategiInputData.activities];
   },
   methods: {
     checkInputValid() {
       for (let activity of this.activities) {
-        if (activity.val === "") {
+        if (activity.name === "") {
           return false;
         }
       }
@@ -75,15 +71,14 @@ export default {
       console.log(val);
     },
     handleAdd() {
-      this.activities = [...this.activities, { val: "" }];
+      this.activities = [...this.activities, { name: "", level: null }];
     },
     handleRemove(idx) {
       this.activities.splice(idx, 1);
     },
     handleNextAction() {
       this.$store.dispatch("strategi/updateInputStrategi", {
-        ...this.strategiInputData,
-        activities: [...this.activities.map(activity => activity.val)]
+        activities: [...this.activities]
       });
       this.$router.push("/strategi/input-level");
     }

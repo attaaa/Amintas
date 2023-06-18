@@ -1,5 +1,8 @@
 <template>
-  <LayoutOne headerImg="/img/restrukturisasi/intro_detail.png">
+  <LayoutOne
+    headerImg="/img/restrukturisasi/intro_detail.png"
+    backRoutes="/restrukturisasi"
+  >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Sesi 1: Pikiran dan Perasaan
     </h1>
