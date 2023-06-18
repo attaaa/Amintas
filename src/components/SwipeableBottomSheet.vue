@@ -1,5 +1,9 @@
 <template>
-  <div class="wrapper" :data-open="state === 'open' ? 1 : 0">
+  <div
+    class="wrapper"
+    :data-open="state === 'open' ? 1 : 0"
+    :style="zIndex && { 'z-index': zIndex }"
+  >
     <div
       v-if="useOverlay && showOverlay"
       class="bg"
@@ -9,7 +13,7 @@
       ref="card"
       class="card"
       :data-state="isMove ? 'move' : state"
-      :style="{ top: `${isMove ? y : calcY()}px` }"
+      :style="{ top: `${isMove ? y : calcY()}px`, zIndex: zIndex }"
     >
       <div class="pan-area" ref="pan" v-if="useDragIcon">
         <div class="bar" ref="bar"></div>
@@ -48,7 +52,8 @@ export default {
     canClose: {
       type: Boolean,
       default: false
-    }
+    },
+    zIndex: Number
   },
   data() {
     return {
@@ -142,7 +147,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 9999;
 }
 
 .wrapper .bg {
@@ -165,7 +170,7 @@ export default {
   border-radius: 16px 16px 0 0;
   box-shadow: 0px 2px 4px 1px rgba(48, 48, 48, 0.24);
   left: 0;
-  z-index: 50;
+  z-index: 9999;
 }
 
 .card[data-state="half"],

@@ -78,6 +78,7 @@
           ref="bottomSheet"
           :open-top="280"
           :use-drag-icon="false"
+          :z-index="50"
         >
           <div style="padding: 32px 24px;">
             <!-- illustration -->
