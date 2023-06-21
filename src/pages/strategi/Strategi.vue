@@ -65,6 +65,7 @@ export default {
   name: "Strategi",
   components: { SwipeableBottomSheet },
   mounted() {
+    this.$store.commit("strategi/clearInputStrategi");
     if (this.$store.state.strategi.strategiActive) {
       this.$router.push("/strategi-active");
     }

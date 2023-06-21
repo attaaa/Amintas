@@ -203,6 +203,7 @@ export default {
         activities: [...this.activities]
       });
       this.$store.dispatch("strategi/activateStrategi");
+      this.$store.commit("strategi/sortActivity");
       this.$router.push("/strategi");
     }
   }

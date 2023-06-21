@@ -24,7 +24,9 @@ const EMPTY_STRATEGI = {
   activities: [
     {
       name: "",
-      level: null
+      level: null,
+      status: "inactive",
+      checked: false
     }
   ],
   fear_level: []

@@ -1,12 +1,12 @@
 <template>
   <div>
     <FillLayout
-      title="Aktivitas atau situasi apa yang akan kamu lakukan?"
-      :showAction="checkInputValid()"
-      :handleNextAction="handleNextAction"
-      :showBantuan="true"
-      :bantuanHeight="484"
       :bantuanContent="markdownToHtml"
+      :bantuanHeight="484"
+      :handleNextAction="handleNextAction"
+      :showAction="checkInputValid()"
+      :showBantuan="true"
+      title="Aktivitas atau situasi apa yang akan kamu lakukan?"
     >
       <div
         v-if="activities"
@@ -16,16 +16,17 @@
         <div class="col full-width overflow-hidden">
           <TableLadderActivity
             v-for="(activity, index) in activities"
+            :handle-add="handleAdd"
+            :handle-remove="handleRemove"
+            :idx="index"
+            :is-first="index === 0"
+            :is-last="index === activities.length - 1"
             :key="index"
             :model="activities[index].name"
             @input="val => (activities[index].name = val)"
-            :idx="index"
-            :is-last="index === activities.length - 1"
-            :is-first="index === 0"
-            :handle-add="handleAdd"
-            :handle-remove="handleRemove"
             style="margin-bottom: 12px"
-          />
+          >
+          </TableLadderActivity>
         </div>
       </div>
     </FillLayout>
@@ -44,7 +45,9 @@ export default {
   components: { FillLayout, TableLadderActivity },
   data() {
     return {
-      activities: [{ name: "", level: null }]
+      activities: [
+        { name: "", level: null, status: "inactive", checked: false }
+      ]
     };
   },
   computed: {
@@ -56,7 +59,9 @@ export default {
     }
   },
   created() {
-    this.activities = [...this.strategiInputData.activities];
+    this.activities = JSON.parse(
+      JSON.stringify(this.strategiInputData.activities)
+    );
   },
   methods: {
     checkInputValid() {
@@ -71,17 +76,22 @@ export default {
       console.log(val);
     },
     handleAdd() {
-      this.activities = [...this.activities, { name: "", level: null }];
+      this.activities = [
+        ...this.activities,
+        { name: "", level: null, status: "inactive", checked: false }
+      ];
     },
     handleRemove(idx) {
       this.activities.splice(idx, 1);
     },
     handleNextAction() {
       this.$store.dispatch("strategi/updateInputStrategi", {
+        ...this.strategiInputData,
         activities: [...this.activities]
       });
       this.$router.push("/strategi/input-level");
-    }
+    },
+    onInput() {}
   }
 };
 </script>

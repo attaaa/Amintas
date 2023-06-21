@@ -44,55 +44,104 @@
     <!-- DETAIL -->
     <Collapse style="margin-bottom: 12px" label="Detail Cerita">
       <template v-slot:content="">
-        <p>
+        <div>
           {{ strategiData.story_penyebab.detail }}
-        </p>
+        </div>
       </template>
     </Collapse>
 
     <!-- TUJUAN -->
     <Collapse style="margin-bottom: 12px" label="Tujuan">
       <template v-slot:content="">
-        <p>
+        <div>
           {{ strategiData.story_tujuan }}
-        </p>
+        </div>
       </template>
     </Collapse>
 
     <!-- TANGGA KETAKUTAN -->
     <Collapse label="Tangga Ketakutan">
       <template v-slot:preview="">
-        ini preview
+        <FearLadder
+          :text="strategiData.activities[activeActivityIdx].name"
+          :level="strategiData.activities[activeActivityIdx].level"
+          :checked="strategiData.activities[activeActivityIdx].checked"
+          :status="strategiData.activities[activeActivityIdx].status"
+          @toggle-check="onToggleCheck(activeActivityIdx)"
+        />
       </template>
       <template v-slot:content="">
-        <div style="height: 12px"></div>
-        <div class="tangga-ketakutan--item">
-          <div class="tangga-ketakutan--label">
-            label
-          </div>
-          <div class="tangga-ketakutan--level">
-            <div class="text__neutral-grey text__footnote">Level</div>
-            <div class="text__primary text__headline">2</div>
-          </div>
-          <div class="tangga-ketakutan--checkbox">
-            <div class="">
-              <input id="test_check1" type="checkbox" />
-              <label for="test_check1"></label>
-              <img src="/img/check.svg" />
-            </div>
-          </div>
-        </div>
+        <template v-for="(activity, idx) of strategiData.activities">
+          <FearLadder
+            style="margin-top: 12px"
+            :key="idx"
+            :text="activity.name"
+            :level="activity.level"
+            :checked="activity.checked"
+            :status="activity.status"
+          />
+        </template>
       </template>
     </Collapse>
+
+    <!-- POP UP SELESAIKAN ACTIVITY CONFIRMATION -->
+    <SwipeableBottomSheet
+      ref="popUpAktifkan"
+      default-state="close"
+      :open-top="getHeightForPopUp(420)"
+      :use-overlay="true"
+      :can-close="true"
+      :use-drag-icon="false"
+    >
+      <div class="info-content" style="padding: 24px 16px 0;">
+        <div class="text-center bg-secondary" style="border-radius: 8px;">
+          <img style="height: 156px;" src="/img/popup_activation.png" />
+        </div>
+        <div
+          class="text__primary text__title-2 text-center"
+          style="margin-top: 24px; margin-bottom: 12px;"
+        >
+          Tandai Aktivitas Berhasil?
+        </div>
+
+        <p
+          class="text-center text__body text__neutral-dark-grey"
+          style="margin-bottom: 48px"
+        >
+          Aktivitas akan ditandai berhasil. Apakah kamu yakin ingin
+          melanjutkannya?
+        </p>
+
+        <div class="row items-end ">
+          <button
+            class="btn__large btn__alert-secondary col-auto relative-position"
+            @click="() => this.$refs.popUpAktifkan.setState('close')"
+            v-ripple
+          >
+            Batal
+          </button>
+          <div style="width: 16px;"></div>
+          <button
+            class="btn__large btn__accent col relative-position"
+            @click="doneActivity(activeActivityIdx)"
+            v-ripple
+          >
+            Aktifkan
+          </button>
+        </div>
+      </div>
+    </SwipeableBottomSheet>
   </div>
 </template>
 
 <script>
 import { TRIGGER_CATEGORY } from "src/data/strategi/StrategiModel";
 import Collapse from "src/components/strategi/Collapse.vue";
+import FearLadder from "src/components/strategi/FearLadder.vue";
+import SwipeableBottomSheet from "src/components/SwipeableBottomSheet.vue";
 
 export default {
-  components: { Collapse },
+  components: { Collapse, FearLadder, SwipeableBottomSheet },
   name: "StrategiActive",
   data() {
     return {
@@ -102,6 +151,49 @@ export default {
   computed: {
     strategiData() {
       return this.$store.state.strategi.strategiActive;
+    },
+    activeActivityIdx() {
+      return (
+        this.strategiData.activities.findIndex(
+          activity => activity.status === "active"
+        ) || null
+      );
+    }
+  },
+  created() {
+    if (!this.activeActivity) {
+      this.autoActiveActivity();
+    }
+  },
+  methods: {
+    getHeightForPopUp(height) {
+      return window.innerHeight - height;
+    },
+
+    autoActiveActivity() {
+      const lowestXIndex = this.strategiData.activities.findIndex(
+        obj =>
+          obj.level ===
+          Math.min(...this.strategiData.activities.map(obj => obj.level))
+      );
+
+      this.$store.commit("strategi/setActivityStatus", {
+        activityIndex: lowestXIndex,
+        status: "active"
+      });
+    },
+
+    async onToggleCheck(idx) {
+      this.$store.commit("strategi/setActivityChecked", {
+        activityIndex: idx,
+        checked: true
+      });
+
+      const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+      await sleep(800);
+
+      this.$refs.popUpAktifkan.setState("open");
     }
   }
 };

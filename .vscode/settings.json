@@ -20,42 +20,8 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true,
-    "amintas.code-workspace": true,
-    "babel.config.js": true,
-    "jsconfig.json": true,
-    "package-lock.json": true,
-    "README.md": true,
-    "yarn.lock": true,
-    "src-cordova": true,
-    "dist": true,
-    ".vscode": true,
-    ".quasar": true,
-    ".eslintrc.js": true,
-    ".editorconfig": true,
-    ".eslintignore": true,
-    ".gitignore": true,
-    ".postcssrc.js": true,
-    "quasar.conf.js": true
+    "**/Thumbs.db": true
   },
-
-  "hide-files.files": [
-    "amintas.code-workspace",
-    "babel.config.js",
-    "jsconfig.json",
-    "package-lock.json",
-    "yarn.lock",
-    "src-cordova",
-    "dist",
-    ".vscode",
-    ".quasar",
-    ".eslintrc.js",
-    ".editorconfig",
-    ".eslintignore",
-    ".gitignore",
-    ".postcssrc.js",
-    "quasar.conf.js"
-  ],
 
   "postcssSorting.config": {
     "order": [
@@ -203,5 +169,25 @@
       "command": "editor.action.formatDocument",
       "runIn": "vscode"
     }
-  ]
+  ],
+
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".vue",
+        "cmd": "attrsSorter.execute",
+        "runIn": "vscode"
+      },
+      {
+        "match": ".*\\.(css|scss)$",
+        "cmd": "postcssSorting.execute",
+        "runIn": "vscode"
+      },
+      {
+        "match": "*",
+        "cmd": "editor.action.formatDocument",
+        "runIn": "vscode"
+      }
+    ]
+  }
 }

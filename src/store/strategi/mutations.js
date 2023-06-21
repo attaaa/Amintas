@@ -25,6 +25,18 @@ const clearActiveStrategi = state => {
   state.strategiActive = null;
 };
 
+const setActivityStatus = (state, { activityIndex, status }) => {
+  state.strategiActive.activities[activityIndex].status = status;
+};
+
+const setActivityChecked = (state, { activityIndex, checked }) => {
+  state.strategiActive.activities[activityIndex].checked = checked;
+};
+
+const sortActivity = state => {
+  state.strategiActive.activities.sort((a, b) => b.level - a.level);
+};
+
 // const delJournal = (state, journalId) => {
 //   const currJournalDataList = [...state.journalDataList];
 //   state.journalDataList = currJournalDataList.filter(
@@ -40,8 +52,11 @@ const clearActiveStrategi = state => {
 // };
 
 export {
-  updateInputStrategi,
-  clearInputStrategi,
   activateStrategi,
-  clearActiveStrategi
+  clearActiveStrategi,
+  clearInputStrategi,
+  setActivityChecked,
+  setActivityStatus,
+  sortActivity,
+  updateInputStrategi
 };
