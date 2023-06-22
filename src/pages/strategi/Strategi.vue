@@ -4,12 +4,12 @@
     <div class="flex justify-between items-center" style="margin-bottom: 56px">
       <div class="text__title-1 text__primary">Strategi</div>
       <div @click="$refs.popUpHelp.setState('half')">
-        <img src="/assets/icons/bantuan-24.svg" />
+        <img src="assets/icons/bantuan-24.svg" />
       </div>
     </div>
     <!--  -->
     <div class="text-center" style="margin-bottom: 24px">
-      <img src="/assets/img/empty_nothing.png" />
+      <img src="assets/img/empty_nothing.png" />
     </div>
     <div
       class="text__title-3 text__primary text-center"

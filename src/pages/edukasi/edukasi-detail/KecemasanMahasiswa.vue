@@ -15,7 +15,7 @@
           />
         </svg>
       </div>
-      <img src="/img/education_material_prolog2.png" />
+      <img src="img/education_material_prolog2.png" />
     </div>
 
     <div class="fl-main">
@@ -44,25 +44,25 @@
           class="material-item flex items-center"
           @click="() => this.$router.push('/materi/detail')"
         >
-          <img src="/img/education_display_mat1_p2m1.png" />
+          <img src="img/education_display_mat1_p2m1.png" />
           <div class="text__headline text__primary">
             Kecemasan akan Perpisahan
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1_p2m2.png" />
+          <img src="img/education_display_mat1_p2m2.png" />
           <div class="text__headline text__primary">
             Kecemasan Sosial
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1_p2m3.png" />
+          <img src="img/education_display_mat1_p2m3.png" />
           <div class="text__headline text__primary">
             Kecemasan Antisipatif
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1_p2m4.png" />
+          <img src="img/education_display_mat1_p2m4.png" />
           <div class="text__headline text__primary">
             Kecemasan terhadap Ujian
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <LayoutOne headerImg="/img/restrukturisasi/intro_detail.png">
+  <LayoutOne headerImg="img/restrukturisasi/intro_detail.png">
     <h1 class="text__title-2 text__primary q-ma-none">Untuk Temanku</h1>
     <h2 class="text__title-4 text__neutral-black q-mt-md q-mb-sm">
       Halo, Selamat Datang!

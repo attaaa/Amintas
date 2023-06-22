@@ -74,7 +74,7 @@
       >
         <img
           style="width: 100%; border-radius: 8px"
-          src="/img/popup_finishing.png"
+          src="img/popup_finishing.png"
         />
       </div>
 

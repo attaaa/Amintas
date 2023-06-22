@@ -9,7 +9,7 @@
       <!-- ONBOARDING ITEM -->
       <div>
         <div class="onboarding-item">
-          <img class="img" src="/img/onboarding1.png" />
+          <img class="img" src="img/onboarding1.png" />
           <div class="title text__primary text__title-3">
             Selamat datang di Amintas!
           </div>
@@ -21,7 +21,7 @@
 
       <div>
         <div class="onboarding-item">
-          <img class="img" src="/img/onboarding2.png" />
+          <img class="img" src="img/onboarding2.png" />
           <div class="title text__primary text__title-3">
             Rileks dan nyaman
           </div>
@@ -34,7 +34,7 @@
 
       <div>
         <div class="onboarding-item">
-          <img class="img" src="/img/onboarding3.png" />
+          <img class="img" src="img/onboarding3.png" />
           <div class="title text__primary text__title-3">
             Bantu kamu lebih paham
           </div>
@@ -46,7 +46,7 @@
 
       <div>
         <div class="onboarding-item">
-          <img class="img" src="/img/onboarding4.png" />
+          <img class="img" src="img/onboarding4.png" />
           <div class="title text__primary text__title-3">
             Lebih relevan dan rasional
           </div>
@@ -59,7 +59,7 @@
 
       <div>
         <div class="onboarding-item">
-          <img class="img" src="/img/onboarding5.png" />
+          <img class="img" src="img/onboarding5.png" />
           <div class="title text__primary text__title-3">
             Berdamai dengan pemicu
           </div>

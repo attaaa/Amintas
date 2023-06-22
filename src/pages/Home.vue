@@ -20,7 +20,7 @@
             </button>
           </div>
           <div class="home-card--img">
-            <img src="/img/module_access_main.png" />
+            <img src="img/module_access_main.png" />
           </div>
         </div>
       </template>
@@ -41,7 +41,7 @@
             </button>
           </div>
           <div class="home-card--img">
-            <img src="/img/module_access_main_active.png" />
+            <img src="img/module_access_main_active.png" />
           </div>
         </div>
       </template>
@@ -51,6 +51,7 @@
         <SwipeableBottomSheet
           ref="bottomSheet"
           default-state="half"
+          :z-index="50"
           :swipeable="true"
           v-if="journalDataList.length > 0"
         >

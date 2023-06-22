@@ -1,6 +1,6 @@
 <template>
   <LayoutOne
-    headerImg="/img/restrukturisasi/intro_detail.png"
+    headerImg="img/restrukturisasi/intro_detail.png"
     backRoutes="/restrukturisasi"
   >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
@@ -25,7 +25,7 @@
         class="material-item flex items-center"
         @click="$router.push('/restrukturisasi/sesi1/materi1')"
       >
-        <img src="/img/restrukturisasi/sesi1_materi1_ico.png" />
+        <img src="img/restrukturisasi/sesi1_materi1_ico.png" />
         <div class="text__headline text__primary">
           <div>Tentang Pikiran dan Perasaan</div>
         </div>
@@ -37,7 +37,7 @@
           statusMateri[0] && $router.push('/restrukturisasi/sesi1/materi2')
         "
       >
-        <img src="/img/restrukturisasi/sesi1_materi2_ico.png" />
+        <img src="img/restrukturisasi/sesi1_materi2_ico.png" />
         <div class="text__headline text__primary">
           <div>Menghubungkan Perasaan dengan Pikiran</div>
         </div>
@@ -49,7 +49,7 @@
           statusMateri[1] && $router.push('/restrukturisasi/sesi1/materi3')
         "
       >
-        <img src="/img/restrukturisasi/sesi1_materi3_ico.png" />
+        <img src="img/restrukturisasi/sesi1_materi3_ico.png" />
         <div class="text__headline text__primary">
           <div>Faktor Pikiran Negatif</div>
         </div>
@@ -71,14 +71,14 @@
         "
       >
         <template v-if="!latihan1Finished && latihan1Form">
-          <img src="/img/activated_exercise.png" />
+          <img src="img/activated_exercise.png" />
         </template>
         <template v-else-if="!latihan1Finished">
-          <img src="/img/restrukturisasi/sesi1_latihan1.png" />
+          <img src="img/restrukturisasi/sesi1_latihan1.png" />
         </template>
 
         <template v-else>
-          <img src="/img/finished_exercise.png" />
+          <img src="img/finished_exercise.png" />
         </template>
         <div class="text__headline text__primary">
           <div>Identifikasi Pikiran Negatif</div>
@@ -92,13 +92,13 @@
         "
       >
         <template v-if="!latihan2Finished && latihan2Form">
-          <img src="/img/activated_exercise.png" />
+          <img src="img/activated_exercise.png" />
         </template>
         <template v-else-if="latihan2Finished">
-          <img src="/img/restrukturisasi/sesi1_latihan2.png" />
+          <img src="img/restrukturisasi/sesi1_latihan2.png" />
         </template>
         <template v-else>
-          <img src="/img/finished_exercise.png" />
+          <img src="img/finished_exercise.png" />
         </template>
 
         <div class="text__headline text__primary">

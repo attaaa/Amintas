@@ -1,7 +1,7 @@
 <template>
   <div class="materi">
     <div class="materi--header">
-      <img src="/img/education_material_prolog1.png" />
+      <img src="img/education_material_prolog1.png" />
     </div>
 
     <div class="materi--content" style="padding: 16px">
@@ -22,11 +22,11 @@
       </div>
       <div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
+          <img src="img/education_display_mat1.png" />
           <div class="text__headline text__primary">Teknik Pernapasan</div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
+          <img src="img/education_display_mat1.png" />
           <div class="text__headline text__primary">Teknik Pernapasan</div>
         </div>
       </div>

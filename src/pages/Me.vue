@@ -5,7 +5,7 @@
     </div>
     <div class="text-center">
       <div style="margin-bottom: 12px">
-        <img src="/img/profile_default.png" />
+        <img src="img/profile_default.png" />
       </div>
       <p class="text__title-3 text__neutral-black">{{ account.name }}</p>
       <p class="text__body-text text__neutral-grey">{{ account.email }}</p>

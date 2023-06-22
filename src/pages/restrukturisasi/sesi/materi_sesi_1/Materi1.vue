@@ -1,5 +1,5 @@
 <template>
-  <LayoutOne headerImg="/img/restrukturisasi/sesi1_materi1.png">
+  <LayoutOne headerImg="img/restrukturisasi/sesi1_materi1.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Tentang Pikiran dan Perasaan
     </h1>
@@ -14,7 +14,7 @@
       suasana hatimu seminggu terakhir?"
     </p>
 
-    <img class="img-body" src="/img/restrukturisasi/sesi1_materi1_body1.png" />
+    <img class="img-body" src="img/restrukturisasi/sesi1_materi1_body1.png" />
 
     <p class="text__body text__neutral-black">
       Perasaan yang bertahan dari waktu ke waktu, menginterpretasikan mood atau
@@ -42,7 +42,7 @@
       kesal.
     </p>
 
-    <img class="img-body" src="/img/restrukturisasi/sesi1_materi1_body2.png" />
+    <img class="img-body" src="img/restrukturisasi/sesi1_materi1_body2.png" />
 
     <p class="text__body text__neutral-black">
       Bagaimana jika aku beritahu, bahwa perilaku temanmu bukanlah yang

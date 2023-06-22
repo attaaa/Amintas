@@ -15,7 +15,7 @@
           />
         </svg>
       </div>
-      <img src="/img/education_material_prolog4.png" />
+      <img src="img/education_material_prolog4.png" />
     </div>
 
     <div class="fl-main">
@@ -44,19 +44,19 @@
           class="material-item flex items-center"
           @click="() => this.$router.push('/materi/detail')"
         >
-          <img src="/img/education_display_p4m1.png" />
+          <img src="img/education_display_p4m1.png" />
           <div class="text__headline text__primary">
             Psikoterapi
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_p4m2.png" />
+          <img src="img/education_display_p4m2.png" />
           <div class="text__headline text__primary">
             Penanganan Mandiri
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_p4m3.png" />
+          <img src="img/education_display_p4m3.png" />
           <div class="text__headline text__primary">
             Strategi Koping
           </div>

@@ -1,5 +1,5 @@
 <p align="center">
-  <img style="width: 100%; border-radius: 8px" src="/img/popup_knowledge.png">
+  <img style="width: 100%; border-radius: 8px" src="img/popup_knowledge.png">
   <br />
   <div class="text__primary text__title-2 text-center">Distorsi Kognitif?</div>
 </p>

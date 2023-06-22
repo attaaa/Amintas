@@ -1,6 +1,6 @@
 <template>
   <LayoutLatihan
-    headerImg="/img/restrukturisasi/sesi1_latihan1_detail.png"
+    headerImg="img/restrukturisasi/sesi1_latihan1_detail.png"
     :showAction="formDisabled"
     :labelNextAction="'Aktivasi Latihan'"
     :handleNextAction="showAktivasiLatihan"

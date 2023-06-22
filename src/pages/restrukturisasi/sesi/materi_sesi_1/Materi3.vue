@@ -1,5 +1,5 @@
 <template>
-  <LayoutOne headerImg="/img/restrukturisasi/sesi1_materi3.png">
+  <LayoutOne headerImg="img/restrukturisasi/sesi1_materi3.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Faktor Pikiran Negatif
     </h1>
@@ -38,7 +38,7 @@
       ulang tahun..."
     </p>
 
-    <img class="img-body" src="/img/restrukturisasi/sesi1_materi2_body1.png" />
+    <img class="img-body" src="img/restrukturisasi/sesi1_materi2_body1.png" />
 
     <p class="text__body text__neutral-black">
       Kamu pun langsung berpikir:

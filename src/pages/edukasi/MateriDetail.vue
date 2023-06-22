@@ -116,7 +116,7 @@
         </svg>
       </div>
       <!-- IMAGE -->
-      <img src="/img/education_mat1_p1m1_head.png" />
+      <img src="img/education_mat1_p1m1_head.png" />
     </div>
     <div class="fl-main">
       <!-- TITLE -->
@@ -142,7 +142,7 @@
           pengalaman yang sama persis. Efek dari rasa cemas yang timbul biasanya
           mencakup kombinasi gejala sensasi fisik, psikologis, dan juga sosial.
         </p>
-        <img src="/img/education_mat1_p1m1_head.png" />
+        <img src="img/education_mat1_p1m1_head.png" />
         <p>
           Semua orang pasti pernah merasa cemas, namun pada beberapa orang
           perasaan tersebut dapat berkembang menjadi gangguan yang perlu
@@ -162,7 +162,7 @@
             frameborder="0"
           ></iframe>
           <div class="video__btn-play" role="button" aria-label="play video">
-            <img src="/img/btn-video-play.png" />
+            <img src="img/btn-video-play.png" />
           </div>
         </div>
       </div>
@@ -195,7 +195,7 @@
           <template v-slot:content="">
             <div class="row" style="padding-top: 8px;">
               <img
-                src="/img/education_material_author_ana.png"
+                src="img/education_material_author_ana.png"
                 style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px;"
               />
               <div>

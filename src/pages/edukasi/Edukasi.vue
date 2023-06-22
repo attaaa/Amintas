@@ -60,23 +60,23 @@
       <!-- materials -->
       <div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat1.png" />
+          <img src="img/education_display_mat1.png" />
           <div class="text__headline text__primary">
             Teknik Pernapasan 4-7-8
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat2.png" />
+          <img src="img/education_display_mat2.png" />
           <div class="text__headline text__primary">Menulis Jurnal</div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat3.png" />
+          <img src="img/education_display_mat3.png" />
           <div class="text__headline text__primary">
             Menumbuhkan Rasa Syukur
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat4.png" />
+          <img src="img/education_display_mat4.png" />
           <div class="text__headline text__primary">
             Tertawa untuk Melepas Stress
           </div>
@@ -88,10 +88,10 @@
 
 <script>
 const playlistData = [
-  "/img/edukasi/education_cover_p1.svg",
-  "/img/edukasi/education_cover_p2.svg",
-  "/img/edukasi/education_cover_p3.svg",
-  "/img/edukasi/education_cover_p4.svg"
+  "img/edukasi/education_cover_p1.svg",
+  "img/edukasi/education_cover_p2.svg",
+  "img/edukasi/education_cover_p3.svg",
+  "img/edukasi/education_cover_p4.svg"
 ];
 
 import SearchField from "components/inputs/SearchField";

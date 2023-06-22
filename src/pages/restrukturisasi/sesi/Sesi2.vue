@@ -1,5 +1,5 @@
 <template>
-  <LayoutOne headerImg="/img/restrukturisasi/intro_detail.png">
+  <LayoutOne headerImg="img/restrukturisasi/intro_detail.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Sesi 1: Pikiran dan Perasaan
     </h1>
@@ -19,19 +19,19 @@
     </h2>
     <div>
       <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_materi1.png" />
+        <img src="img/restrukturisasi/sesi1_materi1.png" />
         <div class="text__headline text__primary">
           <div>Tentang Pikiran dan Perasaan</div>
         </div>
       </div>
       <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_materi2.png" />
+        <img src="img/restrukturisasi/sesi1_materi2.png" />
         <div class="text__headline text__primary">
           <div>Menghubungkan Perasaan dengan Pikiran</div>
         </div>
       </div>
       <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_materi3.png" />
+        <img src="img/restrukturisasi/sesi1_materi3.png" />
         <div class="text__headline text__primary">
           <div>Faktor Pikiran Negatif</div>
         </div>
@@ -46,13 +46,13 @@
     </h2>
     <div>
       <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_latihan1.png" />
+        <img src="img/restrukturisasi/sesi1_latihan1.png" />
         <div class="text__headline text__primary">
           <div>Identifikasi Pikiran Negatif</div>
         </div>
       </div>
       <div class="material-item flex items-center">
-        <img src="/img/restrukturisasi/sesi1_latihan2.png" />
+        <img src="img/restrukturisasi/sesi1_latihan2.png" />
         <div class="text__headline text__primary">
           <div>Catatan Pikiran Negatif</div>
         </div>

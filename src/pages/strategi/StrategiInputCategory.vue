@@ -62,7 +62,7 @@
       >
         <img
           style="width: 100%; border-radius: 8px;"
-          src="/img/popup_end_process.png"
+          src="img/popup_end_process.png"
         />
       </div>
 
@@ -114,6 +114,11 @@ export default {
       selectedPemicu: null
     };
   },
+  computed: {
+    strategiInputData() {
+      return this.$store.state.strategi.strategiInputData;
+    }
+  },
   mounted() {
     this.selectedPemicu = this.strategiInputData.category;
   },
@@ -124,11 +129,6 @@ export default {
         category: this.selectedPemicu
       });
       this.$router.push("/strategi/input-story1");
-    }
-  },
-  computed: {
-    strategiInputData() {
-      return this.$store.state.strategi.strategiInputData;
     }
   }
 };

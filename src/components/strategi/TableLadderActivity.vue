@@ -9,14 +9,14 @@
     </div>
     <div class="action">
       <button v-if="isLast" class="add" @click="handleAdd(model)">
-        <img src="/assets/icons/btn_add.svg" />
+        <img src="assets/icons/btn_add.svg" />
       </button>
       <button
         v-if="!(isFirst && isLast)"
         class="remove"
         @click="handleRemove(idx)"
       >
-        <img src="/assets/icons/btn_remove.svg" />
+        <img src="assets/icons/btn_remove.svg" />
       </button>
     </div>
   </div>

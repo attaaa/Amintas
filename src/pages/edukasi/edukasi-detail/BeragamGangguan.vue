@@ -15,7 +15,7 @@
           />
         </svg>
       </div>
-      <img src="/img/education_material_prolog3.png" />
+      <img src="img/education_material_prolog3.png" />
     </div>
 
     <div class="fl-main">
@@ -44,25 +44,25 @@
           class="material-item flex items-center"
           @click="() => this.$router.push('/materi/detail')"
         >
-          <img src="/img/education_display_p3m1.png" />
+          <img src="img/education_display_p3m1.png" />
           <div class="text__headline text__primary">
             Gangguan Kecemasan Umum
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_p3m2.png" />
+          <img src="img/education_display_p3m2.png" />
           <div class="text__headline text__primary">
             Gangguan Obsesif Kompulsif
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_p3m3.png" />
+          <img src="img/education_display_p3m3.png" />
           <div class="text__headline text__primary">
             Gangguan Panik
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_p3m4.png" />
+          <img src="img/education_display_p3m4.png" />
           <div class="text__headline text__primary">
             Gangguan Stress Pascatrauma
           </div>

@@ -15,7 +15,7 @@
           />
         </svg>
       </div>
-      <img src="/img/education_material_prolog1.png" />
+      <img src="img/education_material_prolog1.png" />
     </div>
 
     <div class="fl-main">
@@ -44,17 +44,17 @@
           class="material-item flex items-center"
           @click="() => this.$router.push('/materi/detail')"
         >
-          <img src="/img/education_display_mat1.png" />
+          <img src="img/education_display_mat1.png" />
           <div class="text__headline text__primary">
             Cemas dan Gangguan Kecemasan
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat2.png" />
+          <img src="img/education_display_mat2.png" />
           <div class="text__headline text__primary">Gejala Umum Kecemasan</div>
         </div>
         <div class="material-item flex items-center">
-          <img src="/img/education_display_mat3.png" />
+          <img src="img/education_display_mat3.png" />
           <div class="text__headline text__primary">
             Cemas dan Mahasiswa
           </div>

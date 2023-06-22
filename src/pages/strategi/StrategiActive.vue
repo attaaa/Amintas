@@ -95,7 +95,7 @@
     >
       <div class="info-content" style="padding: 24px 16px 0;">
         <div class="text-center bg-secondary" style="border-radius: 8px;">
-          <img style="height: 156px;" src="/img/popup_activation.png" />
+          <img style="height: 156px;" src="img/popup_activation.png" />
         </div>
         <div
           class="text__primary text__title-2 text-center"

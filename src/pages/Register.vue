@@ -124,7 +124,7 @@
       >
         <img
           style="height: 100%; width: 100%; object-fit:cover;  border-radius: 8px"
-          src="/img/popup_get_started.png"
+          src="img/popup_get_started.png"
         />
       </div>
 

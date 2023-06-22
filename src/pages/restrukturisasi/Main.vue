@@ -29,7 +29,7 @@
           @click="() => this.$router.push('restrukturisasi/intro')"
         >
           <h3 class="text__title-3 text__primary">Untuk Temanku</h3>
-          <img src="/img/restrukturisasi/intro.png" />
+          <img src="img/restrukturisasi/intro.png" />
         </div>
         <!-- SESI UTAMA -->
         <h2 class="text__title-2 text__neutral-back">Sesi Utama</h2>
@@ -46,7 +46,7 @@
             <div>3 Materi</div>
             <div>2 Latihan</div>
           </div>
-          <img src="/img/restrukturisasi/sesi1.png" />
+          <img src="img/restrukturisasi/sesi1.png" />
         </div>
         <div
           class="item"
@@ -61,7 +61,7 @@
             <div>3 Materi</div>
             <div>2 Latihan</div>
           </div>
-          <img src="/img/restrukturisasi/sesi2.png" />
+          <img src="img/restrukturisasi/sesi2.png" />
         </div>
         <div
           class="item"
@@ -76,14 +76,14 @@
             <div>3 Materi</div>
             <div>2 Latihan</div>
           </div>
-          <img src="/img/restrukturisasi/sesi3.png" />
+          <img src="img/restrukturisasi/sesi3.png" />
         </div>
         <h2 class="text__title-2 text__neutral-back">Bantuan</h2>
         <div class="item">
           <h3 class="text__title-3 text__primary">
             Bantuan
           </h3>
-          <img src="/img/restrukturisasi/sesi1.png" />
+          <img src="img/restrukturisasi/sesi1.png" />
         </div>
       </div>
     </div>
