@@ -94,14 +94,14 @@
     <button
       class="btn__accent btn__large"
       style="width: 100%; margin-bottom: 16px;"
-      @click="() => this.$router.replace('login')"
+      @click="() => this.$router.push('login')"
     >
       Masuk
     </button>
     <button
       class="btn__secondary btn__borderless btn__large"
       style="width: 100%; margin-bottom: 72px;"
-      @click="() => this.$router.replace('register')"
+      @click="() => this.$router.push('register')"
     >
       Belum punya akun
     </button>
@@ -111,8 +111,6 @@
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// // optional style for arrows & dots
-// import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "Onboarding1",
@@ -122,9 +120,6 @@ export default {
       activeItemIdx: 0
     };
   },
-  mounted() {
-    // this.initSwipeListener();
-  },
   methods: {
     changeNav(slideIndex) {
       this.activeItemIdx = slideIndex;
@@ -133,7 +128,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .onboarding-container {
   display: flex;
   flex-direction: column;
