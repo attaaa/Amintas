@@ -9,7 +9,7 @@
       <div>
         <SearchField
           placeholder="Cari gangguan, metode, dsb"
-          @click.native="$router.push('/edukasi/search')"
+          @click.native="$router.replace('/edukasi/search')"
         />
       </div>
 
@@ -107,19 +107,19 @@ export default {
     goToDetail(idx) {
       switch (idx) {
         case 0:
-          this.$router.push("/edukasi/edukasi-detail/cemas-dan-gangguan");
+          this.$router.replace("/edukasi/edukasi-detail/cemas-dan-gangguan");
           break;
 
         case 1:
-          this.$router.push("/edukasi/edukasi-detail/kecemasan-mahasiswa");
+          this.$router.replace("/edukasi/edukasi-detail/kecemasan-mahasiswa");
           break;
 
         case 2:
-          this.$router.push("/edukasi/edukasi-detail/beragam-gangguan");
+          this.$router.replace("/edukasi/edukasi-detail/beragam-gangguan");
           break;
 
         case 3:
-          this.$router.push("/edukasi/edukasi-detail/menangani-kecemasan");
+          this.$router.replace("/edukasi/edukasi-detail/menangani-kecemasan");
           break;
 
         default:

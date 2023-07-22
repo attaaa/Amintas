@@ -14,7 +14,7 @@
             </p>
             <button
               class="btn__small btn__accent"
-              @click="$router.push('restrukturisasi')"
+              @click="$router.replace('restrukturisasi')"
             >
               Buka modul
             </button>
@@ -35,7 +35,7 @@
             </p>
             <button
               class="btn__small btn__primary text-white"
-              @click="$router.push(latihanAktif.path)"
+              @click="$router.replace(latihanAktif.path)"
             >
               Buka Sesi
             </button>
@@ -63,7 +63,7 @@
               class="col-auto"
               style="margin-bottom: 24px"
               placeholder="Cari jurnal ceritamu"
-              @click.native="$router.push('/search')"
+              @click.native="$router.replace('/search')"
             />
             <JournalPreviewItemList
               class="col scroll hide-scrollbar"
@@ -135,12 +135,12 @@ export default {
   },
   mounted() {
     if (!this.account || !this.account.name || !this.isLoggedIn) {
-      this.$router.push("onboarding");
+      this.$router.replace("onboarding");
     }
   },
   methods: {
     goToSearchPage() {
-      this.$router.push("search");
+      this.$router.replace("search");
     }
   }
 };

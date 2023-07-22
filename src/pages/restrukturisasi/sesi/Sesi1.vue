@@ -1,6 +1,6 @@
 <template>
   <LayoutOne
-    headerImg="img/restrukturisasi/intro_detail.png"
+    headerImg="img/restrukturisasi/sesi1.png"
     backRoutes="/restrukturisasi"
   >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
@@ -23,7 +23,7 @@
     <div>
       <div
         class="material-item flex items-center"
-        @click="$router.push('/restrukturisasi/sesi1/materi1')"
+        @click="$router.replace('/restrukturisasi/sesi1/materi1')"
       >
         <img src="img/restrukturisasi/sesi1_materi1_ico.png" />
         <div class="text__headline text__primary">
@@ -34,7 +34,7 @@
         class="material-item flex items-center"
         :class="{ 'item-disabled': !statusMateri[0] }"
         @click="
-          statusMateri[0] && $router.push('/restrukturisasi/sesi1/materi2')
+          statusMateri[0] && $router.replace('/restrukturisasi/sesi1/materi2')
         "
       >
         <img src="img/restrukturisasi/sesi1_materi2_ico.png" />
@@ -46,7 +46,7 @@
         class="material-item flex items-center"
         :class="{ 'item-disabled': !statusMateri[1] }"
         @click="
-          statusMateri[1] && $router.push('/restrukturisasi/sesi1/materi3')
+          statusMateri[1] && $router.replace('/restrukturisasi/sesi1/materi3')
         "
       >
         <img src="img/restrukturisasi/sesi1_materi3_ico.png" />
@@ -67,7 +67,7 @@
         class="material-item flex items-center"
         :class="{ 'item-disabled': !statusLatihan1 }"
         @click="
-          statusLatihan1 && $router.push('/restrukturisasi/sesi1/latihan1')
+          statusLatihan1 && $router.replace('/restrukturisasi/sesi1/latihan1')
         "
       >
         <template v-if="!latihan1Finished && latihan1Form">
@@ -88,13 +88,13 @@
         class="material-item flex items-center"
         :class="{ 'item-disabled': !statusLatihan2 }"
         @click="
-          statusLatihan2 && $router.push('/restrukturisasi/sesi1/latihan2')
+          statusLatihan2 && $router.replace('/restrukturisasi/sesi1/latihan2')
         "
       >
         <template v-if="!latihan2Finished && latihan2Form">
           <img src="img/activated_exercise.png" />
         </template>
-        <template v-else-if="latihan2Finished">
+        <template v-else-if="!latihan2Finished">
           <img src="img/restrukturisasi/sesi1_latihan2.png" />
         </template>
         <template v-else>

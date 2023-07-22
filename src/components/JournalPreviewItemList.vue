@@ -64,7 +64,7 @@ export default {
       this.groupJournalDataList = tempGroupJournalDataList;
     },
     goToDetail(journalId) {
-      this.$router.push("journal/detail/" + journalId);
+      this.$router.replace("journal/detail/" + journalId);
     }
   }
   // computed: {

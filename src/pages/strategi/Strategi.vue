@@ -26,7 +26,7 @@
     <div class="flex justify-center">
       <button
         class="btn__large btn__accent"
-        @click="() => this.$router.push('/strategi/input-category')"
+        @click="() => this.$router.replace('/strategi/input-category')"
       >
         Buat Strategi
       </button>
@@ -67,7 +67,7 @@ export default {
   mounted() {
     this.$store.commit("strategi/clearInputStrategi");
     if (this.$store.state.strategi.strategiActive) {
-      this.$router.push("/strategi-active");
+      this.$router.replace("/strategi-active");
     }
   },
   methods: {

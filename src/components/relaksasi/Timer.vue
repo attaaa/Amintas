@@ -27,7 +27,7 @@
         </p>
         <p class="text__headline">Detik</p>
         <div class="text__footnote text__primary label-putaran">
-          Putaran 1
+          Putaran {{ putaran }}
         </div>
       </div>
     </q-circular-progress>
@@ -53,7 +53,8 @@
 export default {
   name: "Timer",
   props: {
-    idxStep: Number
+    idxStep: Number,
+    putaran: Number
   },
   data() {
     return {

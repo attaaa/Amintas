@@ -2,7 +2,10 @@
   <div class="search-page">
     <!-- search input -->
     <div class="flex items-center">
-      <div style="width: 24px; height: 24px" @click="$router.back()">
+      <div
+        style="width: 24px; height: 24px"
+        @click="$router.replace('/edukasi')"
+      >
         <svg
           style="pointer-events: none;"
           width="24"

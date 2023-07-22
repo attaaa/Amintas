@@ -56,7 +56,7 @@ export default {
         ...this.strategiInputData,
         story_penyebab: this.story_penyebab
       });
-      this.$router.push("/strategi/input-story2");
+      this.$router.replace("/strategi/input-story2");
     }
   }
 };

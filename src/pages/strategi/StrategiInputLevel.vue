@@ -204,7 +204,7 @@ export default {
       });
       this.$store.dispatch("strategi/activateStrategi");
       this.$store.commit("strategi/sortActivity");
-      this.$router.push("/strategi");
+      this.$router.replace("/strategi");
     }
   }
 };

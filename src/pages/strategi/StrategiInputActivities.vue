@@ -89,7 +89,7 @@ export default {
         ...this.strategiInputData,
         activities: [...this.activities]
       });
-      this.$router.push("/strategi/input-level");
+      this.$router.replace("/strategi/input-level");
     },
     onInput() {}
   }

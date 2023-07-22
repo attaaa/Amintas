@@ -5,7 +5,7 @@
         v-if="inputState === 'mood'"
         :selected-mood="journalData.mood"
         @change-mood="selectMood"
-        @go-back="$router.back()"
+        @go-back="$router.replace('/')"
       />
       <JournalInputEmotion
         v-else-if="inputState === 'emotion'"
@@ -133,7 +133,7 @@
       <div class="pop-up--action row">
         <button
           class="btn__large btn__alert col relative-position text-white"
-          @click="routerBack()"
+          @click="$router.replace('/')"
           v-ripple
         >
           Tingalkan Halaman
@@ -332,9 +332,6 @@ export default {
         this.$refs.popUpCancel.setState("open");
       }
     },
-    routerBack() {
-      this.$router.back();
-    },
     checkInputed() {
       if (this.inputState === "mood" && this.journalData.mood !== "") {
         this.nextButtonActive = true;
@@ -385,7 +382,7 @@ export default {
       } else {
         this.$store.dispatch("journal/updateJournal", this.journalData);
       }
-      this.$router.push("/");
+      this.$router.replace("/");
     },
     hidePopUpCancel() {
       this.$refs.popUpCancel.setState("close");

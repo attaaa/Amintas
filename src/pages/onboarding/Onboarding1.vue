@@ -94,14 +94,14 @@
     <button
       class="btn__accent btn__large"
       style="width: 100%; margin-bottom: 16px;"
-      @click="() => this.$router.push('login')"
+      @click="() => this.$router.replace('login')"
     >
       Masuk
     </button>
     <button
       class="btn__secondary btn__borderless btn__large"
       style="width: 100%; margin-bottom: 72px;"
-      @click="() => this.$router.push('register')"
+      @click="() => this.$router.replace('register')"
     >
       Belum punya akun
     </button>

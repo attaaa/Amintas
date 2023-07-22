@@ -1,7 +1,7 @@
 <template>
   <div class="fl-wrapper">
     <div class="fl-header">
-      <div class="back-btn" @click="() => this.$router.back()">
+      <div class="back-btn" @click="$router.replace('/edukasi')">
         <svg
           width="16"
           height="16"
@@ -42,7 +42,7 @@
       <div>
         <div
           class="material-item flex items-center"
-          @click="() => this.$router.push('/materi/detail')"
+          @click="() => this.$router.replace('/materi/detail')"
         >
           <img src="img/education_display_p4m1.png" />
           <div class="text__headline text__primary">

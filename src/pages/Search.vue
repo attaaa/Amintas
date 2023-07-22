@@ -2,7 +2,7 @@
   <div class="search-page">
     <!-- search input -->
     <div class="flex items-center" style="margin-bottom: 16px;">
-      <div style="height: 24px" @click="$router.back()">
+      <div style="height: 24px" @click="$router.replace('/')">
         <svg
           width="24"
           height="24"

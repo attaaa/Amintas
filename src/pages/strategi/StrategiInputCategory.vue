@@ -82,7 +82,7 @@
       <div class="pop-up--action row">
         <button
           class="btn__large btn__alert col relative-position text-white"
-          @click="() => this.$router.back()"
+          @click="$router.replace('/strategi')"
           v-ripple
         >
           Tingalkan Halaman
@@ -128,7 +128,7 @@ export default {
         ...this.strategiInputData,
         category: this.selectedPemicu
       });
-      this.$router.push("/strategi/input-story1");
+      this.$router.replace("/strategi/input-story1");
     }
   }
 };

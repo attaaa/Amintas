@@ -131,6 +131,13 @@
         </div>
       </div>
     </SwipeableBottomSheet>
+
+    <div
+      class="btn-logout text__title-4 text__alert"
+      @click="onDeleteStrategi()"
+    >
+      Hapus Jurnal
+    </div>
   </div>
 </template>
 
@@ -194,12 +201,17 @@ export default {
       await sleep(800);
 
       this.$refs.popUpAktifkan.setState("open");
+    },
+
+    onDeleteStrategi() {
+      this.$store.commit("strategi/clearActiveStrategi");
+      this.$router.replace("/strategi");
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .tangga-ketakutan--item {
   margin-bottom: 16px;
   display: flex;
@@ -268,5 +280,13 @@ export default {
 
 .tangga-ketakutan--checkbox input:checked + img {
   opacity: 1 !important;
+}
+
+.btn-logout {
+  margin: 0 auto;
+  margin-top: 36px;
+  padding: 12px 16px;
+  width: fit-content;
+  border-radius: 6px;
 }
 </style>

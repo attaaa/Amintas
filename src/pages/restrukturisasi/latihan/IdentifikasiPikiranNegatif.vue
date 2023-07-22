@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    backPath="/restrukturisasi/sesi1"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
   >
@@ -195,7 +196,7 @@ export default {
           selectedOptionsIdx: this.selectedOptionsIdx
         }
       });
-      this.$router.back();
+      this.$router.replace("/restrukturisasi/sesi1");
     },
     doneLatihan() {
       this.$refs.popUpDone.setState("open");
@@ -230,30 +231,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.custom-header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 12px;
-  margin-bottom: 12px;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-  }
-
-  div {
-    background-color: #ffcb4d;
-    height: 1px;
-    flex-basis: 0;
-    flex-grow: 1;
-  }
-}
-
 .material-item {
   padding: 12px 16px;
   margin-bottom: 8px;
@@ -303,4 +280,30 @@ export default {
 //   /* identical to box height, or 150% */
 //   letter-spacing: 0.02em;
 // }
+</style>
+
+<style lang="scss">
+.custom-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  div {
+    background-color: #ffcb4d;
+    height: 1px;
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
 </style>

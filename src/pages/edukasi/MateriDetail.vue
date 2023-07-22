@@ -2,7 +2,10 @@
   <div class="fl-wrapper">
     <div class="fl-header">
       <!-- BACK BUTTON -->
-      <div class="back-btn" @click="() => this.$router.back()">
+      <div
+        class="back-btn"
+        @click="$router.replace('/edukasi/edukasi-detail/cemas-dan-gangguan')"
+      >
         <svg
           width="30"
           height="30"

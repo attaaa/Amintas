@@ -22,7 +22,8 @@ const activateStrategi = state => {
 };
 
 const clearActiveStrategi = state => {
-  state.strategiActive = null;
+  state.strategiInputData = JSON.parse(JSON.stringify(EMPTY_STRATEGI));
+  state.strategiActive = false;
 };
 
 const setActivityStatus = (state, { activityIndex, status }) => {
@@ -36,20 +37,6 @@ const setActivityChecked = (state, { activityIndex, checked }) => {
 const sortActivity = state => {
   state.strategiActive.activities.sort((a, b) => b.level - a.level);
 };
-
-// const delJournal = (state, journalId) => {
-//   const currJournalDataList = [...state.journalDataList];
-//   state.journalDataList = currJournalDataList.filter(
-//     item => item.id != journalId
-//   );
-// };
-
-// const updateJournal = (state, journalData) => {
-//   const idx = state.journalDataList.findIndex(
-//     item => item.id == journalData.id
-//   );
-//   state.journalDataList[idx] = journalData;
-// };
 
 export {
   activateStrategi,

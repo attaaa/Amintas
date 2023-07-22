@@ -207,10 +207,10 @@ export default {
     },
     delJournal() {
       this.$store.dispatch("journal/delJournal", this.$route.params.id);
-      this.goBack();
+      this.$router.replace("/");
     },
     editJournal() {
-      this.$router.push("/journal/edit/" + this.$route.params.id);
+      this.$router.replace("/journal/edit/" + this.$route.params.id);
     },
     showPopUpDelete() {
       this.$refs.popUpDelete.setState("open");

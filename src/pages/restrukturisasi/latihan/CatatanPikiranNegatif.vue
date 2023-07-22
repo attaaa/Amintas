@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    backPath="/restrukturisasi/sesi1"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
   >
@@ -73,7 +74,11 @@
               selectOption('catatan1', optionId);
             }
           "
-          @unSelect="unSelectOption"
+          @unSelect="
+            optionId => {
+              unSelectOption('catatan1', optionId);
+            }
+          "
           class="q-mt-sm"
           placeholder="Pilih faktor pikiran yang teridentifikasi"
         />
@@ -121,7 +126,11 @@
               selectOption('catatan2', optionId);
             }
           "
-          @unSelect="unSelectOption"
+          @unSelect="
+            optionId => {
+              unSelectOption('catatan2', optionId);
+            }
+          "
           class="q-mt-sm"
           placeholder="Pilih faktor pikiran yang teridentifikasi"
         />
@@ -169,7 +178,11 @@
               selectOption('catatan3', optionId);
             }
           "
-          @unSelect="unSelectOption"
+          @unSelect="
+            optionId => {
+              unSelectOption('catatan3', optionId);
+            }
+          "
           class="q-mt-sm"
           placeholder="Pilih faktor pikiran yang teridentifikasi"
         />
@@ -177,7 +190,7 @@
     </template>
 
     <template v-else>
-      <Latihan1View />
+      <Latihan2View />
     </template>
     <!--
 
@@ -191,7 +204,7 @@ import LayoutLatihan from "src/layouts/LayoutLatihan";
 import Picker from "src/components/inputs/Picker";
 import TextAreaCustom from "src/components/inputs/TextAreaCustom";
 //
-import Latihan1View from "src/components/restrukturisasi/sesi1/latihan1/Latihan1View";
+import Latihan2View from "src/components/restrukturisasi/sesi1/latihan2/Latihan2View";
 
 const faktorPikiranList = [
   {
@@ -216,7 +229,7 @@ export default {
     LayoutLatihan,
     TextAreaCustom,
     Picker,
-    Latihan1View
+    Latihan2View
   },
   data: function() {
     return {
@@ -258,7 +271,12 @@ export default {
       return !_.isEqual(this.storeObj, this.form);
     },
     activeDoneButton() {
-      return !!this.pikiran && this.selectedOptionsIdx.length > 0;
+      return Object.values(this.form).every(
+        catatan =>
+          catatan.peristiwa !== "" &&
+          catatan.pikiran !== "" &&
+          catatan.faktorPikiran.length > 0
+      );
     },
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1
@@ -290,13 +308,15 @@ export default {
       //   optionId: optionId
       // });
     },
-    unSelectOption(optionId) {
-      const idx = this.selectedOptionsIdx.indexOf(optionId);
-      if (idx !== -1) this.selectedOptionsIdx.splice(idx, 1);
+    unSelectOption(catatan, optionId) {
+      const temp = [...this.form[catatan].faktorPikiran];
+      const idx = temp.indexOf(optionId);
+      if (idx !== -1) temp.splice(idx, 1);
       // this.$store.commit("restrukturisasi/unSetSesiLatihanSelectedOptionsIdx", {
       //   sesiLatihan: "sesi1Latihan1",
       //   optionId: optionId
       // });
+      this.form[catatan].faktorPikiran = [...temp];
     },
     saveData() {
       const data = { ...this.form };
@@ -304,24 +324,25 @@ export default {
         sesiLatihan: "sesi1Latihan2",
         data: data
       });
-      this.$router.back();
+      this.$router.replace("/restrukturisasi/sesi1");
     },
     doneLatihan() {
       this.$refs.popUpDone.setState("open");
     },
     selesaikanLatihan() {
       // save data first
-      // this.$store.commit("restrukturisasi/setLatihanDataJson", {
-      //   sesiLatihan: "sesi1Latihan2",
-      //   data: JSON.parse(JSON.stringify(this.form))
-      // });
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi1Latihan2",
+        data: JSON.parse(JSON.stringify(this.form))
+      });
 
       // set status to finished
       this.$store.commit("restrukturisasi/setFinishedLatihan", {
         sesi: "sesi1",
-        currSesiLatihanFinished: "latihan1Finished",
-        nextSesiLatihan: "latihan2"
+        currSesiLatihanFinished: "latihan2Finished"
       });
+
+      this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
     }
   },
   mounted() {

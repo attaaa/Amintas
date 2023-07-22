@@ -2,7 +2,7 @@
   <div class="relaksasi">
     <div class="relaksasi--content">
       <!-- header navigation -->
-      <div style="margin-bottom: 24px;" @click="$router.back()">
+      <div style="margin-bottom: 24px;" @click="$router.replace('/')">
         <img
           svg-inline
           class="fill-primary"
@@ -33,6 +33,7 @@
           v-if="started"
           ref="timer"
           :idx-step="idxStep"
+          :putaran="putaran"
           @is-finish="finishing()"
           @next-step="nextStep()"
         />
@@ -129,13 +130,11 @@ export default {
       ],
       idxStep: 0,
       paused: false,
-      isFinish: false
+      isFinish: false,
+      putaran: 1
     };
   },
   methods: {
-    goBack() {
-      this.$router.back();
-    },
     start() {
       this.started = true;
       setTimeout(() => {
@@ -157,7 +156,14 @@ export default {
       this.idxStep += 1;
     },
     finishing() {
-      this.isFinish = true;
+      // this.isFinish = true;
+      if (this.putaran === 4) {
+        this.isFinish = true;
+        return;
+      }
+      this.putaran += 1;
+      this.reStart();
+      this.start();
     }
   }
 };

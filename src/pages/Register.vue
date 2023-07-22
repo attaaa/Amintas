@@ -1,7 +1,7 @@
 <template>
   <div class="register-container relative-position">
     <div style="padding: 16px;">
-      <div @click="$router.back()">
+      <div @click="$router.replace('/onboarding')">
         <svg
           width="24"
           height="24"
@@ -191,7 +191,7 @@ export default {
         password: this.password
       };
       this.$store.dispatch("account/registerAccount", accountData);
-      this.$router.push("/");
+      this.$router.replace("/");
     }
   }
 };

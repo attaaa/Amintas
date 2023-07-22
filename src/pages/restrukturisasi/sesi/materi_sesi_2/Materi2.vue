@@ -1,7 +1,7 @@
 <template>
   <LayoutOne
     headerImg="img/restrukturisasi/sesi1_materi1.png"
-    backRoutes="/restrukturisasi/sesi1"
+    backRoutes="/restrukturisasi/sesi2"
   >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Tentang Pikiran dan Perasaan
@@ -103,22 +103,18 @@
 </template>
 
 <script>
-import LayoutOne from "../../../../layouts/LayoutOne.vue";
+import LayoutOne from "layouts/LayoutOne.vue";
 
 export default {
   components: { LayoutOne },
-  computed: {
-    statusLatihan() {
-      return this.$store.state.restrukturisasi.statusLatihan.sesi1;
-    }
-  },
   mounted() {
-    // set materi 1 in sesi 1 as done
     this.$store.commit("restrukturisasi/setStatusMateri", {
-      sesi: "sesi1",
-      materiIdx: 0,
+      sesi: "sesi2",
+      materiIdx: 1,
       value: true
     });
+
+    //  this.$store.commit("restrukturisasi/setStatusSesi", "sesi3");
   }
 };
 </script>

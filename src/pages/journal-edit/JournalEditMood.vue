@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <!-- header navigation -->
-    <div style="margin: 16px 12px;" @click="() => this.$router.push()">
+    <div style="margin: 16px 12px;" @click="() => this.$router.replace()">
       <img
         svg-inline
         class="fill-primary"

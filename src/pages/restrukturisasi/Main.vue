@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header-nav">
-      <div class="icon q-mr-md" @click="$router.back()">
+      <div class="icon q-mr-md" @click="$router.replace('/')">
         <svg
           width="16"
           height="16"
@@ -26,7 +26,7 @@
         <h2 class="text__title-2 text__neutral-back q-my-none">Perkenalan</h2>
         <div
           class="item"
-          @click="() => this.$router.push('restrukturisasi/intro')"
+          @click="() => this.$router.replace('restrukturisasi/intro')"
         >
           <h3 class="text__title-3 text__primary">Untuk Temanku</h3>
           <img src="img/restrukturisasi/intro.png" />
@@ -101,7 +101,7 @@ export default {
     goToSesi(sesi) {
       if (!this.statusSesi[sesi]) return;
 
-      this.$router.push(`/restrukturisasi/${sesi}`);
+      this.$router.replace(`/restrukturisasi/${sesi}`);
     }
   }
 };

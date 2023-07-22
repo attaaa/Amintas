@@ -1,7 +1,7 @@
 <template>
   <div class="login-container relative-position">
     <div style="padding: 16px;">
-      <div @click="$router.back()">
+      <div @click="$router.replace('/onboarding')">
         <svg
           width="24"
           height="24"

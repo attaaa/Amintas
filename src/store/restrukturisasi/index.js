@@ -13,9 +13,9 @@ export default {
       sesi3: false
     },
     statusMateri: {
-      sesi1: [false, false, false],
-      sesi2: [false, false, false],
-      sesi3: [false, false, false]
+      sesi1: [true, false, false],
+      sesi2: [true, false],
+      sesi3: [true, false, false]
     },
     statusLatihan: {
       sesi1: {
@@ -25,6 +25,11 @@ export default {
         latihan2: false,
         latihan2Form: false,
         latihan2Finished: false
+      },
+      sesi2: {
+        latihan1: false,
+        latihan1Form: false,
+        latihan1Finished: false
       }
     },
     sesi1Latihan1: {
@@ -48,39 +53,30 @@ export default {
         faktorPikiran: []
       }
     },
-    // END STATUS
-
-    // ADJUSTMENT
-    sesi: [
-      // 0 = sesi 1
-      {
-        latihan: [
-          // 0 = latihan 1
-          {
-            form: [
-              {
-                name: "Pikiran",
-                value: "Test Content Pikiran"
-              },
-              {
-                name: "Pikiran 2",
-                value: "Test Content Pikiran 2"
-              }
-            ]
-          }
-        ]
+    sesi2Latihan1: {
+      catatan1: {
+        activationEvent: "",
+        belief: "",
+        consequence: "",
+        distorsiKognitif: []
       },
-      {
-        latihan: []
+      catatan2: {
+        activationEvent: "",
+        belief: "",
+        consequence: "",
+        distorsiKognitif: []
       },
-      {
-        latihan: []
+      catatan3: {
+        activationEvent: "",
+        belief: "",
+        consequence: "",
+        distorsiKognitif: []
       }
-    ]
+    }
+    // END STATUS
   },
   getters: {
     getLatihanData: state => sesiLatihan => {
-      console.log(sesiLatihan);
       return state[sesiLatihan];
     }
   },
@@ -112,6 +108,9 @@ export default {
       state.statusLatihan[sesi][currSesiLatihanFinished] = true;
       if (nextSesiLatihan) {
         state.statusLatihan[sesi][nextSesiLatihan] = true;
+      } else {
+        const nextSesi = sesi === "sesi1" ? "sesi2" : "sesi3";
+        state.statusSesi[nextSesi] = true;
       }
     },
 

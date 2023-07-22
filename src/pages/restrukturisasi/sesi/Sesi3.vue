@@ -1,17 +1,19 @@
 <template>
-  <LayoutOne headerImg="img/restrukturisasi/intro_detail.png">
+  <LayoutOne
+    headerImg="img/restrukturisasi/sesi3.png"
+    backRoutes="/restrukturisasi"
+  >
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
-      Sesi 1: Pikiran dan Perasaan
+      Sesi 3: Menantang Pikiran
     </h1>
     <p class="text__body text__neutral-black">
-      Selayaknya manusia normal, aku dan kamu seringkali sulit mengungkapkan
-      dengan tepat apa yang sebenarnya kita rasakan. Tentu itu membingungkan,
-      padahal ada banyak diksi yang dapat menggambarkan setiap perasaan dan
-      emosi kita. Seperti kata tegang, kesal, sedih, ataupun frustasi yang dapat
-      menunjukkan perasaan buruk yang kita alami. Lalu ada juga kata seperti
-      senang, puas, bersemangat, ataupun gembira yang menggambarkan perasaan
-      bahagia. Tapi tenang, aku akan menjelaskan semuanya untukmu melalui materi
-      dan latihan yang ada di sini. Yuk kita mulai pelajari perasaan kita!
+      Setelah memahami pengaruh pikiran pada perasaanmu, dan mengenal bagaimana
+      bentuk pikiran mengganggu. Pada bagian terakhir ini, kita akan belajar
+      bagaimana menghadapinya, aku akan memberitahumu beberapa strategi yang
+      dapat membantumu dalam menghadapinya. Mengingat terkadang bagi sebagian
+      orang hal itu tidak mudah dilakukan, dan memiliki persiapan tentu akan
+      membantu kita, bukan? Makanya, yuk kita pelajari dan terbebas dari
+      perasaan tidak nyaman itu!
     </p>
 
     <h2 class="text__title-3 text__neutral-black" style="margin-bottom: 12px">
@@ -19,21 +21,21 @@
     </h2>
     <div>
       <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi1_materi1.png" />
+        <img src="img/restrukturisasi/sesi3_materi1_item.png" />
         <div class="text__headline text__primary">
-          <div>Tentang Pikiran dan Perasaan</div>
+          <div>Melaporkan Fakta</div>
         </div>
       </div>
       <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi1_materi2.png" />
+        <img src="img/restrukturisasi/sesi3_materi2_item.png" />
         <div class="text__headline text__primary">
-          <div>Menghubungkan Perasaan dengan Pikiran</div>
+          <div>Menjaga Keseimbangan Pikiran</div>
         </div>
       </div>
       <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi1_materi3.png" />
+        <img src="img/restrukturisasi/sesi3_materi3_item.png" />
         <div class="text__headline text__primary">
-          <div>Faktor Pikiran Negatif</div>
+          <div>ABC dan D</div>
         </div>
       </div>
     </div>
@@ -46,15 +48,21 @@
     </h2>
     <div>
       <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi1_latihan1.png" />
+        <img src="img/restrukturisasi/sesi3_latihan1_item.png" />
         <div class="text__headline text__primary">
-          <div>Identifikasi Pikiran Negatif</div>
+          <div>Bermain Pera: Reporter</div>
         </div>
       </div>
       <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi1_latihan2.png" />
+        <img src="img/restrukturisasi/sesi3_latihan2_item.png" />
         <div class="text__headline text__primary">
-          <div>Catatan Pikiran Negatif</div>
+          <div>Menjaga Keseimbangan Pikiran</div>
+        </div>
+      </div>
+      <div class="material-item flex items-center">
+        <img src="img/restrukturisasi/sesi3_latihan3_item.png" />
+        <div class="text__headline text__primary">
+          <div>Bermain Peran: Pengacara</div>
         </div>
       </div>
     </div>

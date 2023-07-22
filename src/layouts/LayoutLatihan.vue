@@ -2,7 +2,7 @@
 <template>
   <div class="container-scroll" ref="container">
     <div class="header">
-      <div class="btn" @click="$router.back()">
+      <div class="btn" @click="$router.replace(backPath)">
         <svg
           width="24"
           height="24"
@@ -226,7 +226,9 @@ export default {
     showSecondaryAction: Boolean,
     activeDoneButton: Boolean,
     labelDoneAction: String,
-    labelSaveAction: String
+    labelSaveAction: String,
+
+    backPath: String
   },
   methods: {
     getHeightForPopUp(height) {

@@ -41,6 +41,37 @@ const childRoutes = {
       component: () =>
         import("pages/restrukturisasi/sesi/materi_sesi_1/Materi3.vue")
     },
+
+    // sesi2
+    {
+      path: "sesi2",
+      component: () => import("pages/restrukturisasi/sesi/Sesi2.vue")
+    },
+    {
+      path: "sesi2/materi1",
+      component: () =>
+        import("pages/restrukturisasi/sesi/materi_sesi_2/Materi1.vue")
+    },
+    {
+      path: "sesi2/materi2",
+      component: () =>
+        import("pages/restrukturisasi/sesi/materi_sesi_2/Materi2.vue")
+    },
+    {
+      path: "sesi2/latihan1",
+      component: () =>
+        import("pages/restrukturisasi/latihan/CatatanPolaPikirNegatif.vue")
+    },
+
+    // sesi3
+    {
+      path: "sesi3",
+      component: () => import("pages/restrukturisasi/sesi/Sesi3.vue")
+    },
+
+    //
+    //
+    //
     {
       path: ":sesi/:materi",
       component: () => import("pages/restrukturisasi/MateriContainer.vue")

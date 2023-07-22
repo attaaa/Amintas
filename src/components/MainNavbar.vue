@@ -85,7 +85,7 @@
     >
       <div
         class="action-item column items-center"
-        @click="$router.push('/relaksasi')"
+        @click="$router.replace('/relaksasi')"
       >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
@@ -101,7 +101,7 @@
       </div>
       <div
         class="action-item column items-center"
-        @click="$router.push('/journal/input')"
+        @click="$router.replace('/journal/input')"
       >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
@@ -197,7 +197,7 @@ export default {
   },
   methods: {
     changeUrl(urlName) {
-      if (urlName !== this.$route.path) this.$router.push(urlName);
+      if (urlName !== this.$route.path) this.$router.replace(urlName);
     },
     toggleMidAction() {
       this.showMidAction = !this.showMidAction;
