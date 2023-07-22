@@ -11,7 +11,7 @@
           <img
             svg-inline
             class="nav-item--icon"
-            src="assets/icons/kognitif.svg"
+            src="assets/icons/navbar/kognitif.svg"
           />
           <div class="nav-item--text">Kognitif</div>
         </div>
@@ -27,7 +27,7 @@
           <img
             svg-inline
             class="nav-item--icon fill-neutral"
-            src="assets/icons/edukasi.svg"
+            src="assets/icons/navbar/edukasi.svg"
           />
           <div class="nav-item--text text__neutral">Edukasi</div>
         </div>
@@ -42,7 +42,7 @@
           <img
             svg-inline
             class="nav-item--icon absolute-center"
-            src="assets/icons/penanganan.svg"
+            src="assets/icons/navbar/penanganan.svg"
           />
         </div>
       </div>
@@ -60,7 +60,7 @@
           <img
             svg-inline
             class="nav-item--icon"
-            src="assets/icons/strategi.svg"
+            src="assets/icons/navbar/strategi.svg"
           />
           <div class="nav-item--text">Strategi</div>
         </div>
@@ -73,7 +73,11 @@
         @click="changeUrl('/me')"
       >
         <div class="absolute-center text-center vertical-middle">
-          <img svg-inline class="nav-item--icon" src="assets/icons/me.svg" />
+          <img
+            svg-inline
+            class="nav-item--icon"
+            src="assets/icons/navbar/me.svg"
+          />
           <div class="nav-item--text">Saya</div>
         </div>
       </div>
@@ -85,7 +89,7 @@
     >
       <div
         class="action-item column items-center"
-        @click="$router.replace('/relaksasi')"
+        @click="$router.push('/relaksasi')"
       >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
@@ -101,7 +105,7 @@
       </div>
       <div
         class="action-item column items-center"
-        @click="$router.replace('/journal/input')"
+        @click="$router.push('/journal/input')"
       >
         <div class="action-item--icon bg-primary" style="margin-bottom: 8px">
           <img
@@ -179,7 +183,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url("MainNavbar.scss");
 </style>
 
@@ -197,7 +201,7 @@ export default {
   },
   methods: {
     changeUrl(urlName) {
-      if (urlName !== this.$route.path) this.$router.replace(urlName);
+      if (urlName !== this.$route.path) this.$router.push(urlName);
     },
     toggleMidAction() {
       this.showMidAction = !this.showMidAction;

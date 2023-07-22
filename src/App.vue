@@ -17,47 +17,9 @@
 <script>
 export default {
   name: "App",
-  data: function() {
-    return {
-      lastBackPress: 0
-    };
-  },
   computed: {
     toast() {
       return this.$store.state.app.toast;
-    }
-  },
-  mounted() {
-    document.addEventListener("backbutton", this.onBackPress, false);
-
-    // Override the default back button behavior
-    document.addEventListener(
-      "backbutton",
-      function(e) {
-        e.preventDefault();
-      },
-      false
-    );
-  },
-  beforeDestroy() {
-    document.removeEventListener("backbutton", this.onBackPress, false);
-  },
-  methods: {
-    onBackPress() {
-      const currentTime = new Date().getTime();
-      const timeDifference = currentTime - this.lastBackPress;
-
-      if (timeDifference < 2000) {
-        // Adjust the time threshold as needed (in milliseconds)
-        navigator.app.exitApp(); // This line will quit the app
-      } else {
-        this.lastBackPress = currentTime;
-        this.$q.notify({
-          message: "Press back again to exit",
-          color: "negative",
-          position: "top"
-        });
-      }
     }
   }
 };

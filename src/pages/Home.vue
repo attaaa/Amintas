@@ -14,7 +14,7 @@
             </p>
             <button
               class="btn__small btn__accent"
-              @click="$router.replace('restrukturisasi')"
+              @click="$router.push('restrukturisasi')"
             >
               Buka modul
             </button>
@@ -35,7 +35,7 @@
             </p>
             <button
               class="btn__small btn__primary text-white"
-              @click="$router.replace(latihanAktif.path)"
+              @click="$router.push(latihanAktif.path)"
             >
               Buka Sesi
             </button>
@@ -63,7 +63,7 @@
               class="col-auto"
               style="margin-bottom: 24px"
               placeholder="Cari jurnal ceritamu"
-              @click.native="$router.replace('/search')"
+              @click.native="$router.push('/search')"
             />
             <JournalPreviewItemList
               class="col scroll hide-scrollbar"
@@ -109,8 +109,6 @@
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 import SearchField from "components/inputs/SearchField";
 import JournalPreviewItemList from "components/JournalPreviewItemList";
-import { generateTimeStamp } from "src/helper/generateDate.js";
-import { getAccount } from "src/store/account/getters";
 
 export default {
   name: "Home",
@@ -140,7 +138,7 @@ export default {
   },
   methods: {
     goToSearchPage() {
-      this.$router.replace("search");
+      this.$router.push("search");
     }
   }
 };
