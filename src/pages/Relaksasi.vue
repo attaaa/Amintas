@@ -2,25 +2,24 @@
   <div class="relaksasi">
     <div class="relaksasi--content">
       <!-- header navigation -->
-      <div style="margin-bottom: 24px;" @click="$router.replace('/')">
+      <div style="margin-bottom: 24px;" @click="onBack()">
         <img
           svg-inline
           class="fill-primary"
           src="assets/icons/general/arrow-left.svg"
-          style="width: 24px; height: 24px;"
         />
       </div>
 
       <!-- text title -->
       <p
-        class="text__title-3 text-center text__primary"
+        class="text__title-3 text-center text__neutral-black"
         style="margin-bottom: 4px; width: 280px; margin-left: auto; margin-right: auto;"
         v-if="started && !isFinish"
       >
         {{ titleStep[idxStep] }}
       </p>
       <p
-        class="text__title-4 text-center"
+        class="text__body text-center"
         style="margin-bottom: 16px"
         v-if="started && !isFinish"
       >
@@ -79,10 +78,10 @@
 
       <div class="full-width helper">
         <div
-          class="text__neutral-dark-grey text__title-4"
+          class="text__neutral-black text__headline"
           style="margin-bottom: 8px;"
         >
-          Instruksi Singkat
+          Instruksi Singkat:
         </div>
         <div>
           <div style="margin-bottom: 4px">
@@ -95,10 +94,98 @@
         </div>
       </div>
     </div>
+
+    <!-- POPUP BACK -->
+    <SwipeableBottomSheet
+      ref="popUpBack"
+      default-state="close"
+      :open-top="getHeightForPopUp(420)"
+      :use-overlay="true"
+      :can-close="true"
+      :use-drag-icon="false"
+    >
+      <div class="info-content" style="padding: 24px 16px 0;">
+        <div class="text-center bg-secondary" style="border-radius: 8px;">
+          <img style="height: 156px;" src="img/popup/tinggalkan_halaman.png" />
+        </div>
+        <div
+          class="text__primary text__title-2 text-center"
+          style="margin-top: 24px; margin-bottom: 12px;"
+        >
+          Tinggalkan Halaman?
+        </div>
+
+        <p
+          class="text-center text__body text__neutral-dark-grey"
+          style="margin-bottom: 48px"
+        >
+          Proses relaksasimu belum selesai. Apakah kamu yakin ingin meninggalkan
+          halaman?
+        </p>
+
+        <div class="row items-end ">
+          <button
+            class="btn__large btn__secondary col relative-position"
+            @click="$refs.popUpBack.setState('close')"
+            v-ripple
+          >
+            Batal
+          </button>
+          <div style="width: 16px;"></div>
+          <button
+            class="btn__large btn__alert col-auto relative-position text-white"
+            @click="$router.back()"
+            v-ripple
+          >
+            Tinggalkan Halaman
+          </button>
+        </div>
+      </div>
+    </SwipeableBottomSheet>
+
+    <!-- POPUP DONE -->
+    <SwipeableBottomSheet
+      ref="popUpDone"
+      default-state="close"
+      :open-top="getHeightForPopUp(420)"
+      :use-overlay="true"
+      :can-close="true"
+      :use-drag-icon="false"
+    >
+      <div class="info-content" style="padding: 24px 16px 0;">
+        <div class="text-center bg-secondary" style="border-radius: 8px;">
+          <img style="height: 156px;" src="img/popup/done.png" />
+        </div>
+        <div
+          class="text__primary text__title-2 text-center"
+          style="margin-top: 24px; margin-bottom: 12px;"
+        >
+          Relaksasi telah selesai!
+        </div>
+
+        <p
+          class="text-center text__body text__neutral-dark-grey"
+          style="margin-bottom: 48px"
+        >
+          Wah, relaksasimu telah selesai. Jika masih memerlukan bantuan, jangan
+          sungkan ya!
+        </p>
+
+        <div class="row items-end ">
+          <button
+            class="btn__large btn__accent col relative-position text__neutral-black"
+            @click="onCloseDonePopup()"
+            v-ripple
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </SwipeableBottomSheet>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .relaksasi {
   &--content {
     padding: 22px 16px 0 16px;
@@ -116,10 +203,11 @@
 <script>
 import Timer from "components/relaksasi/Timer.vue";
 import TimerButton from "components/relaksasi/TimerButton";
+import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 
 export default {
   name: "Relaksasi",
-  components: { Timer, TimerButton },
+  components: { Timer, TimerButton, SwipeableBottomSheet },
   data() {
     return {
       started: false,
@@ -135,6 +223,9 @@ export default {
     };
   },
   methods: {
+    getHeightForPopUp(height) {
+      return window.innerHeight - height;
+    },
     start() {
       this.started = true;
       setTimeout(() => {
@@ -145,6 +236,7 @@ export default {
       this.paused = false;
       this.isFinish = false;
       this.idxStep = 0;
+      this.putaran = 1;
       this.$refs.timer.reset();
       this.started = false;
     },
@@ -159,11 +251,29 @@ export default {
       // this.isFinish = true;
       if (this.putaran === 4) {
         this.isFinish = true;
+        setTimeout(() => {
+          this.$refs.popUpDone.setState("open");
+        }, 300);
+
         return;
       }
       this.putaran += 1;
-      this.reStart();
+      this.idxStep = 0;
+      this.$refs.timer.reset();
       this.start();
+    },
+    // general page handler
+    onBack() {
+      if (this.started) {
+        this.stop();
+        this.$refs.popUpBack.setState("open");
+      } else {
+        this.$router.back();
+      }
+    },
+    onCloseDonePopup() {
+      this.reStart();
+      this.$refs.popUpDone.setState("close");
     }
   }
 };
