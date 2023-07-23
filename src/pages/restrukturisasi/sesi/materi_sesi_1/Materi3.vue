@@ -1,8 +1,5 @@
 <template>
-  <LayoutOne
-    headerImg="img/restrukturisasi/sesi1_materi3.png"
-    backRoutes="/restrukturisasi/sesi1"
-  >
+  <LayoutOne headerImg="img/restrukturisasi/sesi1_materi3.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Faktor Pikiran Negatif
     </h1>
@@ -100,17 +97,10 @@ import LayoutOne from "../../../../layouts/LayoutOne.vue";
 
 export default {
   components: { LayoutOne },
-  computed: {
-    statusLatihan() {
-      return this.$store.state.restrukturisasi.statusLatihan.sesi1;
-    }
-  },
   mounted() {
-    // set materi 3 in sesi 1 as done
-    this.$store.commit("restrukturisasi/setStatusMateri", {
+    this.$store.commit("restrukturisasi/enableLatihan", {
       sesi: "sesi1",
-      materiIdx: 2,
-      value: true
+      latihan: 0
     });
   }
 };

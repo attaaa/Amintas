@@ -23,7 +23,8 @@
     <div>
       <div
         class="material-item flex items-center"
-        @click="$router.replace('/restrukturisasi/sesi1/materi1')"
+        :class="{ 'item-disabled': !statusMateri[0] }"
+        @click="$router.push('/restrukturisasi/sesi1/materi1')"
       >
         <img src="img/restrukturisasi/sesi1_materi1_ico.png" />
         <div class="text__headline text__primary">
@@ -32,9 +33,9 @@
       </div>
       <div
         class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusMateri[0] }"
+        :class="{ 'item-disabled': !statusMateri[1] }"
         @click="
-          statusMateri[0] && $router.replace('/restrukturisasi/sesi1/materi2')
+          statusMateri[1] && $router.push('/restrukturisasi/sesi1/materi2')
         "
       >
         <img src="img/restrukturisasi/sesi1_materi2_ico.png" />
@@ -44,9 +45,9 @@
       </div>
       <div
         class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusMateri[1] }"
+        :class="{ 'item-disabled': !statusMateri[2] }"
         @click="
-          statusMateri[1] && $router.replace('/restrukturisasi/sesi1/materi3')
+          statusMateri[2] && $router.push('/restrukturisasi/sesi1/materi3')
         "
       >
         <img src="img/restrukturisasi/sesi1_materi3_ico.png" />
@@ -65,9 +66,9 @@
     <div>
       <div
         class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusLatihan1 }"
+        :class="{ 'item-disabled': !statusLatihan[0] }"
         @click="
-          statusLatihan1 && $router.replace('/restrukturisasi/sesi1/latihan1')
+          statusLatihan[0] && $router.replace('/restrukturisasi/sesi1/latihan1')
         "
       >
         <template v-if="!latihan1Finished && latihan1Form">
@@ -86,9 +87,9 @@
       </div>
       <div
         class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusLatihan2 }"
+        :class="{ 'item-disabled': !statusLatihan[1] }"
         @click="
-          statusLatihan2 && $router.replace('/restrukturisasi/sesi1/latihan2')
+          statusLatihan[1] && $router.replace('/restrukturisasi/sesi1/latihan2')
         "
       >
         <template v-if="!latihan2Finished && latihan2Form">
@@ -118,12 +119,8 @@ export default {
     statusMateri() {
       return this.$store.state.restrukturisasi.statusMateri.sesi1;
     },
-    statusLatihan1() {
-      const statusMateri = this.$store.state.restrukturisasi.statusMateri.sesi1;
-      return statusMateri.every(Boolean);
-    },
-    statusLatihan2() {
-      return this.$store.state.restrukturisasi.statusLatihan.sesi1.latihan2;
+    statusLatihan() {
+      return this.$store.state.restrukturisasi.statusLatihanEnable.sesi1;
     },
     latihan1Finished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1
@@ -140,9 +137,6 @@ export default {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1.latihan2Form;
     }
   }
-  // mounted() {
-  //   this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
-  // }
 };
 </script>
 

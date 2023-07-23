@@ -135,11 +135,6 @@ export default {
     if (!this.account || !this.account.name || !this.isLoggedIn) {
       this.$router.replace("onboarding");
     }
-  },
-  methods: {
-    goToSearchPage() {
-      this.$router.push("search");
-    }
   }
 };
 </script>

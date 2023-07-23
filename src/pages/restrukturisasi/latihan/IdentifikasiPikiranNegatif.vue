@@ -217,6 +217,12 @@ export default {
         currSesiLatihanFinished: "latihan1Finished",
         nextSesiLatihan: "latihan2"
       });
+
+      // enable latihan 2
+      this.$store.commit("restrukturisasi/enableLatihan", {
+        sesi: "sesi1",
+        latihan: 1
+      });
     }
   },
   mounted() {

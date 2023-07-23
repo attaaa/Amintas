@@ -1,8 +1,5 @@
 <template>
-  <LayoutOne
-    headerImg="img/restrukturisasi/sesi1_materi1.png"
-    backRoutes="/restrukturisasi/sesi1"
-  >
+  <LayoutOne headerImg="img/restrukturisasi/sesi1_materi1.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Menghubungkan Perasaan dan Pikiran
     </h1>
@@ -109,7 +106,7 @@ export default {
     // set materi 2 in sesi 1 as done
     this.$store.commit("restrukturisasi/setStatusMateri", {
       sesi: "sesi1",
-      materiIdx: 1,
+      materiIdx: 2,
       value: true
     });
   }

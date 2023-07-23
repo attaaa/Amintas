@@ -17,6 +17,11 @@ export default {
       sesi2: [true, false],
       sesi3: [true, false, false]
     },
+    statusLatihanEnable: {
+      sesi1: [false, false],
+      sesi2: [false],
+      sesi3: [false, false]
+    },
     statusLatihan: {
       sesi1: {
         latihan1: false,
@@ -84,9 +89,8 @@ export default {
     setLatihanAktif(state, payload) {
       state.latihanAktif = payload;
     },
-    setStatusSesi(state, sesi) {
-      const currStatusSesi = { ...state.statusSesi };
-      state.statusSesi = { ...currStatusSesi, [sesi]: true };
+    setStatusSesi({ statusSesi }, sesi) {
+      statusSesi[sesi] = true;
     },
     setStatusMateri(state, { sesi, materiIdx, value }) {
       const currStatusMateri = { ...state.statusMateri };
@@ -112,6 +116,10 @@ export default {
         const nextSesi = sesi === "sesi1" ? "sesi2" : "sesi3";
         state.statusSesi[nextSesi] = true;
       }
+    },
+
+    enableLatihan({ statusLatihanEnable }, { sesi, latihan }) {
+      statusLatihanEnable[sesi][latihan] = true;
     },
 
     // for dev only

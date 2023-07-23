@@ -342,11 +342,11 @@ export default {
         currSesiLatihanFinished: "latihan2Finished"
       });
 
+      // enable sesi 2
       this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
     }
   },
   mounted() {
-    console.log(this.storeObj);
     this.form = JSON.parse(JSON.stringify(this.storeObj));
   }
 };
