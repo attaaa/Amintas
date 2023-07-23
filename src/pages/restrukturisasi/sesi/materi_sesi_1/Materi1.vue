@@ -110,7 +110,7 @@ export default {
     }
   },
   mounted() {
-    // set materi 1 in sesi 1 as done
+    // enable materi 2
     this.$store.commit("restrukturisasi/setStatusMateri", {
       sesi: "sesi1",
       materiIdx: 1,

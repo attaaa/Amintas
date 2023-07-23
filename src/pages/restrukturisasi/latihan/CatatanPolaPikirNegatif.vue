@@ -376,7 +376,8 @@ export default {
         currSesiLatihanFinished: "latihan1Finished"
       });
 
-      this.$store.commit("restrukturisasi/setStatusSesi", "sesi2");
+      // enable sesi 3
+      this.$store.commit("restrukturisasi/setStatusSesi", "sesi3");
     }
   },
   mounted() {

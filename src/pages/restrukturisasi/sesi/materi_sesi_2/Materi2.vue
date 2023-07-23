@@ -1,103 +1,89 @@
 <template>
-  <LayoutOne
-    headerImg="img/restrukturisasi/sesi1_materi1.png"
-    backRoutes="/restrukturisasi/sesi2"
-  >
+  <LayoutOne headerImg="img/restrukturisasi/sesi2_materi2.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
-      Tentang Pikiran dan Perasaan
+      Mengidentifikasi Pola Pikir Negatif
     </h1>
     <p class="text__body text__neutral-black">
-      Coba renungi dengan menutup matamu dan bayangkan perasaan yang sedang kamu
-      rasakan saat ini. Ajukan pertanyaan ini di dalam kepalamu:
+      Setelah mengenal jenisnya di materi sebelumnya, dan sempat mencoba untuk
+      mengungkap pikiran negatif di sesi pertama. Sekarang kita akan mencoba
+      mengungkapnya dengan lebih detail hingga menentukan jenisnya.
+      Mengidentifikasi pola pikir negatif biasanya cukup rumit dilakukan,
+      apalagi pikiran seperti itu munculnya otomatis dan spontan. Tapi, jangan
+      khawatir karena aku telah menyiapkan hal khusus untukmu!
+    </p>
+
+    <p class="text__body text__neutral-black">
+      Sama seperti hal lain yang baru saja kita pelajari, untuk terbiasa
+      mengungkap pikiran negatif memerlukan upaya. Namun kamu harus ingat, hal
+      itu akan membantumu melawan stress dan memiliki mental yang sehat. Biar
+      kamu dapat lebih mudah dalam mengidentifikasinya, aku akan mengajarimu
+      suatu metode bernama Analisis ABC.
+    </p>
+
+    <p class="text__body text__neutral-black">
+      ABC sendiri merupakan singkatan dari 'A' yaitu Activation Event atau
+      peristiwa pemicu; 'B' yaitu Belief atau pikiran mengganggu yang akan
+      diidentifikasi; dan terakhir 'C' yaitu Consequence atau perasaan
+      mengganggu;
+    </p>
+
+    <p class="text__body text__neutral-black">
+      Kita akan mempelajarinya dengan jurnal milik Jane, ia sering menggunakan
+      metode itu untuk mengungkap pikiran negatifnya. Maka dari itu, yuk kita
+      perhatikan penjabaran dari jurnalnya!
+    </p>
+
+    <p class="text__body text__neutral-black">
+      Jane menjabarkan peristiwa yang dialami atau "A: Activation Event":
     </p>
 
     <p class="text__special-body">
-      "Apakah itu perasaan sementara yang hanya datang dan seketika pergi?
-      Ataukah itu merupakan perasaan yang tetap tinggal, dan menggambarkan
-      suasana hatimu seminggu terakhir?"
+      “Minggu lalu temanku tidak mendapatkan pekerjaan yang dia lamar”.
     </p>
 
-    <img class="img-body" src="img/restrukturisasi/sesi1_materi1_body1.png" />
+    <p class="text__body text__neutral-black">
+      Jane melewati 'B', dan menjabarkan perasaan mengganggu yang muncul atau
+      "C: Consequence":
+    </p>
+
+    <p class="text__special-body">
+      “..dan aku seketika merasa sangat gagal dan bersalah..”
+    </p>
+
+    <img class="img-body" src="img/restrukturisasi/sesi2_materi2_body1.png" />
 
     <p class="text__body text__neutral-black">
-      Perasaan yang bertahan dari waktu ke waktu, menginterpretasikan mood atau
-      suasana hatimu. Ia merefleksikan pemikiranmu pada diri sendiri, dunia di
-      sekelilingmu, dan juga pandanganmu pada masa depan.
+      Lalu Jane meninjau 'A' dan 'C', untuk mengidentifikasi "B: Belief":
+    </p>
+
+    <p class="text__special-body">
+      "Itu salahku, aku pasti salah mengajarinya. Pasti banyak materi yang
+      kurang aku jelaskan, dan saat ujian dia jadi salah"
+    </p>
+
+    <p class="text__body text__neutral-black">
+      Setelah mendapatkan 'B' atau pikiran mengganggu yang timbul akibat
+      peristiwa 'A', dan menyebabkan 'C'. Jane pun dapat mengidentifikasi bahwa
+      jenis pola pikir negatifnya adalah personalisation, yaitu distorsi
+      kognitif yang mendorong seseorang merasa bertanggung jawab atas peristiwa
+      di luar urusannya.
+    </p>
+
+    <p class="text__body text__neutral-black">
+      Nah setelah memahami penjabaran di atas, sekarang giliran kamu buat
+      mempraktekkan Analisis ABC untuk mengungkap pikiran negatifmu dan memahami
+      distorsi kognitif yang mempengaruhinya. Yuk akses latihan sesi ini biar
+      kamu bisa mempraktekkannya!
     </p>
 
     <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
-      Lalu, mengapa ia muncul?
+      Sedikit Catatan:
     </h2>
 
     <p class="text__body text__neutral-black">
-      Perasaan yang bertahan dari waktu ke waktu, menginterpretasikan mood atau
-      suasana hatimu. Ia merefleksikan pemikiranmu pada diri sendiri, dunia di
-      sekelilingmu, dan juga pandanganmu pada masa depan.
-    </p>
-
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
-      Skenario:
-    </h2>
-
-    <p class="text__body text__neutral-black">
-      Kamu membuat janji bertemu dengan seorang teman, namun ia membatalkannya
-      pada saat-saat terakhir. Kamu merasa tersinggung, sakit hati, dan sangat
-      kesal.
-    </p>
-
-    <img class="img-body" src="img/restrukturisasi/sesi1_materi1_body2.png" />
-
-    <p class="text__body text__neutral-black">
-      Bagaimana jika aku beritahu, bahwa perilaku temanmu bukanlah yang
-      menimbulkan perasaan negatifmu. Namun sebaliknya, hal yang mempengaruhi
-      perasaanmu itu adalah persepsimu terhadap situasi tersebut, serta
-      pemikiran terkait dirimu sendiri dan juga pertemanan kalian. Jika situasi
-      itu benar-benar terjadi di dunia nyata, itu adalah hal yang normal dan
-      wajar kamu rasakan. Toh, kegiatan menyenangkan yang kamu nantikan gagal.
-      Namun yang perlu diperhatikan, mengapa perasaan negatif seperti itu dapat
-      bertahan dan mempengaruhi kita hingga bersedih.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Penelitian menyebutkan, bahwa seseorang yang terus merasa buruk secara
-      emosional dipengaruhi oleh tiga faktor. Faktor itu diantaranya, mereka
-      memiliki pandangan negatif terhadap dirinya sendiri; mereka memandangan
-      situasi atau peristiwa dalam hidup mereka secara negatif dan bias; lalu
-      yang terakhir mereka berpandangan bahwa masa depan pasti akan suram. Namun
-      fakta baiknya, hal tersebut bisa kita hadapi agar tidak lagi memunculkan
-      pikiran negatif yang akan mempengaruhi perasaan kita.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Lalu hal pertama yang akan kita lakukan untuk menjadi lebih baik, yaitu
-      belajar membedakan pikiran dan perasaan. Tentu bukan hal yang mudah,
-      karena seringkali ucapan kita mengaburkan perbedaannya.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Mungkin kamu akan mengungkapkan perasaanmu seperti ini:
-    </p>
-
-    <p class="text__special-body">
-      “Saya tersinggung”
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Padahal sebenarnya, sebelum itu kamu memiliki pikiran negatif seperti ini:
-    </p>
-
-    <p class="text__special-body">
-      “Temanku tidak menghargaiku”
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Pikiran negatif itulah yang sebenarnya mempengaruhi perasaanmu, hingga
-      pada akhirnya kamu merasa tersinggung.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Biar kamu dapat lebih memahami tentang pikiran dan perasaanmu, yuk akses
-      materi selanjutnya di sesi ini!
+      Seperti yang kamu ketahui, pikiran negatif kita munculnya spontan dan
+      otomatis. Jika kamu masih merasa bingung dengan materi di atas, coba akses
+      bagian Bantuan pada modul ini, ya!
     </p>
   </LayoutOne>
 </template>
@@ -108,43 +94,11 @@ import LayoutOne from "layouts/LayoutOne.vue";
 export default {
   components: { LayoutOne },
   mounted() {
-    this.$store.commit("restrukturisasi/setStatusMateri", {
+    // enable latihan 1
+    this.$store.commit("restrukturisasi/enableLatihan", {
       sesi: "sesi2",
-      materiIdx: 1,
-      value: true
+      latihan: 0
     });
-
-    //  this.$store.commit("restrukturisasi/setStatusSesi", "sesi3");
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.material-item {
-  padding: 12px 16px;
-  margin-bottom: 8px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-
-  background: #f2f6ff;
-  border-radius: 8px;
-
-  div {
-    height: 72px;
-    flex-basis: 0;
-    flex-grow: 1;
-
-    div {
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-
-.material-item img {
-  border-radius: 20px;
-}
-</style>

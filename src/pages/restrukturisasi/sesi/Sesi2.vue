@@ -23,7 +23,10 @@
     <div>
       <div
         class="material-item flex items-center"
-        @click="$router.replace('/restrukturisasi/sesi2/materi1')"
+        :class="{ 'item-disabled': !statusMateri[0] }"
+        @click="
+          statusMateri[0] && $router.push('/restrukturisasi/sesi2/materi1')
+        "
       >
         <img src="img/restrukturisasi/sesi2_materi1_item.png" />
         <div class="text__headline text__primary">
@@ -34,7 +37,7 @@
         class="material-item flex items-center"
         :class="{ 'item-disabled': !statusMateri[1] }"
         @click="
-          statusMateri[0] && $router.replace('/restrukturisasi/sesi2/materi2')
+          statusMateri[1] && $router.push('/restrukturisasi/sesi2/materi2')
         "
       >
         <img src="img/restrukturisasi/sesi2_materi2_item.png" />
@@ -53,9 +56,9 @@
     <div>
       <div
         class="material-item flex items-center"
-        :class="{ 'item-disabled': !statusLatihan1 }"
+        :class="{ 'item-disabled': !statusLatihan[0] }"
         @click="
-          statusLatihan1 && $router.replace('/restrukturisasi/sesi2/latihan1')
+          statusLatihan[0] && $router.replace('/restrukturisasi/sesi2/latihan1')
         "
       >
         <template v-if="!latihan1Finished && latihan1Form">
@@ -85,9 +88,8 @@ export default {
     statusMateri() {
       return this.$store.state.restrukturisasi.statusMateri.sesi2;
     },
-    statusLatihan1() {
-      const statusMateri = this.$store.state.restrukturisasi.statusMateri.sesi2;
-      return statusMateri.every(Boolean);
+    statusLatihan() {
+      return this.$store.state.restrukturisasi.statusLatihanEnable.sesi2;
     },
     latihan1Finished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi2

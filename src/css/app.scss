@@ -435,6 +435,24 @@ button:focus {
   border-radius: 4px;
 }
 
+// decoration
+.informasi-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+
+  span {
+    padding-right: 12px;
+  }
+
+  &--decor {
+    content: "";
+    flex: 1 1 0;
+    height: 2px;
+    background-color: #ffcb4d;
+  }
+}
+
 // layout and component styles
 @import "./layout.scss";
 @import "./formd.scss";
