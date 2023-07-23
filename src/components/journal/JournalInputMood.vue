@@ -6,7 +6,6 @@
         svg-inline
         class="fill-primary"
         src="assets/icons/general/arrow-left.svg"
-        style="width: 24px; height: 24px;"
       />
     </div>
 

@@ -5,7 +5,7 @@
         v-if="inputState === 'mood'"
         :selected-mood="journalData.mood"
         @change-mood="selectMood"
-        @go-back="$router.replace('/')"
+        @go-back="$refs.popupBack.$refs.popup.setState('open')"
       />
       <JournalInputEmotion
         v-else-if="inputState === 'emotion'"
@@ -66,35 +66,25 @@
         Lanjut
       </button>
     </div>
-    <PopUp ref="popUpSubmit" :enable-pan-area="false">
-      <!-- illustration -->
-      <div
-        class="placeholder-illustration flex"
-        style="height: 188px; margin: 8px;"
-      >
-        <img
-          style="width: 100%; border-radius: 8px"
-          src="img/popup_finishing.png"
-        />
-      </div>
 
-      <span
-        class="block text__primary text__title-3 full-width text-center"
-        style="margin-top: 24px; margin-bottom: 16px;"
-        >Simpan Jurnal?
-      </span>
-      <p
-        class="text__body text__neutral-dark-grey text-center"
-        style="margin-bottom: 48px"
-      >
+    <!--
+
+      OTHERS ELEMENT
+
+     -->
+
+    <PopupAction ref="popupBack" />
+
+    <PopupAction ref="popupSubmit" img="img/popup_finishing.png">
+      <template v-slot:title>Simpan Jurnal?</template>
+      <template v-slot:description>
         Cerita di dalamnya akan disimpan. Apakah kamu yakin ingin menyimpan
         ceritamu?
-      </p>
-
-      <div class="pop-up--action row">
+      </template>
+      <template v-slot:action>
         <button
           class="btn__large btn__alert-secondary col-auto relative-position"
-          @click="hidePopUpSubmit"
+          @click="$refs.popupSubmit.$refs.popup.setState('close')"
           v-ripple
         >
           Batal
@@ -107,47 +97,8 @@
         >
           Simpan
         </button>
-      </div>
-    </PopUp>
-
-    <PopUp ref="popUpCancel">
-      <!-- illustration -->
-      <div
-        class="placeholder-illustration flex"
-        style="height: 188px; margin: 8px;"
-      ></div>
-
-      <span
-        class="block text__primary text__title-3 full-width text-center"
-        style="margin-top: 24px; margin-bottom: 16px;"
-        >Buang Perubahan?
-      </span>
-      <p
-        class="text__body text__neutral-dark-grey text-center"
-        style="margin-bottom: 48px"
-      >
-        Perubahanmu di sini belum tersimpan. Apakah kamu yakin ingin
-        meninggalkan halaman ini?
-      </p>
-
-      <div class="pop-up--action row">
-        <button
-          class="btn__large btn__alert col relative-position text-white"
-          @click="$router.replace('/')"
-          v-ripple
-        >
-          Tingalkan Halaman
-        </button>
-        <div style="width: 16px;"></div>
-        <button
-          class="btn__large btn__secondary text__primary col-auto relative-position "
-          @click="hidePopUpCancel()"
-          v-ripple
-        >
-          Tidak
-        </button>
-      </div>
-    </PopUp>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
@@ -186,8 +137,9 @@ import JournalInputIdentif from "components/journal/JournalInputIdentif";
 import JournalInputDistortion from "components/journal/JournalInputDistortion";
 import JournalInputChallenge from "components/journal/JournalInputChallenge";
 import JournalInputAlternative from "components/journal/JournalInputAlternative";
-import PopUp from "components/bottomsheet/PopUp";
 import { generateTimeStamp } from "src/helper/generateDate";
+
+import PopupAction from "src/components/shared/PopupAction.vue";
 
 export default {
   name: "JournalInput",
@@ -199,7 +151,7 @@ export default {
     JournalInputDistortion,
     JournalInputChallenge,
     JournalInputAlternative,
-    PopUp
+    PopupAction
   },
   data() {
     return {
@@ -313,7 +265,7 @@ export default {
       const idx = this.inputStateList.indexOf(currInputState);
 
       if (idx === this.inputStateList.length - 1) {
-        this.$refs.popUpSubmit.setState("open");
+        this.$refs.popupSubmit.$refs.popup.setState("open");
         return;
       }
 
@@ -321,6 +273,7 @@ export default {
       this.nextButtonActive = false;
 
       this.checkInputed();
+      1;
     },
     goBack() {
       const currInputState = this.inputState;
@@ -328,8 +281,6 @@ export default {
       if (idx > 0) {
         this.inputState = this.inputStateList[idx - 1];
         this.checkInputed();
-      } else {
-        this.$refs.popUpCancel.setState("open");
       }
     },
     checkInputed() {
@@ -369,9 +320,6 @@ export default {
         this.nextButtonActive = false;
       }
     },
-    hidePopUpSubmit() {
-      this.$refs.popUpSubmit.setState("close");
-    },
     submitJournal() {
       if (this.$route.params.id === undefined) {
         this.journalData.id = Date.now();
@@ -383,9 +331,6 @@ export default {
         this.$store.dispatch("journal/updateJournal", this.journalData);
       }
       this.$router.replace("/");
-    },
-    hidePopUpCancel() {
-      this.$refs.popUpCancel.setState("close");
     }
   }
 };

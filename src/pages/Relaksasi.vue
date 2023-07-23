@@ -63,16 +63,6 @@
           >
             Ulang
           </button>
-          <!-- <button
-            class="btn__medium"
-            :class="{
-              btn__accent: isFinish,
-              btn__disabled: paused,
-              'text__neutral-dark-grey': paused
-            }"
-          >
-            Selesai
-          </button> -->
         </div>
       </div>
 
@@ -95,93 +85,37 @@
       </div>
     </div>
 
+    <!--
+
+      OTHERS ELEMENT
+
+    -->
+
     <!-- POPUP BACK -->
-    <SwipeableBottomSheet
-      ref="popUpBack"
-      default-state="close"
-      :open-top="getHeightForPopUp(420)"
-      :use-overlay="true"
-      :can-close="true"
-      :use-drag-icon="false"
-    >
-      <div class="info-content" style="padding: 24px 16px 0;">
-        <div class="text-center bg-secondary" style="border-radius: 8px;">
-          <img style="height: 156px;" src="img/popup/tinggalkan_halaman.png" />
-        </div>
-        <div
-          class="text__primary text__title-2 text-center"
-          style="margin-top: 24px; margin-bottom: 12px;"
-        >
-          Tinggalkan Halaman?
-        </div>
-
-        <p
-          class="text-center text__body text__neutral-dark-grey"
-          style="margin-bottom: 48px"
-        >
-          Proses relaksasimu belum selesai. Apakah kamu yakin ingin meninggalkan
-          halaman?
-        </p>
-
-        <div class="row items-end ">
-          <button
-            class="btn__large btn__secondary col relative-position"
-            @click="$refs.popUpBack.setState('close')"
-            v-ripple
-          >
-            Batal
-          </button>
-          <div style="width: 16px;"></div>
-          <button
-            class="btn__large btn__alert col-auto relative-position text-white"
-            @click="$router.back()"
-            v-ripple
-          >
-            Tinggalkan Halaman
-          </button>
-        </div>
-      </div>
-    </SwipeableBottomSheet>
+    <PopupAction ref="popupBack">
+      <template v-slot:description>
+        Proses relaksasimu belum selesai. Apakah kamu yakin ingin meninggalkan
+        halaman?
+      </template>
+    </PopupAction>
 
     <!-- POPUP DONE -->
-    <SwipeableBottomSheet
-      ref="popUpDone"
-      default-state="close"
-      :open-top="getHeightForPopUp(420)"
-      :use-overlay="true"
-      :can-close="true"
-      :use-drag-icon="false"
-    >
-      <div class="info-content" style="padding: 24px 16px 0;">
-        <div class="text-center bg-secondary" style="border-radius: 8px;">
-          <img style="height: 156px;" src="img/popup/done.png" />
-        </div>
-        <div
-          class="text__primary text__title-2 text-center"
-          style="margin-top: 24px; margin-bottom: 12px;"
+    <PopupAction ref="popupDone" img="img/popup/done.png">
+      <template v-slot:title> Relaksasi telah selesai!</template>
+      <template v-slot:description>
+        Wah, relaksasimu telah selesai. Jika masih memerlukan bantuan, jangan
+        sungkan ya!
+      </template>
+      <template v-slot:action>
+        <button
+          class="btn__large btn__accent col relative-position text__neutral-black"
+          @click="onCloseDonePopup()"
+          v-ripple
         >
-          Relaksasi telah selesai!
-        </div>
-
-        <p
-          class="text-center text__body text__neutral-dark-grey"
-          style="margin-bottom: 48px"
-        >
-          Wah, relaksasimu telah selesai. Jika masih memerlukan bantuan, jangan
-          sungkan ya!
-        </p>
-
-        <div class="row items-end ">
-          <button
-            class="btn__large btn__accent col relative-position text__neutral-black"
-            @click="onCloseDonePopup()"
-            v-ripple
-          >
-            Tutup
-          </button>
-        </div>
-      </div>
-    </SwipeableBottomSheet>
+          Tutup
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
@@ -203,11 +137,15 @@
 <script>
 import Timer from "components/relaksasi/Timer.vue";
 import TimerButton from "components/relaksasi/TimerButton";
-import SwipeableBottomSheet from "components/SwipeableBottomSheet";
+import PopupAction from "components/shared/PopupAction";
 
 export default {
   name: "Relaksasi",
-  components: { Timer, TimerButton, SwipeableBottomSheet },
+  components: {
+    Timer,
+    TimerButton,
+    PopupAction
+  },
   data() {
     return {
       started: false,
@@ -252,7 +190,7 @@ export default {
       if (this.putaran === 4) {
         this.isFinish = true;
         setTimeout(() => {
-          this.$refs.popUpDone.setState("open");
+          this.$refs.popupDone.$refs.popup.setState("open");
         }, 300);
 
         return;
@@ -266,14 +204,14 @@ export default {
     onBack() {
       if (this.started) {
         this.stop();
-        this.$refs.popUpBack.setState("open");
+        this.$refs.popupBack.$refs.popup.setState("open");
       } else {
         this.$router.back();
       }
     },
     onCloseDonePopup() {
       this.reStart();
-      this.$refs.popUpDone.setState("close");
+      this.$refs.popupDone.$refs.popup.setState("close");
     }
   }
 };
