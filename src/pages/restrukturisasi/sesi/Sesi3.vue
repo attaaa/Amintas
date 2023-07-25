@@ -20,19 +20,39 @@
       Materi
     </h2>
     <div>
-      <div class="material-item flex items-center">
+      <div
+        class="material-item flex items-center"
+        :class="{ 'item-disabled': !statusMateri[0] }"
+        @click="
+          statusMateri[0] && $router.push('/restrukturisasi/sesi3/materi1')
+        "
+      >
         <img src="img/restrukturisasi/sesi3_materi1_item.png" />
         <div class="text__headline text__primary">
           <div>Melaporkan Fakta</div>
         </div>
       </div>
-      <div class="material-item flex items-center">
+
+      <div
+        class="material-item flex items-center"
+        :class="{ 'item-disabled': !statusMateri[1] }"
+        @click="
+          statusMateri[1] && $router.push('/restrukturisasi/sesi3/materi2')
+        "
+      >
         <img src="img/restrukturisasi/sesi3_materi2_item.png" />
         <div class="text__headline text__primary">
           <div>Menjaga Keseimbangan Pikiran</div>
         </div>
       </div>
-      <div class="material-item flex items-center">
+
+      <div
+        class="material-item flex items-center"
+        :class="{ 'item-disabled': !statusMateri[2] }"
+        @click="
+          statusMateri[2] && $router.push('/restrukturisasi/sesi3/materi3')
+        "
+      >
         <img src="img/restrukturisasi/sesi3_materi3_item.png" />
         <div class="text__headline text__primary">
           <div>ABC dan D</div>
@@ -47,20 +67,67 @@
       Latihan
     </h2>
     <div>
-      <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi3_latihan1_item.png" />
+      <div
+        class="material-item flex items-center"
+        :class="{ 'item-disabled': !statusLatihan[0] }"
+        @click="
+          statusLatihan[0] && $router.replace('/restrukturisasi/sesi3/latihan1')
+        "
+      >
+        <template v-if="!latihan1Finished && latihan1Form">
+          <img src="img/activated_exercise.png" />
+        </template>
+        <template v-else-if="!latihan1Finished">
+          <img src="img/restrukturisasi/sesi3_latihan1_item.png" />
+        </template>
+
+        <template v-else>
+          <img src="img/finished_exercise.png" />
+        </template>
         <div class="text__headline text__primary">
-          <div>Bermain Pera: Reporter</div>
+          <div>Bermain Peran: Reporter</div>
         </div>
       </div>
-      <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi3_latihan2_item.png" />
+
+      <div
+        class="material-item flex items-center"
+        :class="{ 'item-disabled': !statusLatihan[1] }"
+        @click="
+          statusLatihan[1] && $router.replace('/restrukturisasi/sesi3/latihan2')
+        "
+      >
+        <template v-if="!latihan2Finished && latihan2Form">
+          <img src="img/activated_exercise.png" />
+        </template>
+        <template v-else-if="!latihan2Finished">
+          <img src="img/restrukturisasi/sesi3_latihan2_item.png" />
+        </template>
+
+        <template v-else>
+          <img src="img/finished_exercise.png" />
+        </template>
         <div class="text__headline text__primary">
           <div>Menjaga Keseimbangan Pikiran</div>
         </div>
       </div>
-      <div class="material-item flex items-center">
-        <img src="img/restrukturisasi/sesi3_latihan3_item.png" />
+
+      <div
+        class="material-item flex items-center"
+        :class="{ 'item-disabled': !statusLatihan[2] }"
+        @click="
+          statusLatihan[2] && $router.replace('/restrukturisasi/sesi3/latihan3')
+        "
+      >
+        <template v-if="!latihan3Finished && latihan3Form">
+          <img src="img/activated_exercise.png" />
+        </template>
+        <template v-else-if="!latihan3Finished">
+          <img src="img/restrukturisasi/sesi3_latihan3_item.png" />
+        </template>
+
+        <template v-else>
+          <img src="img/finished_exercise.png" />
+        </template>
         <div class="text__headline text__primary">
           <div>Bermain Peran: Pengacara</div>
         </div>
@@ -70,10 +137,41 @@
 </template>
 
 <script>
-import LayoutOne from "../../../layouts/LayoutOne.vue";
+import LayoutOne from "layouts/LayoutOne.vue";
 
 export default {
-  components: { LayoutOne }
+  components: { LayoutOne },
+  computed: {
+    statusMateri() {
+      return this.$store.state.restrukturisasi.statusMateri.sesi3;
+    },
+    statusLatihan() {
+      return this.$store.state.restrukturisasi.statusLatihanEnable.sesi3;
+    },
+    latihan1Finished() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi3
+        .latihan1Finished;
+    },
+    latihan1Form() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi3.latihan1Form;
+    },
+
+    latihan2Finished() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi3
+        .latihan2Finished;
+    },
+    latihan2Form() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi3.latihan2Form;
+    },
+
+    latihan3Finished() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi3
+        .latihan3Finished;
+    },
+    latihan3Form() {
+      return this.$store.state.restrukturisasi.statusLatihan.sesi3.latihan3Form;
+    }
+  }
 };
 </script>
 

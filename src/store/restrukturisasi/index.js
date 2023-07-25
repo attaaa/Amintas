@@ -20,7 +20,7 @@ export default {
     statusLatihanEnable: {
       sesi1: [false, false],
       sesi2: [false],
-      sesi3: [false, false]
+      sesi3: [false, false, false]
     },
     statusLatihan: {
       sesi1: {
@@ -35,6 +35,17 @@ export default {
         latihan1: false,
         latihan1Form: false,
         latihan1Finished: false
+      },
+      sesi3: {
+        latihan1: false,
+        latihan1Form: false,
+        latihan1Finished: false,
+        latihan2: false,
+        latihan2Form: false,
+        latihan2Finished: false,
+        latihan3: false,
+        latihan3Form: false,
+        latihan3Finished: false
       }
     },
     sesi1Latihan1: {
@@ -77,7 +88,27 @@ export default {
         consequence: "",
         distorsiKognitif: []
       }
-    }
+    },
+    sesi3Latihan1: {
+      catatan: {
+        peristiwa: "",
+        pikiranNegatif: "",
+        fakta: "",
+        kesimpulan: ""
+      }
+    },
+    sesi3Latihan2: {
+      pikiran1: {
+        pernyataanPositif: ""
+      },
+      pikiran2: {
+        pernyataanPositif: ""
+      },
+      pikiran3: {
+        pernyataanPositif: ""
+      }
+    },
+    sesi3Latihan3: {}
     // END STATUS
   },
   getters: {

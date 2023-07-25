@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import LayoutOne from "../../../layouts/LayoutOne.vue";
+import LayoutOne from "layouts/LayoutOne.vue";
 
 export default {
   components: { LayoutOne },

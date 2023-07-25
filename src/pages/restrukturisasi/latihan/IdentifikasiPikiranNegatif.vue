@@ -26,9 +26,9 @@
       coba identifikasi faktor yang melatarbelakangi pikiran negatif tersebut!
     </p>
 
-    <div class="custom-header">
-      <h2 class="text__title-3 text__neutral-black">Skenario</h2>
-      <div class="custom-header--line"></div>
+    <div class="informasi-title">
+      <span class="text__title-3">Skenario</span>
+      <div class="informasi-title--decor" />
     </div>
     <p class="text__body text__neutral-black">
       Seorang teman meminta bantuanmu untuk mempersiapkan wawancara magang di
@@ -235,81 +235,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.material-item {
-  padding: 12px 16px;
-  margin-bottom: 8px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-
-  background: #f2f6ff;
-  border-radius: 8px;
-
-  div {
-    height: 72px;
-    flex-basis: 0;
-    flex-grow: 1;
-
-    div {
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-
-.material-item img {
-  border-radius: 20px;
-}
-
-// textarea {
-//   width: 100%;
-//   height: 88px;
-//   border: 1px solid #dedede;
-//   border-radius: 6px;
-// }
-
-// input[type="text"] {
-//   width: 100%;
-//   padding: 8px 12px;
-//   /* Neutral/Extrasoft Grey */
-//   background: #f1f2f5;
-//   /* Neutral/Soft Grey */
-//   border: 1px solid #dedede;
-//   border-radius: 6px;
-//   /* Body/Body Text */
-//   font-size: 16px;
-//   line-height: 24px;
-//   /* identical to box height, or 150% */
-//   letter-spacing: 0.02em;
-// }
-</style>
-
-<style lang="scss">
-.custom-header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 12px;
-  margin-bottom: 12px;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-  }
-
-  div {
-    background-color: #ffcb4d;
-    height: 1px;
-    flex-basis: 0;
-    flex-grow: 1;
-  }
-}
-</style>
