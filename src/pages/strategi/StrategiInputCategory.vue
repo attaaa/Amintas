@@ -1,11 +1,11 @@
 <template>
   <div style="height: 100vh; overflow: hidden;">
     <div style="padding: 16px 12px;">
-      <div @click="() => this.$refs.popUpCancel.setState('open')">
+      <div @click="$refs.popupBack.$refs.popup.setState('open')">
         <img
-          src="assets/icons/general/arrow-left.svg"
           svg-inline
-          style="width: 24px; fill: #5C7CCD;"
+          class="fill-primary"
+          src="assets/icons/general/arrow-left.svg"
         />
       </div>
     </div>
@@ -28,7 +28,10 @@
         >
           <!-- actual playlist item -->
           <div
-            :class="selectedPemicu == pemicu.id && 'active'"
+            :class="{
+              active: selectedPemicu == pemicu.id,
+              inactive: selectedPemicu !== null && selectedPemicu !== pemicu.id
+            }"
             @click="selectedPemicu = pemicu.id"
           >
             <div class="playlist-item--bg">
@@ -54,59 +57,18 @@
       </button>
     </div>
 
-    <PopUp ref="popUpCancel" :enable-pan-area="false">
-      <!-- illustration -->
-      <div
-        class="placeholder-illustration flex"
-        style="height: 188px; margin: 8px;"
-      >
-        <img
-          style="width: 100%; border-radius: 8px;"
-          src="img/popup_end_process.png"
-        />
-      </div>
-
-      <span
-        class="block text__primary text__title-3 full-width text-center"
-        style="margin-top: 24px; margin-bottom: 16px;"
-        >Buang Perubahan?
-      </span>
-      <p
-        class="text__body text__neutral-dark-grey text-center"
-        style="margin-bottom: 48px"
-      >
-        Perubahanmu di sini belum tersimpan. Apakah kamu yakin ingin
-        meninggalkan halaman ini?
-      </p>
-
-      <div class="pop-up--action row">
-        <button
-          class="btn__large btn__alert col relative-position text-white"
-          @click="$router.replace('/strategi')"
-          v-ripple
-        >
-          Tingalkan Halaman
-        </button>
-        <div style="width: 16px;"></div>
-        <button
-          class="btn__large btn__secondary text__primary col-auto relative-position "
-          @click="() => this.$refs.popUpCancel.setState('close')"
-          v-ripple
-        >
-          Tidak
-        </button>
-      </div>
-    </PopUp>
+    <PopupAction ref="popupBack" />
   </div>
 </template>
 
 <script>
 import { pemicuList } from "../../data/strategi/StrategiInputChoice";
-import PopUp from "components/bottomsheet/PopUp";
+import PopupAction from "src/components/shared/PopupAction.vue";
+
 export default {
   name: "StrategiInputCategory",
   components: {
-    PopUp
+    PopupAction
   },
   data() {
     return {
@@ -128,13 +90,13 @@ export default {
         ...this.strategiInputData,
         category: this.selectedPemicu
       });
-      this.$router.replace("/strategi/input-story1");
+      this.$router.push("/strategi/input-story1");
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .playlist-item {
   height: 180px;
   margin-bottom: 16px;
@@ -155,6 +117,10 @@ export default {
 
 .playlist-item > div.active {
   border: 2px solid #5c7ccd;
+}
+
+.playlist-item > div.inactive {
+  background-color: #dedede;
 }
 
 .playlist-item:nth-child(even) {

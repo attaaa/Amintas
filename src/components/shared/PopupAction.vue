@@ -34,7 +34,7 @@
       <div class="row items-end ">
         <slot name="action">
           <button
-            class="btn__large btn__secondary col relative-position"
+            class="btn__large btn__secondary relative-position"
             @click="$refs.popup.setState('close')"
             v-ripple
           >
@@ -42,7 +42,7 @@
           </button>
           <div style="width: 16px;"></div>
           <button
-            class="btn__large btn__alert col-auto relative-position text-white"
+            class="btn__large btn__alert col relative-position text-white"
             @click="$router.back()"
             v-ripple
           >

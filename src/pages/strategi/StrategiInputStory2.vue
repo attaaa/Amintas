@@ -61,7 +61,7 @@ export default {
         ...this.strategiInputData,
         story_tujuan: this.story_tujuan
       });
-      this.$router.replace("/strategi/input-activities");
+      this.$router.push("/strategi/input-activities");
     }
   }
 };

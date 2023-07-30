@@ -34,17 +34,21 @@
 export default {
   name: "Collapse",
   props: {
-    label: String
+    label: String,
+    defaultOpen: Boolean
   },
   data() {
     return {
       active: false
     };
+  },
+  mounted() {
+    this.active = this.defaultOpen;
   }
 };
 </script>
 
-<style>
+<style scoped>
 .collapse {
   width: 100%;
   padding: 16px;

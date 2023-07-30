@@ -136,6 +136,10 @@ const routes = [
     component: () => import("layouts/FullLayout.vue"),
     children: [
       {
+        path: "history",
+        component: () => import("pages/strategi/StrategiHistory.vue")
+      },
+      {
         path: "input-category",
         component: () => import("src/pages/strategi/StrategiInputCategory.vue")
       },

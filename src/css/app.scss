@@ -77,6 +77,10 @@ button[disabled] {
 button:focus {
   outline: none !important;
 }
+
+ul {
+  padding-inline-start: 20px;
+}
 /* #endregion */
 
 /* #region  [TYPOGRAPHY] */
@@ -287,6 +291,11 @@ button:focus {
 
 .btn__accent {
   background-color: $color-accent;
+
+  &:disabled {
+    background-color: #dedede;
+    color: $color-neutral-mid-grey;
+  }
 }
 
 .btn__borderless {

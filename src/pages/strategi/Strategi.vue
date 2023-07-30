@@ -3,13 +3,18 @@
     <!-- header -->
     <div class="flex justify-between items-center" style="margin-bottom: 56px">
       <div class="text__title-1 text__primary">Strategi</div>
-      <div @click="$refs.popUpHelp.setState('half')">
-        <img src="assets/icons/bantuan-24.svg" />
+      <div class="flex">
+        <div @click="$router.push('/strategi/history')" class="q-mr-sm">
+          <img svg-inline src="assets/icons/general/history.svg" />
+        </div>
+        <div @click="$refs.popUpHelp.setState('half')">
+          <img src="assets/icons/bantuan-24.svg" />
+        </div>
       </div>
     </div>
     <!--  -->
     <div class="text-center" style="margin-bottom: 24px">
-      <img src="assets/img/empty_nothing.png" />
+      <img src="assets/img/empty_nothing_alt.png" />
     </div>
     <div
       class="text__title-3 text__primary text-center"
@@ -26,7 +31,7 @@
     <div class="flex justify-center">
       <button
         class="btn__large btn__accent"
-        @click="() => this.$router.replace('/strategi/input-category')"
+        @click="$router.push('/strategi/input-category')"
       >
         Buat Strategi
       </button>
@@ -53,6 +58,24 @@
         ></div>
       </q-scroll-area>
     </SwipeableBottomSheet>
+
+    <!-- pop up done notification -->
+    <PopupAction ref="popupDone" img="img/popup_finishing.png">
+      <template v-slot:title>Strategi telah berhasil!</template>
+      <template v-slot:description>
+        Wah kamu pasti akan lebih tenang dan lebih berani saat menghadapinya
+        lagi!
+      </template>
+      <template v-slot:action>
+        <button
+          class="btn__large btn__accent col relative-position"
+          @click="$refs.popupDone.$refs.popup.setState('close')"
+          v-ripple
+        >
+          Tutup
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
@@ -60,14 +83,20 @@
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 import { marked } from "marked";
 import Strategi from "!!raw-loader!../../data/info/Strategi.md";
+import PopupAction from "src/components/shared/PopupAction.vue";
 
 export default {
   name: "Strategi",
-  components: { SwipeableBottomSheet },
+  components: { SwipeableBottomSheet, PopupAction },
   mounted() {
-    this.$store.commit("strategi/clearInputStrategi");
+    // this.$store.commit("strategi/clearInputStrategi");
     if (this.$store.state.strategi.strategiActive) {
       this.$router.replace("/strategi-active");
+    } else if (this.$route.query.popupDone) {
+      setTimeout(() => {
+        this.$refs.popupDone.$refs.popup.setState("open");
+        this.$router.replace({ query: null });
+      }, 700);
     }
   },
   methods: {

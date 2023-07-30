@@ -32,10 +32,20 @@ const setActivityStatus = (state, { activityIndex, status }) => {
 
 const setActivityChecked = (state, { activityIndex, checked }) => {
   state.strategiActive.activities[activityIndex].checked = checked;
+  state.strategiActive.activities[activityIndex].status = "finished";
+
+  console.log("tester");
+
+  if (activityIndex > 0) {
+    state.strategiActive.activities[activityIndex - 1].status = "active";
+  }
 };
 
-const sortActivity = state => {
-  state.strategiActive.activities.sort((a, b) => b.level - a.level);
+const sortActivity = ({ strategiActive }) => {
+  strategiActive.activities.sort((a, b) => b.level - a.level);
+
+  strategiActive.activities[strategiActive.activities.length - 1].status =
+    "active";
 };
 
 export {

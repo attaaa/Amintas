@@ -16,19 +16,64 @@
         <div class="col full-width overflow-hidden">
           <TableLadderActivity
             v-for="(activity, index) in activities"
+            style="margin-bottom: 12px"
             :handle-add="handleAdd"
             :handle-remove="handleRemove"
             :idx="index"
-            :is-first="index === 0"
-            :is-last="index === activities.length - 1"
+            :removeDisabled="activities.length === 1"
             :key="index"
             :model="activities[index].name"
             @input="val => (activities[index].name = val)"
-            style="margin-bottom: 12px"
-          >
-          </TableLadderActivity>
+          />
         </div>
       </div>
+
+      <template v-slot:action>
+        <div class="fill-action col-auto show-action">
+          <div class="row items-end ">
+            <button
+              class="btn__large btn__secondary col relative-position"
+              @click="handleAdd()"
+              v-ripple
+            >
+              Tambah
+            </button>
+            <div style="width: 16px;"></div>
+            <button
+              class="btn__large btn__accent col relative-position"
+              :disabled="!checkInputValid()"
+              @click="handleNextAction()"
+              v-ripple
+            >
+              Lanjut
+            </button>
+          </div>
+        </div>
+      </template>
+
+      <PopupAction ref="popupDelete" img="assets/img/delete_trash.png">
+        <template v-slot:title>Hapus Baris?</template>
+        <template v-slot:description>
+          Jawabanmu akan terhapus. Apakah kamu yakin ingin menghapus baris ini?
+        </template>
+        <template v-slot:action>
+          <button
+            class="btn__large btn__alert-secondary col-auto relative-position"
+            @click="$refs.popupDelete.$refs.popup.setState('close')"
+            v-ripple
+          >
+            Batal
+          </button>
+          <div style="width: 16px;"></div>
+          <button
+            class="btn__large btn__accent col relative-position"
+            @click="submitRemove()"
+            v-ripple
+          >
+            Hapus Baris
+          </button>
+        </template>
+      </PopupAction>
     </FillLayout>
   </div>
 </template>
@@ -40,14 +85,17 @@ import FillLayout from "src/layouts/FillLayout.vue";
 import StrategiActivities from "!!raw-loader!../../data/info/StrategiActivities.md";
 import { marked } from "marked";
 
+import PopupAction from "src/components/shared/PopupAction.vue";
+
 export default {
   name: "StrategiInputActivities",
-  components: { FillLayout, TableLadderActivity },
+  components: { FillLayout, TableLadderActivity, PopupAction },
   data() {
     return {
       activities: [
         { name: "", level: null, status: "inactive", checked: false }
-      ]
+      ],
+      tempIdx: null
     };
   },
   computed: {
@@ -72,9 +120,6 @@ export default {
       }
       return true;
     },
-    log(val) {
-      console.log(val);
-    },
     handleAdd() {
       this.activities = [
         ...this.activities,
@@ -82,18 +127,23 @@ export default {
       ];
     },
     handleRemove(idx) {
-      this.activities.splice(idx, 1);
+      this.tempIdx = idx;
+      this.$refs.popupDelete.$refs.popup.setState("open");
+    },
+    submitRemove() {
+      this.activities.splice(this.tempIdx, 1);
+
+      this.$refs.popupDelete.$refs.popup.setState("close");
+      this.tempIdx = null;
     },
     handleNextAction() {
       this.$store.dispatch("strategi/updateInputStrategi", {
         ...this.strategiInputData,
         activities: [...this.activities]
       });
-      this.$router.replace("/strategi/input-level");
+      this.$router.push("/strategi/input-level");
     },
     onInput() {}
   }
 };
 </script>
-
-<style></style>

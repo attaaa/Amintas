@@ -12,7 +12,7 @@
       <div
         v-if="showBantuan"
         class="absolute-center"
-        @click="() => this.$refs.popUpHelp.setState('half')"
+        @click="$refs.popUpHelp.setState('half')"
       >
         <img
           src="assets/icons/bantuan.svg"
@@ -34,17 +34,19 @@
     <slot></slot>
 
     <!-- action -->
-    <div
-      class="fill-action col-auto"
-      :class="[showAction ? 'show-action' : 'hide-action']"
-    >
-      <button
-        class="btn__large btn__accent full-width"
-        @click="handleNextAction()"
+    <slot name="action">
+      <div
+        class="fill-action col-auto"
+        :class="[showAction ? 'show-action' : 'hide-action']"
       >
-        {{ labelNextAction }}
-      </button>
-    </div>
+        <button
+          class="btn__large btn__accent full-width"
+          @click="handleNextAction()"
+        >
+          {{ labelNextAction }}
+        </button>
+      </div>
+    </slot>
 
     <!-- pop up help -->
     <SwipeableBottomSheet

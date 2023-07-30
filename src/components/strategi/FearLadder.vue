@@ -1,33 +1,24 @@
 <template>
   <div class="fear-ladder">
-    <div class="fear-ladder__text" :class="{ disabled: status === 'inactive' }">
+    <div class="fear-ladder__text" :class="status">
       {{ text }}
     </div>
-    <div
-      class="fear-ladder__level"
-      :class="{ disabled: status === 'inactive' }"
-    >
+
+    <div class="fear-ladder__level" :class="status">
       <div class="fear-ladder__level-label">Level</div>
       <div class="fear-ladder__level-value">{{ level }}</div>
     </div>
+
     <div
       class="fear-ladder__checkbox"
-      :class="{ checked: checked, disabled: status === 'inactive' }"
+      :class="status"
       @click="status === 'active' && $emit('toggle-check')"
     >
-      <svg
-        class="fear-ladder__checkbox-icon"
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M14.7319 3.2958C14.639 3.20207 14.5284 3.12768 14.4065 3.07691C14.2846 3.02614 14.1539 3 14.0219 3C13.8899 3 13.7592 3.02614 13.6373 3.07691C13.5155 3.12768 13.4049 3.20207 13.3119 3.2958L5.86192 10.7558L2.73192 7.6158C2.6354 7.52256 2.52146 7.44925 2.3966 7.40004C2.27175 7.35084 2.13843 7.32671 2.00424 7.32903C1.87006 7.33135 1.73765 7.36008 1.61458 7.41357C1.4915 7.46706 1.38016 7.54428 1.28692 7.6408C1.19368 7.73732 1.12037 7.85126 1.07117 7.97612C1.02196 8.10097 0.997831 8.2343 1.00015 8.36848C1.00247 8.50266 1.0312 8.63507 1.0847 8.75814C1.13819 8.88122 1.2154 8.99256 1.31192 9.0858L5.15192 12.9258C5.24489 13.0195 5.35549 13.0939 5.47735 13.1447C5.59921 13.1955 5.72991 13.2216 5.86192 13.2216C5.99393 13.2216 6.12464 13.1955 6.2465 13.1447C6.36836 13.0939 6.47896 13.0195 6.57192 12.9258L14.7319 4.7658C14.8334 4.67216 14.9144 4.5585 14.9698 4.432C15.0252 4.30551 15.0539 4.1689 15.0539 4.0308C15.0539 3.8927 15.0252 3.75609 14.9698 3.62959C14.9144 3.50309 14.8334 3.38944 14.7319 3.2958V3.2958Z"
-          fill="#5C7CCD"
-        />
-      </svg>
+      <img
+        class="checkbox-icon"
+        svg-inline
+        src="assets/icons/general/checked.svg"
+      />
     </div>
   </div>
 </template>
@@ -54,8 +45,12 @@ export default {
   &__text {
     flex-grow: 1;
 
-    &.disabled {
+    &.inactive {
       color: #a3a5a7;
+    }
+
+    &.finished {
+      text-decoration: line-through;
     }
   }
 
@@ -79,7 +74,8 @@ export default {
       color: #5c7ccd;
     }
 
-    &.disabled {
+    &.inactive,
+    &.finished {
       visibility: hidden;
     }
   }
@@ -92,24 +88,54 @@ export default {
     border-radius: 4px;
     display: grid;
     place-items: center;
+    overflow: hidden;
 
-    &-icon {
+    .checkbox-icon {
+      width: 100%;
+      height: 100%;
       display: none;
     }
 
-    &.checked {
-      border: 1px solid #5c7ccd;
+    &.inactive {
+      border: none;
+      background: #dedede;
     }
 
-    &.checked & {
-      &-icon {
+    &.active {
+      border: 1px solid #c4c4c8;
+      background: #f1f2f5;
+    }
+
+    &.pending {
+      border: 1px solid #5c7ccd;
+
+      .checkbox-icon {
         display: block;
+
+        .icon {
+          fill: #5c7ccd;
+        }
+
+        .bg {
+          fill: transparent;
+        }
       }
     }
 
-    &.disabled {
-      background: #dedede;
-      border: 1px solid #dedede;
+    &.finished {
+      border: none;
+
+      .checkbox-icon {
+        display: block;
+
+        .bg {
+          fill: #5c7ccd;
+        }
+
+        .icon {
+          fill: #f2f6ff;
+        }
+      }
     }
   }
 }

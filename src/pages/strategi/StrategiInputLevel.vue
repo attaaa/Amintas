@@ -9,7 +9,7 @@
       labelNextAction="Aktifkan Strategi"
       :handleNextAction="
         () => {
-          this.$refs.popUpAktifkan.setState('open');
+          this.$refs.popupAktifkan.$refs.popup.setState('open');
         }
       "
     >
@@ -81,52 +81,30 @@
     </SwipeableBottomSheet>
 
     <!-- POP UP AKTIFKAN CONFIRMATION -->
-    <SwipeableBottomSheet
-      ref="popUpAktifkan"
-      default-state="close"
-      :open-top="getHeightForPopUp(420)"
-      :use-overlay="true"
-      :can-close="true"
-      :use-drag-icon="false"
-    >
-      <div class="info-content" style="padding: 24px 16px 0;">
-        <div class="text-center bg-secondary" style="border-radius: 8px;">
-          <img style="height: 156px;" src="img/popup_activation.png" />
-        </div>
-        <div
-          class="text__primary text__title-2 text-center"
-          style="margin-top: 24px; margin-bottom: 12px;"
+    <PopupAction ref="popupAktifkan" img="img/popup_activation.png">
+      <template v-slot:title>Aktifkan Strategi?</template>
+      <template v-slot:description>
+        Strategi akan disimpan dan aktif. Apakah kamu yakin ingin mengaktifkan
+        strategi?
+      </template>
+      <template v-slot:action>
+        <button
+          class="btn__large btn__alert-secondary col-auto relative-position"
+          @click="$refs.popupAktifkan.$refs.popup.setState('close')"
+          v-ripple
         >
-          Distorsi Kognitif?
-        </div>
-
-        <p
-          class="text-center text__body text__neutral-dark-grey"
-          style="margin-bottom: 48px"
+          Batal
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__accent col relative-position"
+          @click="activateStrategi()"
+          v-ripple
         >
-          Strategi akan disimpan dan aktif. Apakah kamu yakin ingin mengaktifkan
-          strategi?
-        </p>
-
-        <div class="row items-end ">
-          <button
-            class="btn__large btn__alert-secondary col-auto relative-position"
-            @click="() => this.$refs.popUpAktifkan.setState('close')"
-            v-ripple
-          >
-            Batal
-          </button>
-          <div style="width: 16px;"></div>
-          <button
-            class="btn__large btn__accent col relative-position"
-            @click="activateStrategi()"
-            v-ripple
-          >
-            Aktifkan
-          </button>
-        </div>
-      </div>
-    </SwipeableBottomSheet>
+          Aktifkan
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
@@ -138,9 +116,16 @@ import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
 import { marked } from "marked";
 import SwipeableBottomSheet from "src/components/SwipeableBottomSheet.vue";
 
+import PopupAction from "src/components/shared/PopupAction.vue";
+
 export default {
   name: "StrategiInputLevel",
-  components: { FillLayout, TableLadderLevel, SwipeableBottomSheet },
+  components: {
+    FillLayout,
+    TableLadderLevel,
+    SwipeableBottomSheet,
+    PopupAction
+  },
   data() {
     return {
       activities: [
@@ -204,7 +189,7 @@ export default {
       });
       this.$store.dispatch("strategi/activateStrategi");
       this.$store.commit("strategi/sortActivity");
-      this.$router.replace("/strategi");
+      this.$router.push("/strategi");
     }
   }
 };

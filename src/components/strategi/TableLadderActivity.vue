@@ -8,15 +8,15 @@
       ></textarea>
     </div>
     <div class="action">
-      <button v-if="isLast" class="add" @click="handleAdd(model)">
+      <!-- <button v-if="isLast" class="add" @click="handleAdd(model)">
         <img src="assets/icons/btn_add.svg" />
-      </button>
+      </button> -->
       <button
-        v-if="!(isFirst && isLast)"
         class="remove"
+        :disabled="removeDisabled"
         @click="handleRemove(idx)"
       >
-        <img src="assets/icons/btn_remove.svg" />
+        <img svg-inline src="assets/icons/minus_square.svg" />
       </button>
     </div>
   </div>
@@ -28,10 +28,9 @@ export default {
   props: {
     idx: Number,
     model: String,
-    isLast: Boolean,
-    isFirst: Boolean,
     handleAdd: Function,
-    handleRemove: Function
+    handleRemove: Function,
+    removeDisabled: Boolean
   },
   computed: {
     modelInput: {
@@ -92,5 +91,25 @@ export default {
 
 .action button:nth-child(2) {
   margin-top: auto;
+}
+
+.remove {
+  .bg {
+    fill: #fff2f2;
+  }
+
+  .icon {
+    fill: #af3a3a;
+  }
+
+  &:disabled {
+    .bg {
+      fill: #dedede;
+    }
+
+    .icon {
+      fill: #a3a5a7;
+    }
+  }
 }
 </style>
