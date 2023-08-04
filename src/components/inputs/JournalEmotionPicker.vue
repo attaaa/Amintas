@@ -41,7 +41,7 @@ const emotionLabelList = {
     "dicintai",
     "termotivasi",
     "optimis",
-    "tenang",
+    // "tenang",
     "bangga",
     "santai",
     "lega",

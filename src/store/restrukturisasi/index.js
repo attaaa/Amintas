@@ -10,7 +10,8 @@ export default {
     statusSesi: {
       sesi1: false,
       sesi2: false,
-      sesi3: false
+      sesi3: false,
+      bantuan: false
     },
     statusMateri: {
       sesi1: [true, false, false],

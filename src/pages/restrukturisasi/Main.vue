@@ -75,7 +75,11 @@
         </div>
 
         <h2 class="text__title-2 text__neutral-back">Bantuan</h2>
-        <div class="item">
+        <div
+          class="item"
+          @click="goToSesi('bantuan')"
+          :class="{ disabled: !statusSesi.bantuan }"
+        >
           <h3 class="text__title-3 text__primary">
             Analisis <br />
             ABC

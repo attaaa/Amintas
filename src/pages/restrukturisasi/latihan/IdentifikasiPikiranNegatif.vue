@@ -2,7 +2,7 @@
   <LayoutLatihan
     headerImg="img/restrukturisasi/sesi1_latihan1_detail.png"
     :showAction="formDisabled"
-    :labelNextAction="'Aktivasi Latihan'"
+    :labelNextAction="'Aktifkan Latihan'"
     :handleNextAction="showAktivasiLatihan"
     :showSecondaryAction="showSecondaryAction"
     :activeDoneButton="activeDoneButton"
@@ -222,6 +222,13 @@ export default {
       this.$store.commit("restrukturisasi/enableLatihan", {
         sesi: "sesi1",
         latihan: 1
+      });
+
+      // clear latihan aktif
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: false,
+        name: "",
+        path: ""
       });
     }
   },

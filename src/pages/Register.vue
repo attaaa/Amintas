@@ -159,8 +159,7 @@ export default {
       };
       this.$store.dispatch("account/registerAccount", accountData);
 
-      window.location.href = "/";
-      window.history.replaceState(null, null, "/");
+      this.$router.replace("/");
     }
   }
 };

@@ -36,6 +36,7 @@ export default {
   components: { LayoutOne },
   mounted() {
     this.$store.commit("restrukturisasi/setStatusSesi", "sesi1");
+    this.$store.commit("restrukturisasi/setStatusSesi", "bantuan");
   }
 };
 </script>

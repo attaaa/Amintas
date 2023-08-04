@@ -384,6 +384,21 @@ ul {
   letter-spacing: 0.02em;
 }
 
+.attached {
+  padding: 8px 4px;
+  border-radius: 12px;
+
+  // &__secondary {
+  //   background-color: #f2f6ff;
+  // }
+
+  &__accent {
+    background-color: #ffcb4d;
+    font-size: 12px;
+    line-height: 18px;
+    color: #303030;
+  }
+}
 /* #endregion */
 
 /* #region  [INPUT] */

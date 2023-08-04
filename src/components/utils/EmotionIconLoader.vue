@@ -74,72 +74,72 @@
   <img
     v-else-if="iconName === 'percaya diri'"
     svg-inline
-    src="assets/icons/emotion/Percaya Diri.svg"
+    src="assets/icons/emotion/percaya-diri.svg"
   />
   <img
     v-else-if="iconName === 'bersemangat'"
     svg-inline
-    src="assets/icons/emotion/Bersemangat.svg"
+    src="assets/icons/emotion/bersemangat.svg"
   />
   <img
     v-else-if="iconName === 'terpenuhi'"
     svg-inline
-    src="assets/icons/emotion/Terpenuhi.svg"
+    src="assets/icons/emotion/terpenuhi.svg"
   />
   <img
     v-else-if="iconName === 'bersyukur'"
     svg-inline
-    src="assets/icons/emotion/Bersyukur.svg"
+    src="assets/icons/emotion/bersyukur.svg"
   />
   <img
     v-else-if="iconName === 'senang'"
     svg-inline
-    src="assets/icons/emotion/Senang.svg"
+    src="assets/icons/emotion/senang.svg"
   />
   <img
     v-else-if="iconName === 'terinspirasi'"
     svg-inline
-    src="assets/icons/emotion/Terinspirasi.svg"
+    src="assets/icons/emotion/terinspirasi.svg"
   />
   <img
     v-else-if="iconName === 'dicintai'"
     svg-inline
-    src="assets/icons/emotion/Dicintai.svg"
+    src="assets/icons/emotion/dicintai.svg"
   />
   <img
     v-else-if="iconName === 'termotivasi'"
     svg-inline
-    src="assets/icons/emotion/Termotivasi.svg"
+    src="assets/icons/emotion/termotivasi.svg"
   />
   <img
     v-else-if="iconName === 'optimis'"
     svg-inline
-    src="assets/icons/emotion/Optimis.svg"
+    src="assets/icons/emotion/optimis.svg"
   />
   <img
     v-else-if="iconName === 'tenang'"
     svg-inline
-    src="assets/icons/emotion/Tenang.svg"
+    src="assets/icons/emotion/tenang.svg"
   />
   <img
     v-else-if="iconName === 'bangga'"
     svg-inline
-    src="assets/icons/emotion/Bangga.svg"
+    src="assets/icons/emotion/bangga.svg"
   />
   <img
     v-else-if="iconName === 'santai'"
     svg-inline
-    src="assets/icons/emotion/Santai.svg"
+    src="assets/icons/emotion/santai.svg"
   />
   <img
     v-else-if="iconName === 'lega'"
     svg-inline
-    src="assets/icons/emotion/Lega.svg"
+    src="assets/icons/emotion/lega.svg"
   />
   <img
     v-else-if="iconName === 'puas'"
     svg-inline
-    src="assets/icons/emotion/Puas.svg"
+    src="assets/icons/emotion/puas.svg"
   />
 </template>
 

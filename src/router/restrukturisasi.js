@@ -99,6 +99,11 @@ const childRoutes = {
         import("pages/restrukturisasi/latihan/BermainPeranPengacara.vue")
     },
 
+    {
+      path: "bantuan",
+      component: () => import("pages/restrukturisasi/sesi/AnalisisABC.vue")
+    },
+
     //
     //
     //

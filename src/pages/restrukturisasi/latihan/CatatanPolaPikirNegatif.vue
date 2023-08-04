@@ -2,7 +2,7 @@
   <LayoutLatihan
     headerImg="img/restrukturisasi/sesi2_latihan1_detail.png"
     :showAction="formDisabled"
-    :labelNextAction="'Aktivasi Latihan'"
+    :labelNextAction="'Aktifkan Latihan'"
     :handleNextAction="showAktivasiLatihan"
     :showSecondaryAction="showSecondaryAction"
     :activeDoneButton="activeDoneButton"

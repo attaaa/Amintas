@@ -2,7 +2,7 @@
   <LayoutLatihan
     headerImg="img/restrukturisasi/sesi1_latihan2_detail.png"
     :showAction="formDisabled"
-    :labelNextAction="'Aktivasi Latihan'"
+    :labelNextAction="'Aktifkan Latihan'"
     :handleNextAction="showAktivasiLatihan"
     :showSecondaryAction="showSecondaryAction"
     :activeDoneButton="activeDoneButton"
@@ -293,6 +293,11 @@ export default {
         latihanName: "latihan2Form",
         value: true
       });
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Catatan Pikiran Negatif",
+        path: "/restrukturisasi/sesi1"
+      });
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
     getHeightForPopUp(height) {
@@ -340,6 +345,13 @@ export default {
       this.$store.commit("restrukturisasi/setFinishedLatihan", {
         sesi: "sesi1",
         currSesiLatihanFinished: "latihan2Finished"
+      });
+
+      // clear latihan aktif
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: false,
+        name: "",
+        path: ""
       });
 
       // enable sesi 2

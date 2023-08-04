@@ -11,32 +11,48 @@
     </div>
 
     <!-- content -->
-    <div class="content">
-      <div style="padding: 58px 24px;">
-        <!-- illustration -->
-        <div class="text-center" style="margin-bottom: 24px">
-          <img src="assets/img/empty_nothing.png" />
-        </div>
+    <template v-if="strategiDataList && strategiDataList.length === 0">
+      <div class="content">
+        <div style="padding: 58px 24px;">
+          <!-- illustration -->
+          <div class="text-center" style="margin-bottom: 24px">
+            <img src="assets/img/empty_nothing.png" />
+          </div>
 
-        <div
-          class="text__title-3 text__primary text-center"
-          style="margin-bottom: 12px"
-        >
-          Riwayatmu masih kosong
-        </div>
-        <div
-          class="text__body text__neutral-dark-grey text-center"
-          style="margin-bottom: 24px"
-        >
-          Belum ada strategi selesai, mulai hadapi pemicu cemas dengan
-          strategimu
+          <div
+            class="text__title-3 text__primary text-center"
+            style="margin-bottom: 12px"
+          >
+            Riwayatmu masih kosong
+          </div>
+          <div
+            class="text__body text__neutral-dark-grey text-center"
+            style="margin-bottom: 24px"
+          >
+            Belum ada strategi selesai, mulai hadapi pemicu cemas dengan
+            strategimu
+          </div>
         </div>
       </div>
-    </div>
+    </template>
+    <template v-else>
+      <StrategiItemList />
+    </template>
   </div>
 </template>
 
-<script></script>
+<script>
+import StrategiItemList from "src/components/strategi/StrategiItemList";
+
+export default {
+  components: { StrategiItemList },
+  computed: {
+    strategiDataList() {
+      return this.$store.state.strategi.strategiHistory;
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 .header-nav {
@@ -52,10 +68,4 @@
     place-items: center;
   }
 }
-
-// .content {
-//   height: calc(100vh - 112px);
-//   display: grid;
-//   place-items: center;
-// }
 </style>

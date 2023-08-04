@@ -8,12 +8,13 @@
         class="flex justify-between items-center"
         style="margin-bottom: 30px;"
       >
-        <img
-          svg-inline
-          src="assets/icons/general/arrow-left.svg"
-          style="width: 24px; fill: #5C7CCD;"
-          @click="goBack()"
-        />
+        <div @click="$router.back()">
+          <img
+            svg-inline
+            src="assets/icons/general/arrow-left.svg"
+            style="width: 24px; fill: #5C7CCD;"
+          />
+        </div>
         <button
           class="btn__primary btn__small text-white"
           @click="editJournal()"
@@ -129,9 +130,8 @@
       </div>
 
       <div
-        class="btn__alert-secondary btn__large full-width relative-position text-center"
+        class="btn-logout text__title-4 text__alert text-center q-mb-md"
         @click="showPopUpDelete()"
-        v-ripple
       >
         Hapus Jurnal
       </div>
@@ -177,7 +177,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .journal-detail {
   &--header {
     background-color: #f2f6ff;
@@ -202,9 +202,6 @@ export default {
   name: "JournalDetail",
   components: { MoodIconLoader, LabelMood, LabelDistortion, PopUp },
   methods: {
-    goBack() {
-      this.$router.back();
-    },
     delJournal() {
       this.$store.dispatch("journal/delJournal", this.$route.params.id);
       this.$router.replace("/");

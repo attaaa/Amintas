@@ -48,6 +48,10 @@ const sortActivity = ({ strategiActive }) => {
     "active";
 };
 
+const storeStrategi = ({ strategiHistory }, payload) => {
+  strategiHistory.push(payload);
+};
+
 export {
   activateStrategi,
   clearActiveStrategi,
@@ -55,5 +59,6 @@ export {
   setActivityChecked,
   setActivityStatus,
   sortActivity,
+  storeStrategi,
   updateInputStrategi
 };

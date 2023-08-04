@@ -107,11 +107,7 @@ export default {
         this.login.username === this.account.username
       ) {
         this.$store.commit("account/loginAccount", true);
-
-        window.location.href = "/";
-        window.history.replaceState(null, null, "/");
-        //
-        //
+        this.$router.replace("/");
       } else {
         this.$store.dispatch(
           "app/showDangerToast",

@@ -22,7 +22,7 @@
       </div>
 
       <!-- title -->
-      <div v-if="strategiData" class="row" style="margin-bottom: 16px">
+      <div class="row" style="margin-bottom: 16px">
         <img
           :src="trigger_category[strategiData.category].img"
           style="margin-right: 12px"
@@ -191,7 +191,7 @@ import { TRIGGER_CATEGORY } from "src/data/strategi/StrategiModel";
 import Collapse from "src/components/strategi/Collapse.vue";
 import FearLadder from "src/components/strategi/FearLadder.vue";
 import SwipeableBottomSheet from "src/components/SwipeableBottomSheet.vue";
-
+import { generateTimeStamp } from "src/helper/generateDate";
 import { marked } from "marked";
 import Strategi from "!!raw-loader!../../data/info/Strategi.md";
 
@@ -269,6 +269,12 @@ export default {
       this.$refs.popUpAktifkan.setState("close");
 
       if (this.selectedActivityIdx === 0) {
+        const strategiData = {
+          ...this.strategiData,
+          created_at: generateTimeStamp(),
+          created_date: new Date()
+        };
+        this.$store.commit("strategi/storeStrategi", strategiData);
         this.$store.commit("strategi/clearActiveStrategi");
         this.$router.replace({ path: "/strategi", query: { popupDone: "1" } });
         return;

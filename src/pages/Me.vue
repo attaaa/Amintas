@@ -258,10 +258,10 @@ export default {
   },
   methods: {
     onLogout() {
-      // this.$store.commit("account/loginAccount", false);
-      // this.$router.replace("/");
-      localStorage.clear();
-      window.location.href = "/";
+      this.$store.commit("account/loginAccount", false);
+      this.$router.replace("/");
+      // localStorage.clear();
+      // window.location.href = "/";
     }
   }
 };
