@@ -63,6 +63,7 @@
       :use-overlay="true"
       :can-close="true"
       :swipeable="true"
+      @stateChange="onPopupHelpStateChanges"
     >
       <q-scroll-area
         class="column "
@@ -70,7 +71,7 @@
       >
         <div
           class="info-content"
-          style="padding-bottom: 40px;"
+          :style="popupHelpState === 'half' && { paddingBottom: '300px' }"
           v-html="bantuanContent"
         ></div>
       </q-scroll-area>
@@ -110,7 +111,8 @@ export default {
     return {
       container: null,
       keyboardVisible: false,
-      keyboardHeight: 0
+      keyboardHeight: 0,
+      popupHelpState: "close"
     };
   },
 
@@ -148,6 +150,10 @@ export default {
     onKeyboardHide() {
       this.keyboardVisible = false;
       this.keyboardHeight = 0;
+    },
+
+    onPopupHelpStateChanges(state) {
+      this.popupHelpState = state;
     }
   }
 };
@@ -176,5 +182,9 @@ export default {
 .fill-action.show-action {
   bottom: 0;
   transition: bottom 500ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+
+.info-content {
+  padding-bottom: 40px;
 }
 </style>

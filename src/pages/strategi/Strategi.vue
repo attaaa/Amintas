@@ -46,14 +46,15 @@
       :use-overlay="true"
       :can-close="true"
       :swipeable="true"
+      @stateChange="onPopupHelpStateChanges"
     >
       <q-scroll-area
-        class="column "
+        class="column"
         style="height: 100vh; padding: 16px; padding-top: 4px; padding-bottom: 0 !important;"
       >
         <div
           class="info-content"
-          style="padding-bottom: 40px;"
+          :style="popupHelpState === 'half' && { paddingBottom: '350px' }"
           v-html="markdownToHtml()"
         ></div>
       </q-scroll-area>
@@ -88,6 +89,13 @@ import PopupAction from "src/components/shared/PopupAction.vue";
 export default {
   name: "Strategi",
   components: { SwipeableBottomSheet, PopupAction },
+
+  data() {
+    return {
+      popupHelpState: "close"
+    };
+  },
+
   mounted() {
     // this.$store.commit("strategi/clearInputStrategi");
     if (this.$store.state.strategi.strategiActive) {
@@ -106,9 +114,17 @@ export default {
     },
     helperHalfTop() {
       return window.innerHeight - 460;
+    },
+
+    onPopupHelpStateChanges(state) {
+      this.popupHelpState = state;
     }
   }
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.info-content {
+  padding-bottom: 40px;
+}
+</style>

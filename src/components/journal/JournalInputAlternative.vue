@@ -60,6 +60,7 @@
       :use-overlay="true"
       :can-close="true"
       :swipeable="true"
+      @stateChange="onPopupHelpStateChanges"
     >
       <q-scroll-area
         class="column "
@@ -67,7 +68,7 @@
       >
         <div
           class="info-content"
-          style="padding-bottom: 40px;"
+          :style="popupHelpState === 'half' && { paddingBottom: '300px' }"
           v-html="markdownToHtml"
         ></div>
       </q-scroll-area>
@@ -92,6 +93,11 @@ export default {
     inputVar: String,
     placeholder: String
   },
+  data() {
+    return {
+      popupHelpState: "close"
+    };
+  },
   computed: {
     markdownToHtml() {
       return marked(Alternative);
@@ -112,6 +118,10 @@ export default {
     },
     helperHalfTop() {
       return window.innerHeight - 484;
+    },
+
+    onPopupHelpStateChanges(state) {
+      this.popupHelpState = state;
     }
   }
 };
@@ -126,5 +136,9 @@ export default {
       padding-inline-start: 10px;
     }
   }
+}
+
+.info-content {
+  padding-bottom: 40px;
 }
 </style>

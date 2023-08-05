@@ -66,6 +66,11 @@ export default {
       rect: {}
     };
   },
+  watch: {
+    state() {
+      this.$emit("stateChange", this.state);
+    }
+  },
   mounted() {
     if (this.swipeable) {
       this.initSwipeAction();

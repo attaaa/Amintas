@@ -170,6 +170,7 @@
         :use-overlay="true"
         :can-close="true"
         :swipeable="true"
+        @stateChange="onPopupHelpStateChanges"
       >
         <q-scroll-area
           class="column "
@@ -177,7 +178,7 @@
         >
           <div
             class="info-content"
-            style="padding-bottom: 40px;"
+            :style="popupHelpState === 'half' && { paddingBottom: '300px' }"
             v-html="markdownToHtml()"
           ></div>
         </q-scroll-area>
@@ -206,7 +207,8 @@ export default {
       // popup
       popupTitle: "Tandai Aktivitas Berhasil?",
       popupDesc:
-        "Aktivitas akan ditandai berhasil. Apakah kamu yakin ingin melanjutkannya?"
+        "Aktivitas akan ditandai berhasil. Apakah kamu yakin ingin melanjutkannya?",
+      popupHelpState: "close"
     };
   },
   computed: {
@@ -296,6 +298,10 @@ export default {
     // content inside bottom sheet helper
     markdownToHtml() {
       return marked(Strategi);
+    },
+
+    onPopupHelpStateChanges(state) {
+      this.popupHelpState = state;
     }
   }
 };
@@ -378,5 +384,9 @@ export default {
   padding: 12px 16px;
   width: fit-content;
   border-radius: 6px;
+}
+
+.info-content {
+  padding-bottom: 40px;
 }
 </style>

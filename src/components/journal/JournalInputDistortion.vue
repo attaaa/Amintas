@@ -59,6 +59,7 @@
       :use-overlay="true"
       :can-close="true"
       :swipeable="true"
+      @stateChange="onPopupHelpStateChanges"
     >
       <q-scroll-area
         class="column "
@@ -66,7 +67,7 @@
       >
         <div
           class="info-content"
-          style="padding-bottom: 40px;"
+          :style="popupHelpState === 'half' && { paddingBottom: '300px' }"
           v-html="markdownToHtml"
         ></div>
       </q-scroll-area>
@@ -85,6 +86,11 @@ export default {
   name: "JournalInputDistortion",
   props: {
     selectedDistortion: Array
+  },
+  data() {
+    return {
+      popupHelpState: "close"
+    };
   },
   components: {
     JournalDistortionPicker,
@@ -110,7 +116,17 @@ export default {
     },
     helperHalfTop() {
       return window.innerHeight - 484;
+    },
+
+    onPopupHelpStateChanges(state) {
+      this.popupHelpState = state;
     }
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.info-content {
+  padding-bottom: 40px;
+}
+</style>
