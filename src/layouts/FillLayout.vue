@@ -1,37 +1,43 @@
 <template>
   <div class="relative-position" style="height: 100vh; overflow: hidden;">
-    <!-- header navigation -->
-    <div class="relative-position" style="padding: 16px 12px;">
-      <div @click="$router.back()">
-        <img
-          src="assets/icons/general/arrow-left.svg"
-          svg-inline
-          style="width: 24px; fill: #5C7CCD;"
-        />
-      </div>
-      <div
-        v-if="showBantuan"
-        class="absolute-center"
-        @click="$refs.popUpHelp.setState('half')"
-      >
-        <img
-          src="assets/icons/bantuan.svg"
-          svg-inline
-          style="width: 24px; fill: #5C7CCD;"
-        />
-      </div>
-    </div>
-
-    <!-- page title -->
     <div
-      class="text-center text__title-3 text__neutral-black"
-      style="padding: 4px 32px; margin-bottom: 20px;"
+      class="fill-layout-container"
+      :style="keyboardVisible && { paddingBottom: keyboardHeight + 'px' }"
+      ref="container"
     >
-      {{ title }}
-    </div>
+      <!-- header navigation -->
+      <div class="relative-position" style="padding: 16px 12px;">
+        <div @click="$router.back()">
+          <img
+            src="assets/icons/general/arrow-left.svg"
+            svg-inline
+            style="width: 24px; fill: #5C7CCD;"
+          />
+        </div>
+        <div
+          v-if="showBantuan"
+          class="absolute-center"
+          @click="$refs.popUpHelp.setState('half')"
+        >
+          <img
+            src="assets/icons/bantuan.svg"
+            svg-inline
+            style="width: 24px; fill: #5C7CCD;"
+          />
+        </div>
+      </div>
 
-    <!-- content -->
-    <slot></slot>
+      <!-- page title -->
+      <div
+        class="text-center text__title-3 text__neutral-black"
+        style="padding: 4px 32px; margin-bottom: 20px;"
+      >
+        {{ title }}
+      </div>
+
+      <!-- content -->
+      <slot></slot>
+    </div>
 
     <!-- action -->
     <slot name="action">
@@ -77,9 +83,11 @@ import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 
 export default {
   name: "FillLayout",
+
   components: {
     SwipeableBottomSheet
   },
+
   props: {
     title: String,
     showAction: Boolean,
@@ -97,15 +105,61 @@ export default {
     handleBackAction: Function,
     handleNextAction: Function
   },
+
+  data() {
+    return {
+      container: null,
+      keyboardVisible: false,
+      keyboardHeight: 0
+    };
+  },
+
+  mounted() {
+    this.container = this.$refs.container;
+    // listen for keyboard event to add space on the bottom
+    document.addEventListener("deviceready", () => {
+      window.addEventListener("native.keyboardshow", this.onKeyboardShow);
+      window.addEventListener("native.keyboardhide", this.onKeyboardHide);
+    });
+  },
+
+  beforeDestroy() {
+    // Remove event listeners when the component is about to be destroyed
+    window.removeEventListener("native.keyboardshow", this.onKeyboardShow);
+    window.removeEventListener("native.keyboardhide", this.onKeyboardHide);
+  },
+
   methods: {
     helperHalfTop() {
       return window.innerHeight - this.bantuanHeight;
+    },
+
+    // handle keyboard
+    onKeyboardShow(event) {
+      this.keyboardVisible = true;
+      this.keyboardHeight = event.keyboardHeight - (this.showAction ? 89 : 0);
+
+      // auto adding scroll value with keyboard height to make the input field visible on top of the keyboard
+      this.$nextTick(() => {
+        const newScroll = this.container.scrollTop + this.keyboardHeight;
+        this.container.scrollTop = newScroll;
+      });
+    },
+    onKeyboardHide() {
+      this.keyboardVisible = false;
+      this.keyboardHeight = 0;
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.fill-layout-container {
+  height: 100vh;
+  overflow: scroll;
+  padding-bottom: 100px;
+}
+
 .fill-action {
   width: 100%;
   padding: 16px 16px 24px 16px;

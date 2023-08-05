@@ -84,6 +84,7 @@
     </div>
 
     <div
+      v-click-outside="hideMidAction"
       class="nav-mid-action items-center justify-center"
       :class="[showMidAction ? 'flex' : 'hidden']"
     >
@@ -214,7 +215,7 @@ export default {
       this.$refs.popUpCall.setState("close");
     },
     callNumber() {
-      this.window.plugins.CallNumber.callNumber(
+      window.plugins.CallNumber.callNumber(
         this.onSuccessCall,
         this.onErrorCall,
         "3636",
@@ -226,6 +227,11 @@ export default {
     },
     onErrorCall(result) {
       console.log("error: " + result);
+    },
+    hideMidAction(event) {
+      if (event.target.classList.contains("mid-nav")) return;
+
+      if (this.showMidAction) this.showMidAction = false;
     }
   },
   directives: {

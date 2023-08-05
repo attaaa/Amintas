@@ -104,7 +104,7 @@ export default {
     tryLogin() {
       if (
         this.login.email === this.account.email &&
-        this.login.username === this.account.username
+        this.login.password === this.account.password
       ) {
         this.$store.commit("account/loginAccount", true);
         this.$router.replace("/");
