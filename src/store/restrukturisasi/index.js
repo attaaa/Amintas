@@ -160,9 +160,9 @@ export default {
       { sesi, currSesiLatihanFinished, nextSesiLatihan }
     ) {
       state.statusLatihan[sesi][currSesiLatihanFinished] = false;
-      if (nextSesiLatihan) {
-        state.statusLatihan[sesi][nextSesiLatihan] = false;
-      }
+      // if (nextSesiLatihan) {
+      //   state.statusLatihan[sesi][nextSesiLatihan] = false;
+      // }
     }
   }
 };

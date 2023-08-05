@@ -93,6 +93,47 @@ export default {
     latihanData() {
       return this.$store.state.restrukturisasi.sesi3Latihan2;
     }
+  },
+
+  methods: {
+    ulangLatihan() {
+      this.$store.commit("restrukturisasi/setStatusLatihan", {
+        sesi: "sesi3",
+        latihanName: "latihan2Form",
+        value: true
+      });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Menjaga Keseimbangan Pikiran",
+        path: "/restrukturisasi/sesi3"
+      });
+
+      //
+      // clear data
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi3Latihan2",
+        data: {
+          pikiran1: {
+            pernyataanPositif: ""
+          },
+          pikiran2: {
+            pernyataanPositif: ""
+          },
+          pikiran3: {
+            pernyataanPositif: ""
+          }
+        }
+      });
+
+      // reset finish status
+      this.$store.commit("restrukturisasi/resetFinishedLatihan", {
+        sesi: "sesi3",
+        currSesiLatihanFinished: "latihan2Finished"
+      });
+
+      window.location.reload();
+    }
   }
 };
 </script>

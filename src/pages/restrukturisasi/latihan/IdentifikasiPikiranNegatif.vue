@@ -147,7 +147,6 @@ export default {
     }
   },
   created() {
-    console.log("mounted");
     if (!this.latihanFinished) console.log("setLatihanAktif");
   },
   methods: {
@@ -174,19 +173,10 @@ export default {
     selectOption(optionId) {
       const temp = [...this.selectedOptionsIdx];
       this.selectedOptionsIdx = [...temp, optionId];
-      // this.selectedOptionsIdx.push(optionId);
-      // this.$store.commit("restrukturisasi/setSesiLatihanSelectedOptionsIdx", {
-      //   sesiLatihan: "sesi1Latihan1",
-      //   optionId: optionId
-      // });
     },
     unSelectOption(optionId) {
       const idx = this.selectedOptionsIdx.indexOf(optionId);
       if (idx !== -1) this.selectedOptionsIdx.splice(idx, 1);
-      // this.$store.commit("restrukturisasi/unSetSesiLatihanSelectedOptionsIdx", {
-      //   sesiLatihan: "sesi1Latihan1",
-      //   optionId: optionId
-      // });
     },
     saveData() {
       this.$store.commit("restrukturisasi/setLatihanData", {

@@ -75,6 +75,44 @@ export default {
     latihanData() {
       return this.$store.state.restrukturisasi.sesi3Latihan1;
     }
+  },
+
+  methods: {
+    ulangLatihan() {
+      this.$store.commit("restrukturisasi/setStatusLatihan", {
+        sesi: "sesi3",
+        latihanName: "latihan1Form",
+        value: true
+      });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Bermain Peran: Reporter",
+        path: "/restrukturisasi/sesi3"
+      });
+
+      //
+      // clear data
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi3Latihan1",
+        data: {
+          catatan: {
+            peristiwa: "",
+            pikiranNegatif: "",
+            fakta: "",
+            kesimpulan: ""
+          }
+        }
+      });
+
+      // reset finish status
+      this.$store.commit("restrukturisasi/resetFinishedLatihan", {
+        sesi: "sesi3",
+        currSesiLatihanFinished: "latihan1Finished"
+      });
+
+      window.location.reload();
+    }
   }
 };
 </script>

@@ -32,6 +32,7 @@
     <div
       class="text__title-4 text__alert text-center"
       style="margin-top: 40px;"
+      @click="ulangLatihan()"
     >
       Ulang Latihan
     </div>
@@ -62,14 +63,50 @@ const faktorPikiranList = [
 
 export default {
   components: { Tray, FaktorPikiranIconLoaderVue },
+
   data: function() {
     return {
       options: faktorPikiranList
     };
   },
+
   computed: {
     latihanData() {
       return this.$store.state.restrukturisasi.sesi1Latihan1;
+    }
+  },
+
+  methods: {
+    ulangLatihan() {
+      this.$store.commit("restrukturisasi/setStatusLatihan", {
+        sesi: "sesi1",
+        latihanName: "latihan1Form",
+        value: true
+      });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Identifikasi Pikiran Negatif",
+        path: "/restrukturisasi/sesi1"
+      });
+
+      //
+      // clear data
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi1Latihan1",
+        data: {
+          pikiran: "",
+          selectedOptionsIdx: []
+        }
+      });
+
+      // reset finish status
+      this.$store.commit("restrukturisasi/resetFinishedLatihan", {
+        sesi: "sesi1",
+        currSesiLatihanFinished: "latihan1Finished"
+      });
+
+      window.location.reload();
     }
   }
 };

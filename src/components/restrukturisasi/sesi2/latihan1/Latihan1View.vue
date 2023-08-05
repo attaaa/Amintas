@@ -208,6 +208,56 @@ export default {
     latihanData() {
       return this.$store.state.restrukturisasi.sesi1Latihan2;
     }
+  },
+
+  methods: {
+    ulangLatihan() {
+      this.$store.commit("restrukturisasi/setStatusLatihan", {
+        sesi: "sesi2",
+        latihanName: "latihan1Form",
+        value: true
+      });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Catatan Pola Pikir Negatif",
+        path: "/restrukturisasi/sesi2"
+      });
+
+      //
+      // clear data
+      this.$store.commit("restrukturisasi/setLatihanData", {
+        sesiLatihan: "sesi2Latihan1",
+        data: {
+          catatan1: {
+            activationEvent: "",
+            belief: "",
+            consequence: "",
+            distorsiKognitif: []
+          },
+          catatan2: {
+            activationEvent: "",
+            belief: "",
+            consequence: "",
+            distorsiKognitif: []
+          },
+          catatan3: {
+            activationEvent: "",
+            belief: "",
+            consequence: "",
+            distorsiKognitif: []
+          }
+        }
+      });
+
+      // reset finish status
+      this.$store.commit("restrukturisasi/resetFinishedLatihan", {
+        sesi: "sesi2",
+        currSesiLatihanFinished: "latihan1Finished"
+      });
+
+      window.location.reload();
+    }
   }
 };
 </script>
