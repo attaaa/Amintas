@@ -87,7 +87,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Identifikasi Pikiran Negatif",
-        path: "/restrukturisasi/sesi1"
+        path: "/restrukturisasi/sesi1",
+        img: "img/restrukturisasi/sesi1_latihan1_detail.png"
       });
 
       //

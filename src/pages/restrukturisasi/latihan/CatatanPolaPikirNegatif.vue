@@ -336,6 +336,14 @@ export default {
         latihanName: "latihan1Form",
         value: true
       });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Catatan Pola Pikir Negatif",
+        path: "/restrukturisasi/sesi3",
+        img: "img/restrukturisasi/sesi2_latihan1_detail.png"
+      });
+
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
     getHeightForPopUp(height) {
@@ -378,6 +386,13 @@ export default {
 
       // enable sesi 3
       this.$store.commit("restrukturisasi/setStatusSesi", "sesi3");
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "",
+        path: "",
+        img: ""
+      });
     }
   },
   mounted() {

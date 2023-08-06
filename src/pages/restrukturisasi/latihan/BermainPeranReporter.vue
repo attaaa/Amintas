@@ -156,6 +156,14 @@ export default {
         latihanName: "latihan1Form",
         value: true
       });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Bermain Peran: Reporter",
+        path: "/restrukturisasi/sesi3",
+        img: "img/restrukturisasi/sesi3_latihan1_detail.png"
+      });
+
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
     getHeightForPopUp(height) {
@@ -190,6 +198,13 @@ export default {
       this.$store.commit("restrukturisasi/enableLatihan", {
         sesi: "sesi3",
         latihan: 1
+      });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "",
+        path: "",
+        img: ""
       });
     }
   },

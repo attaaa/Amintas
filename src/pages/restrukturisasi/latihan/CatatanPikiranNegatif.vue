@@ -296,7 +296,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Catatan Pikiran Negatif",
-        path: "/restrukturisasi/sesi1"
+        path: "/restrukturisasi/sesi1",
+        img: "img/restrukturisasi/sesi1_latihan2_detail.png"
       });
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
@@ -351,7 +352,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: false,
         name: "",
-        path: ""
+        path: "",
+        img: ""
       });
 
       // enable sesi 2

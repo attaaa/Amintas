@@ -41,7 +41,7 @@
             </button>
           </div>
           <div class="home-card--img">
-            <img src="img/module_access_main_active.png" />
+            <img :src="latihanAktif.img" />
           </div>
         </div>
       </template>

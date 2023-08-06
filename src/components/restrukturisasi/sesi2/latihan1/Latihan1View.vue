@@ -221,7 +221,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Catatan Pola Pikir Negatif",
-        path: "/restrukturisasi/sesi2"
+        path: "/restrukturisasi/sesi2",
+        img: "img/restrukturisasi/sesi2_latihan1_detail.png"
       });
 
       //

@@ -179,6 +179,14 @@ export default {
         latihanName: "latihan2Form",
         value: true
       });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "Menjaga Keseimbangan Pikiran",
+        path: "/restrukturisasi/sesi3",
+        img: "img/restrukturisasi/sesi3_latihan2_detail.png"
+      });
+
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
     getHeightForPopUp(height) {
@@ -213,6 +221,13 @@ export default {
       this.$store.commit("restrukturisasi/enableLatihan", {
         sesi: "sesi3",
         latihan: 2
+      });
+
+      this.$store.commit("restrukturisasi/setLatihanAktif", {
+        active: true,
+        name: "",
+        path: "",
+        img: ""
       });
     }
   },

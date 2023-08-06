@@ -106,7 +106,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Menjaga Keseimbangan Pikiran",
-        path: "/restrukturisasi/sesi3"
+        path: "/restrukturisasi/sesi3",
+        img: "img/restrukturisasi/sesi3_latihan2_detail.png"
       });
 
       //

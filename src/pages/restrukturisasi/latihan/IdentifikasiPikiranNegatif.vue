@@ -146,9 +146,6 @@ export default {
         .latihan1Finished;
     }
   },
-  created() {
-    if (!this.latihanFinished) console.log("setLatihanAktif");
-  },
   methods: {
     showAktivasiLatihan() {
       this.$refs.popUpAktifkan.setState("open");
@@ -162,7 +159,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Identifikasi Pikiran Negatif",
-        path: "/restrukturisasi/sesi1"
+        path: "/restrukturisasi/sesi1",
+        img: "img/restrukturisasi/sesi1_latihan1_detail.png"
       });
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
@@ -218,7 +216,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: false,
         name: "",
-        path: ""
+        path: "",
+        img: ""
       });
     }
   },
