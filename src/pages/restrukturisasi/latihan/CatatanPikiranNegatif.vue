@@ -231,6 +231,7 @@ export default {
     Picker,
     Latihan2View
   },
+
   data: function() {
     return {
       options: faktorPikiranList,
@@ -278,32 +279,39 @@ export default {
           catatan.faktorPikiran.length > 0
       );
     },
+
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1
         .latihan2Finished;
     }
   },
+
   methods: {
     showAktivasiLatihan() {
       this.$refs.popUpAktifkan.setState("open");
     },
+
     aktivasiLatihan() {
       this.$store.commit("restrukturisasi/setStatusLatihan", {
         sesi: "sesi1",
         latihanName: "latihan2Form",
         value: true
       });
+
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Catatan Pikiran Negatif",
         path: "/restrukturisasi/sesi1",
         img: "img/restrukturisasi/sesi1_latihan2_detail.png"
       });
+
       this.$store.dispatch("app/showToast", "Latihan telah di aktifkan");
     },
+
     getHeightForPopUp(height) {
       return window.innerHeight - height;
     },
+
     // main
     selectOption(catatan, optionId) {
       const temp = [...this.form[catatan].faktorPikiran];
@@ -314,6 +322,7 @@ export default {
       //   optionId: optionId
       // });
     },
+
     unSelectOption(catatan, optionId) {
       const temp = [...this.form[catatan].faktorPikiran];
       const idx = temp.indexOf(optionId);
@@ -324,6 +333,7 @@ export default {
       // });
       this.form[catatan].faktorPikiran = [...temp];
     },
+
     saveData() {
       const data = { ...this.form };
       this.$store.commit("restrukturisasi/setLatihanData", {
@@ -332,9 +342,11 @@ export default {
       });
       this.$router.replace("/restrukturisasi/sesi1");
     },
+
     doneLatihan() {
       this.$refs.popUpDone.setState("open");
     },
+
     selesaikanLatihan() {
       // save data first
       this.$store.commit("restrukturisasi/setLatihanData", {

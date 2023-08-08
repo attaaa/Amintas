@@ -159,6 +159,10 @@ const routes = [
       {
         path: "input-level",
         component: () => import("src/pages/strategi/StrategiInputLevel.vue")
+      },
+      {
+        path: "history/:id",
+        component: () => import("src/pages/strategi/StrategiHistoryDetail.vue")
       }
     ]
   },

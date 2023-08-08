@@ -273,7 +273,7 @@ import DatePicker from "components/inputs/DatePicker";
 import { formatDate } from "../helper/formatDate";
 
 import { FILTER } from "../data/filter";
-import journal from "src/store/journal";
+
 const filterMoodList = FILTER.mood;
 const filterDateList = FILTER.date;
 
@@ -313,7 +313,8 @@ export default {
   },
   computed: {
     filteredResults() {
-      if (!this.filter.mood && !this.filter.date) return [];
+      if (!this.filter.mood && !this.filter.date && this.searchQuery === "")
+        return [];
 
       let filteredResult = [...this.searchResults];
       if (this.filter.mood && this.filter.mood.id !== "all") {
@@ -321,6 +322,7 @@ export default {
           journal => journal.mood === this.filter.mood.id
         );
       }
+
       if (this.filter.date && this.filter.date.id !== 0) {
         console.log(this.filter.date);
         console.log(filteredResult);

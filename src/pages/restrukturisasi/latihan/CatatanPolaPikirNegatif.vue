@@ -340,7 +340,7 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanAktif", {
         active: true,
         name: "Catatan Pola Pikir Negatif",
-        path: "/restrukturisasi/sesi3",
+        path: "/restrukturisasi/sesi2",
         img: "img/restrukturisasi/sesi2_latihan1_detail.png"
       });
 
@@ -388,7 +388,7 @@ export default {
       this.$store.commit("restrukturisasi/setStatusSesi", "sesi3");
 
       this.$store.commit("restrukturisasi/setLatihanAktif", {
-        active: true,
+        active: false,
         name: "",
         path: "",
         img: ""

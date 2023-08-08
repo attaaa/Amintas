@@ -10,13 +10,8 @@
         <div class="text__title-2">
           {{ strategiData.story_penyebab.title }}
         </div>
-        <!-- <div class="text__footnote">
-          <span>{{ trigger_category[strategiData.category].title }}</span>
-          <span style="margin-inline: 8px; color: #DEDEDE">|</span>
-          <span>{{ strategiData.date.split("-")[0] }}</span>
-        </div> -->
       </div>
-      <div>{{ strategiData.date.split("-")[0].split(",")[1] }}</div>
+      <div>{{ formatItemDate(strategiData.created_at) }}</div>
     </div>
 
     <div class="note" style="margin-bottom: 12px">
@@ -33,8 +28,8 @@
         <div>
           Tangga Ketakutan
         </div>
-        <div class="attached attached--accent">
-          10 Level
+        <div class="attached attached__accent">
+          {{ `${strategiData.activities.length} Level` }}
         </div>
       </div>
     </div>
@@ -52,6 +47,26 @@ export default {
     return {
       trigger_category: TRIGGER_CATEGORY
     };
+  },
+  methods: {
+    formatItemDate(date) {
+      const monthList = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mei",
+        "Jun",
+        "Jul",
+        "Agu",
+        "Sep",
+        "Okt",
+        "Nov",
+        "Des"
+      ];
+      const dateObj = new Date(date);
+      return `${dateObj.getDate()} ${monthList[dateObj.getMonth()]}`;
+    }
   }
 };
 </script>

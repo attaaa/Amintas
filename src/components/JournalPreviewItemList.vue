@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(journalGroup, index) in groupJournalDataList" :key="index">
-      <span class="text__title-3 block" style="margin-bottom: 24px">
+      <span class="text__title-4 block" style="margin-bottom: 24px">
         {{ journalGroup.dateGroup }}
       </span>
       <JournalPreviewItem

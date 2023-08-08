@@ -256,12 +256,26 @@
 </template>
 
 <script>
-import _ from "lodash";
+// import _ from "lodash";
 import LayoutLatihan from "src/layouts/LayoutLatihan";
 
 export default {
   components: {
     LayoutLatihan
+  },
+
+  mounted() {
+    this.$store.commit("restrukturisasi/setStatusLatihan", {
+      sesi: "sesi3",
+      latihanName: "latihan3Form",
+      value: true
+    });
+
+    // set status to finished
+    this.$store.commit("restrukturisasi/setFinishedLatihan", {
+      sesi: "sesi3",
+      currSesiLatihanFinished: "latihan3Finished"
+    });
   }
 };
 </script>

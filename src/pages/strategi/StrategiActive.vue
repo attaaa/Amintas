@@ -84,6 +84,9 @@
               :status="
                 selectedActivityIdx === idx ? 'pending' : activity.status
               "
+              @toggle-check="
+                activeActivityIdx === idx && onToggleCheck(activeActivityIdx)
+              "
             />
           </template>
         </template>
@@ -149,7 +152,7 @@
               @click="verifyActivation()"
               v-ripple
             >
-              Aktifkan
+              Lanjutkan
             </button>
           </div>
         </div>
@@ -159,7 +162,7 @@
         class="btn-logout text__title-4 text__alert"
         @click="onDeleteStrategi()"
       >
-        Hapus Jurnal
+        Hapus Strategi
       </div>
 
       <!-- pop up help -->

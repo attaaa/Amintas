@@ -1,10 +1,10 @@
 <template>
   <div class="fear-ladder">
-    <div class="fear-ladder__text" :class="status">
+    <div class="fear-ladder__text text__body" :class="readOnly ? '' : status">
       {{ text }}
     </div>
 
-    <div class="fear-ladder__level" :class="status">
+    <div class="fear-ladder__level" :class="readOnly ? '' : status">
       <div class="fear-ladder__level-label">Level</div>
       <div class="fear-ladder__level-value">{{ level }}</div>
     </div>
@@ -31,7 +31,8 @@ export default {
     level: Number,
     checked: Boolean,
     disabled: Boolean,
-    status: String
+    status: String,
+    readOnly: Boolean
   }
 };
 </script>
@@ -81,6 +82,7 @@ export default {
   }
 
   &__checkbox {
+    flex-shrink: 0;
     width: 24px;
     height: 24px;
     background: #f1f2f5;

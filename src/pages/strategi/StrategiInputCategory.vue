@@ -57,7 +57,25 @@
       </button>
     </div>
 
-    <PopupAction ref="popupBack" />
+    <PopupAction ref="popupBack">
+      <template v-slot:action>
+        <button
+          class="btn__large btn__secondary relative-position"
+          @click="$refs.popup.setState('close')"
+          v-ripple
+        >
+          Batal
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__alert col relative-position text-white"
+          @click="tinggalkanHalaman()"
+          v-ripple
+        >
+          Tinggalkan Halaman
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
@@ -91,6 +109,13 @@ export default {
         category: this.selectedPemicu
       });
       this.$router.push("/strategi/input-story1");
+    },
+
+    tinggalkanHalaman() {
+      this.$store.commit("strategi/clearInputStrategi");
+
+      this.$refs.popupBack.$refs.popup.setState("close");
+      this.$router.back();
     }
   }
 };

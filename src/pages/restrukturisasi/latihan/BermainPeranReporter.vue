@@ -201,7 +201,7 @@ export default {
       });
 
       this.$store.commit("restrukturisasi/setLatihanAktif", {
-        active: true,
+        active: false,
         name: "",
         path: "",
         img: ""

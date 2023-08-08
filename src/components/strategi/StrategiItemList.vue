@@ -2,7 +2,7 @@
   <div style="padding: 16px;">
     <div v-for="(strategiGroup, index) in groupStrategiDataList" :key="index">
       <span class="text__title-3 block" style="margin-bottom: 24px">
-        {{ strategiGroup.dateGroup }}
+        {{ formatGroupDate(strategiGroup.dateGroup) }}
       </span>
       <StrategiItem
         v-for="(strategiData, index2) in strategiGroup.strategiGroupList"
@@ -54,7 +54,7 @@ export default {
           currStrategiDataList = [];
         }
 
-        currStrategiDataList.push(strategiData);
+        currStrategiDataList.push({ ...strategiData, id: idx });
 
         if (idx === this.strategiDataList.length - 1) {
           tempGroupStrategiDataList.push({
@@ -65,14 +65,30 @@ export default {
       });
       this.groupStrategiDataList = tempGroupStrategiDataList;
     },
+
     goToDetail(strategiId) {
-      this.$router.replace("strategi/detail/" + strategiId);
+      this.$router.push("/strategi/history/" + strategiId);
+    },
+
+    formatGroupDate(date) {
+      const monthList = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember"
+      ];
+
+      const dateObj = new Date(date);
+      return `${monthList[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
     }
   }
-  // computed: {
-  //   strategiDataList() {
-  //     return this.$store.state.strategi.strategiDataList;
-  //   }
-  // }
 };
 </script>

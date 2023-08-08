@@ -152,6 +152,7 @@ export default {
     }
   }
 }
+
 .home-card--img {
   position: absolute;
   top: 0;
@@ -164,6 +165,15 @@ export default {
   img {
     width: 100%;
     height: 100%;
+  }
+}
+
+.home-card.active {
+  .home-card--img {
+    height: 100%;
+    width: auto;
+    left: unset;
+    right: -28px;
   }
 }
 </style>

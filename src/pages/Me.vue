@@ -259,7 +259,7 @@ export default {
   methods: {
     onLogout() {
       this.$store.commit("account/loginAccount", false);
-      this.$router.replace("/login");
+      this.$router.replace("/onboarding");
       // localStorage.clear();
       // window.location.href = "/";
     }

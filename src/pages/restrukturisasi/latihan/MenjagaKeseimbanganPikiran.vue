@@ -133,6 +133,7 @@ export default {
     TextAreaCustom,
     Latihan2View
   },
+
   data: function() {
     return {
       form: {
@@ -148,6 +149,7 @@ export default {
       }
     };
   },
+
   computed: {
     storeObj() {
       return this.$store.state.restrukturisasi.sesi3Latihan2;
@@ -169,6 +171,7 @@ export default {
         .latihan2Finished;
     }
   },
+
   methods: {
     showAktivasiLatihan() {
       this.$refs.popUpAktifkan.setState("open");
@@ -201,9 +204,11 @@ export default {
       });
       this.$router.replace("/restrukturisasi/sesi3");
     },
+
     doneLatihan() {
       this.$refs.popUpDone.setState("open");
     },
+
     selesaikanLatihan() {
       // save data first
       this.$store.commit("restrukturisasi/setLatihanData", {
@@ -224,7 +229,7 @@ export default {
       });
 
       this.$store.commit("restrukturisasi/setLatihanAktif", {
-        active: true,
+        active: false,
         name: "",
         path: "",
         img: ""

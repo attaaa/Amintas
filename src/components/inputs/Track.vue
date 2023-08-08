@@ -36,10 +36,11 @@ export default {
 }
 
 .track.on {
-  background: blue;
+  background: #f2f6ff;
 }
 
 .track.on .inner-track {
   left: 21px;
+  background: #5c7ccd;
 }
 </style>
