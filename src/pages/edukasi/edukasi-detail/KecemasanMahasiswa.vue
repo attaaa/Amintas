@@ -42,7 +42,7 @@
       <div>
         <div
           class="material-item flex items-center"
-          @click="() => this.$router.replace('/materi/detail')"
+          @click="$router.push('/materi/detail/p2m1')"
         >
           <img src="img/education_display_mat1_p2m1.png" />
           <div class="text__headline text__primary">

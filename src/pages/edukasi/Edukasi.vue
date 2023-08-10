@@ -59,7 +59,10 @@
 
       <!-- materials -->
       <div>
-        <div class="material-item flex items-center">
+        <div
+          class="material-item flex items-center"
+          @click="$router.push('/materi/detail/p0m1')"
+        >
           <img src="img/education_display_mat1.png" />
           <div class="text__headline text__primary">
             Teknik Pernapasan 4-7-8

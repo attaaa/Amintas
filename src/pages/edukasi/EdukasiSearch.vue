@@ -2,10 +2,7 @@
   <div class="search-page">
     <!-- search input -->
     <div class="flex items-center">
-      <div
-        style="width: 24px; height: 24px"
-        @click="$router.replace('/edukasi')"
-      >
+      <div style="width: 24px; height: 24px" @click="$router.back()">
         <svg
           style="pointer-events: none;"
           width="24"
@@ -130,7 +127,7 @@
           :key="idx"
           class="material-item flex items-center"
         >
-          <img :src="`/img/${edukasi.img}`" />
+          <img :src="`img/${edukasi.img}`" />
           <div class="text__headline text__primary">
             {{ edukasi.title }}
           </div>
