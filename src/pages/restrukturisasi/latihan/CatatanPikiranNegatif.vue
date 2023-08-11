@@ -269,7 +269,8 @@ export default {
         .latihan2Form;
     },
     showSecondaryAction() {
-      return !_.isEqual(this.storeObj, this.form);
+      return !this.latihanFinished;
+      // return !_.isEqual(this.storeObj, this.form);
     },
     activeDoneButton() {
       return Object.values(this.form).every(

@@ -81,6 +81,7 @@
     <div
       class="text__title-4 text__alert text-center"
       style="margin-top: 40px;"
+      @click="ulangLatihan()"
     >
       Ulang Latihan
     </div>
