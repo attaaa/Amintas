@@ -32,7 +32,7 @@
       sekelilingmu, dan juga pandanganmu pada masa depan.
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Skenario:
     </h2>
 

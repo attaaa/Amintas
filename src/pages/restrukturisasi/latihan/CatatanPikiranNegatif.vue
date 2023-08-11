@@ -57,13 +57,13 @@
           :disabled="formDisabled"
           v-model="form.catatan1.pikiran"
           class="q-mt-sm"
-          placeholder="Pikiran yang memicu perasaanmu"
+          placeholder="Pikiran negatif yang muncul"
         />
       </div>
 
       <div class="q-mb-md ">
         <label class="text__title-4 text__neutral-black">
-          Peristiwa
+          Faktor Pikiran
         </label>
         <Picker
           :options="options"
@@ -109,13 +109,13 @@
           :disabled="formDisabled"
           v-model="form.catatan2.pikiran"
           class="q-mt-sm"
-          placeholder="Pikiran yang memicu perasaanmu"
+          placeholder="Pikiran negatif yang muncul"
         />
       </div>
 
       <div class="q-mb-md ">
         <label class="text__title-4 text__neutral-black">
-          Peristiwa
+          Faktor Pikiran
         </label>
         <Picker
           :options="options"
@@ -161,13 +161,13 @@
           :disabled="formDisabled"
           v-model="form.catatan3.pikiran"
           class="q-mt-sm"
-          placeholder="Pikiran yang memicu perasaanmu"
+          placeholder="Pikiran negatif yang muncul"
         />
       </div>
 
       <div class="q-mb-md ">
         <label class="text__title-4 text__neutral-black">
-          Peristiwa
+          Faktor Pikiran
         </label>
         <Picker
           :options="options"
