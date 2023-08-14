@@ -33,27 +33,27 @@ const EMPTY_STRATEGI = {
 };
 
 const TRIGGER_IMG = [
-  "/img/trigger_option_a.svg",
-  "/img/trigger_option_b.svg",
-  "/img/trigger_option_c.svg",
-  "/img/trigger_option_d.svg"
+  "img/trigger_option_a.svg",
+  "img/trigger_option_b.svg",
+  "img/trigger_option_c.svg",
+  "img/trigger_option_d.svg"
 ];
 
 const TRIGGER_CATEGORY = [
   {
-    img: "/img/trigger_option_a.svg",
+    img: "img/trigger_option_a.svg",
     title: "Tanggung Jawab"
   },
   {
-    img: "/img/trigger_option_b.svg",
+    img: "img/trigger_option_b.svg",
     title: "Situasi"
   },
   {
-    img: "/img/trigger_option_c.svg",
+    img: "img/trigger_option_c.svg",
     title: "Binatang"
   },
   {
-    img: "/img/trigger_option_d.svg",
+    img: "img/trigger_option_d.svg",
     title: "Orang Lain"
   }
 ];
