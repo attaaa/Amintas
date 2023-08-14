@@ -6,7 +6,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Sesi 1: Pikiran dan Perasaan
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 24px">
       Selayaknya manusia normal, aku dan kamu seringkali sulit mengungkapkan
       dengan tepat apa yang sebenarnya kita rasakan. Tentu itu membingungkan,
       padahal ada banyak diksi yang dapat menggambarkan setiap perasaan dan

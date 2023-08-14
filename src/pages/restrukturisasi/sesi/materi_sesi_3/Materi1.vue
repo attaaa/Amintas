@@ -6,7 +6,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Melaporkan Fakta
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Strategi pertama yang aku persiapkan untukmu adalah suatu strategi tentang
       melaporkan fakta atau bisa juga disebut bermain peran sebagai seorang
       reporter. Pada strategi ini, kita dapat mengungkap fakta yang tidak kita
@@ -23,7 +23,7 @@
       yuk perhatikan langkah detailnya!
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Jane menuliskan peristiwa pemicu dan perasaannya seperti ini:
     </p>
 
@@ -35,7 +35,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi3_materi1_body1.png" />
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Jane menuliskan pikiran negatifnya:
     </p>
 
@@ -51,12 +51,12 @@
       fakta.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Namun bagaimana jika sesaat peristiwa tersebut terjadi, Jane melaporkan
       fakta yang ia ketahui layaknya reporter?
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran Jane pada peristiwa tersebut mungkin akan seperti ini:
     </p>
 
@@ -65,23 +65,7 @@
       dalam perjalanan menuju parkiran”
     </p>
 
-    <p class="text__body text__neutral-black">
-      Berdasarkan fakta yang dilaporkan, meski Ryan tidak berhenti untuk
-      menegur. Namun jelas sekali tidak ada bukti menunjukkan perilaku Ryan,
-      disebabkan karena Jane. Justru mungkin saja, Ryan tidak melihat Jane atau
-      sedang terburu-buru untuk pulang tepat waktu agar tidak terjebak macet,
-      dan berbagai faktor lainnya.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Berdasarkan fakta yang dilaporkan, meski Ryan tidak berhenti untuk
-      menegur. Namun jelas sekali tidak ada bukti menunjukkan perilaku Ryan,
-      disebabkan karena Jane. Justru mungkin saja, Ryan tidak melihat Jane atau
-      sedang terburu-buru untuk pulang tepat waktu agar tidak terjebak macet,
-      dan berbagai faktor lainnya.
-    </p>
-
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Berdasarkan fakta yang dilaporkan, meski Ryan tidak berhenti untuk
       menegur. Namun jelas sekali tidak ada bukti menunjukkan perilaku Ryan,
       disebabkan karena Jane. Justru mungkin saja, Ryan tidak melihat Jane atau

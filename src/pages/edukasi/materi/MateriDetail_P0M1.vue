@@ -125,7 +125,7 @@
       </h1>
       <!-- TEXT DETAIL -->
       <div class="fl-main--detail">
-        <p>
+        <p style="margin-bottom: 12px">
           Teknik pernapasan 4-7-8 adalah pola pernapasan yang dikembangkan oleh
           Dr. Andrew Weil. Teknik ini didasarkan pada teknik yoga kuno yang
           disebut pranayama, teknik yoga yang membantu praktisi mengendalikan
@@ -138,8 +138,8 @@
           lebih cepat dari biasanya.
         </p>
 
-        <h2>Cara Kerja 4-7-8</h2>
-        <p>
+        <h2>Cara Kerja 4-7-8 </h2>
+        <p style="margin-top: 12px">
           Teknik pernapasan ini dirancang untuk membawa tubuh kita masuk ke
           keadaan relaksasi yang dalam. Hal ini menggunakan pola khusus yang
           melibatkan menahan napas selama jangka waktu tertentu, untuk
@@ -148,7 +148,7 @@
           jaringan tubuhmu.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Praktik relaksasi ini juga membantu mengembalikan keseimbangan tubuh,
           dan mengatur respon ‘lawan-atau-lari’ yang kita rasakan saat stres
           muncul. Ini akan sangat membantu jika kamu mengalami kesulitan tidur,
@@ -160,7 +160,7 @@
 
         <img src="img/education_p0m1_body_a.png" />
 
-        <p>
+        <p style="margin-bottom: 12px">
           Teknik ini memaksa pikiran dan tubuh untuk fokus pada pengaturan
           napas, daripada mengulangi bayangan kekhawatiran yang muncul dan
           mengganggu pikiranmu.
@@ -173,7 +173,7 @@
           saraf."
         </p>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Konsep Teknik Pernapasan 4-7-8 dapat dipadukan dengan metode lain,
           seperti:
         </div>
@@ -212,7 +212,7 @@
 
         <h2>Langkah-Langkahnya</h2>
 
-        <p>
+        <p style="margin-top: 12px;margin-bottom: 16px">
           Untuk melatih teknik pernapasan 4-7-8, carilah tempat untuk duduk atau
           berbaring dengan nyaman. Pastikan kamu mempraktikkannya dengan postur
           yang baik, terutama saat memulainya. Jika kamu menggunakan teknik
@@ -231,21 +231,21 @@
           kamu dapat mencobanya jika merasa kesulitan.
         </p>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Langkah-langkah berikut harus dilakukan dalam siklus satu napas:
         </div>
 
         <!--Numbering Number Atta -->
         <ol>
-          <li>
+          <li style="margin-bottom: 8px">
             Pertama, biarkan bibirmu terbuka. Buatlah suara mendengus dan
             hembuskan napas sepenuhnya melalui mulutmu.
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Selanjutnya, tutup bibirmu tarik napas tanpa suara melalui hidung
             sembari menghitung sampai empat di kepalamu.
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Kemudian, selama tujuh detik, tahan napasmu. Lalu buang napas
             sembari mendengus lagi dari mulutmu selama delapan detik.
           </li>

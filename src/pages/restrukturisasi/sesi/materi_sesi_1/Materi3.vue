@@ -4,90 +4,62 @@
       Faktor Pikiran Negatif
     </h1>
 
-    <p class="text__body text__neutral-black">
-      Pada materi sebelumnya kita sudah mengetahui bahwa pikiran dapat
-      mempengaruhi perasaanmu. Tentunya hal itu saja belum cukup membuktikan
-      hubungan keduanya. Dalam materi ini kita akan mencoba menghubungkan
-      mereka, dan memperhatikan bagaimana pikiran dapat mempengaruhi perasaanmu.
-      Untuk melakukannya, kita akan menggunakan sebuah skenario lagi.
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Dalam materi sebelumnya kita mencoba meninjau hubungan pikiran dan perasaan, melalui suatu skenario yang memunculkan dua perspektif pikiran untuk mempengaruhi perasaan kita. Setelah kita paham bagaimana pengaruh dari hubungan keduanya, sekarang kita akan mencoba untuk mengetahui latar belakang pikiran negatif yang muncul pada diri kita.
+    </p>
+
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Seperti yang sudah dijelaskan pada materi pertama, bahwa perilaku temanmu yang membatalkan janji bukanlah penyebab perasaan frustasimu. Melainkan timbul akibat persepsimu akan situasi itu, dan pandanganmu pada diri sendiri dan pertemananmu. Persepsi atau pandangan tersebutlah faktor yang menimbulkan pikiran negatif, dimana pada akhirnya pikiran itu akan mempengaruhi perasaanmu. Sebelumnya juga pernah disebutkan pada materi yang sama, bahwa terdapat tiga jenis faktor yang dapat menimbulkan pikiran negatif tersebut.
     </p>
 
     <p class="text__body text__neutral-black">
-      Hal yang perlu kamu lakukan adalah membayangkan situasi di skenario
-      tersebut betul terjadi padamu di dunia nyata. Setelah membayangkannya,
-      coba kamu renungi sejenak bagaimana perasaan yang timbul di dalam dirimu.
+      Faktor tersebut diantaranya, seseorang memiliki pandangan negatif terhadap dirinya sendiri; seseorang memandang situasi atau kejadian dalam hidupnya secara negatif dan bias; lalu yang terakhir, seseorang berpandangan bahwa masa depannya pasti akan suram.
     </p>
 
-    <p class="text__body text__neutral-black">
-      Jika sudah siap, coba baca skenario berikut dengan seksama ya!
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Untuk lebih memahami faktor-faktor tersebut, kita akan menggunakan contoh skenario serupa agar lebih mudah mengidentifikasinya. Mari kita perhatikan skenario dan penjelasan berikut!
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Skenario:
     </h2>
 
     <p class="text__body text__neutral-black">
-      Mulai hari ini hingga seminggu kedepan, orangtuamu menitipkan rumah
-      padamu. Ayah dan ibumu akan berlibur sejenak kembali ke kampung halaman
-      mereka, karena sudah lama tidak mengunjungi keluarga di sana. Setelah kamu
-      pulang dari berbelanja kebutuhan rumah untuk seminggu kedepan, dan tiba di
-      rumah cukup larut. Kamu merasa ada yang aneh, sekeliling rumah terasa
-      sangat sunyi dan gelap. Saat membuka pintu dan ingin menghampiri saklar,
-      tiba-tiba ada yang lompat mengejutkanmu seraya berteriak "Kejutan!", dan
-      diiringi dengan suara riuh orang bernyanyi "Selamat Ulang Tahun! selamat
-      ulang tahun..."
+      Kamu membuat janji bertemu dengan seorang teman, namun ia membatalkannya pada saat-saat terakhir. Kamu merasa tersinggung, sakit hati, dan kesal.
     </p>
 
-    <img class="img-body" src="img/restrukturisasi/sesi1_materi2_body1.png" />
+    <img class="img-body" src="img/restrukturisasi/sesi1_materi3_body1.png" />
 
-    <p class="text__body text__neutral-black">
-      Kamu pun langsung berpikir:
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Pikiran yang muncul akibat situasi itu dan mempengaruhi perasaanmu, mungkin seperti ini:
     </p>
 
     <p class="text__special-body">
-      "Wah aku 22 tahun sekarang, bukan ulang tahun yang penting sebenarnya.
-      Makanya aku tidak berharap akan ada yang ingat. Tapi ternyata banyak orang
-      yang peduli dan ini sangat menyenangkan! Ada banyak sahabat dan keluarga
-      yang datang hari ini. Mereka datang dan menyempatkan waktu, pasti aku
-      dianggap istimewa hahaha"
+      "Teman-temanku selalu membuatku kecewa, sepertinya aku memang tidak pantas memiliki teman"
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
-      Coba renungi sejenak, kira-kira bagaimana perasaanmu pada situasi itu.
-    </h2>
-
-    <p class="text__body text__neutral-black">
-      Namun bagaimana jika, pikiran di kepalamu seperti ini:
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Pikiran tersebut menunjukkan pandangan negatif terhadap diri sendiri:
     </p>
 
     <p class="text__special-body">
-      "Nggak! Aku sudah bilang berkali-kali. Aku tidak suka dikasih kejutan saat
-      ulang tahun. Tapi seperti biasa, tidak ada yang mendengarkan omonganku.
-      Aku bingung harus bagaimana, aku malas sekali harus basa-basi dan
-      berpura-pura senang. Aku ingin pergi dari sini"
+      “..aku memang tidak pantas..”
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
-      Coba renungi kembali perasaanmu.
+    <p class="text__body text__neutral-black">
+      Pada pikiran tersebut yang menjadi faktornya adalah pandangan negatif seseorang terhadap dirinya sendiri, dan pikiran tersebut memiliki jenis pola pikir negatif “all-or-none”, dimana perilaku seorang teman menjadi penilaian untuk keseluruhan temannya. Terkait jenisnya, aku akan memberitahu lebih banyak pada sesi selanjutnya. Jadi jangan kebingungan dan anggap saja ini sedikit perkenalan ya!
+    </p>
+
+    <p class="text__body text__neutral-black">
+      Nah sekarang giliran kamu, untuk coba mengidentifikasi bagaimana pikiran negatifmu dan apa faktornya. Yuk akses bagian latihan sesi ini biar kamu bisa mempraktekkannya!
+    </p>
+
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
+      Sedikit Catatan:
     </h2>
 
     <p class="text__body text__neutral-black">
-      Membayangkan pikiran seperti itu, tentu saja membuat perasaanmu jadi
-      berbeda sekarang. Mungkin saat ini kamu justru merasa kesal atau bahkan
-      frustasi, berbeda dibanding sebelumnya.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Seperti itulah bagaimana pikiran yang muncul akibat suatu kejadian dapat
-      mempengaruhi perasaanmu. Berbeda pikiran yang muncul, berbeda pula
-      perasaan yang dialami. Akhirnya kita sekarang jadi lebih paham tentang
-      hubungan keduanya, namun tentu pikiran mengganggu itu tidak muncul begitu
-      saja.
-    </p>
-
-    <p class="text__body text__neutral-black">
-      Biar kamu dapat lebih memahami tentang pikiran dan perasaanmu, yuk akses
-      materi selanjutnya di sesi ini!
+      Pikiran negatifmu tidak harus memiliki ketiga faktor, terkadang hanya terdapat 1 atau 2 faktor. Hal itu tergantung pikiran negatif yang kamu identifikasi. Terkait identifikasinya, pikiran tersebut muncul dapat muncul dengan spontan dan tanpa sadar perasaan kita telah terpengaruh. Makanya, jika kamu kesulitan mengingat pikiran negatifmu. Coba akses bagian Bantuan pada modul ini, ya!
     </p>
   </LayoutOne>
 </template>

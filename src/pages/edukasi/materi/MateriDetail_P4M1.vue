@@ -138,8 +138,8 @@
           perilaku yang bermasalah.
         </p>
 
-        <h2>Beragam Jenisnya</h2>
-        <p>
+        <h2 style="margin-bottom: 12px">Beragam Jenisnya</h2>
+        <p style="margin-bottom: 12px">
           Ketika mendengar istilah "psikoterapi", kebanyakan orang biasanya
           langsung membayangkan seseorang sedang berbaring dan berbicara di
           sofa, lalu sementara seorang terapis duduk di dekatnya untuk menulis
@@ -147,7 +147,7 @@
           digunakan dalam psikoterapi.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Metode yang digunakan dalam setiap situasi dapat bervariasi
           berdasarkan berbagai faktor, termasuk pelatihan dan latar belakang
           terapis, preferensi klien, dan karakteristik dari masalah klien.
@@ -155,14 +155,14 @@
           psikoterapi.
         </p>
 
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-bottom: 12px">
           <span class="text__title-4">Terapi Psikoanalitik</span>
           <div class="informasi-title--decor" />
         </div>
 
         <img src="img/education_p4m1_body_a.png" />
 
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 12px">
           Sementara psikoterapi dipraktikkan dalam berbagai bentuk sejauh zaman
           Yunani kuno, psikoterapi menerima permulaan resminya ketika Sigmund
           Freud mulai menggunakan terapi bicara untuk menangani kliennya. Teknik
@@ -170,39 +170,39 @@
           dream interpretation, dan free association.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Pendekatan psikoanalitik ini melibatkan penggalian pikiran dan
           pengalaman klien di masa lalu untuk mencari pikiran bawah sadar,
           perasaan, dan ingatan yang dapat memengaruhi perilakunya.
         </p>
 
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-bottom: 8px">
           <span class="text__title-4">Terapi Perilaku</span>
           <div class="informasi-title--decor" />
         </div>
         <!--Ada garis hiasan di sini-->
 
-        <p>
+        <p style="margin-bottom: 12px">
           Ketika behaviorisme menjadi aliran pemikiran yang lebih menonjol
           selama awal abad kedua puluh, teknik seperti different types of
           conditioning mulai memainkan peran penting dalam psikoterapi.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Meskipun behaviorisme mungkin tidak dominan seperti dulu, banyak
           metodenya yang masih sangat populer hingga saat ini. Terapi perilaku
           sering menggunakan classical conditioning, operant conditioning, dan
           social learning untuk membantu klien mengubah perilaku bermasalahnya.
         </p>
 
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-bottom: 12px">
           <span class="text__title-4">Terapi Humanistik</span>
           <div class="informasi-title--decor" />
         </div>
         <!--Ada garis hiasan di sini-->
         <img src="img/education_p4m1_body_b.png" />
 
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 12px">
           Mulai tahun 1950-an, aliran pemikiran yang dikenal sebagai psikologi
           humanistik mulai berpengaruh pada psikoterapi. Psikolog humanis Carl
           Rogers mengembangkan pendekatan yang dikenal sebagai terapi yang
@@ -214,13 +214,13 @@
           aktualisasi diri.
         </p>
 
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-bottom: 8px">
           <span class="text__title-4">Terapi Kognitif</span>
           <div class="informasi-title--decor" />
         </div>
         <!--Ada garis hiasan di sini-->
 
-        <p>
+        <p style="margin-bottom: 12px">
           Revolusi kognitif tahun 1960-an juga berdampak besar pada praktik
           psikoterapi, karena psikolog mulai semakin fokus pada bagaimana proses
           pemikiran manusia memengaruhi perilaku dan fungsinya. Terapi kognitif
@@ -230,7 +230,7 @@
           lebih pesimis dan suasana hati yang lebih suram.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Tujuan dari terapi kognitif adalah untuk mengidentifikasi distorsi
           kognitif yang mengarah pada jenis pemikiran mengganggu dan mengganti
           pemikiran tersebut dengan yang lebih realistis dan positif. Dengan
@@ -238,14 +238,14 @@
           mereka secara keseluruhan.
         </p>
 
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-bottom: 12px">
           <span class="text__title-4">Terapi Kognitif Perilaku</span>
           <div class="informasi-title--decor" />
         </div>
         <!--Ada garis hiasan di sini-->
         <img src="img/education_p4m1_body_c.png" />
 
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 12px">
           Pendekatan yang dikenal sebagai cognitive-behavioural therapy (CBT)
           atau terapi kognitif perilaku adalah perawatan psikoterapi yang
           membantu klien memahami pikiran dan perasaan yang memengaruhi
@@ -261,9 +261,9 @@
           pemikiran tersebut.
         </p>
 
-        <h2>Sebelum Mencoba</h2>
+        <h2 style="margin-bottom: 12px">Sebelum Mencoba</h2>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Ada sejumlah kekhawatiran baik untuk terapis maupun klien. Saat
           memilih terapis, pertimbangkan apakah kamu merasa nyaman untuk
           mengungkapkan informasi pribadi kepada terapis. Kamu juga harus
@@ -275,7 +275,7 @@
 
         <img src="img/education_p4m1_body_d.png" />
 
-        <p>
+        <p style="margin-bottom: 12px">
           Saat memberikan layanan kepada klien, psikoterapis juga akan
           mempertimbangkan masalah seperti persetujuan tindakan medis,
           kerahasiaan klien, dan memiliki kewajiban untuk memperingatkan klien.
@@ -294,9 +294,9 @@
           ataupun orang lain.
         </p>
 
-        <h2>Tanda Kamu Membutuhkannya</h2>
+        <h2 style="margin-bottom: 12px">Tanda Kamu Membutuhkannya</h2>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Kamu mungkin mulai menyadari bahwa psikoterapi dapat membantumu,
           tetapi masih sulit untuk mencari bantuan atau bahkan mengenali kapan
           saatnya berbicara dengan seorang profesional.
@@ -304,25 +304,25 @@
 
         <img src="img/education_p4m1_body_e.png" />
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Beberapa tanda bahwa mungkin kamu perlu bertemu psikoterapis,
           diantaranya:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>
+          <li style="margin-bottom: 8px">
             Masalah ini menyebabkan kesusahan atau gangguan yang signifikan
             dalam hidupmu. Jika kamu merasa bahwa masalah yang kamu hadapi
             mengganggu sejumlah hal penting dalam hidup seperti pendidikan,
             pekerjaan, atau hubungan.
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Kamu mengandalkan mekanisme penanganan yang tidak sehat, atau bahkan
             berbahaya. Kamu menghadapi masalah dengan melampiaskannya melalui
             kebiasaan merokok, minum minuman keras, makan berlebihan, atau pada
             orang lain.
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Teman dan keluarga mengkhawatirkan kesejahteraanmu. Saat sudah
             mencapai titik di mana orang lain mengkhawatirkan kesehatan
             emosionalmu.
@@ -342,9 +342,9 @@
           dibutuhkan untuk menjalani kehidupan yang lebih sehat dan bahagia.
         </p>
 
-        <h2>Memilih Teknik dan Terapis</h2>
+        <h2 style="margin-bottom: 12px">Memilih Teknik dan Terapis</h2>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Bila kamu berpikir mungkin akan mendapat manfaat dari psikoterapi,
           langkah pertama adalah mendiskusikan kekhawatiran yang kamu rasakan
           dengan doktermu. Jika pada pemeriksaannya tidak ditemukan penyebab
@@ -353,7 +353,7 @@
           penyakit mental.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Gejalamu sering kali berperan dalam perawatan dan terapis yang akan
           kamu pilih. Misalnya, jika perawatan terbaik untukmu memerlukan obat
           resep dan psikoterapi, mengunjungi psikiater mungkin dapat menangani
@@ -366,18 +366,22 @@
 
         <img src="img/education_p4m1_body_f.png" />
 
-        <div class="text__headline text__neutral-black">
+        <p>
+          Psikoterapi merupakan seni dan sains. Jika sesimu tidak terasa membantu, atau sepertinya kamu tidak "cocok" dengan terapismu, maka tidak masalah untuk mencoba terapi dengan orang lain. Teruslah mencari sampai kamu menemukan seorang ahli yang cocok dan nyaman.
+        </p>
+
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Saat kamu mengevaluasi psikoterapis potensial, pertimbangkan hal
           berikut:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>Apakah terapis tampak profesional dan handal?</li>
-          <li>
+          <li style="margin-bottom: 8px">Apakah terapis tampak profesional dan handal?</li>
+          <li style="margin-bottom: 8px">
             Apakah kamu merasa nyaman menceritakan perasaan dan pengalamanmu?
           </li>
-          <li>Apakah kamu menyukai gaya percakapan terapis itu?</li>
-          <li>
+          <li style="margin-bottom: 8px">Apakah kamu menyukai gaya percakapan terapis itu?</li>
+          <li style="margin-bottom: 8px">
             Apakah kamu puas dengan tingkat interaksimu dengan terapis itu?
           </li>
           <li>Apakah terapis itu sepertinya mengerti apa yang kamu rasakan?</li>

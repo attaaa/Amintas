@@ -124,7 +124,7 @@
         Cemas dan Gangguan Kecemasan
       </h1>
       <!-- TEXT DETAIL -->
-      <div class="fl-main--detail">
+      <div class="fl-main--detail" style="margin-bottom: 12px">
         <p>
           Kecemasan adalah respon tubuh terhadap bahaya yang diantisipasi,
           berupa perasaan khawatir yang umumnya tidak menyenangkan. Biasanya
@@ -149,7 +149,7 @@
         </p>
 
         <h2>Normal dan Bermanfaat</h2>
-        <p>
+        <p style="margin-top: 12px;margin-bottom: 16px">
           Ada begitu banyak hal dalam keseharian yang dapat menyebabkan
           kecemasan yang normal. Hidup banyak menghadapkan kita pada pengalaman
           “untuk pertama kalinya” melakukan suatu hal, yang tentu dapat memicu
@@ -159,7 +159,7 @@
 
         <img src="img/education_p1m1_body_a.png" />
 
-        <p>
+        <p style="margin-bottom: 12px">
           Selain itu, kita juga banyak menemui peristiwa penting dalam hidup,
           baik ataupun buruk, yang dapat menimbulkan rasa cemas yang
           berbeda-beda. Seperti wawancara kerja, tampil dihadapan orang banyak,
@@ -179,13 +179,13 @@
 
         <h2>Dapat Menjadi Masalah</h2>
 
-        <p>
+        <p style="margin-top: 12px;margin-bottom: 12px">
           Meskipun cukup jelas bahwa rasa cemas merupakan hal yang normal dan
           bahkan bermanfaat. Namun bagi sebagian orang, perasaan itu dapat
           menjadi masalah.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Saat mengalami perasaan cemas dari waktu ke waktu adalah hal normal
           dan bahkan bermanfaat. Namun bagi sebagian orang, ketika perasaan itu
           menjadi ekstrim dan mulai mengganggu aktivitas sehari-hari. Hal itu
@@ -194,7 +194,7 @@
           intensitas yang dirasakan.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Kecemasan normal bersifat intermiten dan munculnya berdasarkan
           peristiwa atau situasi tertentu. Kecemasan yang mengganggu, di sisi
           lain, cenderung kronis, tidak rasional, dan mengganggu banyak fungsi

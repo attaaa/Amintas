@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    :hasChanges="hasChanges"
     backPath="/restrukturisasi/sesi2"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
@@ -15,7 +16,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Catatan Pola Pikir Negatif
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pada latihan ini, kamu diminta kembali mencatat 3 peristiwa keseharianmu
       dalam seminggu terakhir yang memicu perasaan negatif. Jika kamu merasa
       kesulitan, kamu boleh mengidentifikasinya dalam beberapa hari kedepan,
@@ -38,7 +39,10 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             A: Activation Event
           </label>
           <TextAreaCustom
@@ -50,19 +54,25 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             B: Belief
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan1.belief"
             class="q-mt-sm"
-            placeholder="Pikiran yang memicu perasaanmu"
+            placeholder="Pikiran negatif yang muncul"
           />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             C: Consequence
           </label>
           <TextAreaCustom
@@ -74,7 +84,10 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Distorsi Kognitif
           </label>
           <Picker
@@ -100,13 +113,16 @@
         catatan 2
        -->
       <div class="catatan-group">
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-top: 24px">
           <span class="text__title-3">Catatan 2</span>
           <div class="informasi-title--decor" />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             A: Activation Event
           </label>
           <TextAreaCustom
@@ -118,19 +134,25 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             B: Belief
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan2.belief"
             class="q-mt-sm"
-            placeholder="Pikiran yang memicu perasaanmu"
+            placeholder="Pikiran negatif yang muncul"
           />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             C: Consequence
           </label>
           <TextAreaCustom
@@ -142,7 +164,10 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Distorsi Kognitif
           </label>
           <Picker
@@ -168,13 +193,16 @@
         catatan 3
        -->
       <div class="catatan-group">
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-top: 24px">
           <span class="text__title-3">Catatan 3</span>
           <div class="informasi-title--decor" />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             A: Activation Event
           </label>
           <TextAreaCustom
@@ -186,19 +214,25 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             B: Belief
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan3.belief"
             class="q-mt-sm"
-            placeholder="Pikiran yang memicu perasaanmu"
+            placeholder="Pikiran negatif yang muncul"
           />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             C: Consequence
           </label>
           <TextAreaCustom
@@ -210,7 +244,10 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Distorsi Kognitif
           </label>
           <Picker
@@ -310,7 +347,7 @@ export default {
         .latihan1Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished;
+      return !this.latihanFinished && !this.formDisabled;
       // return !_.isEqual(this.storeObj, this.form) && !this.formDisabled;
     },
     activeDoneButton() {
@@ -325,6 +362,9 @@ export default {
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi2
         .latihan1Finished;
+    },
+    hasChanges() {
+      return !_.isEqual(this.storeObj, this.form);
     }
   },
   methods: {

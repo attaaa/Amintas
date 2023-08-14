@@ -6,7 +6,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Sesi 2: Pola Pikir Negatif
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 24px">
       Pada bagian sebelumnya, kita sudah belajar bagaimana pikiran mempengaruhi
       perasaan dan latar belakang pikiran negatif. Untuk jadi lebih baik,
       tentunya kita tidak berhenti di situ. Setelah memahami perasaan dan faktor

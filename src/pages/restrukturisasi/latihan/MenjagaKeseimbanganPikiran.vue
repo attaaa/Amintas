@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    :hasChanges="hasChanges"
     backPath="/restrukturisasi/sesi3"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
@@ -15,7 +16,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Menjaga Keseimbangan Pikiran
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pada latihan ini, kita akan menggunakan peristiwa yang dituliskan Jane
       pada jurnalnya. Kamu diminta untuk mengurangi dampak pikiran negatif yang
       muncul yang berusaha mempengaruhi perasaan Jane. Kamu dapat melakukannya
@@ -39,12 +40,15 @@
           <div class="informasi-title--decor" />
         </div>
 
-        <p class="text__special-body text-center">
+        <p class="text__special-body text-center" style="margin-bottom: 24px">
           “Mendapatkan beasiswa itu biasa saja (A), aku hanya beruntung (B)”
         </p>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Pernyataan Positif
           </label>
           <TextAreaCustom
@@ -60,18 +64,21 @@
         pikiran 2
       -->
       <div class="catatan-group">
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-top: 24px">
           <span class="text__title-3">Pikiran 2</span>
           <div class="informasi-title--decor" />
         </div>
 
-        <p class="text__special-body text-center">
+        <p class="text__special-body text-center" style="margin-bottom: 24px">
           “Temanku terlambat dari waktu janjian (A). Harusnya dia datang lebih
           cepat biar kami tidak buang-buang waktu (B)”
         </p>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Pernyataan Positif
           </label>
           <TextAreaCustom
@@ -87,18 +94,21 @@
         pikiran 3
       -->
       <div class="catatan-group">
-        <div class="informasi-title">
+        <div class="informasi-title" style="margin-top: 24px">
           <span class="text__title-3">Pikiran 3</span>
           <div class="informasi-title--decor" />
         </div>
 
-        <p class="text__special-body text-center">
+        <p class="text__special-body text-center" style="margin-bottom: 24px">
           “Aku terlambat mengumpulkan tugas dan dosenku tidak menerima tugasku
           (A), Aku memang orang gagal (B)”
         </p>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Pernyataan Positif
           </label>
           <TextAreaCustom
@@ -159,7 +169,7 @@ export default {
         .latihan2Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished;
+      return !this.latihanFinished && !this.formDisabled;
       // return !_.isEqual(this.storeObj, this.form) && !this.formDisabled;
     },
     activeDoneButton() {
@@ -170,6 +180,9 @@ export default {
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi3
         .latihan2Finished;
+    },
+    hasChanges() {
+      return !_.isEqual(this.storeObj, this.form);
     }
   },
 

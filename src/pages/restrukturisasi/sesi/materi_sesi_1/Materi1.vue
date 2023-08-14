@@ -3,7 +3,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Tentang Pikiran dan Perasaan
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Coba renungi dengan menutup matamu dan bayangkan perasaan yang sedang kamu
       rasakan saat ini. Ajukan pertanyaan ini di dalam kepalamu:
     </p>
@@ -22,11 +22,11 @@
       sekelilingmu, dan juga pandanganmu pada masa depan.
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Lalu, mengapa ia muncul?
     </h2>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Perasaan yang bertahan dari waktu ke waktu, menginterpretasikan mood atau
       suasana hatimu. Ia merefleksikan pemikiranmu pada diri sendiri, dunia di
       sekelilingmu, dan juga pandanganmu pada masa depan.
@@ -44,7 +44,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi1_materi1_body2.png" />
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Bagaimana jika aku beritahu, bahwa perilaku temanmu bukanlah yang
       menimbulkan perasaan negatifmu. Namun sebaliknya, hal yang mempengaruhi
       perasaanmu itu adalah persepsimu terhadap situasi tersebut, serta
@@ -55,7 +55,7 @@
       bertahan dan mempengaruhi kita hingga bersedih.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Penelitian menyebutkan, bahwa seseorang yang terus merasa buruk secara
       emosional dipengaruhi oleh tiga faktor. Faktor itu diantaranya, mereka
       memiliki pandangan negatif terhadap dirinya sendiri; mereka memandangan
@@ -65,13 +65,13 @@
       pikiran negatif yang akan mempengaruhi perasaan kita.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Lalu hal pertama yang akan kita lakukan untuk menjadi lebih baik, yaitu
       belajar membedakan pikiran dan perasaan. Tentu bukan hal yang mudah,
       karena seringkali ucapan kita mengaburkan perbedaannya.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 8px">
       Mungkin kamu akan mengungkapkan perasaanmu seperti ini:
     </p>
 
@@ -79,7 +79,7 @@
       “Saya tersinggung”
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 8px">
       Padahal sebenarnya, sebelum itu kamu memiliki pikiran negatif seperti ini:
     </p>
 

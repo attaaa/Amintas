@@ -125,7 +125,7 @@
       </h1>
       <!-- TEXT DETAIL -->
       <div class="fl-main--detail">
-        <p>
+        <p style="margin-bottom: 12px">
           General Anxiety Disorder (GAD) atau gangguan kecemasan umum dapat
           menjadi tantangan tersendiri untuk didiagnosis. Kebanyakan orang
           menganggap bahwa ciri umum dari semua jenis gangguan adalah “serangan
@@ -137,7 +137,7 @@
           sebenarnya dapat diminimalkan, justru tidak ditangani dengan benar.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Kebanyakan orang merasa khawatir pada situasi yang dapat membuat diri
           mereka cemas. Lalu apa yang sebenarnya dicari oleh para profesional,
           untuk menentukan apakah kekhawatiran dan kecemasan seseorang terkait
@@ -153,7 +153,7 @@
         </p>
 
         <h2>Gejala</h2>
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 16px">
           Buku DSM-5 menguraikan kriteria khusus yang membantu para profesional
           untuk mendiagnosis gangguan kecemasan. Memiliki standar sebagai
           referensi saat menilai gejala klien membantu para ahli untuk
@@ -162,47 +162,47 @@
         </p>
         <img src="img/education_p3m1_body_a.png" />
 
-        <div class="text__title-4 text__neutral-black">
+        <div class="text__title-4 text__neutral-black" style="margin-bottom: 8px">
           Kriteria untuk Mendiagnosis GAD
         </div>
-        <p>
+        <p style="margin-bottom: 12px">
           Saat menilai GAD, seorang profesional akan mengidentifikasi hal-hal
           terkait kriterianya.
         </p>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Adapun kriteria tersebut, antara lain:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>
+          <li style="margin-bottom: 8px">
             Adanya kecemasan dan kekhawatiran yang berlebihan tentang berbagai
             topik, peristiwa, atau aktivitas. Khawatir berlebihan terjadi lebih
             sering selama setidaknya kurun waktu 6 bulan.
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Kekhawatiran yang muncul dirasa sangat berlebihan dan sulit untuk
             dikendalikan. Kekhawatirannya mudah berganti dari satu topik ke
             topik lainnya, baik pada kasus orang dewasa ataupun anak-anak.
           </li>
           <!--Ada sub-numbering bullet di sini-->
-          <li>
+          <li style="margin-bottom: 8px">
             Kecemasan dan kekhawatiran disertai dengan setidaknya tiga dari
             sensasi fisik atau kognitif berikut (untuk anak-anak, cukup terdapat
             satu gejala):
             <ul>
-              <li>Tegang atau gelisah</li>
+              <li style="margin-bottom: 12px">Tegang atau gelisah</li>
               <li>Mudah lelah atau lebih lelah dari biasanya</li>
-              <li>
+              <li style="margin-bottom: 12px">
                 Gangguan konsentrasi atau perasaan, seolah-olah pikiran menjadi
                 kosong
               </li>
-              <li>
+              <li style="margin-bottom: 12px">
                 Iritabilitas (yang mungkin dapat atau tidak dapat diamati orang
                 lain)
               </li>
-              <li>Nyeri otot</li>
-              <li>
+              <li style="margin-bottom: 12px">Nyeri otot</li>
+              <li style="margin-bottom: 16px">
                 Kesulitan tidur (sulit terlelap ataupun sulit tetap tertidur,
                 gelisah di malam hari, atau tidur yang tidak memuaskan)
               </li>
@@ -212,7 +212,7 @@
 
         <img src="img/education_p3m1_body_b.png" />
 
-        <p>
+        <p style="margin-bottom: 12px">
           Khawatir berlebihan dianggap ketika seseorang merasa khawatir bahkan
           ketika tidak ada ancaman khusus, atau khawatir yang dirasakannya tidak
           sebanding dengan risiko ancaman sebenarnya. Seseorang yang menderita
@@ -222,7 +222,7 @@
           mereka pikirkan.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Kekhawatiran mereka bisa tentang tanggungjawab, kinerja di organisasi,
           kesehatan anggota keluarga, masalah keuangan, dan keadaan hidup
           sehari-hari lainnya. Banyak penderita GAD yang juga mengalami sensasi
@@ -238,7 +238,7 @@
 
         <h2>Mulai Cari Bantuan</h2>
 
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 12px">
           Banyak pengidap GAD yang mengalami gejalanya dalam waktu lama, sebelum
           akhirnya mencari bantuan. Mendapat diagnosa dapat terasa sulit dan
           berat, terutama saat kecemasanmu terasa begitu konstan dan meluas.
@@ -248,7 +248,7 @@
           penanganan yang dapat membantu hidupmu jadi lebih baik.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Ketika memutuskan mencari bantuan, sesuatu yang perlu kamu
           pertimbangkan adalah tentang betapa sulitnya merasakan ketenangan,
           kenyamanan, dan kepastian di tengah kekhawatiranmu. Jika kamu
@@ -260,7 +260,7 @@
 
         <img src="img/education_p3m1_body_c.png" />
 
-        <p>
+        <p style="margin-bottom: 12px">
           Lalu ingatlah, bahwa tidak mengalami serangan panik adalah alasan
           utama kebanyakan orang tidak mencari bantuan. Kecemasan mereka mungkin
           kronis dan mengkhawatirkan, namun karena tidak ada serangan panik
@@ -282,7 +282,7 @@
           lainnya.
         </p>
 
-        <h2>Penanganan Klinis</h2>
+        <h2 style="margin-bottom: 12px">Penanganan Klinis</h2>
 
         <img src="img/education_p3m1_body_d.png" />
 

@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    :hasChanges="hasChanges"
     backPath="/restrukturisasi/sesi1"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
@@ -15,7 +16,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Catatan Pikiran Negatif
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Setelah kita mencoba dengan suatu skenario. Pada latihan ini, kita akan
       berlatih menggunakan keadaan yang lebih dekat denganmu. Kamu diminta untuk
       mencatat 3 peristiwa di keseharianmu dalam seminggu terakhir yang
@@ -38,7 +39,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Peristiwa
         </label>
         <TextAreaCustom
@@ -50,7 +54,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Pikiran
         </label>
         <TextAreaCustom
@@ -62,7 +69,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Faktor Pikiran
         </label>
         <Picker
@@ -84,13 +94,16 @@
         />
       </div>
 
-      <div class="informasi-title">
+      <div class="informasi-title" style="margin-top: 24px">
         <span class="text__title-3">Catatan 2</span>
         <div class="informasi-title--decor" />
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Peristiwa
         </label>
         <TextAreaCustom
@@ -102,7 +115,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Pikiran
         </label>
         <TextAreaCustom
@@ -114,7 +130,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Faktor Pikiran
         </label>
         <Picker
@@ -136,13 +155,16 @@
         />
       </div>
 
-      <div class="informasi-title">
+      <div class="informasi-title" style="margin-top: 24px">
         <span class="text__title-3">Catatan 3</span>
         <div class="informasi-title--decor" />
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Peristiwa
         </label>
         <TextAreaCustom
@@ -154,7 +176,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Pikiran
         </label>
         <TextAreaCustom
@@ -166,7 +191,10 @@
       </div>
 
       <div class="q-mb-md ">
-        <label class="text__title-4 text__neutral-black">
+        <label
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Faktor Pikiran
         </label>
         <Picker
@@ -269,7 +297,7 @@ export default {
         .latihan2Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished;
+      return !this.latihanFinished && !this.formDisabled;
       // return !_.isEqual(this.storeObj, this.form);
     },
     activeDoneButton() {
@@ -284,6 +312,9 @@ export default {
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1
         .latihan2Finished;
+    },
+    hasChanges() {
+      return !_.isEqual(this.storeObj, this.form);
     }
   },
 

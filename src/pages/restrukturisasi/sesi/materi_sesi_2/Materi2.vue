@@ -3,7 +3,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Mengidentifikasi Pola Pikir Negatif
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Setelah mengenal jenisnya di materi sebelumnya, dan sempat mencoba untuk
       mengungkap pikiran negatif di sesi pertama. Sekarang kita akan mencoba
       mengungkapnya dengan lebih detail hingga menentukan jenisnya.
@@ -12,7 +12,7 @@
       khawatir karena aku telah menyiapkan hal khusus untukmu!
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Sama seperti hal lain yang baru saja kita pelajari, untuk terbiasa
       mengungkap pikiran negatif memerlukan upaya. Namun kamu harus ingat, hal
       itu akan membantumu melawan stress dan memiliki mental yang sehat. Biar
@@ -20,7 +20,7 @@
       suatu metode bernama Analisis ABC.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       ABC sendiri merupakan singkatan dari 'A' yaitu Activation Event atau
       peristiwa pemicu; 'B' yaitu Belief atau pikiran mengganggu yang akan
       diidentifikasi; dan terakhir 'C' yaitu Consequence atau perasaan
@@ -33,7 +33,11 @@
       perhatikan penjabaran dari jurnalnya!
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Pada salah satu jurnalnya, Jane bercerita tentang temannya. Berikut detail dan penjabaran Analisis ABC dari Jane yang dimuat di jurnalnya.
+    </p>
+
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Jane menjabarkan peristiwa yang dialami atau "A: Activation Event":
     </p>
 
@@ -41,7 +45,7 @@
       “Minggu lalu temanku tidak mendapatkan pekerjaan yang dia lamar”.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Jane melewati 'B', dan menjabarkan perasaan mengganggu yang muncul atau
       "C: Consequence":
     </p>
@@ -52,7 +56,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi2_body1.png" />
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Lalu Jane meninjau 'A' dan 'C', untuk mengidentifikasi "B: Belief":
     </p>
 
@@ -76,7 +80,7 @@
       kamu bisa mempraktekkannya!
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Sedikit Catatan:
     </h2>
 

@@ -6,7 +6,7 @@
     :style="keyboardVisible && { paddingBottom: keyboardHeight + 'px' }"
   >
     <div class="header">
-      <div class="btn" @click="$router.replace(backPath)">
+      <div class="btn" @click="onBack">
         <img svg-inline src="assets/icons/general/arrow-left.svg" />
       </div>
       <img :src="headerImg" />
@@ -42,7 +42,7 @@
           btn__disabled: !activeDoneButton,
           btn__accent: activeDoneButton
         }"
-        @click="$refs.popUpDone.setState('open')"
+        @click="activeDoneButton && $refs.popUpDone.setState('open')"
       >
         {{ labelDoneAction || "Selesai" }}
       </button>
@@ -192,17 +192,36 @@
       </div>
     </SwipeableBottomSheet>
 
-    <!-- for dev only -->
-    <!-- <button @click="reset">reset</button> -->
+    <!-- pop up back confirmation on latihan updated -->
+    <PopupAction ref="popupBack">
+      <template v-slot:action>
+        <button
+          class="btn__large btn__secondary relative-position"
+          @click="$refs.popupBack.$refs.popup.setState('close')"
+          v-ripple
+        >
+          Batal
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__alert col relative-position text-white"
+          @click="$router.replace(backPath)"
+          v-ripple
+        >
+          Tinggalkan Halaman
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
 <script>
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
+import PopupAction from "src/components/shared/PopupAction.vue";
 // import keyboardMixin from "src/mixins/keyboardMixin";
 
 export default {
-  components: { SwipeableBottomSheet },
+  components: { SwipeableBottomSheet, PopupAction },
 
   // mixins: [keyboardMixin],
 
@@ -217,6 +236,7 @@ export default {
     // handler
     handleNextAction: Function,
     handleSave: Function,
+    // handleBack: Function,
     // handleDone: Function,
 
     // secondary action
@@ -225,7 +245,8 @@ export default {
     labelDoneAction: String,
     labelSaveAction: String,
 
-    backPath: String
+    backPath: String,
+    hasChanges: Boolean
   },
 
   data() {
@@ -270,24 +291,9 @@ export default {
     togglePopUp(popUpName, state) {
       this.$refs[popUpName].setState(state);
     },
-
-    // for dev only
-    reset() {
-      // save data first
-      this.$store.commit("restrukturisasi/setLatihanData", {
-        sesiLatihan: "sesi1Latihan1",
-        data: {
-          pikiran: "",
-          selectedOptionsIdx: []
-        }
-      });
-
-      // set status to finished
-      this.$store.commit("restrukturisasi/resetFinishedLatihan", {
-        sesi: "sesi1",
-        currSesiLatihanFinished: "latihan1Finished",
-        nextSesiLatihan: "latihan2"
-      });
+    onBack() {
+      if (this.hasChanges) this.$refs.popupBack.$refs.popup.setState("open");
+      else this.$router.replace(this.backPath);
     },
 
     // handle keyboard

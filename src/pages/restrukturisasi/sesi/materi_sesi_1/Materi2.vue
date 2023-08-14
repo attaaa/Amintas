@@ -1,10 +1,10 @@
 <template>
   <LayoutOne headerImg="img/restrukturisasi/sesi1_materi1.png">
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
-      Menghubungkan Perasaan dan Pikiran
+      Menghubungkan Perasaan dengan Pikiran
     </h1>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pada materi sebelumnya kita sudah mengetahui bahwa pikiran dapat
       mempengaruhi perasaanmu. Tentunya hal itu saja belum cukup membuktikan
       hubungan keduanya. Dalam materi ini kita akan mencoba menghubungkan
@@ -12,7 +12,7 @@
       Untuk melakukannya, kita akan menggunakan sebuah skenario lagi.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Hal yang perlu kamu lakukan adalah membayangkan situasi di skenario
       tersebut betul terjadi padamu di dunia nyata. Setelah membayangkannya,
       coba kamu renungi sejenak bagaimana perasaan yang timbul di dalam dirimu.
@@ -22,7 +22,7 @@
       Jika sudah siap, coba baca skenario berikut dengan seksama ya!
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Skenario:
     </h2>
 
@@ -40,7 +40,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi1_materi2_body1.png" />
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Kamu pun langsung berpikir:
     </p>
 
@@ -52,11 +52,15 @@
       dianggap istimewa hahaha"
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Coba renungi sejenak, kira-kira bagaimana perasaanmu pada situasi itu.
     </h2>
 
     <p class="text__body text__neutral-black">
+      Mungkin kamu akan merasa gembira atau bahkan sangat bahagia.
+    </p>
+
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Namun bagaimana jika, pikiran di kepalamu seperti ini:
     </p>
 
@@ -67,11 +71,11 @@
       berpura-pura senang. Aku ingin pergi dari sini"
     </p>
 
-    <h2 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Coba renungi kembali perasaanmu.
     </h2>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Membayangkan pikiran seperti itu, tentu saja membuat perasaanmu jadi
       berbeda sekarang. Mungkin saat ini kamu justru merasa kesal atau bahkan
       frustasi, berbeda dibanding sebelumnya.

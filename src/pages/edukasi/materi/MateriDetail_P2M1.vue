@@ -125,7 +125,7 @@
       </h1>
       <!-- TEXT DETAIL -->
       <div class="fl-main--detail">
-        <p>
+        <p style="margin-bottom: 12px">
           Kecemasan akan perpisahan adalah suatu kondisi dimana seseorang merasa
           sangat takut atau tertekan ketika dipisahkan dari keterikatan
           emosional, seperti orang tua, orang yang dicintai, atau tempat yang
@@ -135,7 +135,7 @@
           dan biasanya semakin mudah seiring berjalannya waktu.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Ketika kecemasan akan perpisahan terjadi pada anak-anak yang lebih
           besar, remaja, atau orang dewasa, atau ketika hal itu menyebabkan
           kecemasan yang melemahkan, itu dianggap sebagai Separation Anxiety
@@ -152,27 +152,28 @@
         </p>
 
         <h2>Perasaan Cemas</h2>
-        <p>
+        <p style="margin-top: 12px;margin-bottom: 16px">
           Pernahkah kamu bertanya-tanya mengapa bayi suka bermain cilukba? Itu
           semua berkaitan dengan ketetapan objek. Sebelum bayi memahami
           ketetapan objek, benda (dan orang) benar-benar "tidak terlihat, di
           luar pikiran".
         </p>
         <img src="img/education_p2m1_body_a.png" />
-        <p>
+        
+        <p style="margin-bottom: 12px">
           Pada sekitar usia 8 bulan, bayi mulai mengembangkan kepribadian dan
           mulai mempelajari ketetapan objek, namun tidak sepenuhnya memahami
           kompleksitasnya.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Mereka tahu bahwa mereka individu yang berbeda dari orang lain, dan
           mereka memahami bahwa orang tua atau sosok yang mereka cintai nyata.
           Bahkan saat kehadiran orang tua mereka ‘menghilang’, namun mereka
           tidak selalu meyakini bahwa sosok itu akan kembali.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Tahap perkembangan ini biasanya dimulai saat bayi berusia sekitar 8
           bulan dan dapat berlangsung hingga berusia 3 atau 4 tahun. Kecemasan
           ini pun dapat muncul kembali, bahkan saat mereka mengenal dan
@@ -182,11 +183,12 @@
           begitu orang tuanya pergi.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Saat seorang anak menjadi dewasa secara emosional, dan mulai percaya
           bahwa orang yang pergi akan kembali, kecemasan akan perpisahan
           cenderung akan menghilang dengan sendirinya.
         </p>
+
         <img src="img/education_p2m1_body_b.png" />
         <p>
           Meskipun kecemasan akan perpisahan adalah bagian normal dari
@@ -201,7 +203,7 @@
 
         <h2>Gejala</h2>
 
-        <p>
+        <p style="margin-top: 12px">
           Setiap anak pernah mengalami "kehancuran", bahkan anak yang lebih
           besar sekalipun. Luapan emosi yang terjadi sesekali tidak menunjukkan
           gejala SAD. SAD dicirikan dengan emosi dan perilaku yang terus-menerus
@@ -210,43 +212,43 @@
           nenek.
         </p>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Gejala umumnya, meliputi:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>Terjadi kesedihan terkait perpisahan</li>
-          <li>
+          <li style="margin-bottom: 8px">Terjadi kesedihan terkait perpisahan</li>
+          <li style="margin-bottom: 8px"> 
             Kekhawatiran berlebih akan kehilangan atau bahaya yang datang pada
             seorang sosok penting dalam hidup
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Khawatir suatu peristiwa akan menyebabkan perpisahan dengan seorang
             sosok penting
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Keengganan atau penolakan untuk pergi ke tempat-tempat penting
             seperti sekolah
           </li>
-          <li>Takut sendirian atau tanpa sosok penting</li>
-          <li>Keengganan untuk menjauh dari sosok penting</li>
-          <li>Bermimpi buruk tentang perpisahan</li>
+          <li style="margin-bottom: 8px">Takut sendirian atau tanpa sosok penting</li>
+          <li style="margin-bottom: 8px">Keengganan untuk menjauh dari sosok penting</li>
+          <li style="margin-bottom: 8px">Bermimpi buruk tentang perpisahan</li>
           <li>Gejala fisik yang berhubungan dengan perpisahan</li>
         </ul>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Rasa cemas ini pun dapat bermanifestasi dalam gejala fisik, seperti:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>Sakit kepala</li>
-          <li>Sakit perut</li>
-          <li>Mual</li>
-          <li>Muntah</li>
+          <li style="margin-bottom: 8px">Sakit kepala</li>
+          <li style="margin-bottom: 8px">Sakit perut</li>
+          <li style="margin-bottom: 8px">Mual</li>
+          <li style="margin-bottom: 8px">Muntah</li>
           <li>Ngompol</li>
         </ul>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Sekolah adalah penyebab stres utama bagi anak-anak lebih tua yang
           mengidap SAD. Anak yang lebih besar atau remaja mungkin menunjukkan
           perilaku khusus seperti pura-pura sakit atau mengalami sakit kepala,
@@ -262,37 +264,37 @@
           mereka cintai.
         </p>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Anak yang lebih besar dan mengidap SAD, dapat mengalami:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>Mudah cemas jika sendirian di dalam ruangan</li>
-          <li>
+          <li style="margin-bottom: 8px">Mudah cemas jika sendirian di dalam ruangan</li>
+          <li style="margin-bottom: 8px">
             Khawatir secara berlebih tentang sesuatu yang terjadi pada diri
             mereka, orang tua, atau orang yang mereka cintai
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Tetap berusaha berada dekat dengan orang tua, bahkan saat di dalam
             rumah
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Memiliki ketakutan yang berlebihan dan tidak rasional terhadap
             hal-hal seperti kegelapan, monster, atau pencuri
           </li>
-          <li>Kesulitan tidur</li>
+          <li style="margin-bottom: 16px">Kesulitan tidur</li>
         </ul>
 
         <img src="img/education_p2m1_body_c.png" />
 
-        <p>
+        <p style="margin-bottom: 12px">
           Sedangkan gangguan kecemasan akan perpisahan pada orang dewasa (ASAD)
           bisa merugikan. ASAD dapat menyebabkan masalah terkait kinerja
           pekerjaan, termasuk kurangnya konsentrasi, datang terlambat atau
           meninggalkan kekhawatiran, atau kesulitan mempertahankan pekerjaan.
         </p>
 
-        <p>
+        <p style="margin-bottom: 12px">
           Orang dengan ASAD mungkin juga mengalami kesulitan terkait hubungan
           sosial dan romantis. Seringkali, sosok yang dianggap penting olehnya
           menjadi tertekan atau terganggu oleh kebutuhannya sebagai pengidap
@@ -309,7 +311,7 @@
 
         <h2>Identifikasi</h2>
 
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 8px">
           Untuk diagnosis SAD, baik orang dewasa maupun anak-anak harus memenuhi
           tiga dari delapan kondisi yang diuraikan dalam DSM-5. Untuk dapat
           didiagnosis SAD, anak-anak harus menunjukkan gejala setidaknya selama
@@ -317,7 +319,7 @@
           mengganggu fungsi kehidupan setidaknya selama enam bulan.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Untuk mendiagnosis orang dewasa dengan SAD, penyedia layanan kesehatan
           mengandalkan pelaporan mandiri. Sedangkan pada anak-anak, tidak dapat
           dinilai secara valid dengan cara yang sama, orang tua dan penyedia
@@ -336,13 +338,13 @@
 
         <h2>Hal yang Bisa Kamu Lakukan</h2>
 
-        <p>
+        <p style="margin-top: 12px; margin-bottom: 12px">
           Entah kecemasan akan perpisahan yang berkembang secara normal ataupun
           SAD, perpisahan tetaplah hal yang sulit bagi anak-anak dan orang tua
           mereka.
         </p>
 
-        <p>
+        <p style="margin-bottom: 16px">
           Memiliki hubungan yang baik dengan orang tua akan sangat membantu
           dalam hal kecemasan akan perpisahan dan SAD. Untuk mendorong
           keterikatan yang baik sejak awal, jagalah lingkungan yang mendukung,
@@ -357,17 +359,17 @@
           penanganan kecemasan dapat memberi manfaat.
         </p>
 
-        <div class="text__headline text__neutral-black">
+        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
           Beberapa strategi tersebut, meliputi:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li>
+          <li style="margin-bottom: 8px">
             Strategi mengatasi 'sosial', berpartisipasi pada kegiatan sosial,
             terhubung dengan keluarga dan teman, dan mintalah dukungan saat kamu
             membutuhkannya atau hubungi komunitas kecemasan.
           </li>
-          <li>
+          <li style="margin-bottom: 8px">
             Strategi mengatasi 'emosi', pelajari mindfulness, pelajari pemicu
             emosimu, dan berlatih bersyukur.
           </li>

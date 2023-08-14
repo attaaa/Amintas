@@ -6,19 +6,11 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       ABC dan D
     </h1>
-    <p class="text__body text__neutral-black">
-      Strategi kedua adalah suatu strategi tentang bagaimana menyeimbangkan
-      pikiran kita, dari pikiran negatif yang berusaha mempengaruhi. Terkadang,
-      kita merasa dibombardir dengan berbagai pikiran negatif di kepala kita.
-      Salah satu hal yang akan sangat membantu untuk menyeimbangkankannya, yaitu
-      dengan secara sadar mengingat hal-hal positif yang terjadi dan mengakui
-      kemampuan kita. Berfokus pada hal itu, akan mendorong kita mengurangi
-      perasaan negatif dan membantu kita meningkatkan kepercayaan diri.
-      Kepercayaan diri tentu sangat diperlukan untuk menjaga perasaan bahagia
-      kita.
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
+      Strategi ketiga adalah suatu strategi tentang bagaimana kita dapat berusaha objektif, dan tidak terpengaruh pada pikiran negatif yang berusaha mempengaruhi perasaan. Dalam strategi ini, agar tetap dapat objektif kita perlu mengadaptasi Analisis ABC yang telah kita pelajari sebelumnya. Kita akan menambahkan "D: Disputation" atau perdebatan. 
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Kita akan berperan layaknya seorang pengacara yang menantang saksi dengan
       mengajukan pertanyaan, untuk menemukan kebenaran yang sebenarnya. Pada
       praktekknya, kita akan membantah pikiran negatif dengan melemparkan
@@ -36,20 +28,20 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi3_materi3_body1.png" />
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 12px">
       “Bagaimana cara lain menilai situasi ini?
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 12px">
       "Jika dampaknya tidak terlalu buruk, lalu mengapa aku memandang situasi
       ini secara negatif?"
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 12px">
       "Bagaimana orang lain memandang peristiwa yang kualami ini?"
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 12px">
       “Secara realistis, apakah hal itu memang mungkin terjadi?”
     </p>
 

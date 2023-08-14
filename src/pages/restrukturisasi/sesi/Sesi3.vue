@@ -6,7 +6,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Sesi 3: Menantang Pikiran
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 24px">
       Setelah memahami pengaruh pikiran pada perasaanmu, dan mengenal bagaimana
       bentuk pikiran mengganggu. Pada bagian terakhir ini, kita akan belajar
       bagaimana menghadapinya, aku akan memberitahumu beberapa strategi yang

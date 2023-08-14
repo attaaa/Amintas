@@ -3,7 +3,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Jenis Distorsi Kognitif
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Setelah sebelumnya sempat aku perkenalkan salah satu jenis pola pikir
       negatif, sekarang kita akan mempelajari berbagai jenis yang lain. Pola
       pikir negatif sendiri biasanya disebut juga dengan istilah distorsi
@@ -16,7 +16,7 @@
       Adapun berbagai jenisnya, sebagai berikut:
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3">All-or-None Thinking</span>
       <div class="informasi-title--decor" />
     </div>
@@ -30,7 +30,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body1.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh:
     </h3>
 
@@ -39,7 +39,7 @@
       pada suatu ujian, kamu mendapatkan nilai B.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -47,7 +47,7 @@
       "Sekarang, saya gagal total"
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3">Overgeneralization</span>
       <div class="informasi-title--decor" />
     </div>
@@ -61,7 +61,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body2.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh:
     </h3>
 
@@ -71,7 +71,7 @@
       sopan.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -80,7 +80,7 @@
       akan kesepian dan menyedihkan seumur hidup!"
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3">Mental Filter</span>
       <div class="informasi-title--decor" />
     </div>
@@ -94,7 +94,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body3.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh:
     </h3>
 
@@ -103,7 +103,7 @@
       ada. Keluar ruangan ujian, kamu selalu memusingkan 12 pertanyaan itu.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -117,7 +117,7 @@
       siswa.
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3">Disqualifying the Positive</span>
       <div class="informasi-title--decor" />
     </div>
@@ -129,7 +129,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body4.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh:
     </h3>
 
@@ -138,7 +138,7 @@
       penampilanmu kala itu
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -146,11 +146,12 @@
       “Pujiannya tidak bermakna. Dia hanya berusaha bersikap baik.”
     </p>
 
-    <h2 class="text__title-3 text__neutral-black">
-      Jumping to Conclusions
-    </h2>
+    <div class="informasi-title" style="margin-bottom: 8px">
+      <span class="text__title-3">Jumping to Conclusions</span>
+      <div class="informasi-title--decor" />
+    </div>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Seseorang dengan pola pikir seperti ini akan membuat kesimpulan negatif
       yang tidak berdasarkan oleh fakta. Ada 2 bentuk pola pikir seperti ini,
       yaitu 'Mind Reading' dan 'Fortune Teller Error'.
@@ -166,7 +167,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body5.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Mind Reading':
     </h3>
 
@@ -175,15 +176,15 @@
       menyapa.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 24px">
       “Dia tidak mempedulikanku, pasti dia tidak suka berteman denganku.”
     </p>
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Fortune Teller Error':
     </h3>
 
@@ -192,7 +193,7 @@
       menyapanya.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -201,7 +202,7 @@
       berisik dan tidak sopan. Hanya akan membuat diriku terlihat konyol.”
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3"> Magnification & Minimisation</span>
       <div class="informasi-title--decor" />
     </div>
@@ -216,7 +217,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body6.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Magnification':
     </h3>
 
@@ -225,15 +226,15 @@
       memperbesar dampaknya.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 24px">
       "Ini kacau! Semua orang akan mengira aku penipu, hidupku hancur!"
     </p>
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Minimisation':
     </h3>
 
@@ -242,7 +243,7 @@
       dengan memperkecil kemampuanmu
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -250,7 +251,7 @@
       "Hal itu tidak dianggap, aku pasti hanya sedang beruntung”
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3"> Emotional Reasoning</span>
       <div class="informasi-title--decor" />
     </div>
@@ -264,7 +265,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body7.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh:
     </h3>
 
@@ -272,7 +273,7 @@
       Sesuatu hal yang buruk baru saja menimpa teman dekatmu.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -280,11 +281,12 @@
       “Aku merasa bersalah. Pasti aku telah melakukan sesuatu yang buruk"
     </p>
 
-    <h2 class="text__title-3 text__neutral-black">
-      Should Statements
-    </h2>
+    <div class="informasi-title" style="margin-bottom: 8px">
+      <span class="text__title-3"> Should Statements</span>
+      <div class="informasi-title--decor" />
+    </div>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Seseorang dengan pola pikir seperti ini, cenderung memiliki ekspektasi
       yang tinggi akan dirinya maupun orang lain. Mereka mendorong diri sendiri
       untuk 'harus' mampu melakukan sesuatu, dan memberikan penilaian terhadap
@@ -300,7 +302,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body8.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Should' untuk diri sendiri:
     </h3>
 
@@ -308,15 +310,15 @@
       Kamu lupa jika harus menemui temanmu tepat jam 5 sore ini.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 24px">
       “Aku harusnya tidak egois dan sembrono melupakannya seperti ini”
     </p>
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Should' untuk orang lain:
     </h3>
 
@@ -325,7 +327,7 @@
       sudah dimulai daritadi.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -334,12 +336,12 @@
       waktu”
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3"> Labeling and Mislabeling</span>
       <div class="informasi-title--decor" />
     </div>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Seseorang dengan pola pikir seperti ini, memberikan citra diri negatif
       berdasarkan kesalahan atau kegagalan mereka. Bentuk overgeneralization
       yang berlebihan, dan seringkali kita ucapkan tanpa sadar dengan awal
@@ -356,7 +358,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body9.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Labeling':
     </h3>
 
@@ -365,15 +367,15 @@
       gugur.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
-    <p class="text__special-body">
+    <p class="text__special-body" style="margin-bottom: 24px">
       “Aku adalah seorang pecundang”
     </p>
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh 'Mislabeling':
     </h3>
 
@@ -382,7 +384,7 @@
       diri dan malah memakan es krim dengan lahap.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 
@@ -391,7 +393,7 @@
       babi"
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 8px">
       <span class="text__title-3">Personalization</span>
       <div class="informasi-title--decor" />
     </div>
@@ -405,7 +407,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi2_materi1_body10.png" />
 
-    <h3 class="text__headline text__neutral-black" style="margin-bottom: 12px">
+    <h3 class="text__headline text__neutral-black" style="margin-bottom: 4px">
       Contoh:
     </h3>
 
@@ -414,7 +416,7 @@
       kamu sempat membantunya berlatih dan mempersiapkan diri.
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pikiran di kepalamu pun spontan muncul seperti ini:
     </p>
 

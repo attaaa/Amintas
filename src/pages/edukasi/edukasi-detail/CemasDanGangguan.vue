@@ -44,17 +44,17 @@
           class="material-item flex items-center"
           @click="$router.push('/materi/detail/p1m1')"
         >
-          <img src="img/education_display_mat1.png" />
+          <img src="img/education_display_mat1_p1m1.png" />
           <div class="text__headline text__primary">
             Cemas dan Gangguan Kecemasan
           </div>
         </div>
         <div class="material-item flex items-center">
-          <img src="img/education_display_mat2.png" />
+          <img src="img/education_display_mat1_p1m2.png" />
           <div class="text__headline text__primary">Gejala Umum Kecemasan</div>
         </div>
         <div class="material-item flex items-center">
-          <img src="img/education_display_mat3.png" />
+          <img src="img/education_display_mat1_p1m3.png" />
           <div class="text__headline text__primary">
             Cemas dan Mahasiswa
           </div>

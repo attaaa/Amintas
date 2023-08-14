@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    :hasChanges="hasChanges"
     backPath="/restrukturisasi/sesi1"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
@@ -15,7 +16,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Identifikasi Pikiran Negatif
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pada latihan pertama ini, kamu diminta untuk mengidentifikasi pikiran yang
       muncul dalam kepalamu berdasarkan suatu peristiwa. Coba renungi dengan
       seksama, jika skenario ini benar terjadi padamu dan melibatkan teman
@@ -26,11 +27,11 @@
       coba identifikasi faktor yang melatarbelakangi pikiran negatif tersebut!
     </p>
 
-    <div class="informasi-title">
+    <div class="informasi-title" style="margin-bottom: 12px">
       <span class="text__title-3">Skenario</span>
       <div class="informasi-title--decor" />
     </div>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Seorang teman meminta bantuanmu untuk mempersiapkan wawancara magang di
       perusahaan favoritnya. Kamu membantunya semalam suntuk mempersiapkan
       berbagai hal, agar dia berhasil besok pagi.
@@ -49,25 +50,31 @@
     <template v-if="!latihanFinished">
       <div class="latihan-form">
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Pikiran
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
-            v-model="pikiran"
+            v-model="form.pikiran"
             class="q-mt-sm"
             placeholder="Pikiran negatif yang muncul"
           />
         </div>
         <div>
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Faktor Pikiran
           </label>
           <Picker
             placeholder="Pilih faktor pikiran yang teridentifikasi"
             :options="options"
             :disabled="formDisabled"
-            :value="selectedOptionsIdx"
+            :value="form.selectedOptionsIdx"
             @input="selectOption"
             @unSelect="unSelectOption"
             class="q-mt-sm"
@@ -91,6 +98,7 @@ import Picker from "src/components/inputs/Picker";
 import TextAreaCustom from "src/components/inputs/TextAreaCustom";
 //
 import Latihan1View from "src/components/restrukturisasi/sesi1/latihan1/Latihan1View";
+import _ from "lodash";
 
 const faktorPikiranList = [
   {
@@ -122,30 +130,36 @@ export default {
       options: faktorPikiranList,
 
       // form data
-      pikiran: "",
-      selectedOptionsIdx: []
+      form: {
+        pikiran: "",
+        selectedOptionsIdx: []
+      }
     };
   },
+
   computed: {
+    storeObj() {
+      return this.$store.state.restrukturisasi.sesi1Latihan1;
+    },
     formDisabled() {
       return !this.$store.state.restrukturisasi.statusLatihan.sesi1
         .latihan1Form;
     },
     showSecondaryAction() {
-      return (
-        !this.$store.state.restrukturisasi.statusLatihan.sesi1
-          .latihan1Finished &&
-        (!!this.pikiran || this.selectedOptionsIdx.length > 0)
-      );
+      return !this.latihanFinished && !this.formDisabled;
     },
     activeDoneButton() {
-      return !!this.pikiran && this.selectedOptionsIdx.length > 0;
+      return !!this.form.pikiran && this.form.selectedOptionsIdx.length > 0;
     },
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi1
         .latihan1Finished;
+    },
+    hasChanges() {
+      return !_.isEqual(this.storeObj, this.form);
     }
   },
+
   methods: {
     showAktivasiLatihan() {
       this.$refs.popUpAktifkan.setState("open");
@@ -169,12 +183,12 @@ export default {
     },
     // main
     selectOption(optionId) {
-      const temp = [...this.selectedOptionsIdx];
-      this.selectedOptionsIdx = [...temp, optionId];
+      const temp = [...this.form.selectedOptionsIdx];
+      this.form.selectedOptionsIdx = [...temp, optionId];
     },
     unSelectOption(optionId) {
-      const idx = this.selectedOptionsIdx.indexOf(optionId);
-      if (idx !== -1) this.selectedOptionsIdx.splice(idx, 1);
+      const idx = this.form.selectedOptionsIdx.indexOf(optionId);
+      if (idx !== -1) this.form.selectedOptionsIdx.splice(idx, 1);
     },
     saveData() {
       this.$store.commit("restrukturisasi/setLatihanData", {
@@ -193,10 +207,7 @@ export default {
       // save data first
       this.$store.commit("restrukturisasi/setLatihanData", {
         sesiLatihan: "sesi1Latihan1",
-        data: {
-          pikiran: this.pikiran,
-          selectedOptionsIdx: this.selectedOptionsIdx
-        }
+        data: JSON.parse(JSON.stringify(this.form))
       });
 
       // set status to finished
@@ -223,11 +234,12 @@ export default {
   },
   mounted() {
     // get saved data if exist
-    const savedData = this.$store.state.restrukturisasi.sesi1Latihan1;
-    if (savedData) {
-      this.pikiran = savedData.pikiran;
-      this.selectedOptionsIdx = savedData.selectedOptionsIdx;
-    }
+    this.form = JSON.parse(JSON.stringify(this.storeObj));
+    // const savedData = this.$store.state.restrukturisasi.sesi1Latihan1;
+    // if (savedData) {
+    //   this.pikiran = savedData.pikiran;
+    //   this.selectedOptionsIdx = savedData.selectedOptionsIdx;
+    // }
   }
 };
 </script>

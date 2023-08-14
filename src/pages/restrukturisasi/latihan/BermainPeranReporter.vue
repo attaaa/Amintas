@@ -8,6 +8,7 @@
     :activeDoneButton="activeDoneButton"
     :handleSave="saveData"
     :handleDone="doneLatihan"
+    :hasChanges="hasChanges"
     backPath="/restrukturisasi/sesi3"
     @aktivasiLatihan="aktivasiLatihan()"
     @selesaikanLatihan="selesaikanLatihan()"
@@ -15,7 +16,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Bermain Peran: Reporter
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Pada latihan ini, kamu diminta untuk menjabarkan satu peristiwa yang
       memicu perasaan negatifmu, beserta pikiran negatif yang mempengaruhi
       perasaan tersebut. Kamu boleh menggunakan catatan dari latihan di sesi
@@ -38,50 +39,62 @@
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Peristiwa dan Perasaan
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan.peristiwa"
             class="q-mt-sm"
-            placeholder="Peristiwa yang memicu perasaanmu"
+            placeholder="Peristiwa pemicu dan perasaanmu"
           />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Pikiran Negatif
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan.pikiranNegatif"
             class="q-mt-sm"
-            placeholder="Pikiran yang memicu perasaanmu"
+            placeholder="Pikiran negatif yang muncul"
           />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Fakta
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan.fakta"
             class="q-mt-sm"
-            placeholder="Perasaan negatif yang mengganggu"
+            placeholder="Kebenaran dari peristiwa yang terjadi"
           />
         </div>
 
         <div class="q-mb-md ">
-          <label class="text__title-4 text__neutral-black">
+          <label
+            class="text__title-4 text__neutral-black"
+            style="margin-bottom: 8px"
+          >
             Kesimpulan
           </label>
           <TextAreaCustom
             :disabled="formDisabled"
             v-model="form.catatan.kesimpulan"
             class="q-mt-sm"
-            placeholder="Perasaan negatif yang mengganggu"
+            placeholder="Simpulan perbedaan yang teridentifikasi"
           />
         </div>
       </div>
@@ -130,7 +143,7 @@ export default {
         .latihan1Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished;
+      return !this.latihanFinished && !this.formDisabled;
       // return !_.isEqual(this.storeObj, this.form) && !this.formDisabled;
     },
     activeDoneButton() {
@@ -145,6 +158,9 @@ export default {
     latihanFinished() {
       return this.$store.state.restrukturisasi.statusLatihan.sesi3
         .latihan1Finished;
+    },
+    hasChanges() {
+      return !_.isEqual(this.storeObj, this.form);
     }
   },
   methods: {

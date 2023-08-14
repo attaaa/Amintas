@@ -153,6 +153,10 @@ export default {
   }
 }
 
+.home-card--text {
+  width: 150px;
+}
+
 .home-card--img {
   position: absolute;
   top: 0;

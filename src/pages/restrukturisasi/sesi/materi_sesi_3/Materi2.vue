@@ -6,7 +6,7 @@
     <h1 class="text__title-2 text__primary q-ma-none q-mt-md q-mb-sm">
       Menjaga Keseimbangan Pikiran
     </h1>
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Strategi kedua adalah suatu strategi tentang bagaimana menyeimbangkan
       pikiran kita, dari pikiran negatif yang berusaha mempengaruhi. Terkadang,
       kita merasa dibombardir dengan berbagai pikiran negatif di kepala kita.
@@ -24,10 +24,9 @@
       jurnal Jane yang dapat kita pelajari, yuk perhatikan penjabarannya!
     </p>
 
-    <div class="informasi-title">
-      <span class="text__title-3">Jurnal Jane:</span>
-      <div class="informasi-title--decor" />
-    </div>
+    <h2 class="text__headline text__neutral-black" style="margin-bottom: 4px">
+      Jurnal Jane
+    </h2>
 
     <p class="text__body text__neutral-black">
       Jane dan kelompoknya di kelas, gagal menyelesaikan tugas kuliah tepat
@@ -36,7 +35,7 @@
 
     <img class="img-body" src="img/restrukturisasi/sesi3_materi2_body1.png" />
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Jane berusaha mengingat hal positif yang terjadi dan berpikir seperti ini:
     </p>
 
@@ -47,7 +46,7 @@
       berubah dan jadi lebih mempercayai teman-temanku."
     </p>
 
-    <p class="text__body text__neutral-black">
+    <p class="text__body text__neutral-black" style="margin-bottom: 12px">
       Hal itu, mengurangi pengaruh pikiran negatif dari distorsi kognitif
       magnification yang mungkin dapat muncul mempengaruhi perasaannya. Pikiran
       negatif yang mungkin akan muncul seperti ini:
