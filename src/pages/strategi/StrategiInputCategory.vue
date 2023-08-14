@@ -108,7 +108,7 @@ export default {
         ...this.strategiInputData,
         category: this.selectedPemicu
       });
-      this.$router.push("/strategi/input-story1");
+      this.$router.push("/strategi/input-story1-name");
     },
 
     tinggalkanHalaman() {

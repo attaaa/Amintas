@@ -143,9 +143,19 @@ const routes = [
         path: "input-category",
         component: () => import("src/pages/strategi/StrategiInputCategory.vue")
       },
+      // {
+      //   path: "input-story1",
+      //   component: () => import("src/pages/strategi/StrategiInputStory1.vue")
+      // },
       {
-        path: "input-story1",
-        component: () => import("src/pages/strategi/StrategiInputStory1.vue")
+        path: "input-story1-name",
+        component: () =>
+          import("src/pages/strategi/StrategiInputStory1Name.vue")
+      },
+      {
+        path: "input-story1-detail",
+        component: () =>
+          import("src/pages/strategi/StrategiInputStory1Detail.vue")
       },
       {
         path: "input-story2",
