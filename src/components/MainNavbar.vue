@@ -218,7 +218,7 @@ export default {
       window.plugins.CallNumber.callNumber(
         this.onSuccessCall,
         this.onErrorCall,
-        "3636",
+        "085222399981",
         false
       );
     },
