@@ -45,13 +45,18 @@ export default {
   name: "JournalInputEmotion",
   components: { ButtonToggle, JournalEmotionPicker },
   props: {
-    selectedEmotion: Array
+    selectedEmotion: Array,
+    moodState: String
   },
   data() {
     return {
       emotionState: "negatif",
       selectedEmotionNegatif: false
     };
+  },
+  mounted() {
+    if (this.moodState === "baik" || this.moodState === "sangat baik")
+      this.emotionState = "positif";
   },
   methods: {
     goBack() {

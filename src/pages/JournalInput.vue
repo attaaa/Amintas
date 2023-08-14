@@ -11,6 +11,7 @@
         v-else-if="inputState === 'emotion'"
         class="full-height"
         :selected-emotion="journalData.emotions"
+        :mood-state="journalData.mood"
         @select-emotion-negatif="selectEmotionNegatif"
         @choose-emotion="selectEmotion"
         @go-back="goBack()"
@@ -267,6 +268,15 @@ export default {
       if (idx === this.inputStateList.length - 1) {
         this.$refs.popupSubmit.$refs.popup.setState("open");
         return;
+      }
+
+      // check if mood negatif selected to show journal input identifikasi
+      if (
+        this.inputState === "mood" &&
+        (this.journalData.mood === "baik" ||
+          this.journalData.mood === "sangat baik")
+      ) {
+        this.inputStateList.splice(3, 1);
       }
 
       this.inputState = this.inputStateList[idx + 1];
