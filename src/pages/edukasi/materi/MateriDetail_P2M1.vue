@@ -159,7 +159,7 @@
           luar pikiran".
         </p>
         <img src="img/education_p2m1_body_a.png" />
-        
+
         <p style="margin-bottom: 12px">
           Pada sekitar usia 8 bulan, bayi mulai mengembangkan kepribadian dan
           mulai mempelajari ketetapan objek, namun tidak sepenuhnya memahami
@@ -212,13 +212,18 @@
           nenek.
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Gejala umumnya, meliputi:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li style="margin-bottom: 8px">Terjadi kesedihan terkait perpisahan</li>
-          <li style="margin-bottom: 8px"> 
+          <li style="margin-bottom: 8px">
+            Terjadi kesedihan terkait perpisahan
+          </li>
+          <li style="margin-bottom: 8px">
             Kekhawatiran berlebih akan kehilangan atau bahaya yang datang pada
             seorang sosok penting dalam hidup
           </li>
@@ -230,13 +235,20 @@
             Keengganan atau penolakan untuk pergi ke tempat-tempat penting
             seperti sekolah
           </li>
-          <li style="margin-bottom: 8px">Takut sendirian atau tanpa sosok penting</li>
-          <li style="margin-bottom: 8px">Keengganan untuk menjauh dari sosok penting</li>
+          <li style="margin-bottom: 8px">
+            Takut sendirian atau tanpa sosok penting
+          </li>
+          <li style="margin-bottom: 8px">
+            Keengganan untuk menjauh dari sosok penting
+          </li>
           <li style="margin-bottom: 8px">Bermimpi buruk tentang perpisahan</li>
           <li>Gejala fisik yang berhubungan dengan perpisahan</li>
         </ul>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Rasa cemas ini pun dapat bermanifestasi dalam gejala fisik, seperti:
         </div>
         <!--Numbering Bullet Atta -->
@@ -264,12 +276,17 @@
           mereka cintai.
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Anak yang lebih besar dan mengidap SAD, dapat mengalami:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li style="margin-bottom: 8px">Mudah cemas jika sendirian di dalam ruangan</li>
+          <li style="margin-bottom: 8px">
+            Mudah cemas jika sendirian di dalam ruangan
+          </li>
           <li style="margin-bottom: 8px">
             Khawatir secara berlebih tentang sesuatu yang terjadi pada diri
             mereka, orang tua, atau orang yang mereka cintai
@@ -359,7 +376,10 @@
           penanganan kecemasan dapat memberi manfaat.
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Beberapa strategi tersebut, meliputi:
         </div>
         <!--Numbering Bullet Atta -->
@@ -405,7 +425,7 @@
             Sumber
           </template> -->
           <template v-slot:content="">
-            <p>
+            <p style="margin-bottom: 0">
               Materi adalah hasil saduran artikel asli berjudul “What is
               Separation Anxiety?”, yang telah dipublikasi pada laman Verywell
               Mind.

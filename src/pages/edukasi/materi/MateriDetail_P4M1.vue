@@ -304,7 +304,10 @@
 
         <img src="img/education_p4m1_body_e.png" />
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Beberapa tanda bahwa mungkin kamu perlu bertemu psikoterapis,
           diantaranya:
         </div>
@@ -367,20 +370,30 @@
         <img src="img/education_p4m1_body_f.png" />
 
         <p>
-          Psikoterapi merupakan seni dan sains. Jika sesimu tidak terasa membantu, atau sepertinya kamu tidak "cocok" dengan terapismu, maka tidak masalah untuk mencoba terapi dengan orang lain. Teruslah mencari sampai kamu menemukan seorang ahli yang cocok dan nyaman.
+          Psikoterapi merupakan seni dan sains. Jika sesimu tidak terasa
+          membantu, atau sepertinya kamu tidak "cocok" dengan terapismu, maka
+          tidak masalah untuk mencoba terapi dengan orang lain. Teruslah mencari
+          sampai kamu menemukan seorang ahli yang cocok dan nyaman.
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Saat kamu mengevaluasi psikoterapis potensial, pertimbangkan hal
           berikut:
         </div>
         <!--Numbering Bullet Atta -->
         <ul>
-          <li style="margin-bottom: 8px">Apakah terapis tampak profesional dan handal?</li>
+          <li style="margin-bottom: 8px">
+            Apakah terapis tampak profesional dan handal?
+          </li>
           <li style="margin-bottom: 8px">
             Apakah kamu merasa nyaman menceritakan perasaan dan pengalamanmu?
           </li>
-          <li style="margin-bottom: 8px">Apakah kamu menyukai gaya percakapan terapis itu?</li>
+          <li style="margin-bottom: 8px">
+            Apakah kamu menyukai gaya percakapan terapis itu?
+          </li>
           <li style="margin-bottom: 8px">
             Apakah kamu puas dengan tingkat interaksimu dengan terapis itu?
           </li>
@@ -422,7 +435,7 @@
             Sumber
           </template> -->
           <template v-slot:content="">
-            <p>
+            <p style="margin-bottom: 0">
               Materi adalah hasil saduran artikel asli berjudul “How
               Psyhoteraphy is Used to Treat Disorders”, yang telah dipublikasi
               pada laman Verywell Mind.

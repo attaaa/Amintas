@@ -162,7 +162,10 @@
         </p>
         <img src="img/education_p3m1_body_a.png" />
 
-        <div class="text__title-4 text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__title-4 text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Kriteria untuk Mendiagnosis GAD
         </div>
         <p style="margin-bottom: 12px">
@@ -170,7 +173,10 @@
           terkait kriterianya.
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Adapun kriteria tersebut, antara lain:
         </div>
         <!--Numbering Bullet Atta -->
@@ -323,7 +329,7 @@
             Sumber
           </template> -->
           <template v-slot:content="">
-            <p>
+            <p style="margin-bottom: 0">
               Materi adalah hasil saduran artikel asli berjudul “Generalized
               Anxiety Disorder: Symptoms and Diagnosis”, yang telah dipublikasi
               pada laman Verywell Mind.

@@ -138,7 +138,7 @@
           lebih cepat dari biasanya.
         </p>
 
-        <h2>Cara Kerja 4-7-8 </h2>
+        <h2>Cara Kerja 4-7-8</h2>
         <p style="margin-top: 12px">
           Teknik pernapasan ini dirancang untuk membawa tubuh kita masuk ke
           keadaan relaksasi yang dalam. Hal ini menggunakan pola khusus yang
@@ -173,7 +173,10 @@
           saraf."
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Konsep Teknik Pernapasan 4-7-8 dapat dipadukan dengan metode lain,
           seperti:
         </div>
@@ -231,7 +234,10 @@
           kamu dapat mencobanya jika merasa kesulitan.
         </p>
 
-        <div class="text__headline text__neutral-black" style="margin-bottom: 8px">
+        <div
+          class="text__headline text__neutral-black"
+          style="margin-bottom: 8px"
+        >
           Langkah-langkah berikut harus dilakukan dalam siklus satu napas:
         </div>
 
@@ -283,7 +289,7 @@
             Sumber
           </template> -->
           <template v-slot:content="">
-            <p>
+            <p style="margin-bottom: 0">
               Materi adalah hasil saduran artikel asli berjudul “What is the
               4-7-8 Breathing Technique?”, yang telah dipublikasikan pada laman
               Healthline.

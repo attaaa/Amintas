@@ -149,7 +149,7 @@
         </p>
 
         <h2>Normal dan Bermanfaat</h2>
-        <p style="margin-top: 12px;margin-bottom: 16px">
+        <p style="margin-top: 12px; margin-bottom: 16px">
           Ada begitu banyak hal dalam keseharian yang dapat menyebabkan
           kecemasan yang normal. Hidup banyak menghadapkan kita pada pengalaman
           “untuk pertama kalinya” melakukan suatu hal, yang tentu dapat memicu
@@ -256,7 +256,7 @@
             Sumber
           </template> -->
           <template v-slot:content="">
-            <p>
+            <p style="margin-bottom: 0">
               Materi adalah hasil saduran artikel asli berjudul “Do You Have
               Normal Anxiety or a Disorder”, “What is an Anxiety Disorder”, dan
               “Anxiety Symptoms” yang telah dipublikasi pada laman Verywell
