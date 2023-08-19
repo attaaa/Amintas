@@ -152,6 +152,8 @@ const baseInputStateList = [
   "alternative"
 ];
 
+const positiveInputStateList = ["mood", "emotion", "story"];
+
 export default {
   name: "JournalInput",
   components: {
@@ -166,15 +168,7 @@ export default {
   },
   data() {
     return {
-      inputStateList: [
-        "mood",
-        "emotion",
-        "story",
-        "identification",
-        "distortion",
-        "challenge",
-        "alternative"
-      ],
+      inputStateList: positiveInputStateList,
       inputState: "mood",
       nextButtonActive: false,
       placeholder: {
@@ -215,6 +209,12 @@ export default {
     // helper for ui
     selectEmotionNegatif(state) {
       this.selectedEmotionNegatif = state;
+
+      if (!this.selectedEmotionNegatif) {
+        this.inputStateList = [...positiveInputStateList];
+      } else {
+        this.inputStateList = [...baseInputStateList];
+      }
     },
 
     selectMood(moodName) {
@@ -281,16 +281,16 @@ export default {
       }
 
       // check if mood negatif selected to show journal input identifikasi
-      if (this.inputState === "mood") {
-        this.inputStateList = [...baseInputStateList];
+      // if (this.inputState === "emotion") {
+      //   this.inputStateList = [...baseInputStateList];
 
-        if (
-          this.journalData.mood === "baik" ||
-          this.journalData.mood === "sangat baik"
-        ) {
-          this.inputStateList.splice(3, 4);
-        }
-      }
+      //   if (
+      //     this.journalData.mood === "baik" ||
+      //     this.journalData.mood === "sangat baik"
+      //   ) {
+      //     this.inputStateList.splice(3, 4);
+      //   }
+      // }
 
       this.inputState = this.inputStateList[idx + 1];
 
