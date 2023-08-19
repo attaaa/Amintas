@@ -7,7 +7,7 @@ export function formatDate(dateInput) {
     "Mei",
     "Jun",
     "Jul",
-    "Aug",
+    "Agu",
     "Sep",
     "Okt",
     "Nov",

@@ -146,7 +146,11 @@ export default {
         .latihan1Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished && !this.formDisabled;
+      return (
+        !this.latihanFinished &&
+        !this.formDisabled &&
+        (!!this.form.pikiran || this.form.selectedOptionsIdx.length > 0)
+      );
     },
     activeDoneButton() {
       return !!this.form.pikiran && this.form.selectedOptionsIdx.length > 0;
@@ -194,8 +198,8 @@ export default {
       this.$store.commit("restrukturisasi/setLatihanData", {
         sesiLatihan: "sesi1Latihan1",
         data: {
-          pikiran: this.pikiran,
-          selectedOptionsIdx: this.selectedOptionsIdx
+          pikiran: this.form.pikiran,
+          selectedOptionsIdx: this.form.selectedOptionsIdx
         }
       });
       this.$router.replace("/restrukturisasi/sesi1");
@@ -235,11 +239,6 @@ export default {
   mounted() {
     // get saved data if exist
     this.form = JSON.parse(JSON.stringify(this.storeObj));
-    // const savedData = this.$store.state.restrukturisasi.sesi1Latihan1;
-    // if (savedData) {
-    //   this.pikiran = savedData.pikiran;
-    //   this.selectedOptionsIdx = savedData.selectedOptionsIdx;
-    // }
   }
 };
 </script>

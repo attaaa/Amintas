@@ -6,6 +6,7 @@
       :handleNextAction="handleNextAction"
       :showAction="checkInputValid()"
       :showBantuan="true"
+      :onBackCallback="onBackCallback"
       title="Aktivitas atau situasi apa yang akan kamu lakukan?"
     >
       <div
@@ -23,7 +24,7 @@
             :removeDisabled="activities.length === 1"
             :key="index"
             :model="activities[index].name"
-            @input="val => (activities[index].name = val)"
+            @input="val => onInput(val, index)"
           />
         </div>
       </div>
@@ -143,7 +144,16 @@ export default {
       });
       this.$router.push("/strategi/input-level");
     },
-    onInput() {}
+    onInput(val, index) {
+      this.activities[index].name = val;
+    },
+
+    onBackCallback() {
+      this.$store.dispatch("strategi/updateInputStrategi", {
+        ...this.strategiInputData,
+        activities: [...this.activities]
+      });
+    }
   }
 };
 </script>

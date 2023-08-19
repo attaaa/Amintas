@@ -45,6 +45,8 @@ export default {
 
   &__text {
     flex-grow: 1;
+    width: calc(100% - 81.13px);
+    word-wrap: break-word;
 
     &.inactive {
       color: #a3a5a7;

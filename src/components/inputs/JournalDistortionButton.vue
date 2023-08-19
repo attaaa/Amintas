@@ -2,7 +2,7 @@
   <div class="journal-distortion-button row" :class="{ selected: isSelected }">
     <DistortionIconLoader
       :distortion-name="distortion.title"
-      :width="32"
+      :iconWidth="32"
       style="margin-right: 8px"
     />
     <div class="text col">

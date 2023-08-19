@@ -3,9 +3,9 @@
   <SwipeableBottomSheet
     ref="popup"
     default-state="close"
-    :open-top="getHeightForPopUp(420)"
+    :open-top="getHeightForPopUp(popupHeight)"
     :use-overlay="true"
-    :can-close="true"
+    :can-close="canClose"
     :use-drag-icon="false"
   >
     <div class="info-content" style="padding: 24px 16px 0;">
@@ -63,6 +63,14 @@ export default {
     img: {
       type: String,
       default: "img/popup/tinggalkan_halaman.png"
+    },
+    canClose: {
+      type: Boolean,
+      default: false
+    },
+    popupHeight: {
+      type: Number,
+      default: 420
     }
   },
   components: {

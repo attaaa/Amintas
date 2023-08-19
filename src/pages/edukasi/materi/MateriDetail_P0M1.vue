@@ -138,6 +138,9 @@
           lebih cepat dari biasanya.
         </p>
 
+        <h2>Infografis Terkait</h2>
+        <Carousel :imgList="imgList" />
+
         <h2>Cara Kerja 4-7-8</h2>
         <p style="margin-top: 12px">
           Teknik pernapasan ini dirancang untuk membawa tubuh kita masuk ke
@@ -150,7 +153,7 @@
 
         <p style="margin-bottom: 16px">
           Praktik relaksasi ini juga membantu mengembalikan keseimbangan tubuh,
-          dan mengatur respon ‘lawan-atau-lari’ yang kita rasakan saat stres
+          dan mengatur respon 'lawan-atau-lari' yang kita rasakan saat stres
           muncul. Ini akan sangat membantu jika kamu mengalami kesulitan tidur,
           akibat kecemasan atau kekhawatiran tentang apa yang terjadi hari ini,
           ataupun tentang apa yang mungkin terjadi besok. Pikiran dan
@@ -315,6 +318,18 @@
                 <div>Florida State University</div>
               </div>
             </div>
+
+            <div class="row no-wrap" style="padding-top: 8px;">
+              <img
+                src="img/education_material_author_gabriel.png"
+                style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px;"
+              />
+              <div>
+                <div>Gabrielle Juliano-Villani, LCSW</div>
+                <div>Pekerja Sosial Klinis</div>
+                <div>Metropolitan State University of Denver</div>
+              </div>
+            </div>
           </template>
         </Collapse>
 
@@ -336,6 +351,18 @@
                 <div>Touro College, California Southern University</div>
               </div>
             </div>
+
+            <div class="row no-wrap" style="padding-top: 8px;">
+              <img
+                src="img/education_material_reviewer_rayj.png"
+                style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px;"
+              />
+              <div>
+                <div>Rajy Abulhosn, MD</div>
+                <div>Konsultan Medis</div>
+                <div>University of Washington</div>
+              </div>
+            </div>
           </template>
         </Collapse>
       </div>
@@ -345,10 +372,21 @@
 
 <script>
 import Collapse from "components/strategi/Collapse.vue";
+import Carousel from "components/shared/Carousel.vue";
 
 export default {
-  name: "MateriDetial",
-  components: { Collapse }
+  name: "MateriDetial_P0M1",
+  components: { Collapse, Carousel },
+  data() {
+    return {
+      imgList: [
+        "img/infografis/infografis1.png",
+        "img/infografis/infografis2.png",
+        "img/infografis/infografis3.png",
+        "img/infografis/infografis4.png"
+      ]
+    };
+  }
 };
 </script>
 

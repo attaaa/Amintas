@@ -169,8 +169,13 @@ export default {
         .latihan2Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished && !this.formDisabled;
-      // return !_.isEqual(this.storeObj, this.form) && !this.formDisabled;
+      return (
+        !this.latihanFinished &&
+        !this.formDisabled &&
+        Object.values(this.form).some(
+          pikiran => pikiran.pernyataanPositif !== ""
+        )
+      );
     },
     activeDoneButton() {
       return Object.values(this.form).every(
@@ -252,7 +257,7 @@ export default {
   },
   mounted() {
     if (!this.formDisabled) {
-      console.log(this.storeObj);
+      // console.log(this.storeObj);
       this.form = JSON.parse(JSON.stringify(this.storeObj));
     }
   }

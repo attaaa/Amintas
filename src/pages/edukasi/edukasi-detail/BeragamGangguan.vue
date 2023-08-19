@@ -78,7 +78,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .material-item {
   padding: 12px 16px;
   margin-bottom: 8px;

@@ -143,8 +143,17 @@ export default {
         .latihan1Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished && !this.formDisabled;
-      // return !_.isEqual(this.storeObj, this.form) && !this.formDisabled;
+      return (
+        !this.latihanFinished &&
+        !this.formDisabled &&
+        Object.values(this.form).some(
+          catatan =>
+            catatan.peristiwa !== "" ||
+            catatan.pikiranNegatif !== "" ||
+            catatan.fakta !== "" ||
+            catatan.kesimpulan !== ""
+        )
+      );
     },
     activeDoneButton() {
       return Object.values(this.form).every(

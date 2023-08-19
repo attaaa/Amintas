@@ -74,13 +74,24 @@
           Instruksi Singkat:
         </div>
         <div>
-          <div style="margin-bottom: 4px">
+          <!-- <div style="margin-bottom: 4px">
             1. Menarik nafas melalui hidung selama 4 detik
           </div>
           <div style="margin-bottom: 4px">2. Menahan nafas selama 7 detik</div>
           <div style="margin-bottom: 4px">
             3. Membuang nafas melalui mulut selama 8 detik
-          </div>
+          </div> -->
+          <ol>
+            <li class="text__body" style="margin-bottom: 8px">
+              Menarik nafas melalui hidung selama 4 detik
+            </li>
+            <li class="text__body" style="margin-bottom: 8px">
+              Menahan nafas selama 7 detik
+            </li>
+            <li class="text__body" style="margin-bottom: 8px">
+              Membuang nafas melalui mulut selama 8 detik
+            </li>
+          </ol>
         </div>
       </div>
     </div>
@@ -127,10 +138,14 @@
 
   .helper {
     margin-top: 48px;
-    padding: 12px;
+    padding: 16px;
     background: #f2f6ff;
     border-radius: 8px;
   }
+}
+
+ol {
+  padding-left: 20px;
 }
 </style>
 

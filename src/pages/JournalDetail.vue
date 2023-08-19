@@ -131,31 +131,28 @@
 
       <div
         class="btn-logout text__title-4 text__alert text-center q-mb-md"
-        @click="showPopUpDelete()"
+        @click="$refs.popupDelete.$refs.popup.setState('open')"
       >
         Hapus Jurnal
       </div>
-      <PopUp ref="popUpDelete">
-        <!-- illustration -->
-        <div
-          class="placeholder-illustration flex"
-          style="height: 188px; margin: 8px;"
-        ></div>
 
-        <span
-          class="block text__primary text__title-3 full-width text-center"
-          style="margin-top: 24px; margin-bottom: 16px;"
-          >Hapus Jurnal?
-        </span>
-        <p
-          class="text__body text__neutral-dark-grey text-center"
-          style="margin-bottom: 48px"
-        >
-          Ceritamu di dalamnya jadi hilang dan jurnal akan terhapus. Apakah kamu
-          sudah yakin ingin menghapusnya?
-        </p>
-
-        <div class="pop-up--action row">
+      <!-- pop up delete -->
+      <PopupAction ref="popupDelete" img="img/popup/hapus.png">
+        <template v-slot:title>
+          Hapus Jurnal?
+        </template>
+        <template v-slot:description>
+          Ceritamu akan terhapus. Apakah kamu yakin ingin menghapus jurnal ini?
+        </template>
+        <template v-slot:action>
+          <button
+            class="btn__large btn__secondary relative-position"
+            @click="$refs.popupDelete.$refs.popup.setState('close')"
+            v-ripple
+          >
+            Batal
+          </button>
+          <div style="width: 16px;"></div>
           <button
             class="btn__large btn__alert col relative-position text-white"
             @click="delJournal()"
@@ -163,16 +160,8 @@
           >
             Hapus Jurnal
           </button>
-          <div style="width: 16px;"></div>
-          <button
-            class="btn__large btn__secondary text__primary col-auto relative-position "
-            @click="hidePopUpDelete()"
-            v-ripple
-          >
-            Tidak
-          </button>
-        </div>
-      </PopUp>
+        </template>
+      </PopupAction>
     </div>
   </div>
 </template>
@@ -196,24 +185,19 @@
 import MoodIconLoader from "components/utils/MoodIconLoader";
 import LabelMood from "components/LabelMood";
 import LabelDistortion from "components/LabelDistortion";
-import PopUp from "components/bottomsheet/PopUp";
+import PopupAction from "src/components/shared/PopupAction.vue";
 
 export default {
   name: "JournalDetail",
-  components: { MoodIconLoader, LabelMood, LabelDistortion, PopUp },
+  components: { MoodIconLoader, LabelMood, LabelDistortion, PopupAction },
   methods: {
     delJournal() {
       this.$store.dispatch("journal/delJournal", this.$route.params.id);
+      this.$store.dispatch("app/showToast", "Jurnal telah dihapus");
       this.$router.replace("/");
     },
     editJournal() {
       this.$router.replace("/journal/edit/" + this.$route.params.id);
-    },
-    showPopUpDelete() {
-      this.$refs.popUpDelete.setState("open");
-    },
-    hidePopUpDelete() {
-      this.$refs.popUpDelete.setState("close");
     }
   },
   computed: {

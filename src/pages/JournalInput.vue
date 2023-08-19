@@ -64,7 +64,7 @@
       :class="[nextButtonActive ? 'show-action' : 'hide-action']"
     >
       <button class="btn__large btn__accent full-width" @click="goNext()">
-        Lanjut
+        {{ lanjutText }}
       </button>
     </div>
 
@@ -142,6 +142,16 @@ import { generateTimeStamp } from "src/helper/generateDate";
 
 import PopupAction from "src/components/shared/PopupAction.vue";
 
+const baseInputStateList = [
+  "mood",
+  "emotion",
+  "story",
+  "identification",
+  "distortion",
+  "challenge",
+  "alternative"
+];
+
 export default {
   name: "JournalInput",
   components: {
@@ -187,7 +197,8 @@ export default {
         distortions: [],
         challenge: "",
         alternative: ""
-      }
+      },
+      lanjutText: "Lanjut"
     };
   },
   mounted() {
@@ -203,7 +214,6 @@ export default {
   methods: {
     // helper for ui
     selectEmotionNegatif(state) {
-      console.log(state);
       this.selectedEmotionNegatif = state;
     },
 
@@ -271,15 +281,25 @@ export default {
       }
 
       // check if mood negatif selected to show journal input identifikasi
-      if (
-        this.inputState === "mood" &&
-        (this.journalData.mood === "baik" ||
-          this.journalData.mood === "sangat baik")
-      ) {
-        this.inputStateList.splice(3, 1);
+      if (this.inputState === "mood") {
+        this.inputStateList = [...baseInputStateList];
+
+        if (
+          this.journalData.mood === "baik" ||
+          this.journalData.mood === "sangat baik"
+        ) {
+          this.inputStateList.splice(3, 4);
+        }
       }
 
       this.inputState = this.inputStateList[idx + 1];
+
+      if (
+        this.inputState === this.inputStateList[this.inputStateList.length - 1]
+      ) {
+        this.lanjutText = "Selesai";
+      }
+
       this.nextButtonActive = false;
 
       this.checkInputed();

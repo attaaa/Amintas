@@ -34,7 +34,7 @@ const setActivityChecked = (state, { activityIndex, checked }) => {
   state.strategiActive.activities[activityIndex].checked = checked;
   state.strategiActive.activities[activityIndex].status = "finished";
 
-  console.log("tester");
+  // console.log("tester");
 
   if (activityIndex > 0) {
     state.strategiActive.activities[activityIndex - 1].status = "active";

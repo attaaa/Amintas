@@ -66,7 +66,6 @@ export default {
       this.emotionState = state;
     },
     selectEmotionNegatif(state) {
-      console.log("select emotion negatif");
       this.$emit("select-emotion-negatif", state);
     }
   }

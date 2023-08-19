@@ -7,7 +7,7 @@
     >
       <!-- header navigation -->
       <div class="relative-position" style="padding: 16px 12px;">
-        <div @click="$router.back()">
+        <div @click="onBack()">
           <img
             src="assets/icons/general/arrow-left.svg"
             svg-inline
@@ -67,7 +67,7 @@
     >
       <q-scroll-area
         class="column "
-        style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+        style="height: 100vh; padding: 16px; padding-bottom: 0 !important; padding-top: 4px;"
       >
         <div
           class="info-content"
@@ -104,7 +104,13 @@ export default {
 
     // handler
     handleBackAction: Function,
-    handleNextAction: Function
+    handleNextAction: Function,
+
+    // function
+    onBackCallback: {
+      type: Function,
+      default: () => {}
+    }
   },
 
   data() {
@@ -154,6 +160,12 @@ export default {
 
     onPopupHelpStateChanges(state) {
       this.popupHelpState = state;
+    },
+
+    onBack() {
+      this.onBackCallback();
+
+      this.$router.back();
     }
   }
 };

@@ -34,7 +34,9 @@
           <div class="text__footnote">
             <span>{{ trigger_category[strategiData.category].title }}</span>
             <span style="margin-inline: 8px; color: #DEDEDE">|</span>
-            <span>{{ strategiData.date.split("-")[0] }}</span>
+            <span>{{
+              formatDate(new Date(strategiData.date.split("-")[0]))
+            }}</span>
           </div>
         </div>
       </div>
@@ -117,7 +119,7 @@
         default-state="close"
         :open-top="getHeightForPopUp(420)"
         :use-overlay="true"
-        :can-close="true"
+        :can-close="false"
         :use-drag-icon="false"
       >
         <div class="info-content" style="padding: 24px 16px 0;">
@@ -160,7 +162,7 @@
 
       <div
         class="btn-logout text__title-4 text__alert"
-        @click="onDeleteStrategi()"
+        @click="$refs.popupDelete.$refs.popup.setState('open')"
       >
         Hapus Strategi
       </div>
@@ -186,21 +188,49 @@
           ></div>
         </q-scroll-area>
       </SwipeableBottomSheet>
+
+      <!-- pop up delete -->
+      <PopupAction ref="popupDelete" img="img/popup/hapus.png">
+        <template v-slot:title>
+          Hapus Strategi?
+        </template>
+        <template v-slot:action>
+          <button
+            class="btn__large btn__secondary relative-position"
+            @click="$refs.popupDelete.$refs.popup.setState('close')"
+            v-ripple
+          >
+            Batal
+          </button>
+          <div style="width: 16px;"></div>
+          <button
+            class="btn__large btn__alert col relative-position text-white"
+            @click="onDeleteStrategi()"
+            v-ripple
+          >
+            Hapus Strategi
+          </button>
+        </template>
+      </PopupAction>
     </template>
   </div>
 </template>
 
 <script>
-import { TRIGGER_CATEGORY } from "src/data/strategi/StrategiModel";
 import Collapse from "src/components/strategi/Collapse.vue";
 import FearLadder from "src/components/strategi/FearLadder.vue";
 import SwipeableBottomSheet from "src/components/SwipeableBottomSheet.vue";
+import PopupAction from "src/components/shared/PopupAction.vue";
+
+import { TRIGGER_CATEGORY } from "src/data/strategi/StrategiModel";
 import { generateTimeStamp } from "src/helper/generateDate";
 import { marked } from "marked";
 import Strategi from "!!raw-loader!../../data/info/Strategi.md";
 
+import { formatDate } from "src/helper/formatDate";
+
 export default {
-  components: { Collapse, FearLadder, SwipeableBottomSheet },
+  components: { Collapse, FearLadder, SwipeableBottomSheet, PopupAction },
   name: "StrategiActive",
   data() {
     return {
@@ -223,11 +253,6 @@ export default {
         activity => activity.status === "active"
       );
     }
-  },
-  created() {
-    // if (!this.activeActivity) {
-    //   this.autoActiveActivity();
-    // }
   },
   methods: {
     getHeightForPopUp(height) {
@@ -295,6 +320,7 @@ export default {
 
     onDeleteStrategi() {
       this.$store.commit("strategi/clearActiveStrategi");
+      this.$store.dispatch("app/showToast", "Strategi dihapus");
       this.$router.replace("/strategi");
     },
 
@@ -305,7 +331,9 @@ export default {
 
     onPopupHelpStateChanges(state) {
       this.popupHelpState = state;
-    }
+    },
+
+    formatDate
   }
 };
 </script>

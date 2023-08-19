@@ -7,7 +7,7 @@
     <div
       v-if="useOverlay && showOverlay"
       class="bg"
-      @click="() => setState('close')"
+      @click="canClose && setState('close')"
     ></div>
     <div
       ref="card"
@@ -104,9 +104,9 @@ export default {
       this.mc.on("panend", evt => {
         this.isMove = false;
 
-        console.log(this.canClose);
-        console.log(this.y);
-        console.log(this.halfTop + (this.halfTop * 1) / 3);
+        // console.log(this.canClose);
+        // console.log(this.y);
+        // console.log(this.halfTop + (this.halfTop * 1) / 3);
 
         if (this.canClose && this.y > this.halfTop + (this.halfTop * 1) / 3) {
           this.state = "close";
@@ -156,6 +156,7 @@ export default {
 }
 
 .wrapper .bg {
+  z-index: 9999;
   display: block;
   transition: all 0.3s;
   position: fixed;

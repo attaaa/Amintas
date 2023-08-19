@@ -32,7 +32,7 @@
             </span>
             <span style="margin-inline: 8px; color: #DEDEDE;">|</span>
             <span>
-              {{ strategiData.created_at.split("-")[0] }}
+              {{ formatDate(new Date(strategiData.created_at.split("-")[0])) }}
             </span>
           </div>
         </div>
@@ -138,6 +138,8 @@ import FearLadder from "src/components/strategi/FearLadder.vue";
 
 import { TRIGGER_CATEGORY } from "src/data/strategi/StrategiModel";
 
+import { formatDate } from "src/helper/formatDate";
+
 export default {
   components: { PopUp, FearLadder },
 
@@ -168,7 +170,9 @@ export default {
     },
     hidePopUpDelete() {
       this.$refs.popupDelete.setState("close");
-    }
+    },
+
+    formatDate
   }
 };
 </script>

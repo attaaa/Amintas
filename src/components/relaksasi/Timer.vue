@@ -76,12 +76,11 @@ export default {
       return rawTimeFraction - (1 / this.fullTime) * (1 - rawTimeFraction);
     },
     setCircleDashArray() {
-      console.log();
       const circleDashArray = `${(this.calculateTimeFraction() * 283).toFixed(
         0
       )} 283`;
       this.strokeDashArray = circleDashArray;
-      console.log(circleDashArray);
+      // console.log(circleDashArray);
     },
     startTimer() {
       this.interval = setInterval(() => {

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="home-container">
+    <div class="home-container" ref="container">
       <!-- HEADER -->
       <div class="home-header">
         <span class="text__title-1 text__primary">Edukasi</span>
       </div>
 
-      <div>
+      <div :class="{ 'search-fixed': isSearchFixed }">
         <SearchField
           placeholder="Cari gangguan, metode, dsb"
-          @click.native="$router.replace('/edukasi/search')"
+          @click.native="$router.push('/edukasi/search')"
         />
       </div>
 
@@ -23,22 +23,6 @@
 
       <!-- playlist -->
       <div class="playlist">
-        <!-- container for spacing -->
-        <!-- <div
-          class="playlist-item col-6"
-          v-for="(playlist, index) in playlistData"
-          :key="index"
-          @click="goToDetail(12)"
-        >
-          <div>
-            <div class="playlist-item--bg">
-              <img :src="playlist.img" />
-            </div>
-            <div class="playlist-item--text text__title-4 text__primary">
-              {{ playlist.text }}
-            </div>
-          </div>
-        </div> -->
         <div
           class="playlist--item"
           v-for="(playlist, index) in playlistData"
@@ -98,37 +82,51 @@ const playlistData = [
 ];
 
 import SearchField from "components/inputs/SearchField";
+
 export default {
   name: "Edukasi",
   components: { SearchField },
   data() {
     return {
-      playlistData: playlistData
+      playlistData: playlistData,
+      isSearchFixed: false
     };
   },
+  // mounted() {
+  //   this.$refs.container.addEventListener("scroll", this.handleScroll);
+  // },
+  // beforeDestroy() {
+  //   this.$refs.container.removeEventListener("scroll", this.handleScroll);
+  // },
+
   methods: {
     goToDetail(idx) {
       switch (idx) {
         case 0:
-          this.$router.replace("/edukasi/edukasi-detail/cemas-dan-gangguan");
+          this.$router.push("/edukasi/edukasi-detail/cemas-dan-gangguan");
           break;
 
         case 1:
-          this.$router.replace("/edukasi/edukasi-detail/kecemasan-mahasiswa");
+          this.$router.push("/edukasi/edukasi-detail/kecemasan-mahasiswa");
           break;
 
         case 2:
-          this.$router.replace("/edukasi/edukasi-detail/beragam-gangguan");
+          this.$router.push("/edukasi/edukasi-detail/beragam-gangguan");
           break;
 
         case 3:
-          this.$router.replace("/edukasi/edukasi-detail/menangani-kecemasan");
+          this.$router.push("/edukasi/edukasi-detail/menangani-kecemasan");
           break;
 
         default:
           break;
       }
     }
+
+    // handleScroll() {
+    //   console.log(this.$refs.container.scrollTop);
+    //   this.isSearchFixed = this.$refs.container.scrollTop > 72; // Adjust the threshold as needed
+    // }
   }
 };
 </script>
@@ -227,5 +225,14 @@ export default {
 
 .material-item img {
   border-radius: 20px;
+}
+
+.search-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it's above other content */
+  border-bottom: none; /* Remove the bottom border when fixed */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for a raised effect */
 }
 </style>

@@ -54,10 +54,15 @@
           :z-index="50"
           :swipeable="true"
           v-if="journalDataList.length > 0"
+          @stateChange="
+            state => {
+              journalListBottomSheetState = state;
+            }
+          "
         >
           <div
             class="column"
-            style="height: 100vh; padding: 16px; padding-bottom: 0 !important;"
+            style="height: 100vh; padding: 16px; padding-bottom: 0 !important; padding-top: 8px;"
           >
             <SearchField
               class="col-auto"
@@ -69,6 +74,10 @@
               class="col scroll hide-scrollbar"
               style="padding-bottom: 100px;"
               :journal-data-list="journalDataList"
+              :style="{
+                paddingBottom:
+                  journalListBottomSheetState === 'half' ? '350px' : '80px'
+              }"
             />
           </div>
         </SwipeableBottomSheet>
@@ -117,6 +126,11 @@ export default {
     SearchField,
     JournalPreviewItemList
   },
+  data() {
+    return {
+      journalListBottomSheetState: "half"
+    };
+  },
   computed: {
     account() {
       return this.$store.state.account.account;
@@ -141,6 +155,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-card {
+  overflow: hidden;
   position: relative;
 
   &.active {
@@ -154,7 +169,7 @@ export default {
 }
 
 .home-card--text {
-  width: 150px;
+  z-index: 2;
 }
 
 .home-card--img {

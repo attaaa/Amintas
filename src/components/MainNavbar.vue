@@ -215,18 +215,7 @@ export default {
       this.$refs.popUpCall.setState("close");
     },
     callNumber() {
-      window.plugins.CallNumber.callNumber(
-        this.onSuccessCall,
-        this.onErrorCall,
-        "085222399981",
-        false
-      );
-    },
-    onSuccessCall(result) {
-      console.log("success: " + result);
-    },
-    onErrorCall(result) {
-      console.log("error: " + result);
+      window.plugins.CallNumber.callNumber({}, {}, "085222399981", false);
     },
     hideMidAction(event) {
       if (event.target.classList.contains("mid-nav")) return;

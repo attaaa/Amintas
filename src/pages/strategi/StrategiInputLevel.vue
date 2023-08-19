@@ -1,7 +1,7 @@
 <template>
   <div>
     <FillLayout
-      title="Aktivitas atau situasi apa yang akan kamu lakukan?"
+      title="Berilah level gambaran tingkat rasa takutmu"
       :showAction="showAction"
       :showBantuan="true"
       :bantuanHeight="484"
@@ -112,7 +112,7 @@
 import TableLadderLevel from "src/components/strategi/TableLadderLevel.vue";
 import FillLayout from "src/layouts/FillLayout.vue";
 
-import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
+import StrategiActivities from "!!raw-loader!../../data/info/StrategiActivities.md";
 import { marked } from "marked";
 import SwipeableBottomSheet from "src/components/SwipeableBottomSheet.vue";
 
@@ -144,7 +144,7 @@ export default {
       return this.$store.state.strategi.strategiInputData;
     },
     markdownToHtml() {
-      return marked(DistorsiKognitif);
+      return marked(StrategiActivities);
     },
     showAction() {
       return this.activities.every(activity => activity.level !== null);
@@ -167,7 +167,7 @@ export default {
     },
     activateLevel() {
       const tempActivities = JSON.parse(JSON.stringify(this.activities));
-      console.log(tempActivities);
+      // console.log(tempActivities);
       tempActivities[this.idxSelectedArr].level = this.tempSelectedLevel;
 
       this.activities = [...tempActivities];

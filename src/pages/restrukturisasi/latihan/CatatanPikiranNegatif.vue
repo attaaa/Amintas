@@ -297,8 +297,16 @@ export default {
         .latihan2Form;
     },
     showSecondaryAction() {
-      return !this.latihanFinished && !this.formDisabled;
-      // return !_.isEqual(this.storeObj, this.form);
+      return (
+        !this.latihanFinished &&
+        !this.formDisabled &&
+        Object.values(this.form).some(
+          catatan =>
+            catatan.peristiwa !== "" ||
+            catatan.pikiran !== "" ||
+            catatan.faktorPikiran.length > 0
+        )
+      );
     },
     activeDoneButton() {
       return Object.values(this.form).every(

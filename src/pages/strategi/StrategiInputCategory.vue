@@ -61,7 +61,7 @@
       <template v-slot:action>
         <button
           class="btn__large btn__secondary relative-position"
-          @click="$refs.popup.setState('close')"
+          @click="$refs.popupBack.$refs.popup.setState('close')"
           v-ripple
         >
           Batal

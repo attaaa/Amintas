@@ -235,17 +235,50 @@
       </div> -->
     </div>
 
-    <div class="btn-logout text__title-4 text__alert" @click="onLogout()">
+    <div
+      class="btn-logout text__title-4 text__alert"
+      @click="$refs.popupLogout.$refs.popup.setState('open')"
+    >
       Keluar
     </div>
+
+    <!-- pop up logout -->
+    <PopupAction ref="popupLogout" :popupHeight="444">
+      <template v-slot:title>
+        Keluar dari aplikasi?
+      </template>
+      <template v-slot:description>
+        Jika ingin menggunakan aplikasi, maka kamu harus masuk kembali. Apakah
+        kamu yakin ingin keluar dari aplikasi?
+      </template>
+      <template v-slot:action>
+        <button
+          class="btn__large btn__secondary relative-position"
+          @click="$refs.popupLogout.$refs.popup.setState('close')"
+          v-ripple
+        >
+          Batal
+        </button>
+        <div style="width: 16px;"></div>
+        <button
+          class="btn__large btn__alert col relative-position text-white"
+          @click="onLogout()"
+          v-ripple
+        >
+          Keluar
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
 <script>
 import Track from "components/inputs/Track";
+import PopupAction from "src/components/shared/PopupAction.vue";
+
 export default {
   name: "Me",
-  components: { Track },
+  components: { Track, PopupAction },
   data() {
     return {
       notifState: false

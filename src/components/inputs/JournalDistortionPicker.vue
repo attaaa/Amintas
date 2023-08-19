@@ -2,7 +2,7 @@
   <div style="width: 280px;">
     <JournalDistortionButton
       v-for="(distortion, index) in distortionList"
-      style="margin-bottom: 8px;"
+      style="margin-bottom: 8px; align-items: center"
       :key="index"
       :distortion="distortion"
       :is-selected="isSelected(distortion)"

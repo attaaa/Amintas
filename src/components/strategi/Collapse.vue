@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .collapse {
   width: 100%;
   padding: 16px;
@@ -93,6 +93,15 @@ export default {
   overflow: hidden;
 
   transition: 0.2s ease-out;
+
+  > div {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.32px;
+    margin-bottom: 4px;
+  }
 }
 
 .collapse-content.active {

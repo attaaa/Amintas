@@ -99,7 +99,9 @@
           v-for="(search, idx) in searchHistory"
           :key="idx"
         >
-          <span class="text__body">{{ search }}</span>
+          <span class="text__body" @click="searchQuery = search">{{
+            search
+          }}</span>
           <div
             style="width: 16px; height: 16px"
             @click="removeSearchHistory(idx)"
@@ -126,6 +128,7 @@
           v-for="(edukasi, idx) in searchResults"
           :key="idx"
           class="material-item flex items-center"
+          @click="$router.push(edukasi.url)"
         >
           <img :src="`img/${edukasi.img}`" />
           <div class="text__headline text__primary">
@@ -188,37 +191,74 @@ const EDUKASI_MATERIAL_LIST = [
   {
     img: "education_display_mat1_p1m1.png",
     title: "Cemas dan Gangguan Kecemasan",
-    url: ""
+    url: "/materi/detail/p1m1"
   },
   {
     img: "education_display_mat1_p1m2.png",
     title: "Gejala Umum Kecemasan",
-    url: ""
+    url: "/materi/detail/p1m1"
   },
   {
     img: "education_display_mat1_p1m3.png",
     title: "Cemas dan Mahasiswa",
-    url: ""
+    url: "/materi/detail/p1m1"
   },
   {
     img: "education_display_mat1_p2m1.png",
     title: "Kecemasan akan Perpisahan",
-    url: ""
+    url: "/materi/detail/p2m1"
   },
   {
     img: "education_display_mat1_p2m2.png",
     title: "Kecemasan Sosial",
-    url: ""
+    url: "/materi/detail/p2m1"
   },
   {
     img: "education_display_mat1_p2m3.png",
     title: "Kecemasan Antisipatif",
-    url: ""
+    url: "/materi/detail/p2m1"
   },
   {
     img: "education_display_mat1_p2m4.png",
     title: "Kecemasan Terhadap Ujian",
-    url: ""
+    url: "/materi/detail/p2m1"
+  },
+
+  {
+    img: "education_display_p3m1.png",
+    title: "Gangguan Kecemasan Umum",
+    url: "/materi/detail/p3m1"
+  },
+  {
+    img: "education_display_p3m2.png",
+    title: "Gangguan Obsesif Kompulsif",
+    url: "/materi/detail/p3m1"
+  },
+  {
+    img: "education_display_p3m3.png",
+    title: "Gangguan Panik",
+    url: "/materi/detail/p3m1"
+  },
+  {
+    img: "education_display_p3m4.png",
+    title: "Gangguan Stress Pasca Trauma",
+    url: "/materi/detail/p3m1"
+  },
+
+  {
+    img: "education_display_p4m1.png",
+    title: "Psikoterapi",
+    url: "/materi/detail/p4m1"
+  },
+  {
+    img: "education_display_p4m2.png",
+    title: "Penanganan Mandiri",
+    url: "/materi/detail/p4m1"
+  },
+  {
+    img: "education_display_p4m3.png",
+    title: "Strategi Koping",
+    url: "/materi/detail/p4m1"
   }
 ];
 
@@ -249,7 +289,9 @@ export default {
       this.searchResults = edukasiMaterialList.filter(edukasi =>
         edukasi.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
-      this.$store.commit("edukasi/addToSearchHistory", this.searchQuery);
+
+      if (this.searchQuery && !this.searchHistory.includes(this.searchQuery))
+        this.$store.commit("edukasi/addToSearchHistory", this.searchQuery);
     },
     clearInput() {
       this.searchQuery = "";
@@ -336,5 +378,14 @@ export default {
   > span {
     flex: 1;
   }
+}
+
+.fixed-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it's above other content */
+  border-bottom: none; /* Remove the bottom border when fixed */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for a raised effect */
 }
 </style>

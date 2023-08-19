@@ -2,7 +2,7 @@
   <div>
     <div v-for="(journalGroup, index) in groupJournalDataList" :key="index">
       <span class="text__title-4 block" style="margin-bottom: 24px">
-        {{ journalGroup.dateGroup }}
+        {{ formatDate(new Date(journalGroup.dateGroup)) }}
       </span>
       <JournalPreviewItem
         v-for="(journalData, index2) in journalGroup.journalGroupList"
@@ -17,6 +17,7 @@
 
 <script>
 import JournalPreviewItem from "./JournalPreviewItem";
+import { formatDate } from "src/helper/formatDate";
 
 export default {
   name: "JournalPreviewItemList",
@@ -65,7 +66,9 @@ export default {
     },
     goToDetail(journalId) {
       this.$router.push("journal/detail/" + journalId);
-    }
+    },
+
+    formatDate
   }
   // computed: {
   //   journalDataList() {

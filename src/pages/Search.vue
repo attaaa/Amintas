@@ -324,8 +324,8 @@ export default {
       }
 
       if (this.filter.date && this.filter.date.id !== 0) {
-        console.log(this.filter.date);
-        console.log(filteredResult);
+        // console.log(this.filter.date);
+        // console.log(filteredResult);
         filteredResult = this.searchResults.filter(
           journal =>
             new Date(journal.created_date) >= this.filter.date.dateRange.from &&
