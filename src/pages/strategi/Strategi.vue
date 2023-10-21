@@ -77,6 +77,28 @@
         </button>
       </template>
     </PopupAction>
+
+    <!-- pop up instruction -->
+    <PopupAction
+      ref="popupInstruction"
+      img="img/instructions/strategi/materi-bantuan-strategi.png"
+      :popupHeight="450"
+    >
+      <template v-slot:title>Materi Bantuan</template>
+      <template v-slot:description>
+        Akses materi bantuan pada '?' di atas layar, untuk bantu kamu jadi lebih
+        paham akan hal-hal yang baru kamu temui
+      </template>
+      <template v-slot:action>
+        <button
+          class="btn__large btn__accent col relative-position"
+          @click="$refs.popupInstruction.$refs.popup.setState('close')"
+          v-ripple
+        >
+          Saya Mengerti
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
@@ -97,6 +119,13 @@ export default {
   },
 
   mounted() {
+    if (!this.$store.state.account.strategiVisited) {
+      const timeOut = setTimeout(() => {
+        this.$store.commit("account/setStrategiVisited");
+        this.$refs.popupInstruction.$refs.popup.setState("open");
+      }, 800);
+    }
+
     // this.$store.commit("strategi/clearInputStrategi");
     if (this.$store.state.strategi.strategiActive) {
       this.$router.replace("/strategi-active");

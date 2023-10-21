@@ -111,6 +111,8 @@
         </SwipeableBottomSheet>
       </div>
     </div>
+
+    <Instruction ref="instruction" :instructionList="instructionList" />
   </div>
 </template>
 
@@ -118,17 +120,58 @@
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
 import SearchField from "components/inputs/SearchField";
 import JournalPreviewItemList from "components/JournalPreviewItemList";
+import Instruction from "src/components/shared/Instruction";
+
+const instructionList = [
+  {
+    id: 0,
+    img: "img/instructions/home/akses-bantuan.png",
+    title: "Akses Bantuan",
+    description:
+      "Lebih tenang saat cemas muncul dengan relaksasi, tulis keluh-kesah keseharianmu pada jurnal, dan hubungi telepon darurat saat cemasmu tidak terkendali"
+  },
+  {
+    id: 1,
+    img: "img/instructions/home/pikiran.png",
+    title: "Pikiran",
+    description:
+      "Baca kembali jurnal yang telah kamu tulis, dan akses modul untuk melawan pikiran mengganggu yang kamu temui"
+  },
+  {
+    id: 2,
+    img: "img/instructions/home/edukasi.png",
+    title: "Edukasi",
+    description:
+      "Temukan informasi tertentu pada kumpulan topik berisi materi terkait, lalu akses materi teknik yang akan bantu kamu lebih tenang"
+  },
+  {
+    id: 3,
+    img: "img/instructions/home/strategi.png",
+    title: "Strategi",
+    description:
+      "Buat strategi untuk hadapi pemicu secara terencana, dan lakukan tiap aktivitas  pada tangga ketakutan di dalamnya"
+  },
+  {
+    id: 4,
+    img: "img/instructions/home/mulai-atasi-cemasmu.png",
+    title: "Mulai Atasi Cemasmu",
+    description:
+      "Dengan amintas kamu dapat menangani perasaan cemas mengganggu yang muncul di keseharianmu"
+  }
+];
 
 export default {
   name: "Home",
   components: {
     SwipeableBottomSheet,
     SearchField,
-    JournalPreviewItemList
+    JournalPreviewItemList,
+    Instruction
   },
   data() {
     return {
-      journalListBottomSheetState: "half"
+      journalListBottomSheetState: "half",
+      instructionList
     };
   },
   computed: {
@@ -148,6 +191,13 @@ export default {
   mounted() {
     if (!this.account || !this.account.name || !this.isLoggedIn) {
       this.$router.replace("onboarding");
+    } else {
+      if (!this.$store.state.account.homeVisited) {
+        const timeOut = setTimeout(() => {
+          this.$store.commit("account/setHomeVisited");
+          this.$refs.instruction.setState("open");
+        }, 800);
+      }
     }
   }
 };

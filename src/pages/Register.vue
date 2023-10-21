@@ -148,8 +148,9 @@ export default {
       this.showDaftarBtn = this.inputValid;
     },
     actionDaftar() {
-      this.showDaftarBtn = false;
-      this.$refs.popUpConfirmation.setState("open");
+      // this.showDaftarBtn = false;
+      // this.$refs.popUpConfirmation.setState("open");
+      this.register();
     },
     register() {
       const accountData = {

@@ -72,35 +72,72 @@
         ></div>
       </q-scroll-area>
     </SwipeableBottomSheet>
+
+    <!-- pop up instruction -->
+    <PopupAction
+      ref="popupInstruction"
+      img="img/instructions/strategi/materi-bantuan-distorsi.png"
+      :popupHeight="450"
+    >
+      <template v-slot:title>Materi Bantuan</template>
+      <template v-slot:description>
+        Akses materi bantuan pada '?' di atas layar, untuk bantu kamu jadi lebih
+        paham akan hal-hal yang baru kamu temui
+      </template>
+      <template v-slot:action>
+        <button
+          class="btn__large btn__accent col relative-position"
+          @click="$refs.popupInstruction.$refs.popup.setState('close')"
+          v-ripple
+        >
+          Saya Mengerti
+        </button>
+      </template>
+    </PopupAction>
   </div>
 </template>
 
 <script>
 import JournalDistortionPicker from "components/inputs/JournalDistortionPicker";
 import SwipeableBottomSheet from "components/SwipeableBottomSheet";
+import PopupAction from "src/components/shared/PopupAction.vue";
 
 import { marked } from "marked";
 import DistorsiKognitif from "!!raw-loader!../../data/info/DistorsiKognitif.md";
 
 export default {
   name: "JournalInputDistortion",
+  components: {
+    JournalDistortionPicker,
+    SwipeableBottomSheet,
+    PopupAction
+  },
+
   props: {
     selectedDistortion: Array
   },
+
   data() {
     return {
       popupHelpState: "close"
     };
   },
-  components: {
-    JournalDistortionPicker,
-    SwipeableBottomSheet
-  },
+
   computed: {
     markdownToHtml() {
       return marked(DistorsiKognitif);
     }
   },
+
+  mounted() {
+    if (!this.$store.state.account.distortionVisited) {
+      const timeOut = setTimeout(() => {
+        this.$store.commit("account/setDistortionVisited");
+        this.$refs.popupInstruction.$refs.popup.setState("open");
+      }, 800);
+    }
+  },
+
   methods: {
     goBack() {
       this.$emit("go-back", true);

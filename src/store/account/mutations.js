@@ -11,4 +11,28 @@ const loginAccount = (state, value) => {
   state.isLoggedIn = value;
 };
 
-export { registerAccount, deleteAccount, loginAccount };
+const setHomeVisited = state => {
+  state.homeVisited = true;
+};
+
+const setStrategiInputActivitiesVisited = state => {
+  state.strategiInputActivitiesVisited = true;
+};
+
+const setStrategiVisited = state => {
+  state.strategiVisited = true;
+};
+
+const setDistortionVisited = state => {
+  state.distortionVisited = true;
+};
+
+export {
+  deleteAccount,
+  loginAccount,
+  registerAccount,
+  setDistortionVisited,
+  setHomeVisited,
+  setStrategiInputActivitiesVisited,
+  setStrategiVisited
+};

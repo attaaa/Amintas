@@ -189,5 +189,6 @@
         "runIn": "vscode"
       }
     ]
-  }
+  },
+  "hide-files.files": []
 }

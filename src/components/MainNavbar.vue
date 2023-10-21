@@ -13,7 +13,7 @@
             class="nav-item--icon"
             src="assets/icons/navbar/kognitif.svg"
           />
-          <div class="nav-item--text">Kognitif</div>
+          <div class="nav-item--text">Pikiran</div>
         </div>
       </div>
 
@@ -36,6 +36,7 @@
       <div class="nav-item col full-height relative-position">
         <div
           class="absolute-center text-center vertical-middle mid-nav"
+          :class="{ active: showMidAction }"
           v-ripple
           @click="toggleMidAction()"
         >

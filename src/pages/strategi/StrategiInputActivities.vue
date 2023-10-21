@@ -75,6 +75,28 @@
           </button>
         </template>
       </PopupAction>
+
+      <!-- pop up instruction -->
+      <PopupAction
+        ref="popupInstruction"
+        img="img/instructions/strategi/materi-bantuan.png"
+        :popupHeight="450"
+      >
+        <template v-slot:title>Materi Bantuan</template>
+        <template v-slot:description>
+          Akses materi bantuan pada '?' di atas layar, untuk bantu kamu jadi
+          lebih paham akan hal-hal yang baru kamu temui
+        </template>
+        <template v-slot:action>
+          <button
+            class="btn__large btn__accent col relative-position"
+            @click="$refs.popupInstruction.$refs.popup.setState('close')"
+            v-ripple
+          >
+            Saya Mengerti
+          </button>
+        </template>
+      </PopupAction>
     </FillLayout>
   </div>
 </template>
@@ -112,6 +134,14 @@ export default {
       JSON.stringify(this.strategiInputData.activities)
     );
   },
+  mounted() {
+    if (!this.$store.state.account.strategiInputActivitiesVisited) {
+      const timeOut = setTimeout(() => {
+        this.$store.commit("account/setStrategiInputActivitiesVisited");
+        this.$refs.popupInstruction.$refs.popup.setState("open");
+      }, 800);
+    }
+  },
   methods: {
     checkInputValid() {
       for (let activity of this.activities) {
@@ -121,22 +151,26 @@ export default {
       }
       return true;
     },
+
     handleAdd() {
       this.activities = [
         ...this.activities,
         { name: "", level: null, status: "inactive", checked: false }
       ];
     },
+
     handleRemove(idx) {
       this.tempIdx = idx;
       this.$refs.popupDelete.$refs.popup.setState("open");
     },
+
     submitRemove() {
       this.activities.splice(this.tempIdx, 1);
 
       this.$refs.popupDelete.$refs.popup.setState("close");
       this.tempIdx = null;
     },
+
     handleNextAction() {
       this.$store.dispatch("strategi/updateInputStrategi", {
         ...this.strategiInputData,
@@ -144,6 +178,7 @@ export default {
       });
       this.$router.push("/strategi/input-level");
     },
+
     onInput(val, index) {
       this.activities[index].name = val;
     },
